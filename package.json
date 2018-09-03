@@ -10,8 +10,24 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "test": "CI=true react-scripts test --env=jsdom",
+    "eject": "react-scripts eject",
+    "prettier": "prettier --single-quote --arrow-parens always --write",
+    "lint": "eslint --fix"
+  },
+  "lint-staged": {
+    "src/**/*.{js,jsx}": [
+      "yarn test",
+      "yarn prettier",
+      "yarn lint",
+      "git add"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "prepare-commit-msg": "./scripts/add_issue_number_into_commit.sh $HUSKY_GIT_PARAMS"
+    }
   },
   "devDependencies": {
     "eslint": "^5.5.0",
