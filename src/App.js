@@ -1,8 +1,11 @@
 import React from 'react';
 
+// Components
+import Intro from './components/intro/Intro';
+
 const App = () => (
   <div className="App">
-    <h1>Hello Littera!</h1>
+    <Intro />
   </div>
 );
 
