@@ -1,11 +1,14 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 // Styled
 import Styled from './Styled_intro';
 
 const Intro = () => (
   <Styled.FlexWrapper>
-    <h1>Hello Littera!</h1>
+    <Link to="/main">
+      <h1>Hello Littera!</h1>
+    </Link>
   </Styled.FlexWrapper>
 );
 

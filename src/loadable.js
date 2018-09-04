@@ -12,6 +12,12 @@ const Intro = Loadable({
   loading: Loading,
 });
 
+const Main = Loadable({
+  loader: () => import('./components/main/Main'),
+  loading: Loading,
+});
+
 export default {
   Intro,
+  Main,
 };
