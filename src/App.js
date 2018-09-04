@@ -4,6 +4,9 @@ import { BrowserRouter, Route } from 'react-router-dom';
 // Components
 import Loadable from './loadable';
 
+// Minireset.css
+import '../node_modules/minireset.css/minireset.min.css';
+
 const App = () => (
   <BrowserRouter>
     <div className="App">
