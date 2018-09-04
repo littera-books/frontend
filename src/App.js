@@ -1,11 +1,11 @@
 import React from 'react';
 
 // Components
-import Intro from './components/intro/Intro';
+import Loadable from './loadable';
 
 const App = () => (
   <div className="App">
-    <Intro />
+    <Loadable.Intro />
   </div>
 );
 
