@@ -1,9 +1,12 @@
 import React from 'react';
 
+// Styled
+import Styled from './Styled_intro';
+
 const Intro = () => (
-  <div>
+  <Styled.FlexWrapper>
     <h1>Hello Littera!</h1>
-  </div>
+  </Styled.FlexWrapper>
 );
 
 export default Intro;
