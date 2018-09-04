@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 // Styled
-import Styled from './Styled_intro';
+import Styled from '../../styled/base';
 
 const Intro = () => (
   <Styled.FlexWrapper>

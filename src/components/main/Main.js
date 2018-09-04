@@ -1,9 +1,12 @@
 import React from 'react';
 
+// Styled
+import Styled from '../../styled/base';
+
 const Main = () => (
-  <div>
+  <Styled.FlexWrapper>
     <h1>Main</h1>
-  </div>
+  </Styled.FlexWrapper>
 );
 
 export default Main;
