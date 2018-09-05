@@ -13,10 +13,15 @@ import '../node_modules/minireset.css/minireset.min.css';
 const App = () => (
   <BrowserRouter>
     <StyledBase.App className="App">
-      <Switch>
-        <Route path="/main" component={Loadable.Main} />
-        <Route exact path="/" component={Loadable.Intro} />
-      </Switch>
+      <Route exact path="/" component={Loadable.Intro} />
+      <StyledBase.FlexWrapper>
+        <StyledBase.ColumnWrapper>
+          <Loadable.Title />
+          <Switch>
+            <Route path="/main" component={Loadable.Main} />
+          </Switch>
+        </StyledBase.ColumnWrapper>
+      </StyledBase.FlexWrapper>
     </StyledBase.App>
   </BrowserRouter>
 );
