@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
 // Styled
 import StyledBase from '../../styled/base';
@@ -14,7 +15,9 @@ import AllEars from '../../assets/images/all_ears.jpg';
 
 const TitleLogo = () => (
   <Styled.TitleWrapper>
-    <Styled.SectionImg src={Title} alt="Title" />
+    <Link to="/main">
+      <Styled.SectionImg src={Title} alt="Title" />
+    </Link>
   </Styled.TitleWrapper>
 );
 
