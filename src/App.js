@@ -19,6 +19,7 @@ const App = () => (
           <Loadable.Title />
           <Switch>
             <Route path="/all-ears" component={Loadable.AllEars} />
+            <Route path="/about" component={Loadable.About} />
             <Route path="/main" component={Loadable.Main} />
           </Switch>
         </StyledBase.ColumnWrapper>

@@ -21,7 +21,9 @@ const Card = ({ img, name }) => (
 
 const Main = () => (
   <StyledBase.FlexWrapper>
-    <Card img={About} name="About" />
+    <Link to="/about">
+      <Card img={About} name="About" />
+    </Link>
     <Card img={Join} name="Join" />
     <Card img={BonVoyage} name="Von Voyage" />
     <Link to="/all-ears">
