@@ -5,7 +5,7 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Loadable from './loadable';
 
 // Styled
-import StyledBase from './styled/base';
+import StyledBase from './styled/Base';
 
 // Minireset.css
 import '../node_modules/minireset.css/minireset.min.css';

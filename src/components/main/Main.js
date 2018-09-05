@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 // Styled
-import StyledBase from '../../styled/base';
+import StyledBase from '../../styled/Base';
 import Styled from './Styled_main';
 
 // Images
