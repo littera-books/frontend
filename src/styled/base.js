@@ -13,7 +13,19 @@ const FlexWrapper = styled.div`
   margin: auto;
 `;
 
+const ColumnWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
+const ResponsiveImg = styled.img`
+  width: 100%;
+  height: auto;
+`;
+
 export default {
   App,
   FlexWrapper,
+  ColumnWrapper,
+  ResponsiveImg,
 };
