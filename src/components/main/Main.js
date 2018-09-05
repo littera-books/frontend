@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
 // Styled
 import StyledBase from '../../styled/Base';
@@ -23,7 +24,9 @@ const Main = () => (
     <Card img={About} name="About" />
     <Card img={Join} name="Join" />
     <Card img={BonVoyage} name="Von Voyage" />
-    <Card img={AllEars} name="I'm all ears" />
+    <Link to="/all-ears">
+      <Card img={AllEars} name="I'm all ears" />
+    </Link>
   </StyledBase.FlexWrapper>
 );
 

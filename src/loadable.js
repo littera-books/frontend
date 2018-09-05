@@ -22,8 +22,14 @@ const Main = Loadable({
   loading: Loading,
 });
 
+const AllEars = Loadable({
+  loader: () => import('./components/all_ears/AllEars'),
+  loading: Loading,
+});
+
 export default {
   Intro,
   Title,
   Main,
+  AllEars,
 };
