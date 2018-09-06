@@ -1,5 +1,10 @@
 import { combineReducers } from 'redux';
 
-const rootReducer = combineReducers({});
+// Reducers
+import controlTitle from './reducer.controlTitle';
+
+const rootReducer = combineReducers({
+  controlTitle,
+});
 
 export default rootReducer;
