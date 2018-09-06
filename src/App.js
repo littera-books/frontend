@@ -14,7 +14,6 @@ import '../node_modules/minireset.css/minireset.min.css';
 const App = () => (
   <BrowserRouter>
     <StyledBase.App className="App">
-      <Route exact path="/" component={Loadable.Intro} />
       <StyledBase.FlexWrapper>
         <StyledBase.ColumnWrapper>
           <Loadable.Title />
@@ -22,6 +21,7 @@ const App = () => (
             <Route path="/all-ears" component={Loadable.AllEars} />
             <Route path="/about" component={Loadable.About} />
             <Route path="/main" component={Loadable.Main} />
+            <Route exact path="/" component={Loadable.Intro} />
           </Switch>
         </StyledBase.ColumnWrapper>
       </StyledBase.FlexWrapper>
