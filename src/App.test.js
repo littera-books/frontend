@@ -1,9 +1,27 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import App from './App';
+import Enzyme, { mount } from 'enzyme';
+import Adapter from 'enzyme-adapter-react-16';
+import { App } from './App';
+import { VisibilityFilters } from './reducers/reducer.controlTitle';
 
-it('renders without crashing', () => {
-  const div = document.createElement('div');
-  ReactDOM.render(<App />, div);
-  ReactDOM.unmountComponentAtNode(div);
+Enzyme.configure({ adapter: new Adapter() });
+
+function setup() {
+  const props = {
+    isVisible: VisibilityFilters.SHOW_TITLE,
+  };
+
+  const enzymeWrapper = mount(<App {...props} />);
+
+  return {
+    props,
+    enzymeWrapper,
+  };
+}
+
+describe('App', () => {
+  it('기본 isVisible Props가 visible인가', () => {
+    const { enzymeWrapper } = setup();
+    expect(enzymeWrapper.props().isVisible).toBe('visible');
+  });
 });
