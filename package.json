@@ -40,6 +40,8 @@
   },
   "devDependencies": {
     "babel-plugin-styled-components": "^1.6.1",
+    "enzyme": "^3.6.0",
+    "enzyme-adapter-react-16": "^1.5.0",
     "eslint": "^5.5.0",
     "eslint-config-airbnb": "^17.1.0",
     "eslint-config-prettier": "^3.0.1",
