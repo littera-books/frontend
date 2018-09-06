@@ -1,5 +1,7 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { connect } from 'react-redux';
 import './utils/webfontloader';
 
 // Components
@@ -11,22 +13,36 @@ import StyledBase from './styled/Base';
 // Minireset.css
 import '../node_modules/minireset.css/minireset.min.css';
 
-const App = () => (
-  <BrowserRouter>
-    <StyledBase.App className="App">
-      <StyledBase.FlexWrapper>
-        <StyledBase.ColumnWrapper>
-          <Loadable.Title />
-          <Switch>
-            <Route path="/all-ears" component={Loadable.AllEars} />
-            <Route path="/about" component={Loadable.About} />
-            <Route path="/main" component={Loadable.Main} />
-            <Route exact path="/" component={Loadable.Intro} />
-          </Switch>
-        </StyledBase.ColumnWrapper>
-      </StyledBase.FlexWrapper>
-    </StyledBase.App>
-  </BrowserRouter>
-);
+export class App extends React.PureComponent {
+  render() {
+    const { isVisible } = this.props;
 
-export default App;
+    return (
+      <BrowserRouter>
+        <StyledBase.App className="App">
+          <StyledBase.FlexWrapper>
+            <StyledBase.ColumnWrapper>
+              <Loadable.Title visibility={isVisible} />
+              <Switch>
+                <Route path="/all-ears" component={Loadable.AllEars} />
+                <Route path="/about" component={Loadable.About} />
+                <Route path="/main" component={Loadable.Main} />
+                <Route exact path="/" component={Loadable.Intro} />
+              </Switch>
+            </StyledBase.ColumnWrapper>
+          </StyledBase.FlexWrapper>
+        </StyledBase.App>
+      </BrowserRouter>
+    );
+  }
+}
+
+App.propTypes = {
+  isVisible: PropTypes.string.isRequired,
+};
+
+const mapStateToProps = state => ({
+  isVisible: state.controlTitle,
+});
+
+export default connect(mapStateToProps)(App);
