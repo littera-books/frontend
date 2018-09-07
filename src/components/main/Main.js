@@ -3,6 +3,9 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import Slider from 'react-slick';
 
+// Components
+import Helmet from '../helmet/Helmet';
+
 // Styled
 import StyledBase from '../../styled/Base';
 import Styled from './Styled_main';
@@ -62,6 +65,7 @@ class Main extends React.PureComponent {
     if (width > 414) {
       return (
         <StyledBase.FlexWrapper>
+          <Helmet pageTitle="Main" />
           <Link to="/about">
             <Card img={About} name="About" />
           </Link>
@@ -76,6 +80,7 @@ class Main extends React.PureComponent {
 
     return (
       <Styled.SliderWrapper id="carousel">
+        <Helmet pageTitle="Main" />
         <Slider {...settings}>
           <Link to="/about">
             <Card img={About} name="About" />

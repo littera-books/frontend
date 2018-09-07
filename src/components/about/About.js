@@ -1,11 +1,15 @@
 import React from 'react';
 
+// Components
+import Helmet from '../helmet/Helmet';
+
 // Styled
 import StyledBase from '../../styled/Base';
 
 const About = () => (
   <StyledBase.FlexWrapper>
     <StyledBase.ColumnWrapper>
+      <Helmet pageTitle="About" />
       <p>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec dolor
         arcu, consequat eget rhoncus auctor, fermentum sit amet lectus.
