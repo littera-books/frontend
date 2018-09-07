@@ -1,0 +1,15 @@
+language: node_js
+
+os:
+  - linux
+  - osx
+
+node_js:
+  - "node"
+  - "lts/*"
+
+script:
+  - yarn lint ./src/**/*.{js,jsx}
+  - yarn lint ./src/**/**/*.{js,jsx}
+  - yarn test
+  - yarn build
