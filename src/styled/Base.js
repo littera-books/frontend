@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 
 const App = styled.div`
-  height: 100vh;
   font-family: 'Nanum Gothic', serif;
 `;
 
@@ -10,8 +9,9 @@ const FlexWrapper = styled.div`
   justify-content: center;
   align-items: center;
   max-width: 60rem;
-  height: 100%;
+  min-height: calc(100vh - 20rem); // margin-bottom + title-height = 20rem
   margin: auto;
+  margin-bottom: 10rem;
 `;
 
 const ColumnWrapper = styled.div`
