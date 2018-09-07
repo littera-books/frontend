@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import Slider from 'react-slick';
@@ -22,19 +22,6 @@ const Card = ({ img, name }) => (
     <h2>{name}</h2>
     <StyledBase.ResponsiveImg src={img} alt={name} />
   </Styled.CardWrapper>
-);
-
-const CardList = () => (
-  <Fragment>
-    <Link to="/about">
-      <Card img={About} name="About" />
-    </Link>
-    <Card img={Join} name="Join" />
-    <Card img={BonVoyage} name="Von Voyage" />
-    <Link to="/all-ears">
-      <Card img={AllEars} name="I'm all ears" />
-    </Link>
-  </Fragment>
 );
 
 class Main extends React.PureComponent {
@@ -75,7 +62,14 @@ class Main extends React.PureComponent {
     if (width > 414) {
       return (
         <StyledBase.FlexWrapper>
-          <CardList />
+          <Link to="/about">
+            <Card img={About} name="About" />
+          </Link>
+          <Card img={Join} name="Join" />
+          <Card img={BonVoyage} name="Von Voyage" />
+          <Link to="/all-ears">
+            <Card img={AllEars} name="I'm all ears" />
+          </Link>
         </StyledBase.FlexWrapper>
       );
     }
