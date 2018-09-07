@@ -7,6 +7,9 @@ import {
   VisibilityFilters,
 } from '../../reducers/reducer.controlTitle';
 
+// Data
+import dataConfig from '../../dataConfig';
+
 Enzyme.configure({ adapter: new Adapter() });
 
 function setup() {
@@ -25,7 +28,7 @@ function setup() {
 describe('Intro', () => {
   it('올바로 렌더링되었는가', () => {
     const { enzymeWrapper } = setup();
-    expect(enzymeWrapper.find('h1').text()).toBe('SCRIPTA MANENT VERBA VOLANT');
+    expect(enzymeWrapper.find('h1').text()).toBe(dataConfig.introText);
   });
 
   it('filter를 호출했을 때 값이 바뀌는가', () => {

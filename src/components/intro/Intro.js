@@ -10,6 +10,9 @@ import {
 // Styled
 import StyledBase from '../../styled/Base';
 
+// data
+import dataConfig from '../../dataConfig';
+
 export class Intro extends React.PureComponent {
   componentDidMount() {
     const { filter } = this.props;
@@ -25,7 +28,7 @@ export class Intro extends React.PureComponent {
     return (
       <StyledBase.FlexWrapper>
         <Link to="/main">
-          <h1>SCRIPTA MANENT VERBA VOLANT</h1>
+          <h1>{dataConfig.introText}</h1>
         </Link>
       </StyledBase.FlexWrapper>
     );
