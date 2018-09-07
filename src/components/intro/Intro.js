@@ -7,9 +7,6 @@ import {
   setVisibilityFilter,
 } from '../../reducers/reducer.controlTitle';
 
-// Styled
-import Styled from '../../styled/Base';
-
 export class Intro extends React.PureComponent {
   componentDidMount() {
     const { filter } = this.props;
@@ -23,11 +20,9 @@ export class Intro extends React.PureComponent {
 
   render() {
     return (
-      <Styled.FlexWrapper>
-        <Link to="/main">
-          <h1>SCRIPTA MANENT VERBA VOLANT</h1>
-        </Link>
-      </Styled.FlexWrapper>
+      <Link to="/main">
+        <h1>SCRIPTA MANENT VERBA VOLANT</h1>
+      </Link>
     );
   }
 }

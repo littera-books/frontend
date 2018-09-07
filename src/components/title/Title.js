@@ -10,13 +10,11 @@ import Styled from './Styled_title';
 import Logo from '../../assets/images/title.jpg';
 
 const Title = ({ visibility }) => (
-  <StyledBase.FlexWrapper style={{ visibility }}>
-    <Styled.TitleWrapper>
-      <Link to="/main">
-        <StyledBase.ResponsiveImg src={Logo} alt="Title" />
-      </Link>
-    </Styled.TitleWrapper>
-  </StyledBase.FlexWrapper>
+  <Styled.TitleWrapper style={{ visibility }}>
+    <Link to="/main">
+      <StyledBase.ResponsiveImg src={Logo} alt="Title" />
+    </Link>
+  </Styled.TitleWrapper>
 );
 
 Title.propTypes = {
