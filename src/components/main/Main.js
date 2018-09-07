@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
@@ -20,7 +20,7 @@ const Card = ({ img, name }) => (
 );
 
 const Main = () => (
-  <Fragment>
+  <StyledBase.FlexWrapper>
     <Link to="/about">
       <Card img={About} name="About" />
     </Link>
@@ -29,7 +29,7 @@ const Main = () => (
     <Link to="/all-ears">
       <Card img={AllEars} name="I'm all ears" />
     </Link>
-  </Fragment>
+  </StyledBase.FlexWrapper>
 );
 
 Card.propTypes = {

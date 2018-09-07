@@ -21,14 +21,12 @@ export class App extends React.PureComponent {
       <BrowserRouter>
         <StyledBase.App className="App">
           <Loadable.Title visibility={isVisible} />
-          <StyledBase.FlexWrapper>
-            <Switch>
-              <Route path="/all-ears" component={Loadable.AllEars} />
-              <Route path="/about" component={Loadable.About} />
-              <Route path="/main" component={Loadable.Main} />
-              <Route exact path="/" component={Loadable.Intro} />
-            </Switch>
-          </StyledBase.FlexWrapper>
+          <Switch>
+            <Route path="/all-ears" component={Loadable.AllEars} />
+            <Route path="/about" component={Loadable.About} />
+            <Route path="/main" component={Loadable.Main} />
+            <Route exact path="/" component={Loadable.Intro} />
+          </Switch>
         </StyledBase.App>
       </BrowserRouter>
     );
