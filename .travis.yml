@@ -9,7 +9,8 @@ node_js:
   - "lts/*"
 
 script:
-  - yarn lint ./src/**/*.{js,jsx}
-  - yarn lint ./src/**/**/*.{js,jsx}
+  - yarn lint ./src/*.js
+  - yarn lint ./src/**/*.js
+  - yarn lint ./src/**/**/*.js
   - yarn test
   - yarn build
