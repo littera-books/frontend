@@ -1,13 +1,13 @@
 import React from 'react';
 
 // Components
-import Helmet from '../helmet/Helmet';
+import Helmet from '../../helmet/Helmet';
 
 // Styled
-import StyledBase from '../../styled/Base';
+import StyledBase from '../../../styled/Base';
 
 // Data
-import dataConfig from '../../dataConfig';
+import dataConfig from '../../../dataConfig';
 
 const About = () => (
   <StyledBase.FlexWrapper>

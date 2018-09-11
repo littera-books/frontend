@@ -8,27 +8,27 @@ const Loading = () => (
 );
 
 const Intro = Loadable({
-  loader: () => import('./components/intro/Intro'),
+  loader: () => import('./components/view/intro/Intro'),
   loading: Loading,
 });
 
 const Title = Loadable({
-  loader: () => import('./components/title/Title'),
+  loader: () => import('./components/structure/title/Title'),
   loading: Loading,
 });
 
 const Main = Loadable({
-  loader: () => import('./components/main/Main'),
+  loader: () => import('./components/view/main/Main'),
   loading: Loading,
 });
 
 const About = Loadable({
-  loader: () => import('./components/about/About'),
+  loader: () => import('./components/view/about/About'),
   loading: Loading,
 });
 
 const AllEars = Loadable({
-  loader: () => import('./components/all_ears/AllEars'),
+  loader: () => import('./components/view/all_ears/AllEars'),
   loading: Loading,
 });
 

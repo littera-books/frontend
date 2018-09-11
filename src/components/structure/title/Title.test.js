@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { MemoryRouter } from 'react-router-dom';
 import Title from './Title';
-import { VisibilityFilters } from '../../reducers/reducer.controlTitle';
+import { VisibilityFilters } from '../../../reducers/reducer.controlTitle';
 
 it('renders without crashing', () => {
   const div = document.createElement('div');

@@ -5,10 +5,10 @@ import { Intro, mapDispatchToProps } from './Intro';
 import {
   setVisibilityFilter,
   VisibilityFilters,
-} from '../../reducers/reducer.controlTitle';
+} from '../../../reducers/reducer.controlTitle';
 
 // Data
-import dataConfig from '../../dataConfig';
+import dataConfig from '../../../dataConfig';
 
 Enzyme.configure({ adapter: new Adapter() });
 

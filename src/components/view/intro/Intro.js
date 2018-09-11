@@ -5,13 +5,13 @@ import { connect } from 'react-redux';
 import {
   VisibilityFilters,
   setVisibilityFilter,
-} from '../../reducers/reducer.controlTitle';
+} from '../../../reducers/reducer.controlTitle';
 
 // Styled
-import StyledBase from '../../styled/Base';
+import StyledBase from '../../../styled/Base';
 
 // data
-import dataConfig from '../../dataConfig';
+import dataConfig from '../../../dataConfig';
 
 export class Intro extends React.PureComponent {
   componentDidMount() {

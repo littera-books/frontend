@@ -4,21 +4,21 @@ import { Link } from 'react-router-dom';
 import Slider from 'react-slick';
 
 // Components
-import Helmet from '../helmet/Helmet';
+import Helmet from '../../helmet/Helmet';
 
 // Styled
-import StyledBase from '../../styled/Base';
+import StyledBase from '../../../styled/Base';
 import Styled from './Styled_main';
 
 // CSS
-import '../../../node_modules/slick-carousel/slick/slick.css';
-import '../../../node_modules/slick-carousel/slick/slick-theme.css';
+import '../../../../node_modules/slick-carousel/slick/slick.css';
+import '../../../../node_modules/slick-carousel/slick/slick-theme.css';
 
 // Images
-import About from '../../assets/images/about.jpg';
-import Join from '../../assets/images/join.jpg';
-import BonVoyage from '../../assets/images/bon_voyage.jpg';
-import AllEars from '../../assets/images/all_ears.jpg';
+import About from '../../../assets/images/about.jpg';
+import Join from '../../../assets/images/join.jpg';
+import BonVoyage from '../../../assets/images/bon_voyage.jpg';
+import AllEars from '../../../assets/images/all_ears.jpg';
 
 const Card = ({ img, name }) => (
   <Styled.CardWrapper>

@@ -3,11 +3,11 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
 // Styled
-import StyledBase from '../../styled/Base';
+import StyledBase from '../../../styled/Base';
 import Styled from './Styled_title';
 
 // Images
-import Logo from '../../assets/images/title.jpg';
+import Logo from '../../../assets/images/title.jpg';
 
 const Title = ({ visibility }) => (
   <Styled.TitleWrapper style={{ visibility }}>
