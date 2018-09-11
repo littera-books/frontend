@@ -8,7 +8,7 @@ import Helmet from '../../helmet/Helmet';
 
 // Styled
 import StyledBase from '../../../styled/Base';
-import Styled from './Styled_main';
+import Styled from './Main.styled';
 
 // CSS
 import '../../../../node_modules/slick-carousel/slick/slick.css';

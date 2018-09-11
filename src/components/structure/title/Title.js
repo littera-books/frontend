@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 // Styled
 import StyledBase from '../../../styled/Base';
-import Styled from './Styled_title';
+import Styled from './Title.styled';
 
 // Images
 import Logo from '../../../assets/images/title.jpg';
