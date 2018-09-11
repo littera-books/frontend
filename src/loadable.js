@@ -27,6 +27,11 @@ const About = Loadable({
   loading: Loading,
 });
 
+const SignIn = Loadable({
+  loader: () => import('./components/auth/signin/SignIn'),
+  loading: Loading,
+});
+
 const AllEars = Loadable({
   loader: () => import('./components/view/all_ears/AllEars'),
   loading: Loading,
@@ -37,5 +42,6 @@ export default {
   Title,
   Main,
   About,
+  SignIn,
   AllEars,
 };
