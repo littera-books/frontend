@@ -12,5 +12,7 @@ script:
   - yarn lint ./src/*.js
   - yarn lint ./src/**/*.js
   - yarn lint ./src/**/**/*.js
+  - yarn lint ./src/**/**/**/*.js
+  - yarn lint ./src/**/**/**/**/*.js
   - yarn test
   - yarn build
