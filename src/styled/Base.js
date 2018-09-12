@@ -1,7 +1,11 @@
 import styled from 'styled-components';
 
 const App = styled.div`
-  font-family: 'Nanum Gothic', serif;
+  font-family: 'Nanum Myeongjo', serif;
+
+  input::placeholder {
+    font-family: 'Nanum Myeongjo', serif;
+  }
 `;
 
 const FlexWrapper = styled.div`
