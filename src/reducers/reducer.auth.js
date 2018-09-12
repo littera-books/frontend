@@ -29,7 +29,7 @@ export async function signIn(payload) {
 }
 
 // Initial State
-const initialState = {
+export const initialState = {
   error: '',
 };
 
