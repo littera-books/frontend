@@ -1,4 +1,5 @@
 export default {
+  baseUrl: 'http://localhost:8000',
   siteTitle: 'Littera',
   introText: 'SCRIPTA MANENT VERBA VOLANT',
   aboutText:
