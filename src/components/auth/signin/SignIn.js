@@ -7,6 +7,7 @@ import { signIn } from '../../../reducers/reducer.auth';
 
 // Components
 import Helmet from '../../helmet/Helmet';
+import FormField from '../FormField';
 
 // Styled
 import StyledBase from '../../../styled/Base';
@@ -45,14 +46,14 @@ export class SignIn extends React.Component {
           <Field
             type="text"
             name="username"
-            placeholder="IDENTIFICATION"
-            component="input"
+            label="IDENTIFICATION _"
+            component={FormField}
           />
           <Field
             type="password"
             name="password"
-            placeholder="PASSWORD"
-            component="input"
+            label="PASSWORD _"
+            component={FormField}
           />
           <button type="submit">Sign In</button>
         </form>
