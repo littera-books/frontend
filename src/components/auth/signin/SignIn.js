@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Redirect } from 'react-router-dom';
 import { Field, reduxForm } from 'redux-form';
 import { connect } from 'react-redux';
-import { signIn } from '../../../reducers/reducer.auth';
+import { initialize, signIn } from '../../../reducers/reducer.auth';
 
 // Components
 import Helmet from '../../helmet/Helmet';
@@ -18,14 +18,17 @@ export class SignIn extends React.Component {
     redirect: false,
   };
 
+  componentDidMount() {
+    const { init } = this.props;
+    init();
+  }
+
   async onSubmit(payload) {
     const { logIn } = this.props;
     await logIn(payload);
 
     const { error } = this.props;
-    if (error) {
-      await alert(error);
-    } else {
+    if (!error) {
       await this.setState({
         redirect: true,
       });
@@ -34,7 +37,7 @@ export class SignIn extends React.Component {
 
   render() {
     const { redirect } = this.state;
-    const { handleSubmit } = this.props;
+    const { handleSubmit, error } = this.props;
 
     if (redirect) {
       return <Redirect to="/main" />;
@@ -60,6 +63,9 @@ export class SignIn extends React.Component {
               label="PASSWORD _"
               component={FormField}
             />
+            <div>
+              <small>{error}</small>
+            </div>
             <button type="submit">Sign In</button>
           </Styled.FormWrapper>
           <p>Not a member yet?</p>
@@ -72,6 +78,7 @@ export class SignIn extends React.Component {
 
 SignIn.propTypes = {
   handleSubmit: PropTypes.func.isRequired,
+  init: PropTypes.func.isRequired,
   logIn: PropTypes.func.isRequired,
   error: PropTypes.string.isRequired,
 };
@@ -81,6 +88,7 @@ export const mapStateToProps = state => ({
 });
 
 export const mapDispatchToProps = dispatch => ({
+  init: () => dispatch(initialize()),
   logIn: payload => dispatch(signIn(payload)),
 });
 

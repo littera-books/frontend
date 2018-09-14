@@ -27,6 +27,11 @@ const FormWrapper = styled.form`
     font-family: 'Nanum Myeongjo', serif;
     color: black;
   }
+
+  small {
+    font-size: 0.5rem;
+    color: red;
+  }
 `;
 
 export default {

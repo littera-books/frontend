@@ -1,9 +1,16 @@
 import axiosInstance from './axios.instance';
 
 // Actions
+const INITIALIZE = 'INITIALIZE';
 const SIGN_IN = 'SIGN_IN';
 
 // Action Creators
+export function initialize() {
+  return {
+    type: INITIALIZE,
+  };
+}
+
 export async function signIn(payload) {
   let response;
   let error;
@@ -34,6 +41,13 @@ export const initialState = {
 };
 
 // Reducer Function
+function reudcerInitialize(state) {
+  return {
+    ...state,
+    error: '',
+  };
+}
+
 function reducerSignIn(state, action) {
   if (action.error) {
     return {
@@ -52,6 +66,8 @@ function reducerSignIn(state, action) {
 // Reducer
 export default function reducer(state = initialState, action) {
   switch (action.type) {
+    case INITIALIZE:
+      return reudcerInitialize(state);
     case SIGN_IN:
       return reducerSignIn(state, action);
     default:
