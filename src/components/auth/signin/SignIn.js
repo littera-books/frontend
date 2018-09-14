@@ -11,6 +11,7 @@ import FormField from '../FormField';
 
 // Styled
 import StyledBase from '../../../styled/Base';
+import Styled from './SignIn.styled';
 
 export class SignIn extends React.Component {
   state = {
@@ -42,21 +43,28 @@ export class SignIn extends React.Component {
     return (
       <StyledBase.FlexWrapper>
         <Helmet pageTitle="SignIn" />
-        <form action="post" onSubmit={handleSubmit(this.onSubmit.bind(this))}>
-          <Field
-            type="text"
-            name="username"
-            label="IDENTIFICATION _"
-            component={FormField}
-          />
-          <Field
-            type="password"
-            name="password"
-            label="PASSWORD _"
-            component={FormField}
-          />
-          <button type="submit">Sign In</button>
-        </form>
+        <StyledBase.ColumnWrapper>
+          <Styled.FormWrapper
+            action="post"
+            onSubmit={handleSubmit(this.onSubmit.bind(this))}
+          >
+            <Field
+              type="text"
+              name="username"
+              label="IDENTIFICATION _"
+              component={FormField}
+            />
+            <Field
+              type="password"
+              name="password"
+              label="PASSWORD _"
+              component={FormField}
+            />
+            <button type="submit">Sign In</button>
+          </Styled.FormWrapper>
+          <p>Not a member yet?</p>
+          <p>Forgot your password?</p>
+        </StyledBase.ColumnWrapper>
       </StyledBase.FlexWrapper>
     );
   }

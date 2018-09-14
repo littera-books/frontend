@@ -2,10 +2,8 @@ import styled from 'styled-components';
 
 const App = styled.div`
   font-family: 'Nanum Myeongjo', serif;
-
-  input::placeholder {
-    font-family: 'Nanum Myeongjo', serif;
-  }
+  font-size: 1rem;
+  line-height: 2;
 `;
 
 const FlexWrapper = styled.div`
