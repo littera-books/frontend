@@ -8,6 +8,7 @@ Enzyme.configure({ adapter: new Adapter() });
 
 function setup() {
   const props = {
+    init: jest.fn(),
     logIn: jest.fn(),
     handleSubmit: jest.fn(),
     error: initialState.error,
