@@ -9,6 +9,14 @@ const CardWrapper = styled.div`
   position: relative;
   margin: 1rem;
   max-width: 13rem;
+
+  img {
+    opacity: 0.5;
+
+    :hover {
+      opacity: 1;
+    }
+  }
 `;
 
 const CardTitle = styled.h1`
