@@ -22,7 +22,7 @@ import AllEars from '../../../assets/images/all_ears.jpg';
 
 const Card = ({ img, name }) => (
   <Styled.CardWrapper>
-    <h2>{name}</h2>
+    <Styled.CardTitle>{name}</Styled.CardTitle>
     <StyledBase.ResponsiveImg src={img} alt={name} />
   </Styled.CardWrapper>
 );
@@ -72,9 +72,9 @@ class Main extends React.PureComponent {
           <Link to="/sign-in">
             <Card img={Join} name="Join" />
           </Link>
-          <Card img={BonVoyage} name="Von Voyage" />
+          <Card img={BonVoyage} name="&quot;Von Voyage!&quot;" />
           <Link to="/all-ears">
-            <Card img={AllEars} name="I'm all ears" />
+            <Card img={AllEars} name="&quot;I am All Ears&quot;" />
           </Link>
         </StyledBase.FlexWrapper>
       );
@@ -90,9 +90,9 @@ class Main extends React.PureComponent {
           <Link to="/sign-in">
             <Card img={Join} name="Join" />
           </Link>
-          <Card img={BonVoyage} name="Von Voyage" />
+          <Card img={BonVoyage} name="&quot;Von Voyage!&quot;" />
           <Link to="/all-ears">
-            <Card img={AllEars} name="I'm all ears" />
+            <Card img={AllEars} name="&quot;I am All Ears&quot;" />
           </Link>
         </Slider>
       </Styled.SliderWrapper>
