@@ -74,7 +74,7 @@ class Main extends React.PureComponent {
           </Link>
           <Card img={BonVoyage} name="&quot;Von Voyage!&quot;" />
           <Link to="/all-ears">
-            <Card img={AllEars} name="&quot;I am All Ears&quot;" />
+            <Card img={AllEars} name="&quot;I'm All Ears&quot;" />
           </Link>
         </StyledBase.FlexWrapper>
       );
@@ -92,7 +92,7 @@ class Main extends React.PureComponent {
           </Link>
           <Card img={BonVoyage} name="&quot;Von Voyage!&quot;" />
           <Link to="/all-ears">
-            <Card img={AllEars} name="&quot;I am All Ears&quot;" />
+            <Card img={AllEars} name="&quot;I'm All Ears&quot;" />
           </Link>
         </Slider>
       </Styled.SliderWrapper>
