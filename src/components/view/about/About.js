@@ -12,7 +12,7 @@ import dataConfig from '../../../dataConfig';
 const About = () => (
   <StyledBase.FlexWrapper>
     <Helmet pageTitle="About" />
-    <p>{dataConfig.aboutText}</p>
+    <StyledBase.Paragraph>{dataConfig.aboutText}</StyledBase.Paragraph>
   </StyledBase.FlexWrapper>
 );
 

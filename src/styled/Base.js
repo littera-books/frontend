@@ -36,9 +36,15 @@ const ResponsiveImg = styled.img`
   height: auto;
 `;
 
+const Paragraph = styled.p`
+  padding: 1rem;
+  text-align: justify;
+`;
+
 export default {
   App,
   FlexWrapper,
   ColumnWrapper,
   ResponsiveImg,
+  Paragraph,
 };
