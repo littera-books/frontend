@@ -4,6 +4,16 @@ const App = styled.div`
   font-family: 'Nanum Myeongjo', serif;
   font-size: 1rem;
   line-height: 2;
+
+  a {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+
+    :visited {
+      color: black;
+    }
+  }
 `;
 
 const FlexWrapper = styled.div`
