@@ -56,7 +56,6 @@ class Main extends React.PureComponent {
       arrows: false,
       infinite: true,
       lazyLoad: true,
-      centerMode: true,
       speed: 500,
       slidesToShow: 1,
       slidesToScroll: 1,

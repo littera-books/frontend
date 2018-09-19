@@ -17,6 +17,10 @@ const CardWrapper = styled.div`
       opacity: 1;
     }
   }
+
+  @media (max-width: 414px) {
+    margin: 1rem auto;
+  }
 `;
 
 const CardTitle = styled.h1`
