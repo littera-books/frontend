@@ -17,7 +17,7 @@ export async function signIn(payload) {
 
   try {
     response = await axiosInstance({
-      url: '/auth',
+      url: '/auth/user',
       method: 'post',
       data: {
         username: payload.username,
@@ -56,7 +56,7 @@ function reducerSignIn(state, action) {
     };
   }
 
-  sessionStorage.setItem('token', action.response.data.access_token);
+  sessionStorage.setItem('token', action.response.data.user_token);
   return {
     ...state,
     error: '',
