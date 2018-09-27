@@ -41,7 +41,7 @@ export const initialState = {
 };
 
 // Reducer Function
-function reudcerInitialize(state) {
+function reducerInitialize(state) {
   return {
     ...state,
     error: '',
@@ -67,7 +67,7 @@ function reducerSignIn(state, action) {
 export default function reducer(state = initialState, action) {
   switch (action.type) {
     case INITIALIZE:
-      return reudcerInitialize(state);
+      return reducerInitialize(state);
     case SIGN_IN:
       return reducerSignIn(state, action);
     default:
