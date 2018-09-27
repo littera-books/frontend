@@ -6,32 +6,32 @@
     "axios": "^0.18.0",
     "minireset.css": "^0.0.3",
     "prop-types": "^15.6.2",
-    "react": "^16.4.2",
-    "react-dom": "^16.4.2",
+    "react": "^16.5.2",
+    "react-dom": "^16.5.2",
     "react-helmet": "^5.2.0",
     "react-loadable": "^5.5.0",
     "react-redux": "^5.0.7",
     "react-router-dom": "^4.3.1",
-    "react-scripts": "1.1.5",
+    "react-scripts": "2.0.0",
     "react-slick": "^0.23.1",
     "redux": "^4.0.0",
     "redux-form": "^7.4.2",
     "redux-promise": "^0.6.0",
     "slick-carousel": "^1.8.1",
-    "styled-components": "^3.4.5",
+    "styled-components": "^3.4.9",
     "webfontloader": "^1.6.28"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "CI=true react-scripts test --env=jsdom",
+    "test": "CI=true react-scripts test",
     "eject": "react-scripts eject",
     "prettier": "prettier --single-quote --arrow-parens always --write",
     "lint": "eslint --fix"
   },
   "lint-staged": {
     "src/**/*.{js,jsx}": [
-      "yarn test",
+      "yarn test src/**/?(*.)(spec|test).js",
       "yarn prettier",
       "yarn lint",
       "git add"
@@ -47,15 +47,21 @@
     "babel-plugin-styled-components": "^1.6.1",
     "enzyme": "^3.6.0",
     "enzyme-adapter-react-16": "^1.5.0",
-    "eslint": "^5.5.0",
+    "eslint": "^5.6.0",
     "eslint-config-airbnb": "^17.1.0",
-    "eslint-config-prettier": "^3.0.1",
+    "eslint-config-prettier": "^3.1.0",
     "eslint-plugin-import": "^2.14.0",
     "eslint-plugin-jest": "^21.22.0",
     "eslint-plugin-jsx-a11y": "^6.1.1",
     "eslint-plugin-react": "^7.11.1",
-    "husky": "^1.0.0-rc.13",
-    "lint-staged": "^7.2.2",
-    "prettier": "^1.14.2"
-  }
+    "husky": "^1.0.0",
+    "lint-staged": "^7.3.0",
+    "prettier": "^1.14.3"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
 }
