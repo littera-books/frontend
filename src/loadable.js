@@ -37,6 +37,11 @@ const AllEars = Loadable({
   loading: Loading,
 });
 
+const Survey = Loadable({
+  loader: () => import('./components/view/join/Survey'),
+  loading: Loading,
+});
+
 export default {
   Intro,
   Title,
@@ -44,4 +49,5 @@ export default {
   About,
   SignIn,
   AllEars,
+  Survey,
 };

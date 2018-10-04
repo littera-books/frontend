@@ -22,6 +22,7 @@ export class App extends React.PureComponent {
         <StyledBase.App className="App">
           <Loadable.Title visibility={isVisible} />
           <Switch>
+            <Route path="/survey" component={Loadable.Survey} />
             <Route path="/sign-in" component={Loadable.SignIn} />
             <Route path="/all-ears" component={Loadable.AllEars} />
             <Route path="/about" component={Loadable.About} />

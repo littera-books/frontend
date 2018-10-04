@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Redirect } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import { Field, reduxForm } from 'redux-form';
 import { connect } from 'react-redux';
 import { initialize, signIn } from '../../../reducers/reducer.auth';
@@ -68,7 +68,7 @@ export class SignIn extends React.Component {
             </div>
             <button type="submit">Sign In</button>
           </Styled.FormWrapper>
-          <p>Not a member yet?</p>
+          <Link to="/survey">Not a member yet?</Link>
           <p>Forgot your password?</p>
         </StyledBase.ColumnWrapper>
       </StyledBase.FlexWrapper>
