@@ -1,7 +1,7 @@
 import _ from 'lodash';
 import React from 'react';
 import PropTypes from 'prop-types';
-import { reduxForm } from 'redux-form';
+import { Field, reduxForm } from 'redux-form';
 import { connect } from 'react-redux';
 import { listQuestion } from '../../../reducers/reducer.question';
 
@@ -14,30 +14,50 @@ class Survey extends React.Component {
     getListQuestion();
   }
 
+  onSubmit(payload) {
+    console.log(payload);
+    console.log(this);
+  }
+
   renderQuestionItems() {
     const { questionItems } = this.props;
     return _.map(questionItems, (item) => {
       const index = _.findIndex(questionItems, o => o.id === item.id) + 1;
       return (
         <div key={item.id} style={{ marginBottom: '1rem' }}>
-          <h4>{`${index}. ${item.title}`}</h4>
-          <form action="post">
+          <fieldset style={{ border: 'none' }}>
+            <legend>{`${index}. ${item.title}`}</legend>
             {_.map(item.selection_items, selection => (
-              <div key={selection.id} style={{ textIndent: '1.1rem' }}>
-                <p>{selection.select}</p>
+              <div key={selection.id} style={{ textIndent: '1rem' }}>
+                <label htmlFor={`question-${item.id}`}>
+                  <Field
+                    name={`question-${item.id}`}
+                    component="input"
+                    type="radio"
+                    value={`selection-${selection.id}`}
+                    required
+                  />
+                  <span style={{ marginLeft: '0.5rem' }}>
+                    {selection.select}
+                  </span>
+                </label>
               </div>
             ))}
-          </form>
+          </fieldset>
         </div>
       );
     });
   }
 
   render() {
+    const { handleSubmit } = this.props;
     return (
       <StyledBase.FlexWrapper>
         <StyledBase.ColumnWrapper>
-          {this.renderQuestionItems()}
+          <form action="post" onSubmit={handleSubmit(this.onSubmit.bind(this))}>
+            {this.renderQuestionItems()}
+            <button type="submit">Submit</button>
+          </form>
         </StyledBase.ColumnWrapper>
       </StyledBase.FlexWrapper>
     );
@@ -45,6 +65,7 @@ class Survey extends React.Component {
 }
 
 Survey.propTypes = {
+  handleSubmit: PropTypes.func.isRequired,
   getListQuestion: PropTypes.func.isRequired,
   questionItems: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
