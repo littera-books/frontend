@@ -24,6 +24,7 @@ export class App extends React.PureComponent {
           <Switch>
             <Route path="/survey" component={Loadable.Survey} />
             <Route path="/sign-in" component={Loadable.SignIn} />
+            <Route path="/von-voyage" component={Loadable.VonVoyage} />
             <Route path="/all-ears" component={Loadable.AllEars} />
             <Route path="/about" component={Loadable.About} />
             <Route path="/main" component={Loadable.Main} />

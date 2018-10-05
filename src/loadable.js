@@ -42,6 +42,11 @@ const Survey = Loadable({
   loading: Loading,
 });
 
+const VonVoyage = Loadable({
+  loader: () => import('./components/view/von_voyage/VonVoyage'),
+  loading: Loading,
+});
+
 export default {
   Intro,
   Title,
@@ -50,4 +55,5 @@ export default {
   SignIn,
   AllEars,
   Survey,
+  VonVoyage,
 };

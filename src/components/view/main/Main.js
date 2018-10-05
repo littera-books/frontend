@@ -71,7 +71,9 @@ class Main extends React.PureComponent {
           <Link to="/sign-in">
             <Card img={Join} name="Join" />
           </Link>
-          <Card img={BonVoyage} name="&quot;Von Voyage!&quot;" />
+          <Link to="/von-voyage">
+            <Card img={BonVoyage} name="&quot;Von Voyage!&quot;" />
+          </Link>
           <Link to="/all-ears">
             <Card img={AllEars} name="&quot;I'm All Ears&quot;" />
           </Link>
