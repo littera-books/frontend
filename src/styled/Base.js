@@ -41,10 +41,23 @@ const Paragraph = styled.p`
   text-align: justify;
 `;
 
+const BasicButton = styled.button`
+  display: block;
+  color: black;
+  cursor: pointer;
+  font-size: 1rem;
+  border: none;
+
+  :focus {
+    outline: none;
+  }
+`;
+
 export default {
   App,
   FlexWrapper,
   ColumnWrapper,
   ResponsiveImg,
   Paragraph,
+  BasicButton,
 };
