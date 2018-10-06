@@ -25,6 +25,6 @@ function setup() {
 describe('SignIn', () => {
   it('올바로 렌더링되었는가', () => {
     const { enzymeWrapper } = setup();
-    expect(enzymeWrapper.find('button').text()).toBe('Sign In');
+    expect(enzymeWrapper.find('p').text()).toBe('Forgot your password?');
   });
 });

@@ -54,19 +54,21 @@ export class SignIn extends React.Component {
             <Field
               type="text"
               name="username"
-              label="IDENTIFICATION _"
+              label="Identification"
               component={FormField}
             />
             <Field
               type="password"
               name="password"
-              label="PASSWORD _"
+              label="Password"
               component={FormField}
             />
             <div>
               <small>{error}</small>
             </div>
-            <button type="submit">Sign In</button>
+            <Styled.SignInButton type="submit">
+              <strong>SIGN IN</strong>
+            </Styled.SignInButton>
           </Styled.FormWrapper>
           <Link to="/survey">Not a member yet?</Link>
           <p>Forgot your password?</p>
