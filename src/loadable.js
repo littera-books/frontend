@@ -1,10 +1,11 @@
 import React from 'react';
 import Loadable from 'react-loadable';
+import StyledBase from './styled/Base';
 
 const Loading = () => (
-  <div>
+  <StyledBase.FlexWrapper>
     <h1>Loading...</h1>
-  </div>
+  </StyledBase.FlexWrapper>
 );
 
 const Intro = Loadable({
