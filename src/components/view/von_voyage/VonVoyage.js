@@ -115,7 +115,7 @@ class VonVoyage extends React.Component {
         >
           {this.renderItems()}
           <Promotion />
-          <button type="submit">Purchase</button>
+          <Styled.FixedButton type="submit">Purchase</Styled.FixedButton>
         </Styled.ColumnForm>
       </StyledBase.FlexWrapper>
     );

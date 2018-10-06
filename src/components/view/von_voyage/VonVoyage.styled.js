@@ -7,16 +7,20 @@ const ItemWrapper = styled.div`
 `;
 
 const ProductItem = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   text-align: center;
   margin: 0 4rem;
   height: 16rem;
 
   @media (max-width: 414px) {
-    height: calc(100vh - 13rem);
+    height: calc(100vh - 10rem);
   }
 
   @media (max-width: 375px) {
-    height: calc(100vh - 10rem);
+    height: calc(100vh - 8rem);
   }
 `;
 
@@ -37,10 +41,20 @@ const AlignRightButton = styled(StyledBase.BasicButton)`
   margin-right: 4rem;
 `;
 
+const FixedButton = styled(StyledBase.BasicButton)`
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  background-color: white;
+  border: 1px solid black;
+  margin: 2rem;
+`;
+
 export default {
   ItemWrapper,
   ProductItem,
   ItemTitleGroup,
   ColumnForm,
   AlignRightButton,
+  FixedButton,
 };
