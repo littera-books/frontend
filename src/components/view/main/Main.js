@@ -27,7 +27,7 @@ const Card = ({ img, name }) => (
   </Styled.CardWrapper>
 );
 
-class Main extends React.PureComponent {
+class Main extends React.Component {
   // 창의 너비가 일정 수준 이하로 좁아지면 화면 구조를 캐러셀로 변화시킨다
   // EventListener 가 창의 너비를 실시간으로 읽어들인다
   constructor(props) {
@@ -91,7 +91,9 @@ class Main extends React.PureComponent {
           <Link to="/sign-in">
             <Card img={Join} name="Join" />
           </Link>
-          <Card img={BonVoyage} name="&quot;Von Voyage!&quot;" />
+          <Link to="/von-voyage">
+            <Card img={BonVoyage} name="&quot;Von Voyage!&quot;" />
+          </Link>
           <Link to="/all-ears">
             <Card img={AllEars} name="&quot;I'm All Ears&quot;" />
           </Link>
