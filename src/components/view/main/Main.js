@@ -68,9 +68,15 @@ class Main extends React.Component {
           <Link to="/about">
             <Card img={About} name="About" />
           </Link>
-          <Link to="/sign-in">
-            <Card img={Join} name="Join" />
-          </Link>
+          {sessionStorage.getItem('token') ? (
+            <Link to="/log">
+              <Card img={Join} name="Log" />
+            </Link>
+          ) : (
+            <Link to="/sign-in">
+              <Card img={Join} name="Join" />
+            </Link>
+          )}
           <Link to="/von-voyage">
             <Card img={BonVoyage} name="&quot;Von Voyage!&quot;" />
           </Link>
@@ -88,9 +94,15 @@ class Main extends React.Component {
           <Link to="/about">
             <Card img={About} name="About" />
           </Link>
-          <Link to="/sign-in">
-            <Card img={Join} name="Join" />
-          </Link>
+          {sessionStorage.getItem('token') ? (
+            <Link to="/log">
+              <Card img={Join} name="Log" />
+            </Link>
+          ) : (
+            <Link to="/sign-in">
+              <Card img={Join} name="Join" />
+            </Link>
+          )}
           <Link to="/von-voyage">
             <Card img={BonVoyage} name="&quot;Von Voyage!&quot;" />
           </Link>

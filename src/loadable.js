@@ -33,18 +33,23 @@ const SignIn = Loadable({
   loading: Loading,
 });
 
-const AllEars = Loadable({
-  loader: () => import('./components/view/all_ears/AllEars'),
-  loading: Loading,
-});
-
 const Survey = Loadable({
   loader: () => import('./components/view/join/Survey'),
   loading: Loading,
 });
 
+const Log = Loadable({
+  loader: () => import('./components/view/log/Log'),
+  loading: Loading,
+});
+
 const VonVoyage = Loadable({
   loader: () => import('./components/view/von_voyage/VonVoyage'),
+  loading: Loading,
+});
+
+const AllEars = Loadable({
+  loader: () => import('./components/view/all_ears/AllEars'),
   loading: Loading,
 });
 
@@ -54,7 +59,8 @@ export default {
   Main,
   About,
   SignIn,
-  AllEars,
   Survey,
+  Log,
   VonVoyage,
+  AllEars,
 };
