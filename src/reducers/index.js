@@ -5,12 +5,14 @@ import { reducer as formReducer } from 'redux-form';
 import controlTitle from './reducer.controlTitle';
 import auth from './reducer.auth';
 import question from './reducer.question';
+import product from './reducer.product';
 
 const rootReducer = combineReducers({
   form: formReducer,
   controlTitle,
   auth,
   question,
+  product,
 });
 
 export default rootReducer;
