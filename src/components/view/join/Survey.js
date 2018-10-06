@@ -56,7 +56,9 @@ class Survey extends React.Component {
         <StyledBase.ColumnWrapper>
           <form action="post" onSubmit={handleSubmit(this.onSubmit.bind(this))}>
             {this.renderQuestionItems()}
-            <button type="submit">Submit</button>
+            <StyledBase.BasicButton type="submit">
+              Submit
+            </StyledBase.BasicButton>
           </form>
         </StyledBase.ColumnWrapper>
       </StyledBase.FlexWrapper>

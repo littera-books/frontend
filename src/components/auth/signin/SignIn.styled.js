@@ -24,7 +24,6 @@ const FormWrapper = styled.form`
 `;
 
 const SignInButton = styled(StyledBase.BasicButton)`
-  font-family: 'Silk Remington';
   margin: 2rem auto;
 `;
 

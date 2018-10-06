@@ -45,8 +45,6 @@ const FixedButton = styled(StyledBase.BasicButton)`
   position: fixed;
   bottom: 0;
   right: 0;
-  background-color: white;
-  border: 1px solid black;
   margin: 2rem;
 `;
 

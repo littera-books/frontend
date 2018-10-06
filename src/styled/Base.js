@@ -63,11 +63,13 @@ const Paragraph = styled.p`
 `;
 
 const BasicButton = styled.button`
+  font-family: 'Silk Remington', 'Nanum Myeongjo';
   display: block;
   color: black;
   cursor: pointer;
   font-size: 1rem;
   border: none;
+  background-color: white;
 
   :focus {
     outline: none;
