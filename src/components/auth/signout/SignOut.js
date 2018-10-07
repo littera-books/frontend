@@ -6,6 +6,7 @@ import {
   setHeaderProperty,
   setMessageProperty,
 } from '../../../reducers/reducer.popup';
+import dataConfig from '../../../dataConfig';
 
 // Components
 import Loadable from '../../../loadable';
@@ -24,8 +25,8 @@ class SignOut extends React.Component {
     } = this.props;
 
     if (sessionStorage.getItem('token')) {
-      setHeader('Sign Out');
-      setMessage('Fare Well');
+      setHeader(dataConfig.popupMessage.signOut.header);
+      setMessage(dataConfig.popupMessage.signOut.message);
       this.setState({ popupFilter: true });
       logOut();
     } else {

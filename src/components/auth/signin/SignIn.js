@@ -8,6 +8,7 @@ import {
   setHeaderProperty,
   setMessageProperty,
 } from '../../../reducers/reducer.popup';
+import dataConfig from '../../../dataConfig';
 
 // Components
 import Loadable from '../../../loadable';
@@ -34,8 +35,8 @@ export class SignIn extends React.Component {
 
     const { error, setHeader, setMessage } = this.props;
     if (!error) {
-      setHeader('Sign In');
-      setMessage('Welcome aboard!');
+      setHeader(dataConfig.popupMessage.signIn.header);
+      setMessage(dataConfig.popupMessage.signIn.message);
       await this.setState({
         popupFilter: true,
       });
