@@ -20,18 +20,11 @@ class SignOut extends React.Component {
   };
 
   componentDidMount() {
-    const {
-      logOut, history, setHeader, setMessage,
-    } = this.props;
-
-    if (sessionStorage.getItem('token')) {
-      setHeader(dataConfig.popupMessage.signOut.header);
-      setMessage(dataConfig.popupMessage.signOut.message);
-      this.setState({ popupFilter: true });
-      logOut();
-    } else {
-      history.replace('/main');
-    }
+    const { logOut, setHeader, setMessage } = this.props;
+    setHeader(dataConfig.popupMessage.signOut.header);
+    setMessage(dataConfig.popupMessage.signOut.message);
+    this.setState({ popupFilter: true });
+    logOut();
   }
 
   render() {
