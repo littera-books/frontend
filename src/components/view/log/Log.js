@@ -44,7 +44,9 @@ class Log extends React.Component {
       return (
         <StyledBase.FlexWrapper>
           <Helmet pageTitle="Log" />
-          <Styled.SectionItem>My Info</Styled.SectionItem>
+          <Styled.SectionItem>
+            <Link to="/my-info">My Info</Link>
+          </Styled.SectionItem>
           <Styled.SectionItem>Letter Box</Styled.SectionItem>
           <Styled.SectionItem>Purchase</Styled.SectionItem>
           <Styled.SectionItem>
