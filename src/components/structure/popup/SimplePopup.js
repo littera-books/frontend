@@ -17,7 +17,6 @@ class SimplePopup extends React.Component {
     const { initialize, replace, destination } = this.props;
     initialize();
     replace(destination);
-    window.location.reload();
   }
 
   render() {
