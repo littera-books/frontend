@@ -33,6 +33,11 @@ const SignIn = Loadable({
   loading: Loading,
 });
 
+const SignOut = Loadable({
+  loader: () => import('./components/auth/signout/SignOut'),
+  loading: Loading,
+});
+
 const Survey = Loadable({
   loader: () => import('./components/view/join/Survey'),
   loading: Loading,
@@ -59,6 +64,7 @@ export default {
   Main,
   About,
   SignIn,
+  SignOut,
   Survey,
   Log,
   VonVoyage,

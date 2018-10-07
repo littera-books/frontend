@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 // Components
 import Helmet from '../../helmet/Helmet';
@@ -46,7 +47,9 @@ class Log extends React.Component {
           <Styled.SectionItem>My Info</Styled.SectionItem>
           <Styled.SectionItem>Letter Box</Styled.SectionItem>
           <Styled.SectionItem>Purchase</Styled.SectionItem>
-          <Styled.SectionItem>SIGN OUT</Styled.SectionItem>
+          <Styled.SectionItem>
+            <Link to="/sign-out">SIGN OUT</Link>
+          </Styled.SectionItem>
         </StyledBase.FlexWrapper>
       );
     }

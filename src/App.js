@@ -43,6 +43,7 @@ export class App extends React.PureComponent {
           <Switch>
             <PrivateRoute path="/log" component={Loadable.Log} />
             <Route path="/survey" component={Loadable.Survey} />
+            <Route path="/sign-out" component={Loadable.SignOut} />
             <Route path="/sign-in" component={Loadable.SignIn} />
             <Route path="/von-voyage" component={Loadable.VonVoyage} />
             <Route path="/all-ears" component={Loadable.AllEars} />
