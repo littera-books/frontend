@@ -3,6 +3,7 @@ import axiosInstance from './axios.instance';
 // Actions
 const INITIALIZE = 'INITIALIZE';
 const SIGN_IN = 'SIGN_IN';
+const SIGN_OUT = 'SIGN_OUT';
 
 // Action Creators
 export function initialize() {
@@ -35,6 +36,12 @@ export async function signIn(payload) {
   };
 }
 
+export function signOut() {
+  return {
+    type: SIGN_OUT,
+  };
+}
+
 // Initial State
 export const initialState = {
   error: '',
@@ -63,6 +70,14 @@ function reducerSignIn(state, action) {
   };
 }
 
+function reducerSignOut(state) {
+  sessionStorage.removeItem('token');
+  return {
+    ...state,
+    error: '',
+  };
+}
+
 // Reducer
 export default function reducer(state = initialState, action) {
   switch (action.type) {
@@ -70,6 +85,8 @@ export default function reducer(state = initialState, action) {
       return reducerInitialize(state);
     case SIGN_IN:
       return reducerSignIn(state, action);
+    case SIGN_OUT:
+      return reducerSignOut(state);
     default:
       return state;
   }

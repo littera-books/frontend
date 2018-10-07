@@ -58,6 +58,11 @@ const AllEars = Loadable({
   loading: Loading,
 });
 
+const SimplePopup = Loadable({
+  loader: () => import('./components/structure/popup/SimplePopup'),
+  loading: Loading,
+});
+
 export default {
   Intro,
   Title,
@@ -69,4 +74,5 @@ export default {
   Log,
   VonVoyage,
   AllEars,
+  SimplePopup,
 };
