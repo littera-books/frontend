@@ -48,7 +48,9 @@ class SignOut extends React.Component {
 }
 
 SignOut.propTypes = {
-  history: PropTypes.func.isRequired,
+  history: PropTypes.shape({
+    replace: PropTypes.func.isRequired,
+  }).isRequired,
   logOut: PropTypes.func.isRequired,
   setHeader: PropTypes.func.isRequired,
   setMessage: PropTypes.func.isRequired,

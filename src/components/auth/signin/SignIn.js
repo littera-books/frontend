@@ -1,11 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Link, Redirect } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { Field, reduxForm } from 'redux-form';
 import { connect } from 'react-redux';
 import { initialize, signIn } from '../../../reducers/reducer.auth';
+import {
+  setHeaderProperty,
+  setMessageProperty,
+} from '../../../reducers/reducer.popup';
 
 // Components
+import Loadable from '../../../loadable';
 import Helmet from '../../helmet/Helmet';
 import FormField from '../FormField';
 
@@ -15,7 +20,7 @@ import Styled from './SignIn.styled';
 
 export class SignIn extends React.Component {
   state = {
-    redirect: false,
+    popupFilter: false,
   };
 
   componentDidMount() {
@@ -27,21 +32,19 @@ export class SignIn extends React.Component {
     const { logIn } = this.props;
     await logIn(payload);
 
-    const { error } = this.props;
+    const { error, setHeader, setMessage } = this.props;
     if (!error) {
+      setHeader('Sign In');
+      setMessage('Welcome aboard!');
       await this.setState({
-        redirect: true,
+        popupFilter: true,
       });
     }
   }
 
   render() {
-    const { redirect } = this.state;
-    const { handleSubmit, error } = this.props;
-
-    if (redirect) {
-      return <Redirect to="/main" />;
-    }
+    const { popupFilter } = this.state;
+    const { handleSubmit, error, history } = this.props;
 
     return (
       <StyledBase.FlexWrapper>
@@ -73,6 +76,9 @@ export class SignIn extends React.Component {
           <Link to="/survey">Not a member yet?</Link>
           <p>Forgot your password?</p>
         </StyledBase.ColumnWrapper>
+        {popupFilter ? (
+          <Loadable.SimplePopup replace={history.replace} destination="/main" />
+        ) : null}
       </StyledBase.FlexWrapper>
     );
   }
@@ -83,6 +89,11 @@ SignIn.propTypes = {
   init: PropTypes.func.isRequired,
   logIn: PropTypes.func.isRequired,
   error: PropTypes.string.isRequired,
+  history: PropTypes.shape({
+    replace: PropTypes.func.isRequired,
+  }).isRequired,
+  setHeader: PropTypes.func.isRequired,
+  setMessage: PropTypes.func.isRequired,
 };
 
 export const mapStateToProps = state => ({
@@ -92,6 +103,8 @@ export const mapStateToProps = state => ({
 export const mapDispatchToProps = dispatch => ({
   init: () => dispatch(initialize()),
   logIn: payload => dispatch(signIn(payload)),
+  setHeader: header => dispatch(setHeaderProperty(header)),
+  setMessage: message => dispatch(setMessageProperty(message)),
 });
 
 export default reduxForm({
