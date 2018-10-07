@@ -3,6 +3,9 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { readToken } from '../../../reducers/reducer.user';
 
+// Components
+import Helmet from '../../helmet/Helmet';
+
 // Styled
 import StyledBase from '../../../styled/Base';
 
@@ -16,6 +19,7 @@ class MyInfo extends React.Component {
     const { username, email } = this.props;
     return (
       <StyledBase.FlexWrapper>
+        <Helmet pageTitle="My Info" />
         <StyledBase.ColumnWrapper>
           <h1>My Info</h1>
           <p>{username}</p>
