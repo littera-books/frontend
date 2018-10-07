@@ -10,6 +10,7 @@ import dataConfig from '../../../dataConfig';
 
 // Components
 import Loadable from '../../../loadable';
+import Helmet from '../../helmet/Helmet';
 
 // Styled
 import StyledBase from '../../../styled/Base';
@@ -32,6 +33,7 @@ class SignOut extends React.Component {
     const { history } = this.props;
     return (
       <StyledBase.FlexWrapper>
+        <Helmet pageTitle="Sign Out" />
         <h1>Sign Out</h1>
         {popupFilter ? (
           <Loadable.SimplePopup replace={history.replace} destination="/main" />
