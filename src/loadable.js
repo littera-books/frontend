@@ -53,6 +53,11 @@ const MyInfo = Loadable({
   loading: Loading,
 });
 
+const ManageMyInfo = Loadable({
+  loader: () => import('./components/view/my_info/ManageMyInfo'),
+  loading: Loading,
+});
+
 const VonVoyage = Loadable({
   loader: () => import('./components/view/von_voyage/VonVoyage'),
   loading: Loading,
@@ -78,6 +83,7 @@ export default {
   Survey,
   Log,
   MyInfo,
+  ManageMyInfo,
   VonVoyage,
   AllEars,
   SimplePopup,

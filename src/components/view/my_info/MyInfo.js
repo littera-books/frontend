@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { readToken } from '../../../reducers/reducer.user';
 
@@ -31,7 +32,9 @@ class MyInfo extends React.Component {
           <Styled.InfoField>{email}</Styled.InfoField>
           <Styled.InfoField>{phone}</Styled.InfoField>
           <Styled.InfoField>{address}</Styled.InfoField>
-          <Styled.AlignRightButton>Manage My Info</Styled.AlignRightButton>
+          <Link to="/my-info/manage">
+            <Styled.AlignRightButton>Manage My Info</Styled.AlignRightButton>
+          </Link>
         </Styled.InfoWrapper>
       </StyledBase.FlexWrapper>
     );
