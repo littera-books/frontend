@@ -16,13 +16,18 @@ class MyInfo extends React.Component {
   }
 
   render() {
-    const { username, email } = this.props;
+    const {
+      firstName, lastName, address, phone, email,
+    } = this.props;
     return (
       <StyledBase.FlexWrapper>
         <Helmet pageTitle="My Info" />
         <StyledBase.ColumnWrapper>
           <h1>My Info</h1>
-          <p>{username}</p>
+          <p>{firstName}</p>
+          <p>{lastName}</p>
+          <p>{address}</p>
+          <p>{phone}</p>
           <p>{email}</p>
         </StyledBase.ColumnWrapper>
       </StyledBase.FlexWrapper>
@@ -32,12 +37,18 @@ class MyInfo extends React.Component {
 
 MyInfo.propTypes = {
   read: PropTypes.func.isRequired,
-  username: PropTypes.string.isRequired,
+  firstName: PropTypes.string.isRequired,
+  lastName: PropTypes.string.isRequired,
+  address: PropTypes.string.isRequired,
+  phone: PropTypes.string.isRequired,
   email: PropTypes.string.isRequired,
 };
 
 const mapStateToProps = state => ({
-  username: state.user.username,
+  firstName: state.user.firstName,
+  lastName: state.user.lastName,
+  address: state.user.address,
+  phone: state.user.phone,
   email: state.user.email,
 });
 

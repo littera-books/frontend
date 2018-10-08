@@ -57,7 +57,7 @@ export class SignIn extends React.Component {
           >
             <Field
               type="text"
-              name="username"
+              name="email"
               label="Identification"
               component={FormField}
             />

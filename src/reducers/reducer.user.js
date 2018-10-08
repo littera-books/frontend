@@ -10,7 +10,10 @@ export const readToken = () => ({
 
 // Initial State
 const initialState = {
-  username: '',
+  firstName: '',
+  lastName: '',
+  address: '',
+  phone: '',
   email: '',
   exp: '',
   error: '',
@@ -23,7 +26,10 @@ const reducerReadToken = (state) => {
   const decodedData = JSON.parse(window.atob(base64Url));
 
   return _.assign({}, state, {
-    username: decodedData.username,
+    firstName: decodedData.first_name,
+    lastName: decodedData.last_name,
+    address: decodedData.address,
+    phone: decodedData.phone,
     email: decodedData.email,
     exp: decodedData.exp,
     error: '',

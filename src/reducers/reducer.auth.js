@@ -21,7 +21,7 @@ export async function signIn(payload) {
       url: '/auth/user',
       method: 'post',
       data: {
-        username: payload.username,
+        email: payload.email,
         password: payload.password,
       },
     });
