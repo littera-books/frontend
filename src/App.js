@@ -41,6 +41,7 @@ export class App extends React.PureComponent {
         <StyledBase.App className="App">
           <Loadable.Title visibility={isVisible} />
           <Switch>
+            <PrivateRoute path="/my-info/resign" component={Loadable.Resign} />
             <PrivateRoute
               path="/my-info/manage"
               component={Loadable.ManageMyInfo}

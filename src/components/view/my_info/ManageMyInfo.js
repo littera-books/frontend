@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Field, reduxForm } from 'redux-form';
+import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { updateInfo } from '../../../reducers/reducer.user';
 
@@ -54,9 +55,7 @@ class ManageMyInfo extends React.Component {
             <Field type="text" name="phone" component={FormField} />
             <Field type="text" name="address" component={FormField} />
             <Styled.ButtonGroup>
-              <StyledBase.BasicButton type="button">
-                Resign
-              </StyledBase.BasicButton>
+              <Link to="/my-info/resign">Resign</Link>
               <StyledBase.BasicButton type="submit">
                 Confirm Change
               </StyledBase.BasicButton>
