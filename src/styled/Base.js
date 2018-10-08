@@ -37,8 +37,11 @@ const App = styled.div`
   }
 `;
 
-const FlexWrapper = styled.div`
+const BasicFlexWrapper = styled.div`
   display: flex;
+`;
+
+const FlexWrapper = styled(BasicFlexWrapper)`
   justify-content: center;
   align-items: center;
   max-width: 60rem;
@@ -78,6 +81,7 @@ const BasicButton = styled.button`
 
 export default {
   App,
+  BasicFlexWrapper,
   FlexWrapper,
   ColumnWrapper,
   ResponsiveImg,

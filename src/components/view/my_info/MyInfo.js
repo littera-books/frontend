@@ -8,6 +8,7 @@ import Helmet from '../../helmet/Helmet';
 
 // Styled
 import StyledBase from '../../../styled/Base';
+import Styled from './MyInfo.styled';
 
 class MyInfo extends React.Component {
   componentDidMount() {
@@ -22,14 +23,16 @@ class MyInfo extends React.Component {
     return (
       <StyledBase.FlexWrapper>
         <Helmet pageTitle="My Info" />
-        <StyledBase.ColumnWrapper>
-          <h1>My Info</h1>
-          <p>{firstName}</p>
-          <p>{lastName}</p>
-          <p>{address}</p>
-          <p>{phone}</p>
-          <p>{email}</p>
-        </StyledBase.ColumnWrapper>
+        <Styled.InfoWrapper>
+          <Styled.NameWrapper>
+            <Styled.InfoField>{firstName}</Styled.InfoField>
+            <Styled.InfoField>{lastName}</Styled.InfoField>
+          </Styled.NameWrapper>
+          <Styled.InfoField>{email}</Styled.InfoField>
+          <Styled.InfoField>{phone}</Styled.InfoField>
+          <Styled.InfoField>{address}</Styled.InfoField>
+          <Styled.AlignRightButton>Manage My Info</Styled.AlignRightButton>
+        </Styled.InfoWrapper>
       </StyledBase.FlexWrapper>
     );
   }
