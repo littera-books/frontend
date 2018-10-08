@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Field, reduxForm } from 'redux-form';
 import { connect } from 'react-redux';
-import { readToken } from '../../../reducers/reducer.user';
+import { readToken, updateInfo } from '../../../reducers/reducer.user';
 
 // Components
 import Helmet from '../../helmet/Helmet';
@@ -17,6 +17,7 @@ class ManageMyInfo extends React.Component {
     const {
       read,
       initialize,
+      userId,
       firstName,
       lastName,
       address,
@@ -25,17 +26,19 @@ class ManageMyInfo extends React.Component {
     } = this.props;
     read();
     initialize({
-      first_name: firstName,
-      last_name: lastName,
+      userId,
+      firstName,
+      lastName,
       address,
       phone,
       email,
     });
   }
 
-  onSubmit(payload) {
+  async onSubmit(payload) {
+    const { update } = this.props;
     console.log(payload);
-    console.log(this);
+    await update(payload);
   }
 
   render() {
@@ -46,8 +49,8 @@ class ManageMyInfo extends React.Component {
         <Styled.InfoWrapper>
           <form action="post" onSubmit={handleSubmit(this.onSubmit.bind(this))}>
             <Styled.NameWrapper>
-              <Field type="text" name="first_name" component={FormField} />
-              <Field type="text" name="last_name" component={FormField} />
+              <Field type="text" name="firstName" component={FormField} />
+              <Field type="text" name="lastName" component={FormField} />
             </Styled.NameWrapper>
             <Field type="text" name="email" component={FormField} />
             <Field type="text" name="phone" component={FormField} />
@@ -71,6 +74,7 @@ ManageMyInfo.propTypes = {
   handleSubmit: PropTypes.func.isRequired,
   initialize: PropTypes.func.isRequired,
   read: PropTypes.func.isRequired,
+  userId: PropTypes.number.isRequired,
   firstName: PropTypes.string.isRequired,
   lastName: PropTypes.string.isRequired,
   address: PropTypes.string.isRequired,
@@ -79,6 +83,7 @@ ManageMyInfo.propTypes = {
 };
 
 const mapStateToProps = state => ({
+  userId: state.user.userId,
   firstName: state.user.firstName,
   lastName: state.user.lastName,
   address: state.user.address,
@@ -88,6 +93,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   read: () => dispatch(readToken()),
+  update: payload => dispatch(updateInfo(payload)),
 });
 
 export default reduxForm({
