@@ -14,14 +14,25 @@ const InfoField = styled.p`
   line-height: 3;
 `;
 
+const ManageInput = styled(StyledBase.BasicInput)`
+  line-height: 3;
+`;
+
 const AlignRightButton = styled(StyledBase.BasicButton)`
   margin-top: 1rem;
   margin-left: auto;
+`;
+
+const ButtonGroup = styled(StyledBase.BasicFlexWrapper)`
+  justify-content: space-between;
+  margin: 1rem 0;
 `;
 
 export default {
   InfoWrapper,
   NameWrapper,
   InfoField,
+  ManageInput,
   AlignRightButton,
+  ButtonGroup,
 };
