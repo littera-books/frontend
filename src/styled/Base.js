@@ -79,6 +79,22 @@ const BasicButton = styled.button`
   }
 `;
 
+const BasicInput = styled.input`
+  font-family: 'Silk Remington', 'Nanum Myeongjo';
+  font-size: 1rem;
+  line-height: 2;
+  border: none;
+
+  :focus {
+    outline: none;
+  }
+
+  ::placeholder {
+    font-family: 'Silk Remington', 'Nanum Myeongjo';
+    color: black;
+  }
+`;
+
 export default {
   App,
   BasicFlexWrapper,
@@ -87,4 +103,5 @@ export default {
   ResponsiveImg,
   Paragraph,
   BasicButton,
+  BasicInput,
 };
