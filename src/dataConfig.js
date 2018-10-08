@@ -17,5 +17,9 @@ export default {
       header: 'Sign Out',
       message: 'Fare Well.',
     },
+    resign: {
+      header: 'Resign',
+      message: 'Are you sure want to quit?',
+    },
   },
 };

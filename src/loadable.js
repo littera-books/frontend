@@ -78,6 +78,11 @@ const SimplePopup = Loadable({
   loading: Loading,
 });
 
+const ConfirmPopup = Loadable({
+  loader: () => import('./components/structure/popup/ConfirmPopup'),
+  loading: Loading,
+});
+
 export default {
   Intro,
   Title,
@@ -93,4 +98,5 @@ export default {
   VonVoyage,
   AllEars,
   SimplePopup,
+  ConfirmPopup,
 };

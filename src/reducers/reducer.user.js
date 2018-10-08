@@ -5,6 +5,7 @@ import axiosInstance from './axios.instance';
 const READ_TOKEN = 'READ_TOKEN';
 const RETRIEVE_INFO = 'RETRIEVE_INFO';
 const UPDATE_INFO = 'UPDATE_INFO';
+const DESTROY_USER = 'DESTROY_USER';
 
 // Action Creators
 export const readToken = () => ({
@@ -53,6 +54,29 @@ export const updateInfo = async (payload) => {
 
   return {
     type: UPDATE_INFO,
+    response,
+    error,
+  };
+};
+
+export const destroyUser = async (payload) => {
+  let response;
+  let error;
+
+  try {
+    response = await axiosInstance({
+      url: `/user/${payload.userId}`,
+      method: 'delete',
+      data: {
+        password: payload.password,
+      },
+    });
+  } catch (e) {
+    error = e;
+  }
+
+  return {
+    type: DESTROY_USER,
     response,
     error,
   };
@@ -118,6 +142,20 @@ const reducerUpdateInfo = (state, action) => {
   });
 };
 
+const reducerDestroyUser = (state, action) => {
+  if (action.error) {
+    _.assign({}, state, {
+      ...state,
+      error: action.error,
+    });
+  }
+
+  return _.assign({}, state, {
+    ...state,
+    error: '',
+  });
+};
+
 // Reducer
 export default function reducer(state = initialState, action) {
   switch (action.type) {
@@ -127,6 +165,8 @@ export default function reducer(state = initialState, action) {
       return reducerRetrieveInfo(state, action);
     case UPDATE_INFO:
       return reducerUpdateInfo(state, action);
+    case DESTROY_USER:
+      return reducerDestroyUser(state, action);
     default:
       return state;
   }
