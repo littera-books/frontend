@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Field, reduxForm } from 'redux-form';
 import { connect } from 'react-redux';
-import { readToken, updateInfo } from '../../../reducers/reducer.user';
+import { updateInfo } from '../../../reducers/reducer.user';
 
 // Components
 import Helmet from '../../helmet/Helmet';
@@ -15,7 +15,6 @@ import Styled from './MyInfo.styled';
 class ManageMyInfo extends React.Component {
   componentDidMount() {
     const {
-      read,
       initialize,
       userId,
       firstName,
@@ -24,7 +23,6 @@ class ManageMyInfo extends React.Component {
       phone,
       email,
     } = this.props;
-    read();
     initialize({
       userId,
       firstName,
@@ -36,9 +34,9 @@ class ManageMyInfo extends React.Component {
   }
 
   async onSubmit(payload) {
-    const { update } = this.props;
-    console.log(payload);
+    const { update, history } = this.props;
     await update(payload);
+    history.replace('/my-info');
   }
 
   render() {
@@ -71,9 +69,11 @@ class ManageMyInfo extends React.Component {
 }
 
 ManageMyInfo.propTypes = {
+  history: PropTypes.shape({
+    replace: PropTypes.func.isRequired,
+  }).isRequired,
   handleSubmit: PropTypes.func.isRequired,
   initialize: PropTypes.func.isRequired,
-  read: PropTypes.func.isRequired,
   userId: PropTypes.number.isRequired,
   firstName: PropTypes.string.isRequired,
   lastName: PropTypes.string.isRequired,
@@ -92,7 +92,6 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  read: () => dispatch(readToken()),
   update: payload => dispatch(updateInfo(payload)),
 });
 

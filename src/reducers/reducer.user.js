@@ -3,12 +3,33 @@ import axiosInstance from './axios.instance';
 
 // Actions
 const READ_TOKEN = 'READ_TOKEN';
+const RETRIEVE_INFO = 'RETRIEVE_INFO';
 const UPDATE_INFO = 'UPDATE_INFO';
 
 // Action Creators
 export const readToken = () => ({
   type: READ_TOKEN,
 });
+
+export const retrieveInfo = async (userId) => {
+  let response;
+  let error;
+
+  try {
+    response = await axiosInstance({
+      url: `/user/${userId}`,
+      method: 'get',
+    });
+  } catch (e) {
+    error = e;
+  }
+
+  return {
+    type: RETRIEVE_INFO,
+    response,
+    error,
+  };
+};
 
 export const updateInfo = async (payload) => {
   let response;
@@ -56,25 +77,43 @@ const reducerReadToken = (state) => {
   const decodedData = JSON.parse(window.atob(base64Url));
 
   return _.assign({}, state, {
+    ...state,
     userId: decodedData.user_id,
-    firstName: decodedData.first_name,
-    lastName: decodedData.last_name,
-    address: decodedData.address,
-    phone: decodedData.phone,
-    email: decodedData.email,
     exp: decodedData.exp,
     error: '',
   });
 };
 
-const reducerUpdateInfo = (state, action) => {
-  if (action.type) {
+const reducerRetrieveInfo = (state, action) => {
+  if (action.error) {
     _.assign({}, state, {
+      ...state,
       error: action.error,
     });
   }
 
   return _.assign({}, state, {
+    ...state,
+    userId: action.response.data.id,
+    firstName: action.response.data.first_name,
+    lastName: action.response.data.last_name,
+    address: action.response.data.address,
+    phone: action.response.data.phone,
+    email: action.response.data.email,
+    error: '',
+  });
+};
+
+const reducerUpdateInfo = (state, action) => {
+  if (action.error) {
+    _.assign({}, state, {
+      ...state,
+      error: action.error,
+    });
+  }
+
+  return _.assign({}, state, {
+    ...state,
     error: '',
   });
 };
@@ -84,6 +123,8 @@ export default function reducer(state = initialState, action) {
   switch (action.type) {
     case READ_TOKEN:
       return reducerReadToken(state);
+    case RETRIEVE_INFO:
+      return reducerRetrieveInfo(state, action);
     case UPDATE_INFO:
       return reducerUpdateInfo(state, action);
     default:

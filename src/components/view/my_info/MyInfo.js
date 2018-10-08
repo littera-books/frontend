@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { readToken } from '../../../reducers/reducer.user';
+import { readToken, retrieveInfo } from '../../../reducers/reducer.user';
 
 // Components
 import Helmet from '../../helmet/Helmet';
@@ -12,9 +12,21 @@ import StyledBase from '../../../styled/Base';
 import Styled from './MyInfo.styled';
 
 class MyInfo extends React.Component {
+  state = {
+    userId: 0,
+  };
+
   componentDidMount() {
     const { read } = this.props;
     read();
+  }
+
+  static getDerivedStateFromProps(nextProps, prevState) {
+    if (nextProps.userId !== prevState.userId) {
+      nextProps.retrieve(nextProps.userId);
+      return { userId: nextProps.userId };
+    }
+    return null;
   }
 
   render() {
@@ -51,6 +63,7 @@ MyInfo.propTypes = {
 };
 
 const mapStateToProps = state => ({
+  userId: state.user.userId,
   firstName: state.user.firstName,
   lastName: state.user.lastName,
   address: state.user.address,
@@ -60,6 +73,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   read: () => dispatch(readToken()),
+  retrieve: userId => dispatch(retrieveInfo(userId)),
 });
 
 export default connect(
