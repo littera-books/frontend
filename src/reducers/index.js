@@ -8,6 +8,7 @@ import auth from './reducer.auth';
 import user from './reducer.user';
 import question from './reducer.question';
 import product from './reducer.product';
+import resignSurvey from './reducer.resignSurvey';
 
 const rootReducer = combineReducers({
   form: formReducer,
@@ -17,6 +18,7 @@ const rootReducer = combineReducers({
   user,
   question,
   product,
+  resignSurvey,
 });
 
 export default rootReducer;

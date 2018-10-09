@@ -26,5 +26,9 @@ export default {
       confirm: "Of course I'm sure.",
       cancel: 'Oops, butt call!',
     },
+    resignSurvey: {
+      header: 'Resign',
+      message: 'So Long, and thanks for all the fish!',
+    },
   },
 };
