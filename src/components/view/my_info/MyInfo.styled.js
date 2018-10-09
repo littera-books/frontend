@@ -28,6 +28,15 @@ const ButtonGroup = styled(StyledBase.BasicFlexWrapper)`
   margin: 1rem 0;
 `;
 
+const QuillEditor = styled.div`
+  .ql-editor {
+    font-family: 'Silk Remington', 'Nanum Myeongjo';
+    font-size: 1rem;
+    line-height: 2;
+    margin-bottom: 1rem;
+  }
+`;
+
 export default {
   InfoWrapper,
   NameWrapper,
@@ -35,4 +44,5 @@ export default {
   ManageInput,
   AlignRightButton,
   ButtonGroup,
+  QuillEditor,
 };
