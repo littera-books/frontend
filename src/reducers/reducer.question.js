@@ -2,6 +2,7 @@ import axiosInstance from './axios.instance';
 
 // Actions
 const LIST_QUESTIONS = 'LIST_QUESTIONS';
+const SAVE_RESULT = 'SAVE_RESULT';
 
 // Action Creators
 export async function listQuestion() {
@@ -24,9 +25,17 @@ export async function listQuestion() {
   };
 }
 
+export function saveResult(payload) {
+  return {
+    type: SAVE_RESULT,
+    result: payload,
+  };
+}
+
 // Initial State
 export const initialState = {
   length: 0,
+  result: {},
   items: [],
   item: {
     subject: '',
@@ -52,11 +61,20 @@ function reducerListQuestion(state, action) {
   };
 }
 
+function reducerSaveResult(state, action) {
+  return {
+    ...state,
+    result: action.result,
+  };
+}
+
 // Reducer
 export default function reducer(state = initialState, action) {
   switch (action.type) {
     case LIST_QUESTIONS:
       return reducerListQuestion(state, action);
+    case SAVE_RESULT:
+      return reducerSaveResult(state, action);
     default:
       return state;
   }

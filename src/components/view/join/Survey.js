@@ -3,7 +3,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Field, reduxForm } from 'redux-form';
 import { connect } from 'react-redux';
-import { listQuestion } from '../../../reducers/reducer.question';
+import { listQuestion, saveResult } from '../../../reducers/reducer.question';
 
 // Components
 import Helmet from '../../helmet/Helmet';
@@ -19,8 +19,8 @@ class Survey extends React.Component {
   }
 
   onSubmit(payload) {
-    console.log(payload);
-    console.log(this);
+    const { save } = this.props;
+    save(payload);
   }
 
   renderQuestionItems() {
@@ -78,15 +78,18 @@ class Survey extends React.Component {
 Survey.propTypes = {
   handleSubmit: PropTypes.func.isRequired,
   getListQuestion: PropTypes.func.isRequired,
+  save: PropTypes.func.isRequired,
   questionItems: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
 
 const mapStateToProps = state => ({
   questionItems: state.question.items,
+  result: state.question.result,
 });
 
 const mapDispatchToProps = dispatch => ({
   getListQuestion: () => dispatch(listQuestion()),
+  save: payload => dispatch(saveResult(payload)),
 });
 
 export default reduxForm({
