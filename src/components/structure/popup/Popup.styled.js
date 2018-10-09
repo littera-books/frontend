@@ -41,7 +41,8 @@ const PopupBody = styled.div`
   border-top: 1px solid rgba(0, 0, 0, 0.2);
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  justify-content: center;
 `;
 
 const PopupFooter = styled.div`
