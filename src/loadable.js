@@ -43,6 +43,11 @@ const Survey = Loadable({
   loading: Loading,
 });
 
+const AddInfo = Loadable({
+  loader: () => import('./components/view/join/AddInfo'),
+  loading: Loading,
+});
+
 const Log = Loadable({
   loader: () => import('./components/view/log/Log'),
   loading: Loading,
@@ -96,6 +101,7 @@ export default {
   SignIn,
   SignOut,
   Survey,
+  AddInfo,
   Log,
   MyInfo,
   ManageMyInfo,

@@ -19,8 +19,9 @@ class Survey extends React.Component {
   }
 
   onSubmit(payload) {
-    const { save } = this.props;
+    const { save, history } = this.props;
     save(payload);
+    history.push('/add-info');
   }
 
   renderQuestionItems() {
@@ -76,6 +77,9 @@ class Survey extends React.Component {
 }
 
 Survey.propTypes = {
+  history: PropTypes.shape({
+    push: PropTypes.func.isRequired,
+  }).isRequired,
   handleSubmit: PropTypes.func.isRequired,
   getListQuestion: PropTypes.func.isRequired,
   save: PropTypes.func.isRequired,
@@ -84,7 +88,6 @@ Survey.propTypes = {
 
 const mapStateToProps = state => ({
   questionItems: state.question.items,
-  result: state.question.result,
 });
 
 const mapDispatchToProps = dispatch => ({
