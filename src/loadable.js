@@ -63,6 +63,11 @@ const Resign = Loadable({
   loading: Loading,
 });
 
+const ResignSurvey = Loadable({
+  loader: () => import('./components/view/my_info/ResignSurvey'),
+  loading: Loading,
+});
+
 const VonVoyage = Loadable({
   loader: () => import('./components/view/von_voyage/VonVoyage'),
   loading: Loading,
@@ -95,6 +100,7 @@ export default {
   MyInfo,
   ManageMyInfo,
   Resign,
+  ResignSurvey,
   VonVoyage,
   AllEars,
   SimplePopup,

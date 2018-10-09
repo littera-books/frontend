@@ -80,7 +80,7 @@ class Resign extends React.Component {
             error={error}
             cancelPopup={this.cancelPopup}
             replace={history.replace}
-            destination="/main"
+            destination="/my-info/resign/survey"
           />
         ) : null}
       </StyledBase.FlexWrapper>
