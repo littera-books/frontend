@@ -17,6 +17,7 @@ const PopupWrapper = styled.div`
   width: 32rem;
   height: 20rem;
   padding: 1rem;
+  margin: 1rem;
   background-color: white;
   border-radius: 0.5rem;
   border: 1px solid rgba(0, 0, 0, 0.2);
