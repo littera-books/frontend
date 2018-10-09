@@ -1,7 +1,9 @@
+import _ from 'lodash';
+
 // Actions
 const INITIALIZE = 'INITIALIZE';
-const SET_HEADER_PROPERTY = 'SET_HEADER_PROPERTY';
-const SET_MESSAGE_PROPERTY = 'SET_MESSAGE_PROPERTY';
+const SET_POPUP_HEADER_MESSAGE = 'SET_POPUP_HEADER_MESSAGE';
+const SET_POPUP_BUTTONS = 'SET_POPUP_BUTTONS';
 
 // Action Creators
 export function initializePopup() {
@@ -10,17 +12,19 @@ export function initializePopup() {
   };
 }
 
-export function setHeaderProperty(header) {
+export function setPopupHeaderMessage(payload) {
   return {
-    type: SET_HEADER_PROPERTY,
-    header,
+    type: SET_POPUP_HEADER_MESSAGE,
+    header: payload.header,
+    message: payload.message,
   };
 }
 
-export function setMessageProperty(message) {
+export function setPopupButtons(payload) {
   return {
-    type: SET_MESSAGE_PROPERTY,
-    message,
+    type: SET_POPUP_BUTTONS,
+    confirm: payload.confirm,
+    cancel: payload.cancel,
   };
 }
 
@@ -28,40 +32,42 @@ export function setMessageProperty(message) {
 const initialState = {
   header: '',
   message: '',
+  confirm: '',
+  cancel: '',
 };
 
 // Reducer Functions;
 function reducerInitialize(state) {
-  return {
+  return _.assign({}, state, {
     ...state,
     header: '',
     message: '',
-  };
+    confirm: '',
+    cancel: '',
+  });
 }
 
-function reducerSetHeaderProperty(state, action) {
-  return {
-    ...state,
-    header: action.header,
-  };
-}
+const reducerSetPopupHeaderMessage = (state, action) => _.assign({}, state, {
+  ...state,
+  header: action.header,
+  message: action.message,
+});
 
-function reducerSetMessageProperty(state, action) {
-  return {
-    ...state,
-    message: action.message,
-  };
-}
+const reducerSetPopupButtons = (state, action) => _.assign({}, state, {
+  ...state,
+  confirm: action.confirm,
+  cancel: action.cancel,
+});
 
 // Reducer
 export default function reducer(state = initialState, action) {
   switch (action.type) {
     case INITIALIZE:
       return reducerInitialize(state);
-    case SET_HEADER_PROPERTY:
-      return reducerSetHeaderProperty(state, action);
-    case SET_MESSAGE_PROPERTY:
-      return reducerSetMessageProperty(state, action);
+    case SET_POPUP_HEADER_MESSAGE:
+      return reducerSetPopupHeaderMessage(state, action);
+    case SET_POPUP_BUTTONS:
+      return reducerSetPopupButtons(state, action);
     default:
       return state;
   }

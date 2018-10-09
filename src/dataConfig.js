@@ -21,5 +21,9 @@ export default {
       header: 'Resign',
       message: 'Are you sure want to quit?',
     },
+    resignButtons: {
+      confirm: "Of course I'm sure.",
+      cancel: 'Oops, butt call!',
+    },
   },
 };
