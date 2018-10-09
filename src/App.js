@@ -13,7 +13,7 @@ import Loadable from './loadable';
 import StyledBase from './styled/Base';
 
 // Minireset.css
-import '../node_modules/minireset.css/minireset.min.css';
+import 'minireset.css/minireset.min.css';
 
 const PrivateRoute = ({ component: Component, ...rest }) => (
   <Route
