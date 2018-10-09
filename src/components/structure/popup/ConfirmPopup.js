@@ -10,13 +10,7 @@ class ConfirmPopup extends React.Component {
   constructor(props) {
     super(props);
 
-    this.cancelPopup = this.cancelPopup.bind(this);
     this.confirmPopup = this.confirmPopup.bind(this);
-  }
-
-  cancelPopup() {
-    const { initialize } = this.props;
-    initialize();
   }
 
   async confirmPopup() {
@@ -27,11 +21,12 @@ class ConfirmPopup extends React.Component {
     await method(argument);
     initialize();
     replace(destination);
-    window.location.reload();
   }
 
   render() {
-    const { header, message } = this.props;
+    const {
+      header, message, confirm, cancel, cancelPopup,
+    } = this.props;
 
     return (
       <Styled.PopupBackground>
@@ -40,7 +35,7 @@ class ConfirmPopup extends React.Component {
             <h3>
               <strong>{header}</strong>
             </h3>
-            <Styled.PopupCloseButton type="button" onClick={this.cancelPopup}>
+            <Styled.PopupCloseButton type="button" onClick={cancelPopup}>
               <strong>&times;</strong>
               &nbsp;
             </Styled.PopupCloseButton>
@@ -49,11 +44,11 @@ class ConfirmPopup extends React.Component {
             <p>{message}</p>
           </Styled.PopupBody>
           <Styled.PopupFooter>
-            <Styled.PopupChoiceButton type="button" onClick={this.cancelPopup}>
-              Cancel
+            <Styled.PopupChoiceButton type="button" onClick={cancelPopup}>
+              {cancel}
             </Styled.PopupChoiceButton>
             <Styled.PopupChoiceButton type="button" onClick={this.confirmPopup}>
-              Confirm
+              {confirm}
             </Styled.PopupChoiceButton>
           </Styled.PopupFooter>
         </Styled.PopupWrapper>
@@ -65,7 +60,10 @@ class ConfirmPopup extends React.Component {
 ConfirmPopup.propTypes = {
   header: PropTypes.string.isRequired,
   message: PropTypes.string.isRequired,
+  confirm: PropTypes.string.isRequired,
+  cancel: PropTypes.string.isRequired,
   initialize: PropTypes.func.isRequired,
+  cancelPopup: PropTypes.func.isRequired,
   method: PropTypes.func.isRequired,
   argument: PropTypes.oneOfType([PropTypes.string, PropTypes.object])
     .isRequired,
@@ -76,6 +74,8 @@ ConfirmPopup.propTypes = {
 const mapStateToProps = state => ({
   header: state.popup.header,
   message: state.popup.message,
+  confirm: state.popup.confirm,
+  cancel: state.popup.cancel,
 });
 
 const mapDispatchToProps = dispatch => ({

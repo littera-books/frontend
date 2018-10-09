@@ -4,8 +4,8 @@ import { Field, reduxForm } from 'redux-form';
 import { connect } from 'react-redux';
 import { destroyUser } from '../../../reducers/reducer.user';
 import {
-  setHeaderProperty,
-  setMessageProperty,
+  setPopupHeaderMessage,
+  setPopupButtons,
 } from '../../../reducers/reducer.popup';
 import dataConfig from '../../../dataConfig';
 
@@ -18,10 +18,16 @@ import FormField from './FormField';
 import StyledBase from '../../../styled/Base';
 
 class Resign extends React.Component {
-  state = {
-    popupFilter: false,
-    payload: {},
-  };
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      popupFilter: false,
+      payload: {},
+    };
+
+    this.cancelPopup = this.cancelPopup.bind(this);
+  }
 
   componentDidMount() {
     const { initialize, userId } = this.props;
@@ -31,13 +37,17 @@ class Resign extends React.Component {
   }
 
   onDestroy(payload) {
-    const { setHeader, setMessage } = this.props;
-    setHeader(dataConfig.popupMessage.resign.header);
-    setMessage(dataConfig.popupMessage.resign.message);
+    const { setPopup, setButtons } = this.props;
+    setPopup(dataConfig.popupMessage.resign);
+    setButtons(dataConfig.popupMessage.resignButtons);
     this.setState({
       popupFilter: true,
       payload,
     });
+  }
+
+  cancelPopup() {
+    this.setState({ popupFilter: false });
   }
 
   render() {
@@ -56,6 +66,7 @@ class Resign extends React.Component {
           <Loadable.ConfirmPopup
             method={destroy}
             argument={payload}
+            cancelPopup={this.cancelPopup}
             replace={history.replace}
             destination="/main"
           />
@@ -71,8 +82,8 @@ Resign.propTypes = {
     replace: PropTypes.func.isRequired,
   }).isRequired,
   initialize: PropTypes.func.isRequired,
-  setHeader: PropTypes.func.isRequired,
-  setMessage: PropTypes.func.isRequired,
+  setPopup: PropTypes.func.isRequired,
+  setButtons: PropTypes.func.isRequired,
   destroy: PropTypes.func.isRequired,
   userId: PropTypes.number.isRequired,
 };
@@ -82,8 +93,8 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  setHeader: header => dispatch(setHeaderProperty(header)),
-  setMessage: message => dispatch(setMessageProperty(message)),
+  setPopup: payload => dispatch(setPopupHeaderMessage(payload)),
+  setButtons: payload => dispatch(setPopupButtons(payload)),
   destroy: payload => dispatch(destroyUser(payload)),
 });
 
