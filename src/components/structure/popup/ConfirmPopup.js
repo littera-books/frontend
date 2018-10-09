@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { initializePopup } from '../../../reducers/reducer.popup';
 
 // Styled
+import StyledBase from '../../../styled/Base';
 import Styled from './Popup.styled';
 
 class ConfirmPopup extends React.Component {
@@ -19,13 +20,17 @@ class ConfirmPopup extends React.Component {
     } = this.props;
 
     await method(argument);
-    initialize();
-    replace(destination);
+
+    const { error } = this.props;
+    if (!error) {
+      initialize();
+      replace(destination);
+    }
   }
 
   render() {
     const {
-      header, message, confirm, cancel, cancelPopup,
+      header, message, confirm, cancel, error, cancelPopup,
     } = this.props;
 
     return (
@@ -42,6 +47,9 @@ class ConfirmPopup extends React.Component {
           </Styled.PopupHeader>
           <Styled.PopupBody>
             <p>{message}</p>
+            <div>
+              <StyledBase.Small>{error}</StyledBase.Small>
+            </div>
           </Styled.PopupBody>
           <Styled.PopupFooter>
             <Styled.PopupChoiceButton type="button" onClick={cancelPopup}>
@@ -67,6 +75,7 @@ ConfirmPopup.propTypes = {
   method: PropTypes.func.isRequired,
   argument: PropTypes.oneOfType([PropTypes.string, PropTypes.object])
     .isRequired,
+  error: PropTypes.string.isRequired,
   replace: PropTypes.func.isRequired,
   destination: PropTypes.string.isRequired,
 };

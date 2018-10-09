@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Field, reduxForm } from 'redux-form';
 import { connect } from 'react-redux';
-import { destroyUser } from '../../../reducers/reducer.user';
+import { destroyUser, clearError } from '../../../reducers/reducer.user';
 import {
   setPopupHeaderMessage,
   setPopupButtons,
@@ -12,10 +12,10 @@ import dataConfig from '../../../dataConfig';
 // Components
 import Loadable from '../../../loadable';
 import Helmet from '../../helmet/Helmet';
+import { ResignFormField } from './FormField';
 
 // Styled
 import StyledBase from '../../../styled/Base';
-import Styled from './MyInfo.styled';
 
 class Resign extends React.Component {
   constructor(props) {
@@ -48,11 +48,15 @@ class Resign extends React.Component {
 
   cancelPopup() {
     this.setState({ popupFilter: false });
+    const { clear } = this.props;
+    clear();
   }
 
   render() {
     const { popupFilter, payload } = this.state;
-    const { handleSubmit, history, destroy } = this.props;
+    const {
+      handleSubmit, history, destroy, error,
+    } = this.props;
 
     return (
       <StyledBase.FlexWrapper>
@@ -62,7 +66,7 @@ class Resign extends React.Component {
             type="password"
             name="password"
             placeholder="Write your password..."
-            component={Styled.ManageInput}
+            component={ResignFormField}
           />
           <StyledBase.BasicButton type="submit">Resign</StyledBase.BasicButton>
         </form>
@@ -70,6 +74,7 @@ class Resign extends React.Component {
           <Loadable.ConfirmPopup
             method={destroy}
             argument={payload}
+            error={error}
             cancelPopup={this.cancelPopup}
             replace={history.replace}
             destination="/main"
@@ -89,17 +94,21 @@ Resign.propTypes = {
   setPopup: PropTypes.func.isRequired,
   setButtons: PropTypes.func.isRequired,
   destroy: PropTypes.func.isRequired,
+  clear: PropTypes.func.isRequired,
   userId: PropTypes.number.isRequired,
+  error: PropTypes.string.isRequired,
 };
 
 const mapStateToProps = state => ({
   userId: state.user.userId,
+  error: state.user.error,
 });
 
 const mapDispatchToProps = dispatch => ({
   setPopup: payload => dispatch(setPopupHeaderMessage(payload)),
   setButtons: payload => dispatch(setPopupButtons(payload)),
   destroy: payload => dispatch(destroyUser(payload)),
+  clear: () => dispatch(clearError()),
 });
 
 export default reduxForm({
