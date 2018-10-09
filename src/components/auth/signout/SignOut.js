@@ -2,10 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { signOut } from '../../../reducers/reducer.auth';
-import {
-  setHeaderProperty,
-  setMessageProperty,
-} from '../../../reducers/reducer.popup';
+import { setPopupHeaderMessage } from '../../../reducers/reducer.popup';
 import dataConfig from '../../../dataConfig';
 
 // Components
@@ -21,9 +18,8 @@ class SignOut extends React.Component {
   };
 
   componentDidMount() {
-    const { logOut, setHeader, setMessage } = this.props;
-    setHeader(dataConfig.popupMessage.signOut.header);
-    setMessage(dataConfig.popupMessage.signOut.message);
+    const { logOut, setPopup } = this.props;
+    setPopup(dataConfig.popupMessage.signOut);
     this.setState({ popupFilter: true });
     logOut();
   }
@@ -48,14 +44,12 @@ SignOut.propTypes = {
     replace: PropTypes.func.isRequired,
   }).isRequired,
   logOut: PropTypes.func.isRequired,
-  setHeader: PropTypes.func.isRequired,
-  setMessage: PropTypes.func.isRequired,
+  setPopup: PropTypes.func.isRequired,
 };
 
 const mapDispatchToProps = dispatch => ({
   logOut: () => dispatch(signOut()),
-  setHeader: header => dispatch(setHeaderProperty(header)),
-  setMessage: message => dispatch(setMessageProperty(message)),
+  setPopup: payload => dispatch(setPopupHeaderMessage(payload)),
 });
 
 export default connect(

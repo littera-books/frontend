@@ -4,10 +4,7 @@ import { Link } from 'react-router-dom';
 import { Field, reduxForm } from 'redux-form';
 import { connect } from 'react-redux';
 import { initialize, signIn } from '../../../reducers/reducer.auth';
-import {
-  setHeaderProperty,
-  setMessageProperty,
-} from '../../../reducers/reducer.popup';
+import { setPopupHeaderMessage } from '../../../reducers/reducer.popup';
 import dataConfig from '../../../dataConfig';
 
 // Components
@@ -33,10 +30,9 @@ export class SignIn extends React.Component {
     const { logIn } = this.props;
     await logIn(payload);
 
-    const { error, setHeader, setMessage } = this.props;
+    const { error, setPopup } = this.props;
     if (!error) {
-      setHeader(dataConfig.popupMessage.signIn.header);
-      setMessage(dataConfig.popupMessage.signIn.message);
+      setPopup(dataConfig.popupMessage.signIn);
       await this.setState({
         popupFilter: true,
       });
@@ -93,8 +89,7 @@ SignIn.propTypes = {
   history: PropTypes.shape({
     replace: PropTypes.func.isRequired,
   }).isRequired,
-  setHeader: PropTypes.func.isRequired,
-  setMessage: PropTypes.func.isRequired,
+  setPopup: PropTypes.func.isRequired,
 };
 
 export const mapStateToProps = state => ({
@@ -104,8 +99,7 @@ export const mapStateToProps = state => ({
 export const mapDispatchToProps = dispatch => ({
   init: () => dispatch(initialize()),
   logIn: payload => dispatch(signIn(payload)),
-  setHeader: header => dispatch(setHeaderProperty(header)),
-  setMessage: message => dispatch(setMessageProperty(message)),
+  setPopup: payload => dispatch(setPopupHeaderMessage(payload)),
 });
 
 export default reduxForm({
