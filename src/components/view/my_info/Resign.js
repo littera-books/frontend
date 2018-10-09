@@ -12,10 +12,10 @@ import dataConfig from '../../../dataConfig';
 // Components
 import Loadable from '../../../loadable';
 import Helmet from '../../helmet/Helmet';
-import FormField from './FormField';
 
 // Styled
 import StyledBase from '../../../styled/Base';
+import Styled from './MyInfo.styled';
 
 class Resign extends React.Component {
   constructor(props) {
@@ -58,8 +58,12 @@ class Resign extends React.Component {
       <StyledBase.FlexWrapper>
         <Helmet pageTitle="Resign" />
         <form action="post" onSubmit={handleSubmit(this.onDestroy.bind(this))}>
-          <h1>Write your password below...</h1>
-          <Field type="password" name="password" component={FormField} />
+          <Field
+            type="password"
+            name="password"
+            placeholder="Write your password..."
+            component={Styled.ManageInput}
+          />
           <StyledBase.BasicButton type="submit">Resign</StyledBase.BasicButton>
         </form>
         {popupFilter ? (
