@@ -6,6 +6,7 @@ const READ_TOKEN = 'READ_TOKEN';
 const RETRIEVE_INFO = 'RETRIEVE_INFO';
 const UPDATE_INFO = 'UPDATE_INFO';
 const DESTROY_USER = 'DESTROY_USER';
+const CLEAR_ERROR = 'CLEAR_ERROR';
 
 // Action Creators
 export const readToken = () => ({
@@ -82,6 +83,8 @@ export const destroyUser = async (payload) => {
   };
 };
 
+export const clearError = () => ({ type: CLEAR_ERROR });
+
 // Initial State
 const initialState = {
   userId: 0,
@@ -144,9 +147,9 @@ const reducerUpdateInfo = (state, action) => {
 
 const reducerDestroyUser = (state, action) => {
   if (action.error) {
-    _.assign({}, state, {
+    return _.assign({}, state, {
       ...state,
-      error: action.error,
+      error: action.error.response.data.message,
     });
   }
 
@@ -155,6 +158,11 @@ const reducerDestroyUser = (state, action) => {
     error: '',
   });
 };
+
+const reducerClearError = state => _.assign({}, state, {
+  ...state,
+  error: '',
+});
 
 // Reducer
 export default function reducer(state = initialState, action) {
@@ -167,6 +175,8 @@ export default function reducer(state = initialState, action) {
       return reducerUpdateInfo(state, action);
     case DESTROY_USER:
       return reducerDestroyUser(state, action);
+    case CLEAR_ERROR:
+      return reducerClearError(state);
     default:
       return state;
   }
