@@ -77,6 +77,7 @@ const BasicButton = styled.button`
   cursor: pointer;
   font-size: 1rem;
   border: none;
+  padding: 0;
   background-color: white;
 
   :focus {
