@@ -65,6 +65,11 @@ const Paragraph = styled.p`
   text-align: justify;
 `;
 
+const Small = styled.small`
+  font-size: 0.5rem;
+  color: red;
+`;
+
 const BasicButton = styled.button`
   font-family: 'Silk Remington', 'Nanum Myeongjo';
   display: block;
@@ -102,6 +107,7 @@ export default {
   ColumnWrapper,
   ResponsiveImg,
   Paragraph,
+  Small,
   BasicButton,
   BasicInput,
 };

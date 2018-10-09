@@ -64,7 +64,7 @@ export class SignIn extends React.Component {
               component={FormField}
             />
             <div>
-              <small>{error}</small>
+              <StyledBase.Small>{error}</StyledBase.Small>
             </div>
             <Styled.SignInButton type="submit">
               <strong>SIGN IN</strong>

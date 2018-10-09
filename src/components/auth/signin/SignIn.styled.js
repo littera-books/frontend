@@ -16,11 +16,6 @@ const FormWrapper = styled.form`
     font-family: 'Silk Remington';
     color: black;
   }
-
-  small {
-    font-size: 0.5rem;
-    color: red;
-  }
 `;
 
 const SignInButton = styled(StyledBase.BasicButton)`
