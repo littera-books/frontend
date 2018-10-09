@@ -44,8 +44,14 @@ class MyInfo extends React.Component {
           <Styled.InfoField>{email}</Styled.InfoField>
           <Styled.InfoField>{phone}</Styled.InfoField>
           <Styled.InfoField>{address}</Styled.InfoField>
-          <Link to="/my-info/manage">
-            <Styled.AlignRightButton>Manage My Info</Styled.AlignRightButton>
+          <Link
+            to="/my-info/manage"
+            style={{
+              marginTop: '1rem',
+              marginLeft: 'auto',
+            }}
+          >
+            Manage My Info
           </Link>
         </Styled.InfoWrapper>
       </StyledBase.FlexWrapper>

@@ -16,6 +16,7 @@ import { ResignFormField } from './FormField';
 
 // Styled
 import StyledBase from '../../../styled/Base';
+import Styled from './MyInfo.styled';
 
 class Resign extends React.Component {
   constructor(props) {
@@ -68,7 +69,9 @@ class Resign extends React.Component {
             placeholder="Write your password..."
             component={ResignFormField}
           />
-          <StyledBase.BasicButton type="submit">Resign</StyledBase.BasicButton>
+          <Styled.AlignRightButton type="submit">
+            Resign
+          </Styled.AlignRightButton>
         </form>
         {popupFilter ? (
           <Loadable.ConfirmPopup
