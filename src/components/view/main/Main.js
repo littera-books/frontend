@@ -11,8 +11,8 @@ import StyledBase from '../../../styled/Base';
 import Styled from './Main.styled';
 
 // CSS
-import '../../../../node_modules/slick-carousel/slick/slick.css';
-import '../../../../node_modules/slick-carousel/slick/slick-theme.css';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
 
 // Images
 import About from '../../../assets/images/about.jpg';
@@ -88,7 +88,7 @@ class Main extends React.Component {
     }
 
     return (
-      <Styled.SliderWrapper id="carousel">
+      <StyledBase.BasicBlockWrapper id="carousel">
         <Helmet pageTitle="Main" />
         <Slider {...settings}>
           <Link to="/about">
@@ -110,7 +110,7 @@ class Main extends React.Component {
             <Card img={AllEars} name="&quot;I'm All Ears&quot;" />
           </Link>
         </Slider>
-      </Styled.SliderWrapper>
+      </StyledBase.BasicBlockWrapper>
     );
   }
 }

@@ -1,10 +1,5 @@
 import styled from 'styled-components';
 
-const SliderWrapper = styled.div`
-  position: relative;
-  display: block;
-`;
-
 const CardWrapper = styled.div`
   position: relative;
   margin: 1rem;
@@ -31,7 +26,6 @@ const CardTitle = styled.h1`
 `;
 
 export default {
-  SliderWrapper,
   CardWrapper,
   CardTitle,
 };

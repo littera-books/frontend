@@ -37,6 +37,11 @@ const App = styled.div`
   }
 `;
 
+const BasicBlockWrapper = styled.div`
+  position: relative;
+  display: block;
+`;
+
 const BasicFlexWrapper = styled.div`
   display: flex;
 `;
@@ -103,6 +108,7 @@ const BasicInput = styled.input`
 
 export default {
   App,
+  BasicBlockWrapper,
   BasicFlexWrapper,
   FlexWrapper,
   ColumnWrapper,

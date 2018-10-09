@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import Slider from 'react-slick';
 
 // Components
 import Helmet from '../../helmet/Helmet';
@@ -7,6 +8,10 @@ import Helmet from '../../helmet/Helmet';
 // Styled
 import StyledBase from '../../../styled/Base';
 import Styled from './Log.styled';
+
+// CSS
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
 
 class Log extends React.Component {
   constructor(props) {
@@ -30,15 +35,15 @@ class Log extends React.Component {
 
   render() {
     const { width } = this.state;
-    // const settings = {
-    //   dots: true,
-    //   arrows: false,
-    //   infinite: true,
-    //   lazyLoad: true,
-    //   speed: 500,
-    //   slidesToShow: 1,
-    //   slidesToScroll: 1,
-    // };
+    const settings = {
+      dots: true,
+      arrows: false,
+      infinite: true,
+      lazyLoad: true,
+      speed: 500,
+      slidesToShow: 1,
+      slidesToScroll: 1,
+    };
 
     if (width > 414) {
       return (
@@ -56,7 +61,21 @@ class Log extends React.Component {
       );
     }
 
-    return <div>hi</div>;
+    return (
+      <StyledBase.BasicBlockWrapper id="carousel">
+        <Helmet pageTitle="Log" />
+        <Slider {...settings}>
+          <Styled.SectionItem>
+            <Link to="/my-info">My Info</Link>
+          </Styled.SectionItem>
+          <Styled.SectionItem>Letter Box</Styled.SectionItem>
+          <Styled.SectionItem>Purchase</Styled.SectionItem>
+          <Styled.SectionItem>
+            <Link to="/sign-out">SIGN OUT</Link>
+          </Styled.SectionItem>
+        </Slider>
+      </StyledBase.BasicBlockWrapper>
+    );
   }
 }
 export default Log;
