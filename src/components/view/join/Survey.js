@@ -5,8 +5,12 @@ import { Field, reduxForm } from 'redux-form';
 import { connect } from 'react-redux';
 import { listQuestion } from '../../../reducers/reducer.question';
 
+// Components
+import Helmet from '../../helmet/Helmet';
+
 // Styled
 import StyledBase from '../../../styled/Base';
+import Styled from './Survey.styled';
 
 class Survey extends React.Component {
   componentDidMount() {
@@ -24,11 +28,11 @@ class Survey extends React.Component {
     return _.map(questionItems, (item) => {
       const index = _.findIndex(questionItems, o => o.id === item.id) + 1;
       return (
-        <div key={item.id} style={{ marginBottom: '1rem' }}>
+        <Styled.QuestionItem key={item.id}>
           <fieldset style={{ border: 'none' }}>
             <legend>{`${index}. ${item.title}`}</legend>
             {_.map(item.selection_items, selection => (
-              <div key={selection.id} style={{ textIndent: '1rem' }}>
+              <Styled.SelectionItem key={selection.id}>
                 <label htmlFor={`question-${item.id}`}>
                   <Field
                     name={`question-${item.id}`}
@@ -37,14 +41,14 @@ class Survey extends React.Component {
                     value={`selection-${selection.id}`}
                     required
                   />
-                  <span style={{ marginLeft: '0.5rem' }}>
+                  <Styled.SelectionText>
                     {selection.select}
-                  </span>
+                  </Styled.SelectionText>
                 </label>
-              </div>
+              </Styled.SelectionItem>
             ))}
           </fieldset>
-        </div>
+        </Styled.QuestionItem>
       );
     });
   }
@@ -53,12 +57,17 @@ class Survey extends React.Component {
     const { handleSubmit } = this.props;
     return (
       <StyledBase.FlexWrapper>
+        <Helmet pageTitle="Survey" />
         <StyledBase.ColumnWrapper>
-          <form action="post" onSubmit={handleSubmit(this.onSubmit.bind(this))}>
+          <form
+            style={{ margin: '1rem' }}
+            action="post"
+            onSubmit={handleSubmit(this.onSubmit.bind(this))}
+          >
             {this.renderQuestionItems()}
-            <StyledBase.BasicButton type="submit">
+            <Styled.AlignRightButton type="submit">
               Submit
-            </StyledBase.BasicButton>
+            </Styled.AlignRightButton>
           </form>
         </StyledBase.ColumnWrapper>
       </StyledBase.FlexWrapper>
