@@ -42,7 +42,6 @@ class ConfirmPopup extends React.Component {
             </h3>
             <Element.BasicButton type="button" onClick={cancelPopup}>
               <strong>&times;</strong>
-              &nbsp;
             </Element.BasicButton>
           </Styled.PopupHeader>
           <Styled.PopupBody>

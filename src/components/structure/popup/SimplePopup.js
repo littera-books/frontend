@@ -32,7 +32,6 @@ class SimplePopup extends React.Component {
             </h3>
             <Element.BasicButton type="button" onClick={this.closePopup}>
               <strong>&times;</strong>
-              &nbsp;
             </Element.BasicButton>
           </Styled.PopupHeader>
           <Styled.PopupBody>
