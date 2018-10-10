@@ -9,6 +9,7 @@ import Helmet from '../../helmet/Helmet';
 
 // Styled
 import Wrapper from '../../../styled_base/Wrapper';
+import Styled from './MyInfo.styled';
 
 class MyInfo extends React.Component {
   state = {
@@ -35,7 +36,7 @@ class MyInfo extends React.Component {
     return (
       <Wrapper.FlexWrapper>
         <Helmet pageTitle="My Info" />
-        <Wrapper.ColumnWrapper>
+        <Styled.InfoWrapper>
           <Wrapper.BetweenWrapper>
             <p>{firstName}</p>
             <p>{lastName}</p>
@@ -52,7 +53,7 @@ class MyInfo extends React.Component {
           >
             Manage My Info
           </Link>
-        </Wrapper.ColumnWrapper>
+        </Styled.InfoWrapper>
       </Wrapper.FlexWrapper>
     );
   }

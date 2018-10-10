@@ -2,6 +2,11 @@ import styled from 'styled-components';
 import Wrapper from '../../../styled_base/Wrapper';
 import Element from '../../../styled_base/Element';
 
+const InfoWrapper = styled(Wrapper.ColumnWrapper)`
+  width: 20rem;
+  margin: 1rem;
+`;
+
 const QuillEditor = styled(Wrapper.BasicBlockWrapper)`
   .ql-editor {
     font-family: 'Silk Remington', 'Nanum Myeongjo';
@@ -21,6 +26,7 @@ const AlignRightButton = styled(Element.BasicButton)`
 `;
 
 export default {
+  InfoWrapper,
   QuillEditor,
   AlignRightButton,
   ButtonGroup,
