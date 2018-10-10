@@ -2,20 +2,41 @@ import styled from 'styled-components';
 import Wrapper from '../../../styled_base/Wrapper';
 import Element from '../../../styled_base/Element';
 
+const CarouselWrapper = styled(Wrapper.BasicBlockWrapper)`
+  margin-top: 10rem;
+
+  @media (max-width: 375px) {
+    margin-top: 8rem;
+  }
+`;
+
 const CardWrapper = styled(Wrapper.BasicBlockWrapper)`
-  margin: 1rem;
-  max-width: 13rem;
+  margin: 0 1rem;
+  width: 13rem;
 
   @media (max-width: 414px) {
-    margin: 1rem auto;
+    margin: 0 auto;
+    width: 14rem;
+  }
+
+  @media (max-width: 375px) {
+    margin: 0 auto;
+    width: 13rem;
+  }
+
+  @media (max-width: 320px) {
+    margin: 0 auto;
+    width: 10rem;
   }
 `;
 
 const CardTitle = styled.h1`
   position: absolute;
-  top: 4em;
+  top: 5rem;
   left: 50%;
   transform: translateX(-50%);
+  text-align: center;
+  width: 10rem;
 `;
 
 const OpacityImg = styled(Element.ResponsiveImg)`
@@ -27,6 +48,7 @@ const OpacityImg = styled(Element.ResponsiveImg)`
 `;
 
 export default {
+  CarouselWrapper,
   CardWrapper,
   CardTitle,
   OpacityImg,
