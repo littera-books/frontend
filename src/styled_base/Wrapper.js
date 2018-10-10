@@ -25,6 +25,7 @@ const App = styled.div`
   font-family: 'Silk Remington', 'Nanum Myeongjo';
   font-size: 1rem;
   line-height: 2;
+  text-align: justify;
 
   a {
     color: black;

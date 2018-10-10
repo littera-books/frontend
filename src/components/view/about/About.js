@@ -5,7 +5,6 @@ import Helmet from '../../helmet/Helmet';
 
 // Styled
 import Wrapper from '../../../styled_base/Wrapper';
-import Element from '../../../styled_base/Element';
 
 // Data
 import dataConfig from '../../../dataConfig';
@@ -13,7 +12,7 @@ import dataConfig from '../../../dataConfig';
 const About = () => (
   <Wrapper.FlexWrapper>
     <Helmet pageTitle="About" />
-    <Element.Paragraph>{dataConfig.aboutText}</Element.Paragraph>
+    <p>{dataConfig.aboutText}</p>
   </Wrapper.FlexWrapper>
 );
 

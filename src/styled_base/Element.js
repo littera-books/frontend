@@ -5,11 +5,6 @@ const ResponsiveImg = styled.img`
   height: auto;
 `;
 
-const Paragraph = styled.p`
-  padding: 1rem;
-  text-align: justify;
-`;
-
 const BasicSmall = styled.small`
   font-size: 0.5rem;
   color: red;
@@ -48,7 +43,6 @@ const BasicInput = styled.input`
 
 export default {
   ResponsiveImg,
-  Paragraph,
   BasicSmall,
   BasicButton,
   BasicInput,
