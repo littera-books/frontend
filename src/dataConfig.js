@@ -2,6 +2,8 @@ export default {
   baseUrl: 'http://localhost:8000',
   fontUrl:
     'https://fonts.googleapis.com/css?family=Nanum+Myeongjo:400,700&amp;subset=korean',
+  daumPostApiUrl:
+    'https://ssl.daumcdn.net/dmaps/map_js_init/postcode.v2.js?autoload=false',
   siteTitle: 'Littera',
   introText: '당신이 읽을 책과 읽어야 할 책',
   aboutText:

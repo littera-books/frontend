@@ -27,6 +27,11 @@ const SelectionText = styled.span`
   margin-left: 0.5rem;
 `;
 
+const SmallButton = styled(Element.BasicButton)`
+  margin: 1rem 0;
+  font-size: 0.75rem;
+`;
+
 const AlignRightButton = styled(Element.BasicButton)`
   margin-top: 3rem;
   margin-left: auto;
@@ -42,6 +47,7 @@ export default {
   QuestionItem,
   SelectionItem,
   SelectionText,
+  SmallButton,
   AlignRightButton,
   LongInput,
 };

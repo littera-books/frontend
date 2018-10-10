@@ -13,15 +13,29 @@ import BasicFormField from '../../../form/FormField';
 import Validation from '../../../form/Validation';
 import Helmet from '../../helmet/Helmet';
 
-// Stylec
+// Styled
 import Wrapper from '../../../styled_base/Wrapper';
 import Styled from './Survey.styled';
 import FormField from './FormField';
 
 class AddInfo extends React.Component {
-  state = {
-    popupFilter: false,
-  };
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      popupFilter: false,
+      postCode: '',
+    };
+
+    this.openPostCode = this.openPostCode.bind(this);
+  }
+
+  componentDidMount() {
+    const script = document.createElement('script');
+    document.head.appendChild(script);
+    script.src = dataConfig.daumPostApiUrl;
+    script.onload = () => this.initialPostCode(this);
+  }
 
   async onSubmit(payload) {
     const { create } = this.props;
@@ -35,6 +49,24 @@ class AddInfo extends React.Component {
       setPopup(dataConfig.popupMessage.signUp);
       this.setState({ popupFilter: true });
     }
+  }
+
+  initialPostCode() {
+    const { change } = this.props;
+    window.daum.postcode.load(() => {
+      const postCode = new window.daum.Postcode({
+        oncomplete: function oncomplete(data) {
+          change('address', `(${data.zonecode}) ${data.address}`);
+          alert('나머지 주소를 적어주세요');
+        },
+      });
+      this.setState({ postCode });
+    });
+  }
+
+  openPostCode() {
+    const { postCode } = this.state;
+    postCode.open();
   }
 
   render() {
@@ -86,6 +118,9 @@ class AddInfo extends React.Component {
               component={FormField.LongPlaceholderFormField}
               validate={Validation.required}
             />
+            <Styled.SmallButton type="button" onClick={this.openPostCode}>
+              우편번호 찾기
+            </Styled.SmallButton>
             <Field
               type="password"
               name="password1"
@@ -117,6 +152,7 @@ class AddInfo extends React.Component {
 }
 
 AddInfo.propTypes = {
+  change: PropTypes.func.isRequired,
   handleSubmit: PropTypes.func.isRequired,
   result: PropTypes.objectOf(PropTypes.string).isRequired,
   create: PropTypes.func.isRequired,
