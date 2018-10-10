@@ -1,11 +1,12 @@
 import styled from 'styled-components';
+import Wrapper from '../../../styled_base/Wrapper';
 import Element from '../../../styled_base/Element';
 
-const QuestionItem = styled.div`
+const QuestionItem = styled(Wrapper.BasicBlockWrapper)`
   margin: 2rem 0;
 `;
 
-const SelectionItem = styled.div`
+const SelectionItem = styled(Wrapper.BasicBlockWrapper)`
   text-indent: 1rem;
 `;
 

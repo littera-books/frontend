@@ -60,11 +60,7 @@ class Survey extends React.Component {
       <Wrapper.FlexWrapper>
         <Helmet pageTitle="Survey" />
         <Wrapper.ColumnWrapper>
-          <form
-            style={{ margin: '1rem' }}
-            action="post"
-            onSubmit={handleSubmit(this.onSubmit.bind(this))}
-          >
+          <form action="post" onSubmit={handleSubmit(this.onSubmit.bind(this))}>
             {this.renderQuestionItems()}
             <Styled.AlignRightButton type="submit">
               Submit
