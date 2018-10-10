@@ -6,7 +6,7 @@ import Slider from 'react-slick';
 import Helmet from '../../helmet/Helmet';
 
 // Styled
-import StyledBase from '../../../styled_base/Base';
+import StyledBase from '../../../styled_base/Wrapper';
 import Styled from './Log.styled';
 
 // CSS

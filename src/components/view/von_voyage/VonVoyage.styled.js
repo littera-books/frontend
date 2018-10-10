@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import StyledBase from '../../../styled_base/Base';
+import StyledBase from '../../../styled_base/Wrapper';
 
 const ItemWrapper = styled.div`
   display: flex;

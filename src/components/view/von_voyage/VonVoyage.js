@@ -9,7 +9,7 @@ import { listProduct } from '../../../reducers/reducer.product';
 import Helmet from '../../helmet/Helmet';
 
 // Styled
-import StyledBase from '../../../styled_base/Base';
+import StyledBase from '../../../styled_base/Wrapper';
 import Styled from './VonVoyage.styled';
 
 const Product = ({ item }) => (

@@ -10,7 +10,7 @@ import './utils/webfontloader';
 import Loadable from './loadable';
 
 // Styled
-import StyledBase from './styled_base/Base';
+import StyledBase from './styled_base/Wrapper';
 
 // Minireset.css
 import 'minireset.css/minireset.min.css';

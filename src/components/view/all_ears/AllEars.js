@@ -4,7 +4,7 @@ import React from 'react';
 import Helmet from '../../helmet/Helmet';
 
 // Styled
-import StyledBase from '../../../styled_base/Base';
+import StyledBase from '../../../styled_base/Wrapper';
 
 const AllEars = () => (
   <StyledBase.FlexWrapper>

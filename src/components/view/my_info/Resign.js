@@ -15,7 +15,7 @@ import Helmet from '../../helmet/Helmet';
 import { ResignFormField } from './FormField';
 
 // Styled
-import StyledBase from '../../../styled_base/Base';
+import StyledBase from '../../../styled_base/Wrapper';
 import Styled from './MyInfo.styled';
 
 class Resign extends React.Component {
