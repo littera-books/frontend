@@ -90,18 +90,18 @@ class VonVoyage extends React.Component {
       return (
         <Wrapper.FlexWrapper>
           <Helmet pageTitle="Von Voyage!" />
-          <Styled.ColumnForm
+          <form
             action="post"
             onSubmit={handleSubmit(this.onPurchase.bind(this))}
           >
-            <Styled.ItemWrapper>
+            <Wrapper.BasicFlexWrapper>
               {this.renderItems()}
               <Promotion />
-            </Styled.ItemWrapper>
+            </Wrapper.BasicFlexWrapper>
             <Styled.AlignRightButton type="submit">
               Purchase
             </Styled.AlignRightButton>
-          </Styled.ColumnForm>
+          </form>
         </Wrapper.FlexWrapper>
       );
     }
@@ -109,14 +109,11 @@ class VonVoyage extends React.Component {
     return (
       <Wrapper.FlexWrapper>
         <Helmet pageTitle="Von Voyage!" />
-        <Styled.ColumnForm
-          action="post"
-          onSubmit={handleSubmit(this.onPurchase.bind(this))}
-        >
+        <form action="post" onSubmit={handleSubmit(this.onPurchase.bind(this))}>
           {this.renderItems()}
           <Promotion />
           <Styled.FixedButton type="submit">Purchase</Styled.FixedButton>
-        </Styled.ColumnForm>
+        </form>
       </Wrapper.FlexWrapper>
     );
   }

@@ -1,14 +1,8 @@
 import styled from 'styled-components';
+import Wrapper from '../../../styled_base/Wrapper';
 import Element from '../../../styled_base/Element';
 
-const ItemWrapper = styled.div`
-  display: flex;
-  margin-bottom: 2rem;
-`;
-
-const ProductItem = styled.div`
-  display: flex;
-  flex-direction: column;
+const ProductItem = styled(Wrapper.ColumnWrapper)`
   justify-content: center;
   align-items: center;
   text-align: center;
@@ -24,16 +18,9 @@ const ProductItem = styled.div`
   }
 `;
 
-const ItemTitleGroup = styled.div`
+const ItemTitleGroup = styled(Wrapper.ColumnWrapper)`
   height: 14rem;
-  display: flex;
-  flex-direction: column;
   justify-content: center;
-`;
-
-const ColumnForm = styled.form`
-  display: block;
-  position: relative;
 `;
 
 const AlignRightButton = styled(Element.BasicButton)`
@@ -49,10 +36,8 @@ const FixedButton = styled(Element.BasicButton)`
 `;
 
 export default {
-  ItemWrapper,
   ProductItem,
   ItemTitleGroup,
-  ColumnForm,
   AlignRightButton,
   FixedButton,
 };
