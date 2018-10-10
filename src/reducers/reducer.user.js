@@ -71,7 +71,7 @@ export const patchPassword = async (payload) => {
       url: `/user/${payload.userId}`,
       method: 'patch',
       data: {
-        password: payload.password,
+        password: payload.password2,
       },
     });
   } catch (e) {
