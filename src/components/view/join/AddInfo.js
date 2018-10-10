@@ -2,8 +2,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Field, reduxForm } from 'redux-form';
 import { connect } from 'react-redux';
+import { createUser } from '../../../reducers/reducer.user';
+import { postResult } from '../../../reducers/reducer.question';
+import { setPopupHeaderMessage } from '../../../reducers/reducer.popup';
+import dataConfig from '../../../dataConfig';
 
 // Component
+import Loadable from '../../../loadable';
 import Helmet from '../../helmet/Helmet';
 
 // Stylec
@@ -13,18 +18,27 @@ import Styled from './Survey.styled';
 import FormField from './FormField';
 
 class AddInfo extends React.Component {
-  componentDidMount() {
-    const { result } = this.props;
-    console.log(result);
-  }
+  state = {
+    popupFilter: false,
+  };
 
   async onSubmit(payload) {
-    console.log(payload);
-    console.log(this.props);
+    const { create } = this.props;
+    await create(payload);
+
+    const {
+      error, result, post, setPopup, userId,
+    } = this.props;
+    if (!error) {
+      post(userId, result);
+      setPopup(dataConfig.popupMessage.signUp);
+      this.setState({ popupFilter: true });
+    }
   }
 
   render() {
-    const { handleSubmit } = this.props;
+    const { popupFilter } = this.state;
+    const { handleSubmit, history } = this.props;
     return (
       <Wrapper.FlexWrapper>
         <Helmet pageTitle="Add Info" />
@@ -79,6 +93,12 @@ class AddInfo extends React.Component {
             </Styled.AlignRightButton>
           </form>
         </Wrapper.ColumnWrapper>
+        {popupFilter ? (
+          <Loadable.SimplePopup
+            replace={history.replace}
+            destination="/sign-in"
+          />
+        ) : null}
       </Wrapper.FlexWrapper>
     );
   }
@@ -87,12 +107,31 @@ class AddInfo extends React.Component {
 AddInfo.propTypes = {
   handleSubmit: PropTypes.func.isRequired,
   result: PropTypes.objectOf(PropTypes.string).isRequired,
+  create: PropTypes.func.isRequired,
+  history: PropTypes.shape({
+    replace: PropTypes.func.isRequired,
+  }).isRequired,
+  post: PropTypes.func.isRequired,
+  setPopup: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = state => ({
   result: state.question.result,
+  userId: state.user.userId,
+  error: state.user.error,
+});
+
+const mapDispatchToProps = dispatch => ({
+  create: payload => dispatch(createUser(payload)),
+  post: (userId, payload) => dispatch(postResult(userId, payload)),
+  setPopup: payload => dispatch(setPopupHeaderMessage(payload)),
 });
 
 export default reduxForm({
   form: 'AddInfoForm',
-})(connect(mapStateToProps)(AddInfo));
+})(
+  connect(
+    mapStateToProps,
+    mapDispatchToProps,
+  )(AddInfo),
+);
