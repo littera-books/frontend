@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
 // Styled
-import StyledBase from '../../../styled/Base';
+import StyledBase from '../../../styled_base/Base';
 import Styled from './Title.styled';
 
 // Images

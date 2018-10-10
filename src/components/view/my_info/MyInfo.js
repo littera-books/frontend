@@ -8,7 +8,7 @@ import { readToken, retrieveInfo } from '../../../reducers/reducer.user';
 import Helmet from '../../helmet/Helmet';
 
 // Styled
-import StyledBase from '../../../styled/Base';
+import StyledBase from '../../../styled_base/Base';
 import Styled from './MyInfo.styled';
 
 class MyInfo extends React.Component {

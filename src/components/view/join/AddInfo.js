@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 import Helmet from '../../helmet/Helmet';
 
 // Stylec
-import StyledBase from '../../../styled/Base';
+import StyledBase from '../../../styled_base/Base';
 
 class AddInfo extends React.Component {
   componentDidMount() {

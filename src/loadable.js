@@ -1,6 +1,6 @@
 import React from 'react';
 import Loadable from 'react-loadable';
-import StyledBase from './styled/Base';
+import StyledBase from './styled_base/Base';
 
 const Loading = () => (
   <StyledBase.FlexWrapper>

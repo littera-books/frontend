@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { initializePopup } from '../../../reducers/reducer.popup';
 
 // Styled
-import StyledBase from '../../../styled/Base';
+import StyledBase from '../../../styled_base/Base';
 import Styled from './Popup.styled';
 
 class ConfirmPopup extends React.Component {

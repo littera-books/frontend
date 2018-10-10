@@ -13,7 +13,7 @@ import Loadable from '../../../loadable';
 import Helmet from '../../helmet/Helmet';
 
 // Styled
-import StyledBase from '../../../styled/Base';
+import StyledBase from '../../../styled_base/Base';
 import Styled from './MyInfo.styled';
 import 'quill/dist/quill.core.css';
 import 'quill/dist/quill.bubble.css';

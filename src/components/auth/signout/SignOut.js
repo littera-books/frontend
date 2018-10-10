@@ -10,7 +10,7 @@ import Loadable from '../../../loadable';
 import Helmet from '../../helmet/Helmet';
 
 // Styled
-import StyledBase from '../../../styled/Base';
+import StyledBase from '../../../styled_base/Base';
 
 class SignOut extends React.Component {
   state = {

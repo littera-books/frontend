@@ -8,7 +8,7 @@ import {
 } from '../../../reducers/reducer.controlTitle';
 
 // Styled
-import StyledBase from '../../../styled/Base';
+import StyledBase from '../../../styled_base/Base';
 
 // data
 import dataConfig from '../../../dataConfig';

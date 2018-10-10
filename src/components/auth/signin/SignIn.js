@@ -13,7 +13,7 @@ import Helmet from '../../helmet/Helmet';
 import FormField from '../FormField';
 
 // Styled
-import StyledBase from '../../../styled/Base';
+import StyledBase from '../../../styled_base/Base';
 import Styled from './SignIn.styled';
 
 export class SignIn extends React.Component {

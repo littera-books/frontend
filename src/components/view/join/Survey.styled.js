@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import StyledBase from '../../../styled/Base';
+import StyledBase from '../../../styled_base/Base';
 
 const QuestionItem = styled.div`
   margin: 2rem 0;

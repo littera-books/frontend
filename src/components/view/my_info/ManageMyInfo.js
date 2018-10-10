@@ -10,7 +10,7 @@ import Helmet from '../../helmet/Helmet';
 import FormField from './FormField';
 
 // Styled
-import StyledBase from '../../../styled/Base';
+import StyledBase from '../../../styled_base/Base';
 import Styled from './MyInfo.styled';
 
 class ManageMyInfo extends React.Component {

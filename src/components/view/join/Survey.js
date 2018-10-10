@@ -9,7 +9,7 @@ import { listQuestion, saveResult } from '../../../reducers/reducer.question';
 import Helmet from '../../helmet/Helmet';
 
 // Styled
-import StyledBase from '../../../styled/Base';
+import StyledBase from '../../../styled_base/Base';
 import Styled from './Survey.styled';
 
 class Survey extends React.Component {
