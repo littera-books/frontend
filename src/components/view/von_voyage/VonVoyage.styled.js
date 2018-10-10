@@ -33,8 +33,10 @@ const ItemTitleGroup = styled(Wrapper.ColumnWrapper)`
 `;
 
 const AlignRightButton = styled(Element.BasicButton)`
+  margin-top: 3rem;
   margin-left: auto;
-  margin-right: 4rem;
+  margin-right: 1rem;
+  width: 13rem;
 `;
 
 const FixedButton = styled(Element.BasicButton)`
