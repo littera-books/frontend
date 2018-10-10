@@ -57,17 +57,20 @@ class Survey extends React.Component {
   render() {
     const { handleSubmit } = this.props;
     return (
-      <Wrapper.FlexWrapper>
+      <Styled.ScrollFlexWrapper>
         <Helmet pageTitle="Survey" />
         <Wrapper.ColumnWrapper>
-          <form action="post" onSubmit={handleSubmit(this.onSubmit.bind(this))}>
+          <Styled.MarginForm
+            action="post"
+            onSubmit={handleSubmit(this.onSubmit.bind(this))}
+          >
             {this.renderQuestionItems()}
             <Styled.AlignRightButton type="submit">
               Submit
             </Styled.AlignRightButton>
-          </form>
+          </Styled.MarginForm>
         </Wrapper.ColumnWrapper>
-      </Wrapper.FlexWrapper>
+      </Styled.ScrollFlexWrapper>
     );
   }
 }

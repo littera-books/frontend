@@ -2,6 +2,19 @@ import styled from 'styled-components';
 import Wrapper from '../../../styled_base/Wrapper';
 import Element from '../../../styled_base/Element';
 
+const ScrollFlexWrapper = styled(Wrapper.FlexWrapper)`
+  margin-top: 10rem;
+
+  @media (max-width: 375px) {
+    margin-top: 8rem;
+  }
+`;
+
+const MarginForm = styled.form`
+  margin: 1rem;
+  margin-bottom: 3rem;
+`;
+
 const QuestionItem = styled(Wrapper.BasicBlockWrapper)`
   margin: 2rem 0;
 `;
@@ -20,6 +33,8 @@ const AlignRightButton = styled(Element.BasicButton)`
 `;
 
 export default {
+  ScrollFlexWrapper,
+  MarginForm,
   QuestionItem,
   SelectionItem,
   SelectionText,
