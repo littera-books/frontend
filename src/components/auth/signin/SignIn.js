@@ -48,10 +48,7 @@ export class SignIn extends React.Component {
       <Wrapper.FlexWrapper>
         <Helmet pageTitle="SignIn" />
         <Wrapper.ColumnWrapper>
-          <Styled.FormWrapper
-            action="post"
-            onSubmit={handleSubmit(this.onSubmit.bind(this))}
-          >
+          <form action="post" onSubmit={handleSubmit(this.onSubmit.bind(this))}>
             <Field
               type="text"
               name="email"
@@ -70,7 +67,7 @@ export class SignIn extends React.Component {
             <Styled.SignInButton type="submit">
               <strong>SIGN IN</strong>
             </Styled.SignInButton>
-          </Styled.FormWrapper>
+          </form>
           <Link to="/survey">Not a member yet?</Link>
           <p>Forgot your password?</p>
         </Wrapper.ColumnWrapper>
