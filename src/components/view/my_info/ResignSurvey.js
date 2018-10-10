@@ -88,18 +88,18 @@ class ResignSurvey extends React.Component {
     return (
       <Wrapper.FlexWrapper>
         <Helmet pageTitle="Resign Survey" />
-        <Wrapper.ColumnWrapper>
+        <Styled.InfoWrapper>
           <form action="post" onSubmit={handleSubmit(this.onSubmit.bind(this))}>
             <Styled.QuillEditor id="editor" />
             <div>
-              <Element.Small>{required}</Element.Small>
-              <Element.Small>{error}</Element.Small>
+              <Element.BasicSmall>{required}</Element.BasicSmall>
+              <Element.BasicSmall>{error}</Element.BasicSmall>
             </div>
             <Styled.AlignRightButton type="submit">
               Send
             </Styled.AlignRightButton>
           </form>
-        </Wrapper.ColumnWrapper>
+        </Styled.InfoWrapper>
         {popupFilter ? (
           <Loadable.SimplePopup replace={history.replace} destination="/main" />
         ) : null}
