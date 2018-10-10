@@ -85,6 +85,9 @@ class ManageMyInfo extends React.Component {
               validate={Validation.required}
             />
             <Styled.ButtonGroup>
+              <Link to="/my-info/patch-password">Patch Password</Link>
+            </Styled.ButtonGroup>
+            <Styled.ButtonGroup>
               <Link to="/my-info/resign">Resign</Link>
               <Element.BasicButton type="submit">
                 Confirm Change

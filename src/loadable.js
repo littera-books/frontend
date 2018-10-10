@@ -63,6 +63,11 @@ const ManageMyInfo = Loadable({
   loading: Loading,
 });
 
+const PatchPassword = Loadable({
+  loader: () => import('./components/view/my_info/PatchPassword'),
+  loading: Loading,
+});
+
 const Resign = Loadable({
   loader: () => import('./components/view/my_info/Resign'),
   loading: Loading,
@@ -105,6 +110,7 @@ export default {
   Log,
   MyInfo,
   ManageMyInfo,
+  PatchPassword,
   Resign,
   ResignSurvey,
   VonVoyage,
