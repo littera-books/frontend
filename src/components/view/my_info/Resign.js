@@ -12,6 +12,7 @@ import dataConfig from '../../../dataConfig';
 // Components
 import Loadable from '../../../loadable';
 import BasicFormField from '../../../form/FormField';
+import Validation from '../../../form/Validation';
 import Helmet from '../../helmet/Helmet';
 
 // Styled
@@ -68,6 +69,7 @@ class Resign extends React.Component {
             name="password"
             placeholder="Write your password..."
             component={BasicFormField.PlaceholderFormField}
+            validate={Validation.required}
           />
           <Styled.AlignRightButton type="submit">
             Resign

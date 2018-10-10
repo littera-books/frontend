@@ -6,6 +6,7 @@ const ResponsiveImg = styled.img`
 `;
 
 const BasicSmall = styled.small`
+  display: block;
   font-size: 0.5rem;
   color: red;
 `;

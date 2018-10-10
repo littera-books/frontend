@@ -7,6 +7,7 @@ import { updateInfo } from '../../../reducers/reducer.user';
 
 // Components
 import BasicFormField from '../../../form/FormField';
+import Validation from '../../../form/Validation';
 import Helmet from '../../helmet/Helmet';
 
 // Styled
@@ -53,6 +54,7 @@ class ManageMyInfo extends React.Component {
                 type="text"
                 name="firstName"
                 component={BasicFormField.BasicFormField}
+                validate={[Validation.required, Validation.maxLength20]}
               />
               <Field
                 type="text"
@@ -64,16 +66,23 @@ class ManageMyInfo extends React.Component {
               type="email"
               name="email"
               component={BasicFormField.BasicFormField}
+              validate={[Validation.required, Validation.email]}
             />
             <Field
               type="tel"
               name="phone"
               component={BasicFormField.BasicFormField}
+              validate={[
+                Validation.required,
+                Validation.maxLength20,
+                Validation.number,
+              ]}
             />
             <Field
               type="text"
               name="address"
               component={BasicFormField.BasicFormField}
+              validate={Validation.required}
             />
             <Styled.ButtonGroup>
               <Link to="/my-info/resign">Resign</Link>

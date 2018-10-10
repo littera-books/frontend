@@ -10,6 +10,7 @@ import dataConfig from '../../../dataConfig';
 // Components
 import Loadable from '../../../loadable';
 import BasicFormField from '../../../form/FormField';
+import Validation from '../../../form/Validation';
 import Helmet from '../../helmet/Helmet';
 
 // Styled
@@ -54,12 +55,14 @@ export class SignIn extends React.Component {
               name="email"
               placeholder="Identification"
               component={BasicFormField.PlaceholderFormField}
+              validate={[Validation.required, Validation.email]}
             />
             <Field
               type="password"
               name="password"
               placeholder="Password"
               component={BasicFormField.PlaceholderFormField}
+              validate={Validation.required}
             />
             <div>
               <Element.BasicSmall>{error}</Element.BasicSmall>

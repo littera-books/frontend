@@ -10,6 +10,7 @@ import dataConfig from '../../../dataConfig';
 // Component
 import Loadable from '../../../loadable';
 import BasicFormField from '../../../form/FormField';
+import Validation from '../../../form/Validation';
 import Helmet from '../../helmet/Helmet';
 
 // Stylec
@@ -50,12 +51,14 @@ class AddInfo extends React.Component {
                 name="firstName"
                 placeholder="first name"
                 component={BasicFormField.PlaceholderFormField}
+                validate={[Validation.required, Validation.maxLength20]}
               />
               <Field
                 type="text"
                 name="lastName"
                 placeholder="last name"
                 component={BasicFormField.PlaceholderFormField}
+                validate={[Validation.required, Validation.maxLength20]}
               />
             </Wrapper.BetweenWrapper>
             <Field
@@ -63,30 +66,39 @@ class AddInfo extends React.Component {
               name="email"
               placeholder="E-mail address (your identification)"
               component={FormField.LongPlaceholderFormField}
+              validate={[Validation.required, Validation.email]}
             />
             <Field
               type="tel"
               name="phone"
               placeholder="Contact No."
               component={FormField.LongPlaceholderFormField}
+              validate={[
+                Validation.required,
+                Validation.maxLength20,
+                Validation.number,
+              ]}
             />
             <Field
               type="text"
               name="address"
               placeholder="Contact Address (Where your books arrive)"
               component={FormField.LongPlaceholderFormField}
+              validate={Validation.required}
             />
             <Field
               type="password"
               name="password1"
               placeholder="Password (With 8 characters or more)"
               component={FormField.LongPlaceholderFormField}
+              validate={[Validation.required, Validation.minLength8]}
             />
             <Field
               type="password"
               name="password2"
               placeholder="Confirm password"
               component={FormField.LongPlaceholderFormField}
+              validate={[Validation.required, Validation.minLength8]}
             />
             <Styled.AlignRightButton type="submit">
               Register
@@ -127,8 +139,17 @@ const mapDispatchToProps = dispatch => ({
   setPopup: payload => dispatch(setPopupHeaderMessage(payload)),
 });
 
+const validate = (values) => {
+  const errors = {};
+  if (values.password1 !== values.password2) {
+    errors.password2 = 'Password is not correct';
+  }
+  return errors;
+};
+
 export default reduxForm({
   form: 'AddInfoForm',
+  validate,
 })(
   connect(
     mapStateToProps,

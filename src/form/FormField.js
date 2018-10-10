@@ -3,20 +3,27 @@ import React from 'react';
 // Styled
 import Element from '../styled_base/Element';
 
-const BasicFormField = field => (
+const BasicFormField = ({ input, type, meta: { touched, error } }) => (
   <div>
-    <Element.BasicInput type={field.type} {...field.input} required />
+    <Element.BasicInput type={type} {...input} required />
+    {touched && (error && <Element.BasicSmall>{error}</Element.BasicSmall>)}
   </div>
 );
 
-const PlaceholderFormField = field => (
+const PlaceholderFormField = ({
+  input,
+  type,
+  placeholder,
+  meta: { touched, error },
+}) => (
   <div>
     <Element.BasicInput
-      type={field.type}
-      placeholder={field.placeholder}
-      {...field.input}
+      type={type}
+      placeholder={placeholder}
+      {...input}
       required
     />
+    {touched && (error && <Element.BasicSmall>{error}</Element.BasicSmall>)}
   </div>
 );
 
