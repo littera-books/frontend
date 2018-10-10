@@ -88,7 +88,7 @@ class Main extends React.Component {
     }
 
     return (
-      <Styled.CarouselWrapper id="carousel">
+      <Wrapper.MobileBlockWrapper id="carousel">
         <Helmet pageTitle="Main" />
         <Slider {...settings}>
           <Link to="/about">
@@ -110,7 +110,7 @@ class Main extends React.Component {
             <Card img={AllEars} name="&quot;I'm All Ears&quot;" />
           </Link>
         </Slider>
-      </Styled.CarouselWrapper>
+      </Wrapper.MobileBlockWrapper>
     );
   }
 }

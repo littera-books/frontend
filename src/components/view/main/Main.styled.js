@@ -2,14 +2,6 @@ import styled from 'styled-components';
 import Wrapper from '../../../styled_base/Wrapper';
 import Element from '../../../styled_base/Element';
 
-const CarouselWrapper = styled(Wrapper.BasicBlockWrapper)`
-  margin-top: 10rem;
-
-  @media (max-width: 375px) {
-    margin-top: 8rem;
-  }
-`;
-
 const CardWrapper = styled(Wrapper.BasicBlockWrapper)`
   margin: 0 1rem;
   width: 13rem;
@@ -48,7 +40,6 @@ const OpacityImg = styled(Element.ResponsiveImg)`
 `;
 
 export default {
-  CarouselWrapper,
   CardWrapper,
   CardTitle,
   OpacityImg,

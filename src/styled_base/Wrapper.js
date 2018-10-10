@@ -43,6 +43,14 @@ const BasicBlockWrapper = styled.div`
   display: block;
 `;
 
+const MobileBlockWrapper = styled(BasicBlockWrapper)`
+  margin-top: 10rem;
+
+  @media (max-width: 375px) {
+    margin-top: 8rem;
+  }
+`;
+
 const BasicFlexWrapper = styled.div`
   position: relative;
   display: flex;
@@ -67,6 +75,7 @@ const BetweenWrapper = styled(BasicFlexWrapper)`
 export default {
   App,
   BasicBlockWrapper,
+  MobileBlockWrapper,
   BasicFlexWrapper,
   FlexWrapper,
   ColumnWrapper,
