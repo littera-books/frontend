@@ -112,9 +112,15 @@ class Main extends React.Component {
           <Link to="/von-voyage">
             <Card img={BonVoyage} name="&quot;Von Voyage!&quot;" />
           </Link>
-          <Link to="/all-ears">
-            <Card img={AllEars} name="&quot;I'm All Ears&quot;" />
-          </Link>
+          {sessionStorage.getItem('token') ? (
+            <Link to="/all-ears/send">
+              <Card img={AllEars} name="&quot;I'm All Ears&quot;" />
+            </Link>
+          ) : (
+            <Link to="/all-ears">
+              <Card img={AllEars} name="&quot;I'm All Ears&quot;" />
+            </Link>
+          )}
         </Slider>
       </Wrapper.MobileBlockWrapper>
     );
