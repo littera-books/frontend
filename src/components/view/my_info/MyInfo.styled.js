@@ -7,15 +7,6 @@ const InfoWrapper = styled(Wrapper.ColumnWrapper)`
   margin: 1rem;
 `;
 
-const QuillEditor = styled(Wrapper.BasicBlockWrapper)`
-  .ql-editor {
-    font-family: 'Silk Remington', 'Nanum Myeongjo';
-    font-size: 1rem;
-    line-height: 2;
-    margin-bottom: 1rem;
-  }
-`;
-
 const ButtonGroup = styled(Wrapper.BetweenWrapper)`
   margin: 1rem 0;
 `;
@@ -27,7 +18,6 @@ const AlignRightButton = styled(Element.BasicButton)`
 
 export default {
   InfoWrapper,
-  QuillEditor,
   AlignRightButton,
   ButtonGroup,
 };

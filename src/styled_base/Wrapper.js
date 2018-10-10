@@ -72,6 +72,15 @@ const BetweenWrapper = styled(BasicFlexWrapper)`
   justify-content: space-between;
 `;
 
+const QuillEditor = styled(BasicBlockWrapper)`
+  .ql-editor {
+    font-family: 'Silk Remington', 'Nanum Myeongjo';
+    font-size: 1rem;
+    line-height: 2;
+    margin-bottom: 1rem;
+  }
+`;
+
 export default {
   App,
   BasicBlockWrapper,
@@ -80,4 +89,5 @@ export default {
   FlexWrapper,
   ColumnWrapper,
   BetweenWrapper,
+  QuillEditor,
 };

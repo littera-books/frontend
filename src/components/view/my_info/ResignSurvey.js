@@ -90,7 +90,7 @@ class ResignSurvey extends React.Component {
         <Helmet pageTitle="Resign Survey" />
         <Styled.InfoWrapper>
           <form action="post" onSubmit={handleSubmit(this.onSubmit.bind(this))}>
-            <Styled.QuillEditor id="editor" />
+            <Wrapper.QuillEditor id="editor" />
             <div>
               <Element.BasicSmall>{required}</Element.BasicSmall>
               <Element.BasicSmall>{error}</Element.BasicSmall>
