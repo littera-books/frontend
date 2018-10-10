@@ -1,11 +1,11 @@
 import React from 'react';
 
 // Styled
-import Styled from './MyInfo.styled';
+import Element from '../../../styled_base/Element';
 
 export const ResignFormField = field => (
   <div>
-    <Styled.ManageInput
+    <Element.BasicInput
       type={field.type}
       placeholder={field.placeholder}
       {...field.input}
@@ -16,7 +16,7 @@ export const ResignFormField = field => (
 
 const FormField = field => (
   <div>
-    <Styled.ManageInput type={field.type} {...field.input} required />
+    <Element.BasicInput type={field.type} {...field.input} required />
   </div>
 );
 

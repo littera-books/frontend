@@ -88,7 +88,7 @@ class ResignSurvey extends React.Component {
     return (
       <Wrapper.FlexWrapper>
         <Helmet pageTitle="Resign Survey" />
-        <Styled.InfoWrapper>
+        <Wrapper.ColumnWrapper>
           <form action="post" onSubmit={handleSubmit(this.onSubmit.bind(this))}>
             <Styled.QuillEditor id="editor" />
             <div>
@@ -99,7 +99,7 @@ class ResignSurvey extends React.Component {
               Send
             </Styled.AlignRightButton>
           </form>
-        </Styled.InfoWrapper>
+        </Wrapper.ColumnWrapper>
         {popupFilter ? (
           <Loadable.SimplePopup replace={history.replace} destination="/main" />
         ) : null}

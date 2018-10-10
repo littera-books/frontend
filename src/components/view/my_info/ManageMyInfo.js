@@ -48,10 +48,10 @@ class ManageMyInfo extends React.Component {
         <Helmet pageTitle="Manage My Info" />
         <Styled.InfoWrapper>
           <form action="post" onSubmit={handleSubmit(this.onSubmit.bind(this))}>
-            <Styled.NameWrapper>
+            <Wrapper.BetweenWrapper>
               <Field type="text" name="firstName" component={FormField} />
               <Field type="text" name="lastName" component={FormField} />
-            </Styled.NameWrapper>
+            </Wrapper.BetweenWrapper>
             <Field type="text" name="email" component={FormField} />
             <Field type="text" name="phone" component={FormField} />
             <Field type="text" name="address" component={FormField} />

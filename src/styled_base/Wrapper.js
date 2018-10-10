@@ -61,10 +61,15 @@ const ColumnWrapper = styled(BasicFlexWrapper)`
   flex-direction: column;
 `;
 
+const BetweenWrapper = styled(BasicFlexWrapper)`
+  justify-content: space-between;
+`;
+
 export default {
   App,
   BasicBlockWrapper,
   BasicFlexWrapper,
   FlexWrapper,
   ColumnWrapper,
+  BetweenWrapper,
 };
