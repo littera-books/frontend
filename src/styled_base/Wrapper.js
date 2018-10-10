@@ -52,9 +52,8 @@ const FlexWrapper = styled(BasicFlexWrapper)`
   justify-content: center;
   align-items: center;
   max-width: 60rem;
-  min-height: calc(100vh - 20rem); // margin-bottom + title-height = 20rem
+  min-height: 100vh;
   margin: auto;
-  margin-bottom: 10rem;
 `;
 
 const ColumnWrapper = styled(BasicFlexWrapper)`
