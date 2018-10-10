@@ -7,11 +7,11 @@ import { updateInfo } from '../../../reducers/reducer.user';
 
 // Components
 import Helmet from '../../helmet/Helmet';
-import FormField from './FormField';
 
 // Styled
 import Wrapper from '../../../styled_base/Wrapper';
 import Element from '../../../styled_base/Element';
+import BasicFormField from '../../../styled_base/FormField';
 import Styled from './MyInfo.styled';
 
 class ManageMyInfo extends React.Component {
@@ -49,12 +49,32 @@ class ManageMyInfo extends React.Component {
         <Styled.InfoWrapper>
           <form action="post" onSubmit={handleSubmit(this.onSubmit.bind(this))}>
             <Wrapper.BetweenWrapper>
-              <Field type="text" name="firstName" component={FormField} />
-              <Field type="text" name="lastName" component={FormField} />
+              <Field
+                type="text"
+                name="firstName"
+                component={BasicFormField.BasicFormField}
+              />
+              <Field
+                type="text"
+                name="lastName"
+                component={BasicFormField.BasicFormField}
+              />
             </Wrapper.BetweenWrapper>
-            <Field type="text" name="email" component={FormField} />
-            <Field type="text" name="phone" component={FormField} />
-            <Field type="text" name="address" component={FormField} />
+            <Field
+              type="email"
+              name="email"
+              component={BasicFormField.BasicFormField}
+            />
+            <Field
+              type="tel"
+              name="phone"
+              component={BasicFormField.BasicFormField}
+            />
+            <Field
+              type="text"
+              name="address"
+              component={BasicFormField.BasicFormField}
+            />
             <Styled.ButtonGroup>
               <Link to="/my-info/resign">Resign</Link>
               <Element.BasicButton type="submit">

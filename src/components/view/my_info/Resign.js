@@ -12,10 +12,10 @@ import dataConfig from '../../../dataConfig';
 // Components
 import Loadable from '../../../loadable';
 import Helmet from '../../helmet/Helmet';
-import { ResignFormField } from './FormField';
 
 // Styled
 import Wrapper from '../../../styled_base/Wrapper';
+import BasicFormField from '../../../styled_base/FormField';
 import Styled from './MyInfo.styled';
 
 class Resign extends React.Component {
@@ -67,7 +67,7 @@ class Resign extends React.Component {
             type="password"
             name="password"
             placeholder="Write your password..."
-            component={ResignFormField}
+            component={BasicFormField.PlaceholderFormField}
           />
           <Styled.AlignRightButton type="submit">
             Resign

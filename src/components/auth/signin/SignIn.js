@@ -10,11 +10,11 @@ import dataConfig from '../../../dataConfig';
 // Components
 import Loadable from '../../../loadable';
 import Helmet from '../../helmet/Helmet';
-import FormField from '../FormField';
 
 // Styled
 import Wrapper from '../../../styled_base/Wrapper';
 import Element from '../../../styled_base/Element';
+import BasicFormField from '../../../styled_base/FormField';
 import Styled from './SignIn.styled';
 
 export class SignIn extends React.Component {
@@ -50,16 +50,16 @@ export class SignIn extends React.Component {
         <Wrapper.ColumnWrapper>
           <form action="post" onSubmit={handleSubmit(this.onSubmit.bind(this))}>
             <Field
-              type="text"
+              type="email"
               name="email"
-              label="Identification"
-              component={FormField}
+              placeholder="Identification"
+              component={BasicFormField.PlaceholderFormField}
             />
             <Field
               type="password"
               name="password"
-              label="Password"
-              component={FormField}
+              placeholder="Password"
+              component={BasicFormField.PlaceholderFormField}
             />
             <div>
               <Element.BasicSmall>{error}</Element.BasicSmall>
