@@ -43,6 +43,7 @@ const BasicBlockWrapper = styled.div`
 `;
 
 const BasicFlexWrapper = styled.div`
+  position: relative;
   display: flex;
 `;
 
@@ -55,8 +56,7 @@ const FlexWrapper = styled(BasicFlexWrapper)`
   margin-bottom: 10rem;
 `;
 
-const ColumnWrapper = styled.div`
-  display: flex;
+const ColumnWrapper = styled(BasicFlexWrapper)`
   flex-direction: column;
 `;
 

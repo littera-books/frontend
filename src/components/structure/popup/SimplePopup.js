@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { initializePopup } from '../../../reducers/reducer.popup';
 
 // Styled
+import Element from '../../../styled_base/Element';
 import Styled from './Popup.styled';
 
 class SimplePopup extends React.Component {
@@ -29,10 +30,10 @@ class SimplePopup extends React.Component {
             <h3>
               <strong>{header}</strong>
             </h3>
-            <Styled.PopupCloseButton type="button" onClick={this.closePopup}>
+            <Element.BasicButton type="button" onClick={this.closePopup}>
               <strong>&times;</strong>
               &nbsp;
-            </Styled.PopupCloseButton>
+            </Element.BasicButton>
           </Styled.PopupHeader>
           <Styled.PopupBody>
             <p>{message}</p>
