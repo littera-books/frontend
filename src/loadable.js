@@ -88,6 +88,11 @@ const AllEars = Loadable({
   loading: Loading,
 });
 
+const SendLetter = Loadable({
+  loader: () => import('./components/view/all_ears/SendLetter'),
+  loading: Loading,
+});
+
 const SimplePopup = Loadable({
   loader: () => import('./components/structure/popup/SimplePopup'),
   loading: Loading,
@@ -115,6 +120,7 @@ export default {
   ResignSurvey,
   VonVoyage,
   AllEars,
+  SendLetter,
   SimplePopup,
   ConfirmPopup,
 };
