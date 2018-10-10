@@ -49,33 +49,50 @@ class Log extends React.Component {
       return (
         <Wrapper.FlexWrapper>
           <Helmet pageTitle="Log" />
-          <Styled.SectionItem>
-            <Link to="/my-info">My Info</Link>
-          </Styled.SectionItem>
-          <Styled.SectionItem>Letter Box</Styled.SectionItem>
-          <Styled.SectionItem>Purchase</Styled.SectionItem>
-          <Styled.SectionItem>
-            <Link to="/sign-out">SIGN OUT</Link>
-          </Styled.SectionItem>
+          <Styled.SectionWrapper>
+            <Styled.SectionItem>
+              <Link to="/my-info">My Info</Link>
+            </Styled.SectionItem>
+          </Styled.SectionWrapper>
+          <Styled.SectionWrapper>
+            <Styled.SectionItem>Letter Box</Styled.SectionItem>
+          </Styled.SectionWrapper>
+          <Styled.SectionWrapper>
+            <Styled.SectionItem>Purchase</Styled.SectionItem>
+          </Styled.SectionWrapper>
+          <Styled.SectionWrapper>
+            <Styled.SectionItem>
+              <Link to="/sign-out">SIGN OUT</Link>
+            </Styled.SectionItem>
+          </Styled.SectionWrapper>
         </Wrapper.FlexWrapper>
       );
     }
 
     return (
-      <Wrapper.BasicBlockWrapper id="carousel">
+      <Wrapper.MobileBlockWrapper id="carousel">
         <Helmet pageTitle="Log" />
         <Slider {...settings}>
-          <Styled.SectionItem>
-            <Link to="/my-info">My Info</Link>
-          </Styled.SectionItem>
-          <Styled.SectionItem>Letter Box</Styled.SectionItem>
-          <Styled.SectionItem>Purchase</Styled.SectionItem>
-          <Styled.SectionItem>
-            <Link to="/sign-out">SIGN OUT</Link>
-          </Styled.SectionItem>
+          <Styled.SectionWrapper>
+            <Styled.SectionItem>
+              <Link to="/my-info">My Info</Link>
+            </Styled.SectionItem>
+          </Styled.SectionWrapper>
+          <Styled.SectionWrapper>
+            <Styled.SectionItem>Letter Box</Styled.SectionItem>
+          </Styled.SectionWrapper>
+          <Styled.SectionWrapper>
+            <Styled.SectionItem>Purchase</Styled.SectionItem>
+          </Styled.SectionWrapper>
+          <Styled.SectionWrapper>
+            <Styled.SectionItem>
+              <Link to="/sign-out">SIGN OUT</Link>
+            </Styled.SectionItem>
+          </Styled.SectionWrapper>
         </Slider>
-      </Wrapper.BasicBlockWrapper>
+      </Wrapper.MobileBlockWrapper>
     );
   }
 }
+
 export default Log;

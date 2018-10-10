@@ -1,27 +1,34 @@
 import styled from 'styled-components';
 import Wrapper from '../../../styled_base/Wrapper';
 
-const SectionItem = styled(Wrapper.BasicBlockWrapper)`
-  margin: 1rem 0;
-  width: 15rem;
+const SectionWrapper = styled(Wrapper.BasicBlockWrapper)`
+  margin: 0 1rem;
+  width: 13rem;
   text-align: center;
 
   @media (max-width: 414px) {
-    height: calc(100vh - 15.75rem);
-
-    a {
-      position: absolute;
-      top: 40%;
-      left: 50%;
-      transform: translate(-50%);
-    }
+    margin: 0;
+    height: 32rem;
   }
 
   @media (max-width: 375px) {
-    height: calc(100vh - 12rem);
+    margin: 0;
+    height: 30rem;
+  }
+
+  @media (max-width: 320px) {
+    margin: 0;
+    height: 23rem;
   }
 `;
 
+const SectionItem = styled(Wrapper.BasicFlexWrapper)`
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+`;
+
 export default {
+  SectionWrapper,
   SectionItem,
 };
