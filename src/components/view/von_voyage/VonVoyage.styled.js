@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import StyledBase from '../../../styled_base/Wrapper';
+import Element from '../../../styled_base/Element';
 
 const ItemWrapper = styled.div`
   display: flex;
@@ -36,12 +36,12 @@ const ColumnForm = styled.form`
   position: relative;
 `;
 
-const AlignRightButton = styled(StyledBase.BasicButton)`
+const AlignRightButton = styled(Element.BasicButton)`
   margin-left: auto;
   margin-right: 4rem;
 `;
 
-const FixedButton = styled(StyledBase.BasicButton)`
+const FixedButton = styled(Element.BasicButton)`
   position: fixed;
   bottom: 0;
   right: 0;

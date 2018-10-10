@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { initializePopup } from '../../../reducers/reducer.popup';
 
 // Styled
-import StyledBase from '../../../styled_base/Wrapper';
+import Element from '../../../styled_base/Element';
 import Styled from './Popup.styled';
 
 class ConfirmPopup extends React.Component {
@@ -48,7 +48,7 @@ class ConfirmPopup extends React.Component {
           <Styled.PopupBody>
             <p>{message}</p>
             <div>
-              <StyledBase.Small>{error}</StyledBase.Small>
+              <Element.BasicSmall>{error}</Element.BasicSmall>
             </div>
           </Styled.PopupBody>
           <Styled.PopupFooter>

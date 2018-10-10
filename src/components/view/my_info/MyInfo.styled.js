@@ -1,12 +1,13 @@
 import styled from 'styled-components';
-import StyledBase from '../../../styled_base/Wrapper';
+import Wrapper from '../../../styled_base/Wrapper';
+import Element from '../../../styled_base/Element';
 
-const InfoWrapper = styled(StyledBase.ColumnWrapper)`
+const InfoWrapper = styled(Wrapper.ColumnWrapper)`
   width: 20rem;
   padding: 1rem;
 `;
 
-const NameWrapper = styled(StyledBase.BasicFlexWrapper)`
+const NameWrapper = styled(Wrapper.BasicFlexWrapper)`
   justify-content: space-between;
 `;
 
@@ -14,16 +15,16 @@ const InfoField = styled.p`
   line-height: 3;
 `;
 
-const ManageInput = styled(StyledBase.BasicInput)`
+const ManageInput = styled(Element.BasicInput)`
   line-height: 3;
 `;
 
-const AlignRightButton = styled(StyledBase.BasicButton)`
+const AlignRightButton = styled(Element.BasicButton)`
   margin-top: 1rem;
   margin-left: auto;
 `;
 
-const ButtonGroup = styled(StyledBase.BasicFlexWrapper)`
+const ButtonGroup = styled(Wrapper.BasicFlexWrapper)`
   justify-content: space-between;
   margin: 1rem 0;
 `;

@@ -13,7 +13,8 @@ import Loadable from '../../../loadable';
 import Helmet from '../../helmet/Helmet';
 
 // Styled
-import StyledBase from '../../../styled_base/Wrapper';
+import Wrapper from '../../../styled_base/Wrapper';
+import Element from '../../../styled_base/Element';
 import Styled from './MyInfo.styled';
 import 'quill/dist/quill.core.css';
 import 'quill/dist/quill.bubble.css';
@@ -85,14 +86,14 @@ class ResignSurvey extends React.Component {
     const { required, popupFilter } = this.state;
     const { handleSubmit, history, error } = this.props;
     return (
-      <StyledBase.FlexWrapper>
+      <Wrapper.FlexWrapper>
         <Helmet pageTitle="Resign Survey" />
         <Styled.InfoWrapper>
           <form action="post" onSubmit={handleSubmit(this.onSubmit.bind(this))}>
             <Styled.QuillEditor id="editor" />
             <div>
-              <StyledBase.Small>{required}</StyledBase.Small>
-              <StyledBase.Small>{error}</StyledBase.Small>
+              <Element.Small>{required}</Element.Small>
+              <Element.Small>{error}</Element.Small>
             </div>
             <Styled.AlignRightButton type="submit">
               Send
@@ -102,7 +103,7 @@ class ResignSurvey extends React.Component {
         {popupFilter ? (
           <Loadable.SimplePopup replace={history.replace} destination="/main" />
         ) : null}
-      </StyledBase.FlexWrapper>
+      </Wrapper.FlexWrapper>
     );
   }
 }

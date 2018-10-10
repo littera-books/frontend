@@ -9,7 +9,7 @@ import { listQuestion, saveResult } from '../../../reducers/reducer.question';
 import Helmet from '../../helmet/Helmet';
 
 // Styled
-import StyledBase from '../../../styled_base/Wrapper';
+import Wrapper from '../../../styled_base/Wrapper';
 import Styled from './Survey.styled';
 
 class Survey extends React.Component {
@@ -57,9 +57,9 @@ class Survey extends React.Component {
   render() {
     const { handleSubmit } = this.props;
     return (
-      <StyledBase.FlexWrapper>
+      <Wrapper.FlexWrapper>
         <Helmet pageTitle="Survey" />
-        <StyledBase.ColumnWrapper>
+        <Wrapper.ColumnWrapper>
           <form
             style={{ margin: '1rem' }}
             action="post"
@@ -70,8 +70,8 @@ class Survey extends React.Component {
               Submit
             </Styled.AlignRightButton>
           </form>
-        </StyledBase.ColumnWrapper>
-      </StyledBase.FlexWrapper>
+        </Wrapper.ColumnWrapper>
+      </Wrapper.FlexWrapper>
     );
   }
 }

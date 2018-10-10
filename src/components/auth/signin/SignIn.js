@@ -13,7 +13,8 @@ import Helmet from '../../helmet/Helmet';
 import FormField from '../FormField';
 
 // Styled
-import StyledBase from '../../../styled_base/Wrapper';
+import Wrapper from '../../../styled_base/Wrapper';
+import Element from '../../../styled_base/Element';
 import Styled from './SignIn.styled';
 
 export class SignIn extends React.Component {
@@ -44,9 +45,9 @@ export class SignIn extends React.Component {
     const { handleSubmit, error, history } = this.props;
 
     return (
-      <StyledBase.FlexWrapper>
+      <Wrapper.FlexWrapper>
         <Helmet pageTitle="SignIn" />
-        <StyledBase.ColumnWrapper>
+        <Wrapper.ColumnWrapper>
           <Styled.FormWrapper
             action="post"
             onSubmit={handleSubmit(this.onSubmit.bind(this))}
@@ -64,7 +65,7 @@ export class SignIn extends React.Component {
               component={FormField}
             />
             <div>
-              <StyledBase.Small>{error}</StyledBase.Small>
+              <Element.BasicSmall>{error}</Element.BasicSmall>
             </div>
             <Styled.SignInButton type="submit">
               <strong>SIGN IN</strong>
@@ -72,11 +73,11 @@ export class SignIn extends React.Component {
           </Styled.FormWrapper>
           <Link to="/survey">Not a member yet?</Link>
           <p>Forgot your password?</p>
-        </StyledBase.ColumnWrapper>
+        </Wrapper.ColumnWrapper>
         {popupFilter ? (
           <Loadable.SimplePopup replace={history.replace} destination="/main" />
         ) : null}
-      </StyledBase.FlexWrapper>
+      </Wrapper.FlexWrapper>
     );
   }
 }

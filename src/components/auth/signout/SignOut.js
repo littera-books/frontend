@@ -10,7 +10,7 @@ import Loadable from '../../../loadable';
 import Helmet from '../../helmet/Helmet';
 
 // Styled
-import StyledBase from '../../../styled_base/Wrapper';
+import Wrapper from '../../../styled_base/Wrapper';
 
 class SignOut extends React.Component {
   state = {
@@ -28,13 +28,13 @@ class SignOut extends React.Component {
     const { popupFilter } = this.state;
     const { history } = this.props;
     return (
-      <StyledBase.FlexWrapper>
+      <Wrapper.FlexWrapper>
         <Helmet pageTitle="Sign Out" />
         <h1>Sign Out</h1>
         {popupFilter ? (
           <Loadable.SimplePopup replace={history.replace} destination="/main" />
         ) : null}
-      </StyledBase.FlexWrapper>
+      </Wrapper.FlexWrapper>
     );
   }
 }

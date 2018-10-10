@@ -9,7 +9,7 @@ import { listProduct } from '../../../reducers/reducer.product';
 import Helmet from '../../helmet/Helmet';
 
 // Styled
-import StyledBase from '../../../styled_base/Wrapper';
+import Wrapper from '../../../styled_base/Wrapper';
 import Styled from './VonVoyage.styled';
 
 const Product = ({ item }) => (
@@ -88,7 +88,7 @@ class VonVoyage extends React.Component {
 
     if (width > 414) {
       return (
-        <StyledBase.FlexWrapper>
+        <Wrapper.FlexWrapper>
           <Helmet pageTitle="Von Voyage!" />
           <Styled.ColumnForm
             action="post"
@@ -102,12 +102,12 @@ class VonVoyage extends React.Component {
               Purchase
             </Styled.AlignRightButton>
           </Styled.ColumnForm>
-        </StyledBase.FlexWrapper>
+        </Wrapper.FlexWrapper>
       );
     }
 
     return (
-      <StyledBase.FlexWrapper>
+      <Wrapper.FlexWrapper>
         <Helmet pageTitle="Von Voyage!" />
         <Styled.ColumnForm
           action="post"
@@ -117,7 +117,7 @@ class VonVoyage extends React.Component {
           <Promotion />
           <Styled.FixedButton type="submit">Purchase</Styled.FixedButton>
         </Styled.ColumnForm>
-      </StyledBase.FlexWrapper>
+      </Wrapper.FlexWrapper>
     );
   }
 }

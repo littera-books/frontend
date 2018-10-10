@@ -7,7 +7,8 @@ import Slider from 'react-slick';
 import Helmet from '../../helmet/Helmet';
 
 // Styled
-import StyledBase from '../../../styled_base/Wrapper';
+import Wrapper from '../../../styled_base/Wrapper';
+import Element from '../../../styled_base/Element';
 import Styled from './Main.styled';
 
 // CSS
@@ -23,7 +24,7 @@ import AllEars from '../../../assets/images/all_ears.jpg';
 const Card = ({ img, name }) => (
   <Styled.CardWrapper>
     <Styled.CardTitle>{name}</Styled.CardTitle>
-    <StyledBase.ResponsiveImg src={img} alt={name} />
+    <Element.ResponsiveImg src={img} alt={name} />
   </Styled.CardWrapper>
 );
 
@@ -63,7 +64,7 @@ class Main extends React.Component {
 
     if (width > 414) {
       return (
-        <StyledBase.FlexWrapper>
+        <Wrapper.FlexWrapper>
           <Helmet pageTitle="Main" />
           <Link to="/about">
             <Card img={About} name="About" />
@@ -83,12 +84,12 @@ class Main extends React.Component {
           <Link to="/all-ears">
             <Card img={AllEars} name="&quot;I'm All Ears&quot;" />
           </Link>
-        </StyledBase.FlexWrapper>
+        </Wrapper.FlexWrapper>
       );
     }
 
     return (
-      <StyledBase.BasicBlockWrapper id="carousel">
+      <Wrapper.BasicBlockWrapper id="carousel">
         <Helmet pageTitle="Main" />
         <Slider {...settings}>
           <Link to="/about">
@@ -110,7 +111,7 @@ class Main extends React.Component {
             <Card img={AllEars} name="&quot;I'm All Ears&quot;" />
           </Link>
         </Slider>
-      </StyledBase.BasicBlockWrapper>
+      </Wrapper.BasicBlockWrapper>
     );
   }
 }

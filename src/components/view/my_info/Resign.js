@@ -15,7 +15,7 @@ import Helmet from '../../helmet/Helmet';
 import { ResignFormField } from './FormField';
 
 // Styled
-import StyledBase from '../../../styled_base/Wrapper';
+import Wrapper from '../../../styled_base/Wrapper';
 import Styled from './MyInfo.styled';
 
 class Resign extends React.Component {
@@ -60,7 +60,7 @@ class Resign extends React.Component {
     } = this.props;
 
     return (
-      <StyledBase.FlexWrapper>
+      <Wrapper.FlexWrapper>
         <Helmet pageTitle="Resign" />
         <form action="post" onSubmit={handleSubmit(this.onDestroy.bind(this))}>
           <Field
@@ -83,7 +83,7 @@ class Resign extends React.Component {
             destination="/my-info/resign/survey"
           />
         ) : null}
-      </StyledBase.FlexWrapper>
+      </Wrapper.FlexWrapper>
     );
   }
 }

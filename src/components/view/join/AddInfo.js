@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 import Helmet from '../../helmet/Helmet';
 
 // Stylec
-import StyledBase from '../../../styled_base/Wrapper';
+import Wrapper from '../../../styled_base/Wrapper';
 
 class AddInfo extends React.Component {
   componentDidMount() {
@@ -16,10 +16,10 @@ class AddInfo extends React.Component {
 
   render() {
     return (
-      <StyledBase.FlexWrapper>
+      <Wrapper.FlexWrapper>
         <Helmet pageTitle="Add Info" />
         <h1>add info</h1>
-      </StyledBase.FlexWrapper>
+      </Wrapper.FlexWrapper>
     );
   }
 }

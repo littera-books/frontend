@@ -6,7 +6,7 @@ import Slider from 'react-slick';
 import Helmet from '../../helmet/Helmet';
 
 // Styled
-import StyledBase from '../../../styled_base/Wrapper';
+import Wrapper from '../../../styled_base/Wrapper';
 import Styled from './Log.styled';
 
 // CSS
@@ -47,7 +47,7 @@ class Log extends React.Component {
 
     if (width > 414) {
       return (
-        <StyledBase.FlexWrapper>
+        <Wrapper.FlexWrapper>
           <Helmet pageTitle="Log" />
           <Styled.SectionItem>
             <Link to="/my-info">My Info</Link>
@@ -57,12 +57,12 @@ class Log extends React.Component {
           <Styled.SectionItem>
             <Link to="/sign-out">SIGN OUT</Link>
           </Styled.SectionItem>
-        </StyledBase.FlexWrapper>
+        </Wrapper.FlexWrapper>
       );
     }
 
     return (
-      <StyledBase.BasicBlockWrapper id="carousel">
+      <Wrapper.BasicBlockWrapper id="carousel">
         <Helmet pageTitle="Log" />
         <Slider {...settings}>
           <Styled.SectionItem>
@@ -74,7 +74,7 @@ class Log extends React.Component {
             <Link to="/sign-out">SIGN OUT</Link>
           </Styled.SectionItem>
         </Slider>
-      </StyledBase.BasicBlockWrapper>
+      </Wrapper.BasicBlockWrapper>
     );
   }
 }

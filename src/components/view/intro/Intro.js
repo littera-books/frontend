@@ -8,7 +8,7 @@ import {
 } from '../../../reducers/reducer.controlTitle';
 
 // Styled
-import StyledBase from '../../../styled_base/Wrapper';
+import Wrapper from '../../../styled_base/Wrapper';
 
 // data
 import dataConfig from '../../../dataConfig';
@@ -26,11 +26,11 @@ export class Intro extends React.PureComponent {
 
   render() {
     return (
-      <StyledBase.FlexWrapper>
+      <Wrapper.FlexWrapper>
         <Link to="/main">
           <h1>{dataConfig.introText}</h1>
         </Link>
-      </StyledBase.FlexWrapper>
+      </Wrapper.FlexWrapper>
     );
   }
 }

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
 // Styled
-import StyledBase from '../../../styled_base/Wrapper';
+import Element from '../../../styled_base/Element';
 import Styled from './Title.styled';
 
 // Images
@@ -12,7 +12,7 @@ import Logo from '../../../assets/images/title.jpg';
 const Title = ({ visibility }) => (
   <Styled.TitleWrapper style={{ visibility }}>
     <Link to="/main">
-      <StyledBase.ResponsiveImg src={Logo} alt="Title" />
+      <Element.ResponsiveImg src={Logo} alt="Title" />
     </Link>
   </Styled.TitleWrapper>
 );

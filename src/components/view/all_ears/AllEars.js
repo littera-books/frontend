@@ -4,13 +4,13 @@ import React from 'react';
 import Helmet from '../../helmet/Helmet';
 
 // Styled
-import StyledBase from '../../../styled_base/Wrapper';
+import Wrapper from '../../../styled_base/Wrapper';
 
 const AllEars = () => (
-  <StyledBase.FlexWrapper>
+  <Wrapper.FlexWrapper>
     <Helmet pageTitle="I'm all ears" />
     <a href="mailto:webmasterlittera@gmail.com">webmasterlittera@gmail.com</a>
-  </StyledBase.FlexWrapper>
+  </Wrapper.FlexWrapper>
 );
 
 export default AllEars;

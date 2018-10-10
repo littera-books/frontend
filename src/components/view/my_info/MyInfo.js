@@ -8,7 +8,7 @@ import { readToken, retrieveInfo } from '../../../reducers/reducer.user';
 import Helmet from '../../helmet/Helmet';
 
 // Styled
-import StyledBase from '../../../styled_base/Wrapper';
+import Wrapper from '../../../styled_base/Wrapper';
 import Styled from './MyInfo.styled';
 
 class MyInfo extends React.Component {
@@ -34,7 +34,7 @@ class MyInfo extends React.Component {
       firstName, lastName, address, phone, email,
     } = this.props;
     return (
-      <StyledBase.FlexWrapper>
+      <Wrapper.FlexWrapper>
         <Helmet pageTitle="My Info" />
         <Styled.InfoWrapper>
           <Styled.NameWrapper>
@@ -54,7 +54,7 @@ class MyInfo extends React.Component {
             Manage My Info
           </Link>
         </Styled.InfoWrapper>
-      </StyledBase.FlexWrapper>
+      </Wrapper.FlexWrapper>
     );
   }
 }

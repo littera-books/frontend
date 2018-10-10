@@ -4,16 +4,17 @@ import React from 'react';
 import Helmet from '../../helmet/Helmet';
 
 // Styled
-import StyledBase from '../../../styled_base/Wrapper';
+import Wrapper from '../../../styled_base/Wrapper';
+import Element from '../../../styled_base/Element';
 
 // Data
 import dataConfig from '../../../dataConfig';
 
 const About = () => (
-  <StyledBase.FlexWrapper>
+  <Wrapper.FlexWrapper>
     <Helmet pageTitle="About" />
-    <StyledBase.Paragraph>{dataConfig.aboutText}</StyledBase.Paragraph>
-  </StyledBase.FlexWrapper>
+    <Element.Paragraph>{dataConfig.aboutText}</Element.Paragraph>
+  </Wrapper.FlexWrapper>
 );
 
 export default About;

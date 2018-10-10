@@ -10,7 +10,8 @@ import Helmet from '../../helmet/Helmet';
 import FormField from './FormField';
 
 // Styled
-import StyledBase from '../../../styled_base/Wrapper';
+import Wrapper from '../../../styled_base/Wrapper';
+import Element from '../../../styled_base/Element';
 import Styled from './MyInfo.styled';
 
 class ManageMyInfo extends React.Component {
@@ -43,7 +44,7 @@ class ManageMyInfo extends React.Component {
   render() {
     const { handleSubmit } = this.props;
     return (
-      <StyledBase.FlexWrapper>
+      <Wrapper.FlexWrapper>
         <Helmet pageTitle="Manage My Info" />
         <Styled.InfoWrapper>
           <form action="post" onSubmit={handleSubmit(this.onSubmit.bind(this))}>
@@ -56,13 +57,13 @@ class ManageMyInfo extends React.Component {
             <Field type="text" name="address" component={FormField} />
             <Styled.ButtonGroup>
               <Link to="/my-info/resign">Resign</Link>
-              <StyledBase.BasicButton type="submit">
+              <Element.BasicButton type="submit">
                 Confirm Change
-              </StyledBase.BasicButton>
+              </Element.BasicButton>
             </Styled.ButtonGroup>
           </form>
         </Styled.InfoWrapper>
-      </StyledBase.FlexWrapper>
+      </Wrapper.FlexWrapper>
     );
   }
 }
