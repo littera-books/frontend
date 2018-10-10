@@ -32,6 +32,10 @@ const AlignRightButton = styled(Element.BasicButton)`
   margin-left: auto;
 `;
 
+const LongInput = styled(Element.BasicInput)`
+  width: 20rem;
+`;
+
 export default {
   ScrollFlexWrapper,
   MarginForm,
@@ -39,4 +43,5 @@ export default {
   SelectionItem,
   SelectionText,
   AlignRightButton,
+  LongInput,
 };
