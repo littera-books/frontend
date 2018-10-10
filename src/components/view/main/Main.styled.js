@@ -1,17 +1,10 @@
 import styled from 'styled-components';
+import Wrapper from '../../../styled_base/Wrapper';
+import Element from '../../../styled_base/Element';
 
-const CardWrapper = styled.div`
-  position: relative;
+const CardWrapper = styled(Wrapper.BasicBlockWrapper)`
   margin: 1rem;
   max-width: 13rem;
-
-  img {
-    opacity: 0.5;
-
-    :hover {
-      opacity: 1;
-    }
-  }
 
   @media (max-width: 414px) {
     margin: 1rem auto;
@@ -25,7 +18,16 @@ const CardTitle = styled.h1`
   transform: translateX(-50%);
 `;
 
+const OpacityImg = styled(Element.ResponsiveImg)`
+  opacity: 0.5;
+
+  :hover {
+    opacity: 1;
+  }
+`;
+
 export default {
   CardWrapper,
   CardTitle,
+  OpacityImg,
 };
