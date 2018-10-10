@@ -55,7 +55,9 @@ class Log extends React.Component {
             </Styled.SectionItem>
           </Styled.SectionWrapper>
           <Styled.SectionWrapper>
-            <Styled.SectionItem>Letter Box</Styled.SectionItem>
+            <Styled.SectionItem>
+              <Link to="/letter-box">Letter Box</Link>
+            </Styled.SectionItem>
           </Styled.SectionWrapper>
           <Styled.SectionWrapper>
             <Styled.SectionItem>Purchase</Styled.SectionItem>
@@ -79,7 +81,9 @@ class Log extends React.Component {
             </Styled.SectionItem>
           </Styled.SectionWrapper>
           <Styled.SectionWrapper>
-            <Styled.SectionItem>Letter Box</Styled.SectionItem>
+            <Styled.SectionItem>
+              <Link to="/letter-box">Letter Box</Link>
+            </Styled.SectionItem>
           </Styled.SectionWrapper>
           <Styled.SectionWrapper>
             <Styled.SectionItem>Purchase</Styled.SectionItem>

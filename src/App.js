@@ -41,6 +41,7 @@ export class App extends React.PureComponent {
         <StyledBase.App className="App">
           <Loadable.Title visibility={isVisible} />
           <Switch>
+            <PrivateRoute path="/letter-box" component={Loadable.LetterBox} />
             <PrivateRoute
               path="/my-info/resign/survey"
               component={Loadable.ResignSurvey}

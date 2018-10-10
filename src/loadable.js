@@ -78,6 +78,11 @@ const ResignSurvey = Loadable({
   loading: Loading,
 });
 
+const LetterBox = Loadable({
+  loader: () => import('./components/view/letter_box/LetterBox'),
+  loading: Loading,
+});
+
 const VonVoyage = Loadable({
   loader: () => import('./components/view/von_voyage/VonVoyage'),
   loading: Loading,
@@ -118,6 +123,7 @@ export default {
   PatchPassword,
   Resign,
   ResignSurvey,
+  LetterBox,
   VonVoyage,
   AllEars,
   SendLetter,
