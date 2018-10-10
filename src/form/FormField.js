@@ -1,7 +1,7 @@
 import React from 'react';
 
 // Styled
-import Element from './Element';
+import Element from '../styled_base/Element';
 
 const BasicFormField = field => (
   <div>

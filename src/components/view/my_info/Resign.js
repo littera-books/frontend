@@ -11,11 +11,11 @@ import dataConfig from '../../../dataConfig';
 
 // Components
 import Loadable from '../../../loadable';
+import BasicFormField from '../../../form/FormField';
 import Helmet from '../../helmet/Helmet';
 
 // Styled
 import Wrapper from '../../../styled_base/Wrapper';
-import BasicFormField from '../../../styled_base/FormField';
 import Styled from './MyInfo.styled';
 
 class Resign extends React.Component {

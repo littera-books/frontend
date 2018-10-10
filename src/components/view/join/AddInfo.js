@@ -9,11 +9,11 @@ import dataConfig from '../../../dataConfig';
 
 // Component
 import Loadable from '../../../loadable';
+import BasicFormField from '../../../form/FormField';
 import Helmet from '../../helmet/Helmet';
 
 // Stylec
 import Wrapper from '../../../styled_base/Wrapper';
-import BasicFormField from '../../../styled_base/FormField';
 import Styled from './Survey.styled';
 import FormField from './FormField';
 

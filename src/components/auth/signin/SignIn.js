@@ -9,12 +9,12 @@ import dataConfig from '../../../dataConfig';
 
 // Components
 import Loadable from '../../../loadable';
+import BasicFormField from '../../../form/FormField';
 import Helmet from '../../helmet/Helmet';
 
 // Styled
 import Wrapper from '../../../styled_base/Wrapper';
 import Element from '../../../styled_base/Element';
-import BasicFormField from '../../../styled_base/FormField';
 import Styled from './SignIn.styled';
 
 export class SignIn extends React.Component {

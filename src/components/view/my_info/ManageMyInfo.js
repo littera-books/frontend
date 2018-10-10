@@ -6,12 +6,12 @@ import { connect } from 'react-redux';
 import { updateInfo } from '../../../reducers/reducer.user';
 
 // Components
+import BasicFormField from '../../../form/FormField';
 import Helmet from '../../helmet/Helmet';
 
 // Styled
 import Wrapper from '../../../styled_base/Wrapper';
 import Element from '../../../styled_base/Element';
-import BasicFormField from '../../../styled_base/FormField';
 import Styled from './MyInfo.styled';
 
 class ManageMyInfo extends React.Component {
