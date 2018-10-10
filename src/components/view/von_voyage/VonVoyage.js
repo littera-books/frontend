@@ -107,14 +107,14 @@ class VonVoyage extends React.Component {
     }
 
     return (
-      <Wrapper.FlexWrapper>
+      <Wrapper.MobileBlockWrapper>
         <Helmet pageTitle="Von Voyage!" />
         <form action="post" onSubmit={handleSubmit(this.onPurchase.bind(this))}>
           {this.renderItems()}
           <Promotion />
           <Styled.FixedButton type="submit">Purchase</Styled.FixedButton>
         </form>
-      </Wrapper.FlexWrapper>
+      </Wrapper.MobileBlockWrapper>
     );
   }
 }

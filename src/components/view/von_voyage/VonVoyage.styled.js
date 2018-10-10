@@ -6,21 +6,30 @@ const ProductItem = styled(Wrapper.ColumnWrapper)`
   justify-content: center;
   align-items: center;
   text-align: center;
-  margin: 0 4rem;
-  height: 16rem;
+  margin: 0 1rem;
+  width: 13rem;
 
   @media (max-width: 414px) {
+    width: 100%;
+    margin: 0;
     height: calc(100vh - 10rem);
   }
 
   @media (max-width: 375px) {
+    width: 100%;
+    margin: 0;
     height: calc(100vh - 8rem);
   }
 `;
 
 const ItemTitleGroup = styled(Wrapper.ColumnWrapper)`
   height: 14rem;
+  margin-bottom: 3rem;
   justify-content: center;
+
+  @media (max-width: 414px) {
+    margin-bottom: 1rem;
+  }
 `;
 
 const AlignRightButton = styled(Element.BasicButton)`
