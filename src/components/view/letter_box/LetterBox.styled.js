@@ -7,7 +7,7 @@ const LetterBoxWrapper = styled(Wrapper.ColumnWrapper)`
 
 const LetterBoxFlexWrapper = styled(Wrapper.BasicFlexWrapper)`
   margin: 10rem auto;
-  width: 60rem;
+  width: 45rem;
 
   @media (max-width: 414px) {
     width: 100vw;
@@ -23,7 +23,7 @@ const NavigationWrapper = styled(Wrapper.BetweenWrapper)`
 `;
 
 const Content = styled(Wrapper.BasicBlockWrapper)`
-  width: 60rem;
+  width: 45rem;
   min-height: 20rem;
 
   @media (max-width: 414px) {
