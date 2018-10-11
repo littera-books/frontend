@@ -107,7 +107,7 @@ class AddInfo extends React.Component {
               component={FormField.LongPlaceholderFormField}
               validate={[
                 Validation.required,
-                Validation.maxLength20,
+                Validation.maxLength11,
                 Validation.number,
               ]}
             />
