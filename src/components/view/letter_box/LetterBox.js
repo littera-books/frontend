@@ -1,9 +1,9 @@
 import _ from 'lodash';
 import React from 'react';
 import PropTypes from 'prop-types';
+import moment from 'moment';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import moment from 'moment';
 import { readToken } from '../../../reducers/reducer.user';
 import { getLetter } from '../../../reducers/reducer.letter';
 
@@ -33,10 +33,10 @@ class LetterBox extends React.Component {
       const firstLine = rawBody.ops[0].insert;
       const truncatedLine = firstLine.substr(0, 30);
       return (
-        <div key={item.id}>
+        <Link to={`/letter-box/${item.id}`} key={item.id}>
           <span>{time}</span>
           <Styled.TitleSpan>{`${truncatedLine} ...`}</Styled.TitleSpan>
-        </div>
+        </Link>
       );
     });
   }

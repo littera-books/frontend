@@ -83,6 +83,11 @@ const LetterBox = Loadable({
   loading: Loading,
 });
 
+const LetterBoxDetail = Loadable({
+  loader: () => import('./components/view/letter_box/LetterBoxDetail'),
+  loading: Loading,
+});
+
 const VonVoyage = Loadable({
   loader: () => import('./components/view/von_voyage/VonVoyage'),
   loading: Loading,
@@ -124,6 +129,7 @@ export default {
   Resign,
   ResignSurvey,
   LetterBox,
+  LetterBoxDetail,
   VonVoyage,
   AllEars,
   SendLetter,
