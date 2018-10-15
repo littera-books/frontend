@@ -186,9 +186,9 @@ const reducerRetrieveInfo = (state, action) => {
 
 const reducerUpdateInfo = (state, action) => {
   if (action.error) {
-    _.assign({}, state, {
+    return _.assign({}, state, {
       ...state,
-      error: action.error,
+      error: action.error.response.data.message,
     });
   }
 
@@ -200,7 +200,7 @@ const reducerUpdateInfo = (state, action) => {
 
 const reducerPatchPassword = (state, action) => {
   if (action.error) {
-    _.assign({}, state, {
+    return _.assign({}, state, {
       ...state,
       error: action.error,
     });
@@ -216,7 +216,7 @@ const reducerCreateUser = (state, action) => {
   if (action.error) {
     return _.assign({}, state, {
       ...state,
-      error: action.error,
+      error: action.error.response.data.message,
     });
   }
 

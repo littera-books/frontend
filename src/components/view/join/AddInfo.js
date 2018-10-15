@@ -15,6 +15,7 @@ import Helmet from '../../helmet/Helmet';
 
 // Styled
 import Wrapper from '../../../styled_base/Wrapper';
+import Element from '../../../styled_base/Element';
 import Styled from './Survey.styled';
 import FormField from './FormField';
 
@@ -71,7 +72,7 @@ class AddInfo extends React.Component {
 
   render() {
     const { popupFilter } = this.state;
-    const { handleSubmit, history } = this.props;
+    const { handleSubmit, history, error } = this.props;
     return (
       <Wrapper.FlexWrapper>
         <Helmet pageTitle="Add Info" />
@@ -135,6 +136,9 @@ class AddInfo extends React.Component {
               component={FormField.LongPlaceholderFormField}
               validate={[Validation.required, Validation.minLength8]}
             />
+            <div>
+              <Element.BasicSmall>{error}</Element.BasicSmall>
+            </div>
             <Styled.AlignRightButton type="submit">
               Register
             </Styled.AlignRightButton>
@@ -161,6 +165,7 @@ AddInfo.propTypes = {
   }).isRequired,
   post: PropTypes.func.isRequired,
   setPopup: PropTypes.func.isRequired,
+  error: PropTypes.string.isRequired,
 };
 
 const mapStateToProps = state => ({

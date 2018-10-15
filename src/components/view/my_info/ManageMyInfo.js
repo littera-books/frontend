@@ -39,11 +39,15 @@ class ManageMyInfo extends React.Component {
   async onSubmit(payload) {
     const { update, history } = this.props;
     await update(payload);
-    history.replace('/my-info');
+
+    const { error } = this.props;
+    if (!error) {
+      history.replace('/my-info');
+    }
   }
 
   render() {
-    const { handleSubmit } = this.props;
+    const { handleSubmit, error } = this.props;
     return (
       <Wrapper.FlexWrapper>
         <Helmet pageTitle="Manage My Info" />
@@ -84,6 +88,9 @@ class ManageMyInfo extends React.Component {
               component={BasicFormField.BasicFormField}
               validate={Validation.required}
             />
+            <div>
+              <Element.BasicSmall>{error}</Element.BasicSmall>
+            </div>
             <Styled.ButtonGroup>
               <Link to="/my-info/patch-password">Patch Password</Link>
             </Styled.ButtonGroup>
@@ -112,6 +119,7 @@ ManageMyInfo.propTypes = {
   address: PropTypes.string.isRequired,
   phone: PropTypes.string.isRequired,
   email: PropTypes.string.isRequired,
+  error: PropTypes.string.isRequired,
 };
 
 const mapStateToProps = state => ({
@@ -121,6 +129,7 @@ const mapStateToProps = state => ({
   address: state.user.address,
   phone: state.user.phone,
   email: state.user.email,
+  error: state.user.error,
 });
 
 const mapDispatchToProps = dispatch => ({
