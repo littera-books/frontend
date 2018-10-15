@@ -32,10 +32,19 @@ class AddInfo extends React.Component {
   }
 
   componentDidMount() {
-    const script = document.createElement('script');
-    document.head.appendChild(script);
-    script.src = dataConfig.daumPostApiUrl;
-    script.onload = () => this.initialPostCode(this);
+    const { result, history } = this.props;
+    if (Object.keys(result).length === 0) {
+      alert(
+        '설문 정보가 손실되었습니다. 가입 절차를 다시 진행해주시기 바랍니다.',
+      );
+      history.push('/survey');
+    } else {
+      const script = document.createElement('script');
+      script.id = 'daum';
+      document.head.appendChild(script);
+      script.src = dataConfig.daumPostApiUrl;
+      script.onload = () => this.initialPostCode(this);
+    }
   }
 
   async onSubmit(payload) {
