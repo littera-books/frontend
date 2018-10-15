@@ -12,6 +12,14 @@ export default {
     + '미래에서 만나자 친구여, 우리가 앞날에 두고 온 그 날에.”',
   resignSurveyText: 'Please tell us why are you leaving.',
   popupMessage: {
+    accepted: {
+      header: 'Accepted',
+      message: 'Welcome!',
+    },
+    denied: {
+      header: 'Denied',
+      message: 'Sorry, you are not invited!',
+    },
     signUp: {
       header: 'Sign Up',
       message: 'Welcome Aboard!',

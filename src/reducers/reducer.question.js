@@ -4,6 +4,7 @@ import axiosInstance from './axios.instance';
 const LIST_QUESTIONS = 'LIST_QUESTIONS';
 const SAVE_RESULT = 'SAVE_RESULT';
 const POST_RESULT = 'POST_RESULT';
+const ASK_ACCEPT = 'ASK_ACCEPT';
 
 // Action Creators
 export async function listQuestion() {
@@ -56,6 +57,29 @@ export async function postResult(userId, payload) {
   };
 }
 
+export async function askAccept(payload) {
+  let response;
+  let error;
+
+  try {
+    response = await axiosInstance({
+      url: '/accept',
+      method: 'post',
+      data: {
+        ...payload,
+      },
+    });
+  } catch (e) {
+    error = e;
+  }
+
+  return {
+    type: ASK_ACCEPT,
+    response,
+    error,
+  };
+}
+
 // Initial State
 export const initialState = {
   length: 0,
@@ -65,6 +89,7 @@ export const initialState = {
     subject: '',
     title: '',
   },
+  isAccepted: true,
   error: '',
 };
 
@@ -106,6 +131,21 @@ function reducerPostResult(state, action) {
   };
 }
 
+function reducerAskAccept(state, action) {
+  if (action.error) {
+    return {
+      ...state,
+      error: action.error,
+    };
+  }
+
+  return {
+    ...state,
+    isAccepted: action.response.data.message,
+    error: '',
+  };
+}
+
 // Reducer
 export default function reducer(state = initialState, action) {
   switch (action.type) {
@@ -115,6 +155,8 @@ export default function reducer(state = initialState, action) {
       return reducerSaveResult(state, action);
     case POST_RESULT:
       return reducerPostResult(state, action);
+    case ASK_ACCEPT:
+      return reducerAskAccept(state, action);
     default:
       return state;
   }
