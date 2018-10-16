@@ -113,6 +113,11 @@ const ConfirmPopup = Loadable({
   loading: Loading,
 });
 
+const FormPopup = Loadable({
+  loader: () => import('./components/structure/popup/FormPopup'),
+  loading: Loading,
+});
+
 export default {
   Intro,
   Title,
@@ -135,4 +140,5 @@ export default {
   SendLetter,
   SimplePopup,
   ConfirmPopup,
+  FormPopup,
 };

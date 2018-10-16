@@ -44,5 +44,13 @@ export default {
       header: 'Resign',
       message: 'So Long, and thanks for all the fish!',
     },
+    subscription: {
+      header: 'Promotion',
+      message: 'Please check your promotion code.',
+    },
+    subscriptionButtons: {
+      confirm: 'confirm',
+      cancel: 'cancel',
+    },
   },
 };
