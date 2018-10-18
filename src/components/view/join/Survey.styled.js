@@ -11,8 +11,7 @@ const ScrollFlexWrapper = styled(Wrapper.FlexWrapper)`
 `;
 
 const MarginForm = styled.form`
-  margin: 1rem;
-  margin-bottom: 3rem;
+  margin: 6rem 1rem 9rem 1rem;
 `;
 
 const QuestionItem = styled(Wrapper.BasicBlockWrapper)`
