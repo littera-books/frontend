@@ -86,8 +86,16 @@ const QuillEditor = styled(BasicBlockWrapper)`
     line-height: 2;
     text-align: justify;
     word-break: keep-all;
-    margin-bottom: 1rem;
     min-height: 50vh;
+    padding: 0;
+
+    @media (max-width: 414px) {
+      min-height: calc(100vh - 18rem);
+    }
+
+    @media (max-width: 375px) {
+      min-height: calc(100vh - 16rem);
+    }
   }
 `;
 

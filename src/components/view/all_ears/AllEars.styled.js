@@ -13,15 +13,11 @@ const LetterWrapper = styled(Wrapper.MobileBlockWrapper)`
 `;
 
 const MarginForm = styled.form`
-  margin: 1rem;
-  margin-bottom: 6rem;
+  margin: 2rem;
+  margin-bottom: 10rem;
 
   @media (max-width: 414px) {
-    height: calc(100vh - 16rem);
-  }
-
-  @media (max-width: 375px) {
-    height: calc(100vh - 14rem);
+    margin-bottom: 4rem;
   }
 `;
 

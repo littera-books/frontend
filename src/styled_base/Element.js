@@ -19,6 +19,7 @@ const BasicButton = styled.button`
   font-size: 0.75rem;
   border: none;
   padding: 0;
+  height: 1rem;
   background-color: white;
 
   :focus {
