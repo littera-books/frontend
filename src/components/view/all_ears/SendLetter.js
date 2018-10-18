@@ -89,7 +89,7 @@ class SendLetter extends React.Component {
           <div>
             <Element.BasicSmall>{required}</Element.BasicSmall>
           </div>
-          <Styled.AlignRightButton type="submit">Send</Styled.AlignRightButton>
+          <Styled.SendButton type="submit">Send</Styled.SendButton>
         </Styled.MarginForm>
       </Styled.LetterWrapper>
     );

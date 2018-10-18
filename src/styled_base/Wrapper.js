@@ -82,9 +82,12 @@ const BetweenWrapper = styled(BasicFlexWrapper)`
 const QuillEditor = styled(BasicBlockWrapper)`
   .ql-editor {
     font-family: 'Silk Remington', 'Nanum Myeongjo';
-    font-size: 1rem;
+    font-size: 0.75rem;
     line-height: 2;
+    text-align: justify;
+    word-break: keep-all;
     margin-bottom: 1rem;
+    min-height: 50vh;
   }
 `;
 

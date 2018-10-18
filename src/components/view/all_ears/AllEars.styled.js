@@ -3,7 +3,7 @@ import Wrapper from '../../../styled_base/Wrapper';
 import Element from '../../../styled_base/Element';
 
 const LetterWrapper = styled(Wrapper.MobileBlockWrapper)`
-  width: 60rem;
+  width: 50rem;
   margin-left: auto;
   margin-right: auto;
 
@@ -14,8 +14,7 @@ const LetterWrapper = styled(Wrapper.MobileBlockWrapper)`
 
 const MarginForm = styled.form`
   margin: 1rem;
-  margin-bottom: 3rem;
-  height: 30rem;
+  margin-bottom: 6rem;
 
   @media (max-width: 414px) {
     height: calc(100vh - 16rem);
@@ -26,14 +25,18 @@ const MarginForm = styled.form`
   }
 `;
 
-const AlignRightButton = styled(Element.BasicButton)`
+const SendButton = styled(Element.BasicButton)`
   margin-top: 1rem;
   margin-left: auto;
-  margin-right: 1rem;
+
+  @media (max-width: 414px) {
+    margin-top: 3rem;
+    margin-right: auto;
+  }
 `;
 
 export default {
   LetterWrapper,
   MarginForm,
-  AlignRightButton,
+  SendButton,
 };
