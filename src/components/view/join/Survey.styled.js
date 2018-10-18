@@ -11,7 +11,12 @@ const ScrollFlexWrapper = styled(Wrapper.FlexWrapper)`
 `;
 
 const MarginForm = styled.form`
-  margin: 6rem 1rem 9rem 1rem;
+  margin: 0 2rem;
+  margin-bottom: 10rem;
+
+  @media (max-width: 414px) {
+    margin-bottom: 4rem;
+  }
 `;
 
 const QuestionItem = styled(Wrapper.BasicBlockWrapper)`
@@ -34,6 +39,10 @@ const SmallButton = styled(Element.BasicButton)`
 const AlignRightButton = styled(Element.BasicButton)`
   margin-top: 3rem;
   margin-left: auto;
+
+  @media (max-width: 414px) {
+    margin-right: auto;
+  }
 `;
 
 const LongInput = styled(Element.BasicInput)`
