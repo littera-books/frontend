@@ -11,17 +11,20 @@ const CardWrapper = styled(Wrapper.BasicBlockWrapper)`
 
   @media (max-width: 414px) {
     margin: 0 auto;
-    width: 14rem;
+    width: 13rem;
+    height: 32rem;
   }
 
   @media (max-width: 375px) {
     margin: 0 auto;
-    width: 13rem;
+    width: 12rem;
+    height: 30rem;
   }
 
   @media (max-width: 320px) {
     margin: 0 auto;
     width: 10rem;
+    height: 24.5rem;
   }
 `;
 
@@ -33,6 +36,11 @@ const CardTitle = styled.h1`
   text-align: center;
   width: 10rem;
   font-size: 11px;
+
+  @media (max-width: 414px) {
+    top: auto;
+    bottom: 0;
+  }
 `;
 
 export default {

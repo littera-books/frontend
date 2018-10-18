@@ -20,6 +20,10 @@ import About from '../../../assets/images/about.jpg';
 import Join from '../../../assets/images/join.jpg';
 import BonVoyage from '../../../assets/images/bon_voyage.jpg';
 import AllEars from '../../../assets/images/all_ears.jpg';
+import MAbout from '../../../assets/images/m_about.jpg';
+import MJoin from '../../../assets/images/m_join.jpg';
+import MBonVoyage from '../../../assets/images/m_bon_voyage.jpg';
+import MAllEars from '../../../assets/images/m_all_ears.jpg';
 
 const Card = ({ img, name }) => (
   <Styled.CardWrapper>
@@ -99,27 +103,27 @@ class Main extends React.Component {
         <Helmet pageTitle="Main" />
         <Slider {...settings}>
           <Link to="/about">
-            <Card img={About} name="About" />
+            <Card img={MAbout} name="About" />
           </Link>
           {sessionStorage.getItem('token') ? (
             <Link to="/log">
-              <Card img={Join} name="Log" />
+              <Card img={MJoin} name="Log" />
             </Link>
           ) : (
             <Link to="/sign-in">
-              <Card img={Join} name="Join" />
+              <Card img={MJoin} name="Join" />
             </Link>
           )}
           <Link to="/von-voyage">
-            <Card img={BonVoyage} name="&quot;Von Voyage!&quot;" />
+            <Card img={MBonVoyage} name="&quot;Von Voyage!&quot;" />
           </Link>
           {sessionStorage.getItem('token') ? (
             <Link to="/all-ears/send">
-              <Card img={AllEars} name="&quot;I'm All Ears&quot;" />
+              <Card img={MAllEars} name="&quot;I'm All Ears&quot;" />
             </Link>
           ) : (
             <Link to="/all-ears">
-              <Card img={AllEars} name="&quot;I'm All Ears&quot;" />
+              <Card img={MAllEars} name="&quot;I'm All Ears&quot;" />
             </Link>
           )}
         </Slider>
