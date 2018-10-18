@@ -192,7 +192,7 @@ const mapDispatchToProps = dispatch => ({
 const validate = (values) => {
   const errors = {};
   if (values.password1 !== values.password2) {
-    errors.password2 = 'Password is not correct';
+    errors.password2 = 'Please check your password.';
   }
   return errors;
 };
