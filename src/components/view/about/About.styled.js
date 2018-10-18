@@ -2,7 +2,8 @@ import styled from 'styled-components';
 import Wrapper from '../../../styled_base/Wrapper';
 
 const AboutWrapper = styled(Wrapper.ColumnWrapper)`
-  margin: 1rem;
+  margin-left: 4rem;
+  margin-right: 4rem;
 `;
 
 export default {
