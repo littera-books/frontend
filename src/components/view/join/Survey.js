@@ -22,7 +22,7 @@ import Styled from './Survey.styled';
 class Survey extends React.Component {
   state = {
     popupFilter: false,
-    destination: '/',
+    destination: '/main',
   };
 
   componentDidMount() {
