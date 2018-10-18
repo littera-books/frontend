@@ -41,7 +41,7 @@ const BasicInput = styled.input`
 
   ::placeholder {
     font-family: 'Silk Remington', 'Nanum Myeongjo';
-    color: black;
+    color: rgba(0, 0, 0, 0.3);
   }
 `;
 
