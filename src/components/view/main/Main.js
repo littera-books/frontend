@@ -8,6 +8,7 @@ import Helmet from '../../helmet/Helmet';
 
 // Styled
 import Wrapper from '../../../styled_base/Wrapper';
+import Element from '../../../styled_base/Element';
 import Styled from './Main.styled';
 
 // CSS
@@ -23,7 +24,7 @@ import AllEars from '../../../assets/images/all_ears.jpg';
 const Card = ({ img, name }) => (
   <Styled.CardWrapper>
     <Styled.CardTitle>{name}</Styled.CardTitle>
-    <Styled.OpacityImg src={img} alt={name} />
+    <Element.ResponsiveImg src={img} alt={name} />
   </Styled.CardWrapper>
 );
 
