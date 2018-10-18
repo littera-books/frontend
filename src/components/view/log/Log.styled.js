@@ -7,18 +7,8 @@ const SectionWrapper = styled(Wrapper.BasicBlockWrapper)`
   text-align: center;
 
   @media (max-width: 414px) {
-    margin: 0;
-    height: 32rem;
-  }
-
-  @media (max-width: 375px) {
-    margin: 0;
-    height: 30rem;
-  }
-
-  @media (max-width: 320px) {
-    margin: 0;
-    height: 23rem;
+    margin: 2rem 0;
+    width: 100%;
   }
 `;
 

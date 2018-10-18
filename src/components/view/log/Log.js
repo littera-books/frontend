@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import Slider from 'react-slick';
 
 // Components
 import Helmet from '../../helmet/Helmet';
@@ -35,15 +34,6 @@ class Log extends React.Component {
 
   render() {
     const { width } = this.state;
-    const settings = {
-      dots: true,
-      arrows: false,
-      infinite: true,
-      lazyLoad: true,
-      speed: 500,
-      slidesToShow: 1,
-      slidesToScroll: 1,
-    };
 
     if (width > 414) {
       return (
@@ -72,29 +62,27 @@ class Log extends React.Component {
     }
 
     return (
-      <Wrapper.MobileBlockWrapper id="carousel">
+      <Wrapper.MobileColumnWrapper>
         <Helmet pageTitle="Log" />
-        <Slider {...settings}>
-          <Styled.SectionWrapper>
-            <Styled.SectionItem>
-              <Link to="/my-info">My Info</Link>
-            </Styled.SectionItem>
-          </Styled.SectionWrapper>
-          <Styled.SectionWrapper>
-            <Styled.SectionItem>
-              <Link to="/letter-box">Letter Box</Link>
-            </Styled.SectionItem>
-          </Styled.SectionWrapper>
-          <Styled.SectionWrapper>
-            <Styled.SectionItem>Purchase</Styled.SectionItem>
-          </Styled.SectionWrapper>
-          <Styled.SectionWrapper>
-            <Styled.SectionItem>
-              <Link to="/sign-out">SIGN OUT</Link>
-            </Styled.SectionItem>
-          </Styled.SectionWrapper>
-        </Slider>
-      </Wrapper.MobileBlockWrapper>
+        <Styled.SectionWrapper>
+          <Styled.SectionItem>
+            <Link to="/my-info">My Info</Link>
+          </Styled.SectionItem>
+        </Styled.SectionWrapper>
+        <Styled.SectionWrapper>
+          <Styled.SectionItem>
+            <Link to="/letter-box">Letter Box</Link>
+          </Styled.SectionItem>
+        </Styled.SectionWrapper>
+        <Styled.SectionWrapper>
+          <Styled.SectionItem>Purchase</Styled.SectionItem>
+        </Styled.SectionWrapper>
+        <Styled.SectionWrapper>
+          <Styled.SectionItem>
+            <Link to="/sign-out">SIGN OUT</Link>
+          </Styled.SectionItem>
+        </Styled.SectionWrapper>
+      </Wrapper.MobileColumnWrapper>
     );
   }
 }

@@ -69,6 +69,12 @@ const ColumnWrapper = styled(BasicFlexWrapper)`
   flex-direction: column;
 `;
 
+const MobileColumnWrapper = styled(ColumnWrapper)`
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+`;
+
 const BetweenWrapper = styled(BasicFlexWrapper)`
   justify-content: space-between;
 `;
@@ -89,6 +95,7 @@ export default {
   BasicFlexWrapper,
   FlexWrapper,
   ColumnWrapper,
+  MobileColumnWrapper,
   BetweenWrapper,
   QuillEditor,
 };
