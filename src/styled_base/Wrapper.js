@@ -23,9 +23,10 @@ injectGlobal`
 
 const App = styled.div`
   font-family: 'Silk Remington', 'Nanum Myeongjo';
-  font-size: 1rem;
+  font-size: 0.75rem;
   line-height: 2;
   text-align: justify;
+  word-break: keep-all;
 
   a {
     color: black;
@@ -59,7 +60,7 @@ const BasicFlexWrapper = styled.div`
 const FlexWrapper = styled(BasicFlexWrapper)`
   justify-content: center;
   align-items: center;
-  max-width: 60rem;
+  max-width: 50rem;
   min-height: 100vh;
   margin: auto;
 `;

@@ -16,7 +16,7 @@ const BasicButton = styled.button`
   display: block;
   color: black;
   cursor: pointer;
-  font-size: 1rem;
+  font-size: 0.75rem;
   border: none;
   padding: 0;
   background-color: white;
@@ -29,7 +29,7 @@ const BasicButton = styled.button`
 const BasicInput = styled.input`
   font-family: 'Silk Remington', 'Nanum Myeongjo';
   font-size: 0.75rem;
-  line-height: 3;
+  line-height: 2;
   border: none;
 
   :focus {
