@@ -34,6 +34,9 @@ const BasicInput = styled.input`
 
   :focus {
     outline: none;
+    ::placeholder {
+      color: transparent;
+    }
   }
 
   ::placeholder {
