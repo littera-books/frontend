@@ -67,12 +67,12 @@ export class SignIn extends React.Component {
             <div>
               <Element.BasicSmall>{error}</Element.BasicSmall>
             </div>
-            <Styled.SignInButton type="submit">
-              <strong>SIGN IN</strong>
-            </Styled.SignInButton>
+            <Styled.SignInButton type="submit">SIGN IN</Styled.SignInButton>
           </form>
-          <Link to="/survey">Not a member yet?</Link>
-          <p>Forgot your password?</p>
+          <Link to="/survey" style={{ fontSize: '0.5rem' }}>
+            Not a member yet?
+          </Link>
+          <p style={{ fontSize: '0.5rem' }}>Forgot your password?</p>
         </Wrapper.ColumnWrapper>
         {popupFilter ? (
           <Loadable.SimplePopup replace={history.replace} destination="/main" />
