@@ -25,6 +25,8 @@ class FormPopup extends React.Component {
     initialize({
       userId,
     });
+    const code = document.getElementById('code');
+    code.focus();
   }
 
   async confirmPopup(payload) {
@@ -73,7 +75,7 @@ class FormPopup extends React.Component {
                 type="text"
                 name="code"
                 placeholder="Promotion Code"
-                component={BasicFormField.PlaceholderFormField}
+                component={BasicFormField.BasicFormField}
                 validate={Validation.required}
               />
               <div>

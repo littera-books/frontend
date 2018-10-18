@@ -5,7 +5,7 @@ import Element from '../styled_base/Element';
 
 const BasicFormField = ({ input, type, meta: { touched, error } }) => (
   <div>
-    <Element.BasicInput type={type} {...input} required />
+    <Element.BasicInput id="code" type={type} {...input} required />
     {touched && (error && <Element.BasicSmall>{error}</Element.BasicSmall>)}
   </div>
 );
