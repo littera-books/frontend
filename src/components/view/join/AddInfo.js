@@ -99,6 +99,7 @@ class AddInfo extends React.Component {
       postCode: '',
     };
 
+    this.onSubmit = this.onSubmit.bind(this);
     this.openPostCode = this.openPostCode.bind(this);
     this.updateWindowDimensions = this.updateWindowDimensions.bind(this);
   }
