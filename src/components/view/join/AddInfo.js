@@ -19,19 +19,94 @@ import Element from '../../../styled_base/Element';
 import Styled from './Survey.styled';
 import FormField from './FormField';
 
+const AddInfoForm = ({
+  handleSubmit, onSubmit, openPostCode, error,
+}) => (
+  <Styled.LineHeightForm
+    action="post"
+    onSubmit={handleSubmit(onSubmit.bind(this))}
+  >
+    <Styled.NameWrapper>
+      <Field
+        type="text"
+        name="firstName"
+        placeholder="first name"
+        component={BasicFormField.PlaceholderFormField}
+        validate={[Validation.required, Validation.maxLength20]}
+      />
+      <Field
+        type="text"
+        name="lastName"
+        placeholder="last name"
+        component={BasicFormField.PlaceholderFormField}
+        validate={[Validation.required, Validation.maxLength20]}
+      />
+    </Styled.NameWrapper>
+    <Field
+      type="email"
+      name="email"
+      placeholder="E-mail address (your identification)"
+      component={FormField.LongPlaceholderFormField}
+      validate={[Validation.required, Validation.email]}
+    />
+    <Field
+      type="tel"
+      name="phone"
+      placeholder="Contact No."
+      component={FormField.LongPlaceholderFormField}
+      validate={[
+        Validation.required,
+        Validation.maxLength11,
+        Validation.number,
+      ]}
+    />
+    <Field
+      type="text"
+      name="address"
+      placeholder="Contact Address (Where your books arrive)"
+      func={openPostCode}
+      component={FormField.PostalCodeFormField}
+      validate={Validation.required}
+    />
+    <Field
+      type="password"
+      name="password1"
+      placeholder="Password (With 8 characters or more)"
+      component={FormField.LongPlaceholderFormField}
+      validate={[Validation.required, Validation.minLength8]}
+    />
+    <Field
+      type="password"
+      name="password2"
+      placeholder="Confirm password"
+      component={FormField.LongPlaceholderFormField}
+      validate={[Validation.required, Validation.minLength8]}
+    />
+    <div>
+      <Element.BasicSmall>{error}</Element.BasicSmall>
+    </div>
+    <Styled.AlignRightButton type="submit">Register</Styled.AlignRightButton>
+  </Styled.LineHeightForm>
+);
+
 class AddInfo extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
+      width: 0,
       popupFilter: false,
       postCode: '',
     };
 
     this.openPostCode = this.openPostCode.bind(this);
+    this.updateWindowDimensions = this.updateWindowDimensions.bind(this);
   }
 
   componentDidMount() {
+    this.updateWindowDimensions();
+    window.addEventListener('resize', this.updateWindowDimensions);
+
     const { result, history } = this.props;
     if (Object.keys(result).length === 0) {
       alert(
@@ -47,6 +122,10 @@ class AddInfo extends React.Component {
     }
   }
 
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.updateWindowDimensions);
+  }
+
   async onSubmit(payload) {
     const { create } = this.props;
     await create(payload);
@@ -59,6 +138,10 @@ class AddInfo extends React.Component {
       setPopup(dataConfig.popupMessage.signUp);
       this.setState({ popupFilter: true });
     }
+  }
+
+  updateWindowDimensions() {
+    this.setState({ width: window.innerWidth });
   }
 
   initialPostCode() {
@@ -80,89 +163,59 @@ class AddInfo extends React.Component {
   }
 
   render() {
-    const { popupFilter } = this.state;
+    const { width, popupFilter } = this.state;
     const { handleSubmit, history, error } = this.props;
+
+    if (width > 414) {
+      return (
+        <Wrapper.FlexWrapper>
+          <Helmet pageTitle="Add Info" />
+          <Wrapper.ColumnWrapper>
+            <AddInfoForm
+              handleSubmit={handleSubmit}
+              onSubmit={this.onSubmit}
+              openPostCode={this.openPostCode}
+              error={error}
+            />
+          </Wrapper.ColumnWrapper>
+          {popupFilter && (
+            <Loadable.SimplePopup
+              replace={history.replace}
+              destination="/sign-in"
+            />
+          )}
+        </Wrapper.FlexWrapper>
+      );
+    }
+
     return (
-      <Wrapper.FlexWrapper>
+      <Styled.ScrollFlexWrapper>
         <Helmet pageTitle="Add Info" />
         <Wrapper.ColumnWrapper>
-          <form action="post" onSubmit={handleSubmit(this.onSubmit.bind(this))}>
-            <Wrapper.BetweenWrapper>
-              <Field
-                type="text"
-                name="firstName"
-                placeholder="first name"
-                component={BasicFormField.PlaceholderFormField}
-                validate={[Validation.required, Validation.maxLength20]}
-              />
-              <Field
-                type="text"
-                name="lastName"
-                placeholder="last name"
-                component={BasicFormField.PlaceholderFormField}
-                validate={[Validation.required, Validation.maxLength20]}
-              />
-            </Wrapper.BetweenWrapper>
-            <Field
-              type="email"
-              name="email"
-              placeholder="E-mail address (your identification)"
-              component={FormField.LongPlaceholderFormField}
-              validate={[Validation.required, Validation.email]}
-            />
-            <Field
-              type="tel"
-              name="phone"
-              placeholder="Contact No."
-              component={FormField.LongPlaceholderFormField}
-              validate={[
-                Validation.required,
-                Validation.maxLength11,
-                Validation.number,
-              ]}
-            />
-            <Field
-              type="text"
-              name="address"
-              placeholder="Contact Address (Where your books arrive)"
-              component={FormField.LongPlaceholderFormField}
-              validate={Validation.required}
-            />
-            <Styled.SmallButton type="button" onClick={this.openPostCode}>
-              우편번호 찾기
-            </Styled.SmallButton>
-            <Field
-              type="password"
-              name="password1"
-              placeholder="Password (With 8 characters or more)"
-              component={FormField.LongPlaceholderFormField}
-              validate={[Validation.required, Validation.minLength8]}
-            />
-            <Field
-              type="password"
-              name="password2"
-              placeholder="Confirm password"
-              component={FormField.LongPlaceholderFormField}
-              validate={[Validation.required, Validation.minLength8]}
-            />
-            <div>
-              <Element.BasicSmall>{error}</Element.BasicSmall>
-            </div>
-            <Styled.AlignRightButton type="submit">
-              Register
-            </Styled.AlignRightButton>
-          </form>
+          <AddInfoForm
+            handleSubmit={handleSubmit}
+            onSubmit={this.onSubmit}
+            openPostCode={this.openPostCode}
+            error={error}
+          />
         </Wrapper.ColumnWrapper>
-        {popupFilter ? (
+        {popupFilter && (
           <Loadable.SimplePopup
             replace={history.replace}
             destination="/sign-in"
           />
-        ) : null}
-      </Wrapper.FlexWrapper>
+        )}
+      </Styled.ScrollFlexWrapper>
     );
   }
 }
+
+AddInfoForm.propTypes = {
+  handleSubmit: PropTypes.func.isRequired,
+  onSubmit: PropTypes.func.isRequired,
+  openPostCode: PropTypes.func.isRequired,
+  error: PropTypes.string.isRequired,
+};
 
 AddInfo.propTypes = {
   change: PropTypes.func.isRequired,
