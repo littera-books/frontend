@@ -9,14 +9,83 @@ import { updateInfo } from '../../../reducers/reducer.user';
 import BasicFormField from '../../../form/FormField';
 import Validation from '../../../form/Validation';
 import Helmet from '../../helmet/Helmet';
+import FormField from './FormField';
 
 // Styled
 import Wrapper from '../../../styled_base/Wrapper';
 import Element from '../../../styled_base/Element';
 import Styled from './MyInfo.styled';
 
+const ManageMyInfoForm = ({ handleSubmit, onSubmit, error }) => (
+  <Styled.LineHeightForm
+    action="post"
+    onSubmit={handleSubmit(onSubmit.bind(this))}
+  >
+    <Styled.NameWrapper>
+      <Field
+        type="text"
+        name="firstName"
+        placeholder="first name"
+        component={BasicFormField.PlaceholderFormField}
+        validate={[Validation.required, Validation.maxLength20]}
+      />
+      <Field
+        type="text"
+        name="lastName"
+        placeholder="last name"
+        component={BasicFormField.PlaceholderFormField}
+      />
+    </Styled.NameWrapper>
+    <Field
+      type="email"
+      name="email"
+      placeholder="E-mail address (your identification)"
+      component={FormField.LongPlaceholderFormField}
+      validate={[Validation.required, Validation.email]}
+    />
+    <Field
+      type="tel"
+      name="phone"
+      placeholder="Contact No."
+      component={FormField.LongPlaceholderFormField}
+      validate={[
+        Validation.required,
+        Validation.maxLength11,
+        Validation.number,
+      ]}
+    />
+    <Field
+      type="text"
+      name="address"
+      placeholder="Contact Address (Where your books arrive)"
+      component={FormField.LongPlaceholderFormField}
+      validate={Validation.required}
+    />
+    <div>
+      <Element.BasicSmall>{error}</Element.BasicSmall>
+    </div>
+    <Link to="/my-info/patch-password">Patch Password</Link>
+    <Wrapper.BetweenWrapper>
+      <Link to="/my-info/resign">Resign</Link>
+      <Element.BasicButton type="submit">Confirm Change</Element.BasicButton>
+    </Wrapper.BetweenWrapper>
+  </Styled.LineHeightForm>
+);
+
 class ManageMyInfo extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = { width: 0 };
+
+    this.onSubmit = this.onSubmit.bind(this);
+    this.updateWindowDimensions = this.updateWindowDimensions.bind(this);
+  }
+
   componentDidMount() {
+    this.updateWindowDimensions();
+    window.addEventListener('resize', this.updateWindowDimensions);
+
     const {
       initialize,
       userId,
@@ -36,6 +105,10 @@ class ManageMyInfo extends React.Component {
     });
   }
 
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.updateWindowDimensions);
+  }
+
   async onSubmit(payload) {
     const { update, history } = this.props;
     await update(payload);
@@ -46,66 +119,49 @@ class ManageMyInfo extends React.Component {
     }
   }
 
+  updateWindowDimensions() {
+    this.setState({ width: window.innerWidth });
+  }
+
   render() {
+    const { width } = this.state;
     const { handleSubmit, error } = this.props;
+
+    if (width > 414) {
+      return (
+        <Wrapper.FlexWrapper>
+          <Helmet pageTitle="Manage My Info" />
+          <Wrapper.ColumnWrapper>
+            <ManageMyInfoForm
+              handleSubmit={handleSubmit}
+              onSubmit={this.onSubmit}
+              error={error}
+            />
+          </Wrapper.ColumnWrapper>
+        </Wrapper.FlexWrapper>
+      );
+    }
+
     return (
-      <Wrapper.FlexWrapper>
+      <Styled.ScrollFlexWrapper>
         <Helmet pageTitle="Manage My Info" />
-        <Styled.InfoWrapper>
-          <form action="post" onSubmit={handleSubmit(this.onSubmit.bind(this))}>
-            <Wrapper.BetweenWrapper>
-              <Field
-                type="text"
-                name="firstName"
-                component={BasicFormField.BasicFormField}
-                validate={[Validation.required, Validation.maxLength20]}
-              />
-              <Field
-                type="text"
-                name="lastName"
-                component={BasicFormField.BasicFormField}
-              />
-            </Wrapper.BetweenWrapper>
-            <Field
-              type="email"
-              name="email"
-              component={BasicFormField.BasicFormField}
-              validate={[Validation.required, Validation.email]}
-            />
-            <Field
-              type="tel"
-              name="phone"
-              component={BasicFormField.BasicFormField}
-              validate={[
-                Validation.required,
-                Validation.maxLength20,
-                Validation.number,
-              ]}
-            />
-            <Field
-              type="text"
-              name="address"
-              component={BasicFormField.BasicFormField}
-              validate={Validation.required}
-            />
-            <div>
-              <Element.BasicSmall>{error}</Element.BasicSmall>
-            </div>
-            <Styled.ButtonGroup>
-              <Link to="/my-info/patch-password">Patch Password</Link>
-            </Styled.ButtonGroup>
-            <Styled.ButtonGroup>
-              <Link to="/my-info/resign">Resign</Link>
-              <Element.BasicButton type="submit">
-                Confirm Change
-              </Element.BasicButton>
-            </Styled.ButtonGroup>
-          </form>
-        </Styled.InfoWrapper>
-      </Wrapper.FlexWrapper>
+        <Wrapper.ColumnWrapper>
+          <ManageMyInfoForm
+            handleSubmit={handleSubmit}
+            onSubmit={this.onSubmit}
+            error={error}
+          />
+        </Wrapper.ColumnWrapper>
+      </Styled.ScrollFlexWrapper>
     );
   }
 }
+
+ManageMyInfoForm.propTypes = {
+  handleSubmit: PropTypes.func.isRequired,
+  onSubmit: PropTypes.func.isRequired,
+  error: PropTypes.string.isRequired,
+};
 
 ManageMyInfo.propTypes = {
   history: PropTypes.shape({
