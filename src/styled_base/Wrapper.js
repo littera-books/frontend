@@ -91,6 +91,7 @@ const QuillEditor = styled(BasicBlockWrapper)`
 
     @media (max-width: 414px) {
       min-height: calc(100vh - 18rem);
+      /* title height + button height + margin-bottom = 18rem */
     }
 
     @media (max-width: 375px) {
