@@ -4,6 +4,7 @@ import { Field, reduxForm } from 'redux-form';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { updateInfo } from '../../../reducers/reducer.user';
+import dataConfig from '../../../dataConfig';
 
 // Components
 import BasicFormField from '../../../form/FormField';
@@ -16,7 +17,9 @@ import Wrapper from '../../../styled_base/Wrapper';
 import Element from '../../../styled_base/Element';
 import Styled from './MyInfo.styled';
 
-const ManageMyInfoForm = ({ handleSubmit, onSubmit, error }) => (
+const ManageMyInfoForm = ({
+  handleSubmit, onSubmit, openPostCode, error,
+}) => (
   <Styled.LineHeightForm
     action="post"
     onSubmit={handleSubmit(onSubmit.bind(this))}
@@ -58,7 +61,8 @@ const ManageMyInfoForm = ({ handleSubmit, onSubmit, error }) => (
       type="text"
       name="address"
       placeholder="Contact Address (Where your books arrive)"
-      component={FormField.LongPlaceholderFormField}
+      func={openPostCode}
+      component={FormField.PostalCodeFormField}
       validate={Validation.required}
     />
     <div>
@@ -76,15 +80,25 @@ class ManageMyInfo extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = { width: 0 };
+    this.state = {
+      width: 0,
+      postCode: '',
+    };
 
     this.onSubmit = this.onSubmit.bind(this);
+    this.openPostCode = this.openPostCode.bind(this);
     this.updateWindowDimensions = this.updateWindowDimensions.bind(this);
   }
 
   componentDidMount() {
     this.updateWindowDimensions();
     window.addEventListener('resize', this.updateWindowDimensions);
+
+    const script = document.createElement('script');
+    script.id = 'daum';
+    document.head.appendChild(script);
+    script.src = dataConfig.daumPostApiUrl;
+    script.onload = () => this.initialPostCode(this);
 
     const {
       initialize,
@@ -94,7 +108,13 @@ class ManageMyInfo extends React.Component {
       address,
       phone,
       email,
+      history,
     } = this.props;
+
+    if (!userId) {
+      history.replace('/my-info');
+    }
+
     initialize({
       userId,
       firstName,
@@ -123,6 +143,24 @@ class ManageMyInfo extends React.Component {
     this.setState({ width: window.innerWidth });
   }
 
+  initialPostCode() {
+    const { change } = this.props;
+    window.daum.postcode.load(() => {
+      const postCode = new window.daum.Postcode({
+        oncomplete: function oncomplete(data) {
+          change('address', `(${data.zonecode}) ${data.address}`);
+          alert('나머지 주소를 적어주세요');
+        },
+      });
+      this.setState({ postCode });
+    });
+  }
+
+  openPostCode() {
+    const { postCode } = this.state;
+    postCode.open();
+  }
+
   render() {
     const { width } = this.state;
     const { handleSubmit, error } = this.props;
@@ -135,6 +173,7 @@ class ManageMyInfo extends React.Component {
             <ManageMyInfoForm
               handleSubmit={handleSubmit}
               onSubmit={this.onSubmit}
+              openPostCode={this.openPostCode}
               error={error}
             />
           </Wrapper.ColumnWrapper>
@@ -149,6 +188,7 @@ class ManageMyInfo extends React.Component {
           <ManageMyInfoForm
             handleSubmit={handleSubmit}
             onSubmit={this.onSubmit}
+            openPostCode={this.openPostCode}
             error={error}
           />
         </Wrapper.ColumnWrapper>
@@ -160,6 +200,7 @@ class ManageMyInfo extends React.Component {
 ManageMyInfoForm.propTypes = {
   handleSubmit: PropTypes.func.isRequired,
   onSubmit: PropTypes.func.isRequired,
+  openPostCode: PropTypes.func.isRequired,
   error: PropTypes.string.isRequired,
 };
 
@@ -167,6 +208,7 @@ ManageMyInfo.propTypes = {
   history: PropTypes.shape({
     replace: PropTypes.func.isRequired,
   }).isRequired,
+  change: PropTypes.func.isRequired,
   handleSubmit: PropTypes.func.isRequired,
   initialize: PropTypes.func.isRequired,
   userId: PropTypes.number.isRequired,
