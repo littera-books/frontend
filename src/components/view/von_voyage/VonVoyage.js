@@ -19,26 +19,26 @@ import Helmet from '../../helmet/Helmet';
 import Wrapper from '../../../styled_base/Wrapper';
 import Styled from './VonVoyage.styled';
 
-const Product = ({ item }) => (
-  <Styled.ProductItem>
-    <Styled.ItemTitleGroup>
-      <p>1 book</p>
-      <p>X</p>
-      <p>1 month</p>
-      <p>X</p>
-      <p>{`${item.months} months`}</p>
-      <p>X</p>
-      <p>{`${item.price} KRW`}</p>
-    </Styled.ItemTitleGroup>
-    <Field
-      name="product"
-      component="input"
-      type="radio"
-      value={`months-${item.months}`}
-      required
-    />
-  </Styled.ProductItem>
-);
+const Product = ({ items }) => _.map(items, item => (
+    <Styled.ProductItem key={item.id}>
+      <Styled.ItemTitleGroup>
+        <p>1 book</p>
+        <p>X</p>
+        <p>1 month</p>
+        <p>X</p>
+        <p>{`${item.months} months`}</p>
+        <p>X</p>
+        <p>{`${item.price} KRW`}</p>
+      </Styled.ItemTitleGroup>
+      <Field
+        name="product"
+        component="input"
+        type="radio"
+        value={`months-${item.months}`}
+        required
+      />
+    </Styled.ProductItem>
+));
 
 const Promotion = () => (
   <Styled.ProductItem>
@@ -101,14 +101,11 @@ class VonVoyage extends React.Component {
     this.setState({ popupFilter: false });
   }
 
-  renderItems() {
-    const { items } = this.props;
-    return _.map(items, item => <Product key={item.id} item={item} />);
-  }
-
   render() {
     const { width, popupFilter } = this.state;
-    const { handleSubmit, userId, history } = this.props;
+    const {
+      handleSubmit, userId, history, items,
+    } = this.props;
 
     if (width > 414) {
       return (
@@ -119,7 +116,7 @@ class VonVoyage extends React.Component {
             onSubmit={handleSubmit(this.onPurchase.bind(this))}
           >
             <Wrapper.BasicFlexWrapper>
-              {this.renderItems()}
+              <Product items={items} />
               <Promotion />
             </Wrapper.BasicFlexWrapper>
             <Styled.AlignRightButton type="submit">
@@ -142,7 +139,7 @@ class VonVoyage extends React.Component {
       <Wrapper.MobileBlockWrapper>
         <Helmet pageTitle="Von Voyage!" />
         <form action="post" onSubmit={handleSubmit(this.onPurchase.bind(this))}>
-          {this.renderItems()}
+          <Product items={items} />
           <Promotion />
           <Styled.FixedButton type="submit">Purchase</Styled.FixedButton>
         </form>
@@ -152,9 +149,7 @@ class VonVoyage extends React.Component {
 }
 
 Product.propTypes = {
-  item: PropTypes.objectOf(
-    PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
-  ).isRequired,
+  items: PropTypes.arrayOf(PropTypes.object.isRequired).isRequired,
 };
 
 VonVoyage.propTypes = {
