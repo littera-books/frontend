@@ -82,8 +82,8 @@ class Main extends React.Component {
               <Card img={Join} name="Join" />
             </Link>
           )}
-          <Link to="/von-voyage">
-            <Card img={BonVoyage} name="&quot;Von Voyage!&quot;" />
+          <Link to="/bon-voyage">
+            <Card img={BonVoyage} name="&quot;Bon Voyage!&quot;" />
           </Link>
           {sessionStorage.getItem('token') ? (
             <Link to="/all-ears/send">
@@ -114,8 +114,8 @@ class Main extends React.Component {
               <Card img={MJoin} name="Join" />
             </Link>
           )}
-          <Link to="/von-voyage">
-            <Card img={MBonVoyage} name="&quot;Von Voyage!&quot;" />
+          <Link to="/bon-voyage">
+            <Card img={MBonVoyage} name="&quot;Bon Voyage!&quot;" />
           </Link>
           {sessionStorage.getItem('token') ? (
             <Link to="/all-ears/send">

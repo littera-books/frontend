@@ -88,8 +88,8 @@ const LetterBoxDetail = Loadable({
   loading: Loading,
 });
 
-const VonVoyage = Loadable({
-  loader: () => import('./components/view/von_voyage/VonVoyage'),
+const BonVoyage = Loadable({
+  loader: () => import('./components/view/bon_voyage/BonVoyage'),
   loading: Loading,
 });
 
@@ -135,7 +135,7 @@ export default {
   ResignSurvey,
   LetterBox,
   LetterBoxDetail,
-  VonVoyage,
+  BonVoyage,
   AllEars,
   SendLetter,
   SimplePopup,

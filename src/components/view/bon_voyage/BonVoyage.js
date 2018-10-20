@@ -17,7 +17,7 @@ import Helmet from '../../helmet/Helmet';
 
 // Styled
 import Wrapper from '../../../styled_base/Wrapper';
-import Styled from './VonVoyage.styled';
+import Styled from './BonVoyage.styled';
 
 const Product = ({ items }) => _.map(items, item => (
     <Styled.ProductItem key={item.id}>
@@ -55,7 +55,7 @@ const Promotion = () => (
   </Styled.ProductItem>
 );
 
-class VonVoyage extends React.Component {
+class BonVoyage extends React.Component {
   // 창의 너비가 일정 수준 이하로 좁아지면 화면 구조를 캐러셀로 변화시킨다
   // EventListener 가 창의 너비를 실시간으로 읽어들인다
   constructor(props) {
@@ -152,7 +152,7 @@ Product.propTypes = {
   items: PropTypes.arrayOf(PropTypes.object.isRequired).isRequired,
 };
 
-VonVoyage.propTypes = {
+BonVoyage.propTypes = {
   history: PropTypes.shape({
     replace: PropTypes.func.isRequired,
   }).isRequired,
@@ -183,5 +183,5 @@ export default reduxForm({
   connect(
     mapStateToProps,
     mapDispatchToProps,
-  )(VonVoyage),
+  )(BonVoyage),
 );

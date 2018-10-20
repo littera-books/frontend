@@ -65,7 +65,7 @@ export class App extends React.PureComponent {
             <Route path="/survey" component={Loadable.Survey} />
             <PrivateRoute path="/sign-out" component={Loadable.SignOut} />
             <Route path="/sign-in" component={Loadable.SignIn} />
-            <Route path="/von-voyage" component={Loadable.VonVoyage} />
+            <Route path="/bon-voyage" component={Loadable.BonVoyage} />
             <PrivateRoute
               path="/all-ears/send"
               component={Loadable.SendLetter}
