@@ -17,6 +17,7 @@ import Helmet from '../../helmet/Helmet';
 
 // Styled
 import Wrapper from '../../../styled_base/Wrapper';
+import Element from '../../../styled_base/Element';
 import Styled from './MyInfo.styled';
 
 class Resign extends React.Component {
@@ -32,7 +33,12 @@ class Resign extends React.Component {
   }
 
   componentDidMount() {
-    const { initialize, userId } = this.props;
+    const { initialize, history, userId } = this.props;
+
+    if (!userId) {
+      history.replace('/my-info');
+    }
+
     initialize({
       userId,
     });
@@ -63,18 +69,24 @@ class Resign extends React.Component {
     return (
       <Wrapper.FlexWrapper>
         <Helmet pageTitle="Resign" />
-        <form action="post" onSubmit={handleSubmit(this.onDestroy.bind(this))}>
+        <Styled.LineHeightForm
+          action="post"
+          onSubmit={handleSubmit(this.onDestroy.bind(this))}
+        >
           <Field
             type="password"
             name="password"
             placeholder="Write your password..."
-            component={BasicFormField.PlaceholderFormField}
+            component={BasicFormField.LongPlaceholderFormField}
             validate={Validation.required}
           />
-          <Styled.AlignRightButton type="submit">
-            Resign
-          </Styled.AlignRightButton>
-        </form>
+          <Styled.ButtonGroup>
+            <Element.BasicButton type="button" onClick={history.goBack}>
+              ←
+            </Element.BasicButton>
+            <Element.BasicButton type="submit">Resign</Element.BasicButton>
+          </Styled.ButtonGroup>
+        </Styled.LineHeightForm>
         {popupFilter ? (
           <Loadable.ConfirmPopup
             method={destroy}

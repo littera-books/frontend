@@ -40,7 +40,6 @@ const LineHeightForm = styled.form`
 
   @media (max-width: 375px) {
     margin: 0 1.5rem;
-    margin-bottom: 4rem;
   }
 
   @media (max-width: 320px) {
