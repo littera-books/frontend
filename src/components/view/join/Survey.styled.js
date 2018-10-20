@@ -32,12 +32,6 @@ const SelectionText = styled.span`
   margin-left: 0.5rem;
 `;
 
-const NameWrapper = styled(Wrapper.BetweenWrapper)`
-  @media (max-width: 414px) {
-    flex-direction: column;
-  }
-`;
-
 const LineHeightForm = styled.form`
   line-height: 5;
 
@@ -55,11 +49,6 @@ const LineHeightForm = styled.form`
   }
 `;
 
-const SmallButton = styled(Element.BasicButton)`
-  margin: 1rem 0;
-  font-size: 0.75rem;
-`;
-
 const AlignRightButton = styled(Element.BasicButton)`
   margin-top: 3rem;
   margin-left: auto;
@@ -70,19 +59,12 @@ const AlignRightButton = styled(Element.BasicButton)`
   }
 `;
 
-const LongInput = styled(Element.BasicInput)`
-  width: 20rem;
-`;
-
 export default {
   ScrollFlexWrapper,
   MarginForm,
   QuestionItem,
   SelectionItem,
   SelectionText,
-  NameWrapper,
   LineHeightForm,
-  SmallButton,
   AlignRightButton,
-  LongInput,
 };

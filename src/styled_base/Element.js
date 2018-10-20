@@ -45,9 +45,14 @@ const BasicInput = styled.input`
   }
 `;
 
+const LongInput = styled(BasicInput)`
+  width: 20rem;
+`;
+
 export default {
   ResponsiveImg,
   BasicSmall,
   BasicButton,
   BasicInput,
+  LongInput,
 };

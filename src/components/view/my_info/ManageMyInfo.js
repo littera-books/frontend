@@ -1,16 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Field, reduxForm } from 'redux-form';
+import { reduxForm } from 'redux-form';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { updateInfo } from '../../../reducers/reducer.user';
 import dataConfig from '../../../dataConfig';
 
 // Components
-import BasicFormField from '../../../form/FormField';
-import Validation from '../../../form/Validation';
+import InfoFormField from '../../../form/InfoFormField';
 import Helmet from '../../helmet/Helmet';
-import FormField from './FormField';
 
 // Styled
 import Wrapper from '../../../styled_base/Wrapper';
@@ -24,50 +22,7 @@ const ManageMyInfoForm = ({
     action="post"
     onSubmit={handleSubmit(onSubmit.bind(this))}
   >
-    <Styled.NameWrapper>
-      <Field
-        type="text"
-        name="firstName"
-        placeholder="first name"
-        component={BasicFormField.PlaceholderFormField}
-        validate={[Validation.required, Validation.maxLength20]}
-      />
-      <Field
-        type="text"
-        name="lastName"
-        placeholder="last name"
-        component={BasicFormField.PlaceholderFormField}
-      />
-    </Styled.NameWrapper>
-    <Field
-      type="email"
-      name="email"
-      placeholder="E-mail address (your identification)"
-      component={FormField.LongPlaceholderFormField}
-      validate={[Validation.required, Validation.email]}
-    />
-    <Field
-      type="tel"
-      name="phone"
-      placeholder="Contact No."
-      component={FormField.LongPlaceholderFormField}
-      validate={[
-        Validation.required,
-        Validation.maxLength11,
-        Validation.number,
-      ]}
-    />
-    <Field
-      type="text"
-      name="address"
-      placeholder="Contact Address (Where your books arrive)"
-      func={openPostCode}
-      component={FormField.PostalCodeFormField}
-      validate={Validation.required}
-    />
-    <div>
-      <Element.BasicSmall>{error}</Element.BasicSmall>
-    </div>
+    <InfoFormField error={error} openPostCode={openPostCode} />
     <Link to="/my-info/patch-password">Patch Password</Link>
     <Wrapper.BetweenWrapper>
       <Link to="/my-info/resign">Resign</Link>

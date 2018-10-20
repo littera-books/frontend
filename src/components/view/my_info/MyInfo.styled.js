@@ -67,10 +67,6 @@ const AlignRightButton = styled(Element.BasicButton)`
   margin-left: auto;
 `;
 
-const LongInput = styled(Element.BasicInput)`
-  width: 20rem;
-`;
-
 const LastNameParagraph = styled.p`
   width: 182px;
 `;
@@ -82,6 +78,5 @@ export default {
   LineHeightForm,
   AlignRightButton,
   ButtonGroup,
-  LongInput,
   LastNameParagraph,
 };

@@ -1,13 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Field, reduxForm } from 'redux-form';
+import { reduxForm } from 'redux-form';
 import { connect } from 'react-redux';
 import { patchPassword } from '../../../reducers/reducer.user';
 
 // Components
-import Validation from '../../../form/Validation';
+import { PasswordField } from '../../../form/InfoFormField';
 import Helmet from '../../helmet/Helmet';
-import FormField from '../join/FormField';
 
 // Styled
 import Wrapper from '../../../styled_base/Wrapper';
@@ -34,20 +33,7 @@ class PatchPassword extends React.Component {
         <Helmet pageTitle="Patch Password" />
         <Styled.InfoWrapper>
           <form action="post" onSubmit={handleSubmit(this.onSubmit.bind(this))}>
-            <Field
-              type="password"
-              name="password1"
-              placeholder="Password (With 8 characters or more)"
-              component={FormField.LongPlaceholderFormField}
-              validate={[Validation.required, Validation.minLength8]}
-            />
-            <Field
-              type="password"
-              name="password2"
-              placeholder="Confirm password"
-              component={FormField.LongPlaceholderFormField}
-              validate={[Validation.required, Validation.minLength8]}
-            />
+            <PasswordField />
             <Styled.AlignRightButton type="submit">
               Submit
             </Styled.AlignRightButton>

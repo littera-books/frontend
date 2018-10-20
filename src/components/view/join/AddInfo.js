@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Field, reduxForm } from 'redux-form';
+import { reduxForm } from 'redux-form';
 import { connect } from 'react-redux';
 import { createUser } from '../../../reducers/reducer.user';
 import { postResult } from '../../../reducers/reducer.question';
@@ -9,15 +9,12 @@ import dataConfig from '../../../dataConfig';
 
 // Component
 import Loadable from '../../../loadable';
-import BasicFormField from '../../../form/FormField';
-import Validation from '../../../form/Validation';
+import InfoFormField, { PasswordField } from '../../../form/InfoFormField';
 import Helmet from '../../helmet/Helmet';
 
 // Styled
 import Wrapper from '../../../styled_base/Wrapper';
-import Element from '../../../styled_base/Element';
 import Styled from './Survey.styled';
-import FormField from './FormField';
 
 const AddInfoForm = ({
   handleSubmit, onSubmit, openPostCode, error,
@@ -26,65 +23,8 @@ const AddInfoForm = ({
     action="post"
     onSubmit={handleSubmit(onSubmit.bind(this))}
   >
-    <Styled.NameWrapper>
-      <Field
-        type="text"
-        name="firstName"
-        placeholder="first name"
-        component={BasicFormField.PlaceholderFormField}
-        validate={[Validation.required, Validation.maxLength20]}
-      />
-      <Field
-        type="text"
-        name="lastName"
-        placeholder="last name"
-        component={BasicFormField.PlaceholderFormField}
-        validate={[Validation.required, Validation.maxLength20]}
-      />
-    </Styled.NameWrapper>
-    <Field
-      type="email"
-      name="email"
-      placeholder="E-mail address (your identification)"
-      component={FormField.LongPlaceholderFormField}
-      validate={[Validation.required, Validation.email]}
-    />
-    <Field
-      type="tel"
-      name="phone"
-      placeholder="Contact No."
-      component={FormField.LongPlaceholderFormField}
-      validate={[
-        Validation.required,
-        Validation.maxLength11,
-        Validation.number,
-      ]}
-    />
-    <Field
-      type="text"
-      name="address"
-      placeholder="Contact Address (Where your books arrive)"
-      func={openPostCode}
-      component={FormField.PostalCodeFormField}
-      validate={Validation.required}
-    />
-    <Field
-      type="password"
-      name="password1"
-      placeholder="Password (With 8 characters or more)"
-      component={FormField.LongPlaceholderFormField}
-      validate={[Validation.required, Validation.minLength8]}
-    />
-    <Field
-      type="password"
-      name="password2"
-      placeholder="Confirm password"
-      component={FormField.LongPlaceholderFormField}
-      validate={[Validation.required, Validation.minLength8]}
-    />
-    <div>
-      <Element.BasicSmall>{error}</Element.BasicSmall>
-    </div>
+    <InfoFormField error={error} openPostCode={openPostCode} />
+    <PasswordField />
     <Styled.AlignRightButton type="submit">Register</Styled.AlignRightButton>
   </Styled.LineHeightForm>
 );
