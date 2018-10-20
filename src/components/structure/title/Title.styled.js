@@ -8,16 +8,17 @@ const TitleWrapper = styled(Wrapper.BasicFlexWrapper)`
   left: 0;
   z-index: 1;
   background-color: white;
-  margin: auto;
-  padding: 3rem 0;
+  padding-top: 3rem;
+  margin-bottom: 3rem;
   width: 100vw;
-  height: 10rem;
+  height: 7rem;
   justify-content: center;
   align-items: center;
 
   @media (max-width: 375px) {
-    padding: 2rem 0;
-    height: 8rem;
+    padding-top: 2rem;
+    margin-bottom: 2rem;
+    height: 6rem;
   }
 `;
 

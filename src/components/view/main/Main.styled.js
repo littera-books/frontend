@@ -2,8 +2,8 @@ import styled from 'styled-components';
 import Wrapper from '../../../styled_base/Wrapper';
 
 const CardWrapper = styled(Wrapper.BasicBlockWrapper)`
-  margin: 0 1rem;
-  width: 13rem;
+  margin: 0 0.25rem;
+  width: 12rem;
   opacity: 0.3;
   :hover {
     opacity: 1;
