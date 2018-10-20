@@ -10,11 +10,17 @@ import Helmet from '../../helmet/Helmet';
 
 // Styled
 import Wrapper from '../../../styled_base/Wrapper';
+import Element from '../../../styled_base/Element';
 import Styled from './MyInfo.styled';
 
 class PatchPassword extends React.Component {
   componentDidMount() {
-    const { initialize, userId } = this.props;
+    const { initialize, history, userId } = this.props;
+
+    if (!userId) {
+      history.replace('/my-info');
+    }
+
     initialize({
       userId,
     });
@@ -27,17 +33,23 @@ class PatchPassword extends React.Component {
   }
 
   render() {
-    const { handleSubmit } = this.props;
+    const { handleSubmit, history } = this.props;
     return (
       <Wrapper.FlexWrapper>
         <Helmet pageTitle="Patch Password" />
         <Styled.InfoWrapper>
-          <form action="post" onSubmit={handleSubmit(this.onSubmit.bind(this))}>
+          <Styled.LineHeightForm
+            action="post"
+            onSubmit={handleSubmit(this.onSubmit.bind(this))}
+          >
             <PasswordField />
-            <Styled.AlignRightButton type="submit">
-              Submit
-            </Styled.AlignRightButton>
-          </form>
+            <Styled.ButtonGroup>
+              <Element.BasicButton type="button" onClick={history.goBack}>
+                ←
+              </Element.BasicButton>
+              <Element.BasicButton type="submit">Submit</Element.BasicButton>
+            </Styled.ButtonGroup>
+          </Styled.LineHeightForm>
         </Styled.InfoWrapper>
       </Wrapper.FlexWrapper>
     );
@@ -45,6 +57,9 @@ class PatchPassword extends React.Component {
 }
 
 PatchPassword.propTypes = {
+  history: PropTypes.shape({
+    replace: PropTypes.func.isRequired,
+  }).isRequired,
   handleSubmit: PropTypes.func.isRequired,
   initialize: PropTypes.func.isRequired,
   patch: PropTypes.func.isRequired,
