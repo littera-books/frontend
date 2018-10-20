@@ -74,7 +74,7 @@ const Resign = Loadable({
 });
 
 const ResignSurvey = Loadable({
-  loader: () => import('./components/view/my_info/ResignSurvey'),
+  loader: () => import('./components/send_letter/ResignSurvey'),
   loading: Loading,
 });
 
@@ -104,7 +104,7 @@ const AllEars = Loadable({
 });
 
 const SendLetter = Loadable({
-  loader: () => import('./components/view/all_ears/SendLetter'),
+  loader: () => import('./components/send_letter/SendLetter'),
   loading: Loading,
 });
 

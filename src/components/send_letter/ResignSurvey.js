@@ -3,19 +3,19 @@ import PropTypes from 'prop-types';
 import { reduxForm } from 'redux-form';
 import { connect } from 'react-redux';
 import Quill from 'quill';
-import { signOut } from '../../../reducers/reducer.auth';
-import { createResignSurvey } from '../../../reducers/reducer.resignSurvey';
-import { setPopupHeaderMessage } from '../../../reducers/reducer.popup';
-import dataConfig from '../../../dataConfig';
+import { signOut } from '../../reducers/reducer.auth';
+import { createResignSurvey } from '../../reducers/reducer.resignSurvey';
+import { setPopupHeaderMessage } from '../../reducers/reducer.popup';
+import dataConfig from '../../dataConfig';
 
 // Components
-import Loadable from '../../../loadable';
-import Helmet from '../../helmet/Helmet';
+import Loadable from '../../loadable';
+import Helmet from '../helmet/Helmet';
 
 // Styled
-import Wrapper from '../../../styled_base/Wrapper';
-import Element from '../../../styled_base/Element';
-import Styled from './MyInfo.styled';
+import Wrapper from '../../styled_base/Wrapper';
+import Element from '../../styled_base/Element';
+import Styled from './SendLetter.styled';
 import 'quill/dist/quill.core.css';
 import 'quill/dist/quill.bubble.css';
 
@@ -86,24 +86,23 @@ class ResignSurvey extends React.Component {
     const { required, popupFilter } = this.state;
     const { handleSubmit, history, error } = this.props;
     return (
-      <Wrapper.FlexWrapper>
+      <Styled.LetterWrapper>
         <Helmet pageTitle="Resign Survey" />
-        <Styled.InfoWrapper>
-          <form action="post" onSubmit={handleSubmit(this.onSubmit.bind(this))}>
-            <Wrapper.QuillEditor id="editor" />
-            <div>
-              <Element.BasicSmall>{required}</Element.BasicSmall>
-              <Element.BasicSmall>{error}</Element.BasicSmall>
-            </div>
-            <Styled.AlignRightButton type="submit">
-              Send
-            </Styled.AlignRightButton>
-          </form>
-        </Styled.InfoWrapper>
-        {popupFilter ? (
+        <Styled.MarginForm
+          action="post"
+          onSubmit={handleSubmit(this.onSubmit.bind(this))}
+        >
+          <Wrapper.QuillEditor id="editor" />
+          <div>
+            <Element.BasicSmall>{required}</Element.BasicSmall>
+            <Element.BasicSmall>{error}</Element.BasicSmall>
+          </div>
+          <Styled.SendButton type="submit">Send</Styled.SendButton>
+        </Styled.MarginForm>
+        {popupFilter && (
           <Loadable.SimplePopup replace={history.replace} destination="/main" />
-        ) : null}
-      </Wrapper.FlexWrapper>
+        )}
+      </Styled.LetterWrapper>
     );
   }
 }

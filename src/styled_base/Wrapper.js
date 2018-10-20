@@ -98,6 +98,10 @@ const QuillEditor = styled(BasicBlockWrapper)`
       min-height: calc(100vh - 16rem);
     }
   }
+
+  .ql-editor.ql-blank::before {
+    left: 0;
+  }
 `;
 
 export default {

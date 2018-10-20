@@ -3,16 +3,16 @@ import PropTypes from 'prop-types';
 import { reduxForm } from 'redux-form';
 import { connect } from 'react-redux';
 import Quill from 'quill';
-import { readToken } from '../../../reducers/reducer.user';
-import { sendLetter } from '../../../reducers/reducer.letter';
+import { readToken } from '../../reducers/reducer.user';
+import { sendLetter } from '../../reducers/reducer.letter';
 
 // Components
-import Helmet from '../../helmet/Helmet';
+import Helmet from '../helmet/Helmet';
 
 // Styled
-import Wrapper from '../../../styled_base/Wrapper';
-import Element from '../../../styled_base/Element';
-import Styled from './AllEars.styled';
+import Wrapper from '../../styled_base/Wrapper';
+import Element from '../../styled_base/Element';
+import Styled from './SendLetter.styled';
 import 'quill/dist/quill.core.css';
 import 'quill/dist/quill.bubble.css';
 
