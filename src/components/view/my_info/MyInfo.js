@@ -12,21 +12,11 @@ import Wrapper from '../../../styled_base/Wrapper';
 import Styled from './MyInfo.styled';
 
 class MyInfo extends React.Component {
-  state = {
-    userId: 0,
-  };
-
-  componentDidMount() {
-    const { read } = this.props;
-    read();
-  }
-
-  static getDerivedStateFromProps(nextProps, prevState) {
-    if (nextProps.userId !== prevState.userId) {
-      nextProps.retrieve(nextProps.userId);
-      return { userId: nextProps.userId };
-    }
-    return null;
+  async componentDidMount() {
+    const { read, retrieve } = this.props;
+    await read();
+    const { userId } = this.props;
+    await retrieve(userId);
   }
 
   render() {
@@ -37,10 +27,10 @@ class MyInfo extends React.Component {
       <Wrapper.FlexWrapper>
         <Helmet pageTitle="My Info" />
         <Styled.InfoWrapper>
-          <Wrapper.BetweenWrapper>
+          <Styled.NameWrapper>
             <p>{firstName}</p>
-            <p>{lastName}</p>
-          </Wrapper.BetweenWrapper>
+            <Styled.LastNameParagraph>{lastName}</Styled.LastNameParagraph>
+          </Styled.NameWrapper>
           <p>{email}</p>
           <p>{phone}</p>
           <p>{address}</p>
