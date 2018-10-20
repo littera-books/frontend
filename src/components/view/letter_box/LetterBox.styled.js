@@ -2,15 +2,17 @@ import styled from 'styled-components';
 import Wrapper from '../../../styled_base/Wrapper';
 
 const LetterBoxWrapper = styled(Wrapper.ColumnWrapper)`
-  margin: 1rem;
+  @media (max-width: 414px) {
+    margin: 0 2rem;
+  }
 `;
 
 const LetterBoxFlexWrapper = styled(Wrapper.BasicFlexWrapper)`
   margin: 10rem auto;
-  width: 45rem;
+  width: 50rem;
 
   @media (max-width: 414px) {
-    width: 100vw;
+    width: 100%;
   }
 
   @media (max-width: 375px) {
@@ -23,11 +25,12 @@ const NavigationWrapper = styled(Wrapper.BetweenWrapper)`
 `;
 
 const Content = styled(Wrapper.BasicBlockWrapper)`
-  width: 45rem;
+  width: 50rem;
   min-height: 20rem;
 
   @media (max-width: 414px) {
-    width: calc(100vw - 2rem);
+    width: calc(100vw - 4rem);
+    min-height: 10rem;
   }
 `;
 
