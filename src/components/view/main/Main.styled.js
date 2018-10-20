@@ -11,20 +11,20 @@ const CardWrapper = styled(Wrapper.BasicBlockWrapper)`
 
   @media (max-width: 414px) {
     margin: 0 auto;
-    width: 13rem;
-    height: 32rem;
+    width: 11rem;
+    height: 28rem;
   }
 
   @media (max-width: 375px) {
     margin: 0 auto;
-    width: 12rem;
-    height: 30rem;
+    width: 10rem;
+    height: 25rem;
   }
 
   @media (max-width: 320px) {
     margin: 0 auto;
-    width: 10rem;
-    height: 24.5rem;
+    width: 8rem;
+    height: 20rem;
   }
 `;
 
