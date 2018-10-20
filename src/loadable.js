@@ -93,6 +93,11 @@ const BonVoyage = Loadable({
   loading: Loading,
 });
 
+const Product = Loadable({
+  loader: () => import('./components/view/bon_voyage/Product'),
+  loading: Loading,
+});
+
 const AllEars = Loadable({
   loader: () => import('./components/view/all_ears/AllEars'),
   loading: Loading,
@@ -136,6 +141,7 @@ export default {
   LetterBox,
   LetterBoxDetail,
   BonVoyage,
+  Product,
   AllEars,
   SendLetter,
   SimplePopup,

@@ -1,4 +1,3 @@
-import _ from 'lodash';
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Field, reduxForm } from 'redux-form';
@@ -18,27 +17,6 @@ import Helmet from '../../helmet/Helmet';
 // Styled
 import Wrapper from '../../../styled_base/Wrapper';
 import Styled from './BonVoyage.styled';
-
-const Product = ({ items }) => _.map(items, item => (
-    <Styled.ProductItem key={item.id}>
-      <Styled.ItemTitleGroup>
-        <p>1 book</p>
-        <p>X</p>
-        <p>1 month</p>
-        <p>X</p>
-        <p>{`${item.months} months`}</p>
-        <p>X</p>
-        <p>{`${item.price} KRW`}</p>
-      </Styled.ItemTitleGroup>
-      <Field
-        name="product"
-        component="input"
-        type="radio"
-        value={`months-${item.months}`}
-        required
-      />
-    </Styled.ProductItem>
-));
 
 const Promotion = () => (
   <Styled.ProductItem>
@@ -116,7 +94,7 @@ class BonVoyage extends React.Component {
             onSubmit={handleSubmit(this.onPurchase.bind(this))}
           >
             <Wrapper.BasicFlexWrapper>
-              <Product items={items} />
+              <Loadable.Product items={items} />
               <Promotion />
             </Wrapper.BasicFlexWrapper>
             <Styled.AlignRightButton type="submit">
@@ -139,7 +117,7 @@ class BonVoyage extends React.Component {
       <Wrapper.MobileBlockWrapper>
         <Helmet pageTitle="Von Voyage!" />
         <form action="post" onSubmit={handleSubmit(this.onPurchase.bind(this))}>
-          <Product items={items} />
+          <Loadable.Product items={items} />
           <Promotion />
           <Styled.FixedButton type="submit">Purchase</Styled.FixedButton>
         </form>
@@ -147,10 +125,6 @@ class BonVoyage extends React.Component {
     );
   }
 }
-
-Product.propTypes = {
-  items: PropTypes.arrayOf(PropTypes.object.isRequired).isRequired,
-};
 
 BonVoyage.propTypes = {
   history: PropTypes.shape({
