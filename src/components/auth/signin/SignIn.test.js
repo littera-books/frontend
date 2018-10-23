@@ -8,6 +8,10 @@ Enzyme.configure({ adapter: new Adapter() });
 
 function setup() {
   const props = {
+    history: {
+      replace: jest.fn(),
+    },
+    setPopup: jest.fn(),
     init: jest.fn(),
     logIn: jest.fn(),
     handleSubmit: jest.fn(),
@@ -25,6 +29,6 @@ function setup() {
 describe('SignIn', () => {
   it('올바로 렌더링되었는가', () => {
     const { enzymeWrapper } = setup();
-    expect(enzymeWrapper.find('p').text()).toBe('Forgot your password?');
+    expect(enzymeWrapper.find('#submit').props().children).toBe('SIGN IN');
   });
 });

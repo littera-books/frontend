@@ -22,7 +22,7 @@ export default {
     },
     signUp: {
       header: 'Sign Up',
-      message: 'Welcome Aboard!',
+      message: 'Welcome Aboard! Please check your email to activate account.',
     },
     signIn: {
       header: 'Sign In',
