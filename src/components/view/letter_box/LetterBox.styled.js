@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import Wrapper from '../../../styled_base/Wrapper';
+import Element from '../../../styled_base/Element';
 
 const LetterWrapper = styled(Wrapper.MobileBlockWrapper)`
   width: 50rem;
@@ -38,7 +39,7 @@ const InfoWrapper = styled(Wrapper.ColumnWrapper)`
 `;
 
 const NavigationWrapper = styled(Wrapper.BetweenWrapper)`
-  margin-top: 3rem;
+  margin-top: 1rem;
 `;
 
 const Content = styled(Wrapper.BasicBlockWrapper)`
@@ -53,6 +54,15 @@ const TimeParagraph = styled.p`
   margin-bottom: 3rem;
 `;
 
+const PaginationWrapper = styled(Wrapper.BasicFlexWrapper)`
+  margin-top: 1.5rem;
+  justify-content: center;
+`;
+
+const PaginationItem = styled(Element.BasicButton)`
+  margin: 0 0.5rem;
+`;
+
 export default {
   LetterWrapper,
   LetterBoxWrapper,
@@ -61,4 +71,6 @@ export default {
   Content,
   TitleSpan,
   TimeParagraph,
+  PaginationWrapper,
+  PaginationItem,
 };

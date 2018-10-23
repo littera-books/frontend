@@ -3,6 +3,7 @@ import axiosInstance from './axios.instance';
 
 // Actions
 const SEND_LETTER = 'SEND_LETTER';
+const GET_COUNT = 'GET_COUNT';
 const GET_LETTER = 'GET_LETTER';
 const GET_LETTER_DETAIL = 'GET_LETTER_DETAIL';
 
@@ -28,13 +29,33 @@ export const sendLetter = async (userId, payload) => {
   };
 };
 
-export const getLetter = async (userId) => {
+export const getCount = async (userId) => {
   let response;
   let error;
 
   try {
     response = await axiosInstance({
-      url: `/message/${userId}`,
+      url: `/message/${userId}/count`,
+      method: 'get',
+    });
+  } catch (e) {
+    error = e;
+  }
+
+  return {
+    type: GET_COUNT,
+    response,
+    error,
+  };
+};
+
+export const getLetter = async (userId, pageNum) => {
+  let response;
+  let error;
+
+  try {
+    response = await axiosInstance({
+      url: `/message/${userId}?page=${pageNum}`,
       method: 'get',
     });
   } catch (e) {
@@ -70,6 +91,7 @@ export const getLetterDetail = async (payload) => {
 
 // Initial State
 const initialState = {
+  count: 0,
   length: 0,
   items: [],
   item: {
@@ -91,6 +113,21 @@ const reducerSendLetter = (state, action) => {
 
   return _.assign({}, state, {
     ...state,
+    error: '',
+  });
+};
+
+const reducerGetCount = (state, action) => {
+  if (action.error) {
+    return _.assign({}, state, {
+      ...state,
+      error: action.error.message,
+    });
+  }
+
+  return _.assign({}, state, {
+    ...state,
+    count: action.response.data.count,
     error: '',
   });
 };
@@ -134,6 +171,8 @@ export default function reducer(state = initialState, action) {
   switch (action.type) {
     case SEND_LETTER:
       return reducerSendLetter(state, action);
+    case GET_COUNT:
+      return reducerGetCount(state, action);
     case GET_LETTER:
       return reducerGetLetter(state, action);
     case GET_LETTER_DETAIL:
