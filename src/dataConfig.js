@@ -32,6 +32,10 @@ export default {
       header: 'Sign Out',
       message: 'Fare Well.',
     },
+    resetPassword: {
+      header: 'Reset Password',
+      message: 'Please check your email to get password',
+    },
     resign: {
       header: 'Resign',
       message: 'Are you sure want to quit?',

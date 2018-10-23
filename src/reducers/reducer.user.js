@@ -6,6 +6,7 @@ const READ_TOKEN = 'READ_TOKEN';
 const RETRIEVE_INFO = 'RETRIEVE_INFO';
 const UPDATE_INFO = 'UPDATE_INFO';
 const PATCH_PASSWORD = 'PATCH_PASSWORD';
+const RESET_PASSWORD = 'RESET_PASSWORD';
 const CREATE_USER = 'CREATE_USER';
 const DESTROY_USER = 'DESTROY_USER';
 const CLEAR_ERROR = 'CLEAR_ERROR';
@@ -80,6 +81,29 @@ export const patchPassword = async (payload) => {
 
   return {
     type: PATCH_PASSWORD,
+    response,
+    error,
+  };
+};
+
+export const resetPassword = async (email) => {
+  let response;
+  let error;
+
+  try {
+    response = await axiosInstance({
+      url: '/user/reset-password',
+      method: 'post',
+      data: {
+        email,
+      },
+    });
+  } catch (e) {
+    error = e;
+  }
+
+  return {
+    type: RESET_PASSWORD,
     response,
     error,
   };
@@ -212,6 +236,20 @@ const reducerPatchPassword = (state, action) => {
   });
 };
 
+const reducerResetPassword = (state, action) => {
+  if (action.error) {
+    return _.assign({}, state, {
+      ...state,
+      error: action.error,
+    });
+  }
+
+  return _.assign({}, state, {
+    ...state,
+    error: '',
+  });
+};
+
 const reducerCreateUser = (state, action) => {
   if (action.error) {
     return _.assign({}, state, {
@@ -257,6 +295,8 @@ export default function reducer(state = initialState, action) {
       return reducerUpdateInfo(state, action);
     case PATCH_PASSWORD:
       return reducerPatchPassword(state, action);
+    case RESET_PASSWORD:
+      return reducerResetPassword(state, action);
     case CREATE_USER:
       return reducerCreateUser(state, action);
     case DESTROY_USER:
