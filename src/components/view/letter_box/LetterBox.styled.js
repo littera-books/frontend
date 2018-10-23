@@ -1,22 +1,39 @@
 import styled from 'styled-components';
 import Wrapper from '../../../styled_base/Wrapper';
 
-const LetterBoxWrapper = styled(Wrapper.ColumnWrapper)`
-  @media (max-width: 414px) {
-    margin: 0 2rem;
-  }
-`;
-
-const LetterBoxFlexWrapper = styled(Wrapper.BasicFlexWrapper)`
-  margin: 10rem auto;
+const LetterWrapper = styled(Wrapper.MobileBlockWrapper)`
   width: 50rem;
+  margin-left: auto;
+  margin-right: auto;
 
   @media (max-width: 414px) {
     width: 100%;
   }
+`;
 
-  @media (max-width: 375px) {
-    margin-top: 8rem;
+const LetterBoxWrapper = styled(Wrapper.BasicBlockWrapper)`
+  margin: 2rem;
+  margin-bottom: 10rem;
+
+  @media (max-width: 414px) {
+    margin-bottom: 4rem;
+  }
+`;
+
+const InfoWrapper = styled(Wrapper.ColumnWrapper)`
+  width: 28rem;
+  line-height: 3;
+  margin: 1rem;
+
+  @media (max-width: 414px) {
+    width: 23rem;
+    margin: 0 1.5rem;
+  }
+
+  @media (max-width: 320px) {
+    margin: 0 1.5rem;
+    width: 17rem;
+    font-size: 0.5rem;
   }
 `;
 
@@ -25,13 +42,7 @@ const NavigationWrapper = styled(Wrapper.BetweenWrapper)`
 `;
 
 const Content = styled(Wrapper.BasicBlockWrapper)`
-  width: 50rem;
-  min-height: 20rem;
-
-  @media (max-width: 414px) {
-    width: calc(100vw - 4rem);
-    min-height: 10rem;
-  }
+  min-height: calc(40vh - 1.5rem);
 `;
 
 const TitleSpan = styled.span`
@@ -43,8 +54,9 @@ const TimeParagraph = styled.p`
 `;
 
 export default {
+  LetterWrapper,
   LetterBoxWrapper,
-  LetterBoxFlexWrapper,
+  InfoWrapper,
   NavigationWrapper,
   Content,
   TitleSpan,

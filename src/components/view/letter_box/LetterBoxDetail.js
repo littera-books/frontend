@@ -42,7 +42,7 @@ class LetterBoxDetail extends React.Component {
     const { item, history } = this.props;
     const time = moment.unix(item.created_at).format('YYYY.M.D');
     return (
-      <Styled.LetterBoxFlexWrapper>
+      <Styled.LetterWrapper>
         <Helmet pageTitle={time} />
         <Styled.LetterBoxWrapper>
           <Styled.TimeParagraph>{time}</Styled.TimeParagraph>
@@ -55,7 +55,7 @@ class LetterBoxDetail extends React.Component {
             <Link to="/all-ears/send">reply</Link>
           </Styled.NavigationWrapper>
         </Styled.LetterBoxWrapper>
-      </Styled.LetterBoxFlexWrapper>
+      </Styled.LetterWrapper>
     );
   }
 }

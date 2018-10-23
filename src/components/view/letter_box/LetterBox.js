@@ -46,13 +46,13 @@ class LetterBox extends React.Component {
     return (
       <Wrapper.FlexWrapper>
         <Helmet pageTitle="Letter Box" />
-        <Styled.LetterBoxWrapper>
+        <Styled.InfoWrapper>
           {this.renderItems()}
           <Styled.NavigationWrapper>
             <Link to="/all-ears/send">Send Letter</Link>
             <p>{`You have ${length} letters.`}</p>
           </Styled.NavigationWrapper>
-        </Styled.LetterBoxWrapper>
+        </Styled.InfoWrapper>
       </Wrapper.FlexWrapper>
     );
   }
