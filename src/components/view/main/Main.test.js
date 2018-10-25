@@ -1,12 +1,17 @@
 import React from 'react';
 import Enzyme, { shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
-import Main from './Main';
+import { Main } from './Main';
 
 Enzyme.configure({ adapter: new Adapter() });
 
 function setup() {
-  const enzymeWrapper = shallow(<Main />);
+  const props = {
+    getDetail: jest.fn(),
+    items: [...Array(8).keys()],
+  };
+
+  const enzymeWrapper = shallow(<Main {...props} />);
 
   return { enzymeWrapper };
 }

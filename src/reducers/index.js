@@ -10,6 +10,7 @@ import question from './reducer.question';
 import product from './reducer.product';
 import resignSurvey from './reducer.resignSurvey';
 import letter from './reducer.letter';
+import image from './reducer.image';
 
 const rootReducer = combineReducers({
   form: formReducer,
@@ -21,6 +22,7 @@ const rootReducer = combineReducers({
   product,
   resignSurvey,
   letter,
+  image,
 });
 
 export default rootReducer;
