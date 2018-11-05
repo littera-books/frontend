@@ -48,6 +48,11 @@ const Survey = Loadable({
   loading: Loading,
 });
 
+const Accept = Loadable({
+  loader: () => import('./components/view/join/Accept'),
+  loading: Loading,
+});
+
 const AddInfo = Loadable({
   loader: () => import('./components/view/join/AddInfo'),
   loading: Loading,
@@ -137,6 +142,7 @@ export default {
   SignOut,
   ForgotPassword,
   Survey,
+  Accept,
   AddInfo,
   Log,
   MyInfo,

@@ -39,7 +39,7 @@ class Survey extends React.Component {
     const { isAccepted, setPopup } = this.props;
     if (isAccepted) {
       setPopup(dataConfig.popupMessage.accepted);
-      this.setState({ destination: '/add-info' });
+      this.setState({ destination: '/accept' });
     } else {
       setPopup(dataConfig.popupMessage.denied);
     }
