@@ -120,17 +120,17 @@ const SendLetter = Loadable({
 
 const SimplePopup = Loadable({
   loader: () => import('./components/structure/popup/SimplePopup'),
-  loading: Loading,
+  loading: () => null,
 });
 
 const ConfirmPopup = Loadable({
   loader: () => import('./components/structure/popup/ConfirmPopup'),
-  loading: Loading,
+  loading: () => null,
 });
 
 const FormPopup = Loadable({
   loader: () => import('./components/structure/popup/FormPopup'),
-  loading: Loading,
+  loading: () => null,
 });
 
 export default {
