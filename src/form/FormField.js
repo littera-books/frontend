@@ -63,9 +63,19 @@ const PostalCodeFormField = ({
   </div>
 );
 
+const AcceptProvisionFormField = ({
+  id, label, input, type,
+}) => (
+  <label htmlFor={id}>
+    {label}
+    <Element.BasicInput id={id} type={type} {...input} required />
+  </label>
+);
+
 export default {
   BasicFormField,
   PlaceholderFormField,
   LongPlaceholderFormField,
   PostalCodeFormField,
+  AcceptProvisionFormField,
 };
