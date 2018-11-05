@@ -67,7 +67,7 @@ const AcceptProvisionFormField = ({
   id, label, input, type,
 }) => (
   <label htmlFor={id}>
-    {label}
+    <span style={{ marginRight: '1rem' }}>{label}</span>
     <Element.BasicInput id={id} type={type} {...input} required />
   </label>
 );

@@ -11,6 +11,23 @@ const ScrollFlexWrapper = styled(Wrapper.FlexWrapper)`
   }
 `;
 
+const InfoWrapper = styled(Wrapper.ColumnWrapper)`
+  width: 28rem;
+  line-height: 3;
+  margin: 1rem;
+
+  @media (max-width: 414px) {
+    width: 23rem;
+    margin: 0 1.5rem;
+  }
+
+  @media (max-width: 320px) {
+    margin: 0 1.5rem;
+    width: 17rem;
+    font-size: 0.5rem;
+  }
+`;
+
 const MarginForm = styled.form`
   margin: 0 2rem;
   margin-bottom: 10rem;
@@ -49,6 +66,11 @@ const LineHeightForm = styled.form`
   }
 `;
 
+const AlignRightRadioGroup = styled(Wrapper.BetweenWrapper)`
+  width: 10rem;
+  margin-left: auto;
+`;
+
 const AlignRightButton = styled(Element.BasicButton)`
   margin-top: 3rem;
   margin-left: auto;
@@ -61,10 +83,12 @@ const AlignRightButton = styled(Element.BasicButton)`
 
 export default {
   ScrollFlexWrapper,
+  InfoWrapper,
   MarginForm,
   QuestionItem,
   SelectionItem,
   SelectionText,
   LineHeightForm,
+  AlignRightRadioGroup,
   AlignRightButton,
 };

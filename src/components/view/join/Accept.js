@@ -19,40 +19,67 @@ const onSubmit = (history) => {
 const Accept = ({ handleSubmit, getErrors, history }) => (
   <Wrapper.FlexWrapper>
     <Helmet pageTitle="Accept" />
-    <Wrapper.ColumnWrapper>
-      <h1>
-        <strong>리테라 서비스 이용약관</strong>
-      </h1>
+    <Styled.InfoWrapper>
       <form onSubmit={handleSubmit(onSubmit.bind(null, history))}>
-        <Field
-          id="terms-accept"
-          label="동의"
-          name="terms"
-          type="radio"
-          value="accept"
-          component={BasicFormField.AcceptProvisionFormField}
-          required
-        />
-        <Field
-          id="terms-denied"
-          label="비동의"
-          name="terms"
-          type="radio"
-          value="denied"
-          component={BasicFormField.AcceptProvisionFormField}
-          required
-        />
+        <h1>
+          <strong>리테라 서비스 이용약관</strong>
+        </h1>
+        <Styled.AlignRightRadioGroup>
+          <Field
+            id="terms-accept"
+            label="동의"
+            name="terms"
+            type="radio"
+            value="accept"
+            component={BasicFormField.AcceptProvisionFormField}
+            required
+          />
+          <Field
+            id="terms-denied"
+            label="미동의"
+            name="terms"
+            type="radio"
+            value="denied"
+            component={BasicFormField.AcceptProvisionFormField}
+            required
+          />
+        </Styled.AlignRightRadioGroup>
         {getErrors.terms && (
-          <div>
+          <div style={{ textAlign: 'right' }}>
             <Element.BasicSmall>{getErrors.terms}</Element.BasicSmall>
+          </div>
+        )}
+        <h1>
+          <strong>리테라 개인정보 이용방침</strong>
+        </h1>
+        <Styled.AlignRightRadioGroup>
+          <Field
+            id="privacy-accept"
+            label="동의"
+            name="privacy"
+            type="radio"
+            value="accept"
+            component={BasicFormField.AcceptProvisionFormField}
+            required
+          />
+          <Field
+            id="privacy-denied"
+            label="미동의"
+            name="privacy"
+            type="radio"
+            value="denied"
+            component={BasicFormField.AcceptProvisionFormField}
+            required
+          />
+        </Styled.AlignRightRadioGroup>
+        {getErrors.privacy && (
+          <div style={{ textAlign: 'right' }}>
+            <Element.BasicSmall>{getErrors.privacy}</Element.BasicSmall>
           </div>
         )}
         <Styled.AlignRightButton type="submit">Submit</Styled.AlignRightButton>
       </form>
-      <h1>
-        <strong>리테라 개인정보 이용방침</strong>
-      </h1>
-    </Wrapper.ColumnWrapper>
+    </Styled.InfoWrapper>
   </Wrapper.FlexWrapper>
 );
 
@@ -68,6 +95,9 @@ const validate = (values) => {
   const errors = {};
   if (values.terms === 'denied') {
     errors.terms = 'Please accept Terms of Use.';
+  }
+  if (values.privacy === 'denied') {
+    errors.privacy = 'Please accept Privacy Policy.';
   }
   return errors;
 };
