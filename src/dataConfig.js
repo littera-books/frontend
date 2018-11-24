@@ -1,5 +1,9 @@
+const baseUrl = process.env.NODE_ENV === 'production'
+  ? 'http://api.littera.co.kr'
+  : 'http://localhost:8000';
+
 export default {
-  baseUrl: 'http://localhost:8000',
+  baseUrl,
   fontUrl:
     'https://fonts.googleapis.com/css?family=Nanum+Myeongjo:400,700&amp;subset=korean',
   daumPostApiUrl:
