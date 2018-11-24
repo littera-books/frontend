@@ -12,6 +12,23 @@ const MarginForm = styled.form`
   }
 `;
 
+const InfoWrapper = styled(Wrapper.ColumnWrapper)`
+  width: 28rem;
+  line-height: 3;
+  margin: 1rem;
+
+  @media (max-width: 414px) {
+    width: 23rem;
+    margin: 0 1.5rem;
+  }
+
+  @media (max-width: 320px) {
+    margin: 0 1.5rem;
+    width: 17rem;
+    font-size: 0.5rem;
+  }
+`;
+
 const ProductItem = styled(Wrapper.ColumnWrapper)`
   justify-content: center;
   align-items: center;
@@ -50,6 +67,7 @@ const AlignRightButton = styled(Element.BasicButton)`
 
 export default {
   MarginForm,
+  InfoWrapper,
   ProductItem,
   ItemTitleGroup,
   AlignRightButton,
