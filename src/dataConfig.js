@@ -1,5 +1,5 @@
 const baseUrl = process.env.NODE_ENV === 'production'
-  ? 'http://api.littera.co.kr'
+  ? 'https://api.littera.co.kr'
   : 'http://localhost:8000';
 
 export default {
