@@ -10,7 +10,7 @@ import './utils/webfontloader';
 import Loadable from './loadable';
 
 // Styled
-import StyledBase from './styled_base/Wrapper';
+import Wrapper from './styled_base/Wrapper';
 
 // Minireset.css
 import 'minireset.css/minireset.min.css';
@@ -38,50 +38,55 @@ export class App extends React.PureComponent {
 
     return (
       <BrowserRouter>
-        <StyledBase.App className="App">
+        <Wrapper.App className="App">
           <Loadable.Title visibility={isVisible} />
-          <Switch>
-            <PrivateRoute
-              path="/letter-box/:id"
-              component={Loadable.LetterBoxDetail}
-            />
-            <PrivateRoute path="/letter-box" component={Loadable.LetterBox} />
-            <PrivateRoute
-              path="/my-info/resign/survey"
-              component={Loadable.ResignSurvey}
-            />
-            <PrivateRoute path="/my-info/resign" component={Loadable.Resign} />
-            <PrivateRoute
-              path="/my-info/patch-password"
-              component={Loadable.PatchPassword}
-            />
-            <PrivateRoute
-              path="/my-info/manage"
-              component={Loadable.ManageMyInfo}
-            />
-            <PrivateRoute path="/my-info" component={Loadable.MyInfo} />
-            <PrivateRoute path="/log" component={Loadable.Log} />
-            <Route path="/add-info" component={Loadable.AddInfo} />
-            <Route path="/accept" component={Loadable.Accept} />
-            <Route path="/survey" component={Loadable.Survey} />
-            <Route
-              path="/forgot-password"
-              component={Loadable.ForgotPassword}
-            />
-            <PrivateRoute path="/sign-out" component={Loadable.SignOut} />
-            <Route path="/sign-in" component={Loadable.SignIn} />
-            <Route path="/payment" component={Loadable.Payment} />
-            <Route path="/bon-voyage" component={Loadable.BonVoyage} />
-            <PrivateRoute
-              path="/all-ears/send"
-              component={Loadable.SendLetter}
-            />
-            <Route path="/all-ears" component={Loadable.AllEars} />
-            <Route path="/about" component={Loadable.About} />
-            <Route path="/main" component={Loadable.Main} />
-            <Route exact path="/" component={Loadable.Intro} />
-          </Switch>
-        </StyledBase.App>
+          <Wrapper.ViewPortWrapper>
+            <Switch>
+              <PrivateRoute
+                path="/letter-box/:id"
+                component={Loadable.LetterBoxDetail}
+              />
+              <PrivateRoute path="/letter-box" component={Loadable.LetterBox} />
+              <PrivateRoute
+                path="/my-info/resign/survey"
+                component={Loadable.ResignSurvey}
+              />
+              <PrivateRoute
+                path="/my-info/resign"
+                component={Loadable.Resign}
+              />
+              <PrivateRoute
+                path="/my-info/patch-password"
+                component={Loadable.PatchPassword}
+              />
+              <PrivateRoute
+                path="/my-info/manage"
+                component={Loadable.ManageMyInfo}
+              />
+              <PrivateRoute path="/my-info" component={Loadable.MyInfo} />
+              <PrivateRoute path="/log" component={Loadable.Log} />
+              <Route path="/add-info" component={Loadable.AddInfo} />
+              <Route path="/accept" component={Loadable.Accept} />
+              <Route path="/survey" component={Loadable.Survey} />
+              <Route
+                path="/forgot-password"
+                component={Loadable.ForgotPassword}
+              />
+              <PrivateRoute path="/sign-out" component={Loadable.SignOut} />
+              <Route path="/sign-in" component={Loadable.SignIn} />
+              <Route path="/payment" component={Loadable.Payment} />
+              <Route path="/bon-voyage" component={Loadable.BonVoyage} />
+              <PrivateRoute
+                path="/all-ears/send"
+                component={Loadable.SendLetter}
+              />
+              <Route path="/all-ears" component={Loadable.AllEars} />
+              <Route path="/about" component={Loadable.About} />
+              <Route path="/main" component={Loadable.Main} />
+              <Route exact path="/" component={Loadable.Intro} />
+            </Switch>
+          </Wrapper.ViewPortWrapper>
+        </Wrapper.App>
       </BrowserRouter>
     );
   }

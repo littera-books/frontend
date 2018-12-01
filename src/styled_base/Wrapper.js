@@ -57,12 +57,17 @@ const BasicFlexWrapper = styled.div`
   display: flex;
 `;
 
+const ViewPortWrapper = styled(BasicFlexWrapper)`
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  min-height: 100vh;
+`;
+
 const FlexWrapper = styled(BasicFlexWrapper)`
   justify-content: center;
   align-items: center;
   max-width: 50rem;
-  min-height: 100vh;
-  margin: auto;
 `;
 
 const ColumnWrapper = styled(BasicFlexWrapper)`
@@ -109,6 +114,7 @@ export default {
   BasicBlockWrapper,
   MobileBlockWrapper,
   BasicFlexWrapper,
+  ViewPortWrapper,
   FlexWrapper,
   ColumnWrapper,
   MobileColumnWrapper,
