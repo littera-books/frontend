@@ -61,4 +61,24 @@ export default {
       cancel: 'cancel',
     },
   },
+  businessInfo: {
+    ko: [
+      '(01365) 서울특별시 도봉구 삼양로162가길 42-19',
+      '사업자등록번호: 255-88-01062',
+      '통신판매업신고: 제2018-서울도봉-0707호',
+      '대표전화: 02)000-0000',
+      '전자우편: info@littera.co.kr',
+      '대표이사: 김근복',
+      '개인정보관리책임자: 김근복',
+    ],
+    en: [
+      '(01365) 42-19, Samyang-ro 162ga-gil, Dobong-gu, Seoul, Republic of Korea',
+      'Business Registration: 255-88-01062',
+      'Mail Order Business: 제2018-서울도봉-0707호',
+      'Contact: +82+2+000+0000',
+      'E-Mail: info@littera.co.kr',
+      'Representative Director: Kim Keunbok',
+      'PI Mananger: Kim Keunbok',
+    ],
+  },
 };
