@@ -98,26 +98,28 @@ class BonVoyage extends React.Component {
     }
 
     return (
-      <Wrapper.MobileBlockWrapper>
-        <Helmet pageTitle="Bon Voyage!" />
-        <Styled.MarginForm
-          action="post"
-          onSubmit={handleSubmit(this.onPurchase.bind(this))}
-        >
-          <Loadable.Product width={width} items={items} />
-          <Styled.AlignRightButton type="submit">
-            Purchase
-          </Styled.AlignRightButton>
-        </Styled.MarginForm>
-        {popupFilter && (
-          <Loadable.FormPopup
-            userId={userId}
-            cancelPopup={this.cancelPopup}
-            replace={history.replace}
-            destination="/main"
-          />
-        )}
-      </Wrapper.MobileBlockWrapper>
+      <Wrapper.CarouselGuardWrapper>
+        <Wrapper.MobileBlockWrapper>
+          <Helmet pageTitle="Bon Voyage!" />
+          <Styled.MarginForm
+            action="post"
+            onSubmit={handleSubmit(this.onPurchase.bind(this))}
+          >
+            <Loadable.Product width={width} items={items} />
+            <Styled.AlignRightButton type="submit">
+              Purchase
+            </Styled.AlignRightButton>
+          </Styled.MarginForm>
+          {popupFilter && (
+            <Loadable.FormPopup
+              userId={userId}
+              cancelPopup={this.cancelPopup}
+              replace={history.replace}
+              destination="/main"
+            />
+          )}
+        </Wrapper.MobileBlockWrapper>
+      </Wrapper.CarouselGuardWrapper>
     );
   }
 }

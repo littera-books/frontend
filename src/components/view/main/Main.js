@@ -139,47 +139,49 @@ export class Main extends React.Component {
     }
 
     return (
-      <Wrapper.MobileBlockWrapper id="carousel">
-        <Helmet pageTitle="Main" />
-        <Slider {...settings}>
-          <Link to="/about">
-            <Card items={items} name="m-about" alt="About" />
-          </Link>
-          {sessionStorage.getItem('token') ? (
-            <Link to="/log">
-              <Card items={items} name="m-join" alt="Log" />
+      <Wrapper.CarouselGuardWrapper>
+        <Wrapper.MobileBlockWrapper id="carousel">
+          <Helmet pageTitle="Main" />
+          <Slider {...settings}>
+            <Link to="/about">
+              <Card items={items} name="m-about" alt="About" />
             </Link>
-          ) : (
-            <Link to="/sign-in">
-              <Card items={items} name="m-join" alt="Join" />
-            </Link>
-          )}
-          <Link to="/bon-voyage">
-            <Card
-              items={items}
-              name="m-bon-voyage"
-              alt="&quot;Bon Voyage!&quot;"
-            />
-          </Link>
-          {sessionStorage.getItem('token') ? (
-            <Link to="/all-ears/send">
+            {sessionStorage.getItem('token') ? (
+              <Link to="/log">
+                <Card items={items} name="m-join" alt="Log" />
+              </Link>
+            ) : (
+              <Link to="/sign-in">
+                <Card items={items} name="m-join" alt="Join" />
+              </Link>
+            )}
+            <Link to="/bon-voyage">
               <Card
                 items={items}
-                name="m-all-ears"
-                alt="&quot;I'm All Ears&quot;"
+                name="m-bon-voyage"
+                alt="&quot;Bon Voyage!&quot;"
               />
             </Link>
-          ) : (
-            <Link to="/all-ears">
-              <Card
-                items={items}
-                name="m-all-ears"
-                alt="&quot;I'm All Ears&quot;"
-              />
-            </Link>
-          )}
-        </Slider>
-      </Wrapper.MobileBlockWrapper>
+            {sessionStorage.getItem('token') ? (
+              <Link to="/all-ears/send">
+                <Card
+                  items={items}
+                  name="m-all-ears"
+                  alt="&quot;I'm All Ears&quot;"
+                />
+              </Link>
+            ) : (
+              <Link to="/all-ears">
+                <Card
+                  items={items}
+                  name="m-all-ears"
+                  alt="&quot;I'm All Ears&quot;"
+                />
+              </Link>
+            )}
+          </Slider>
+        </Wrapper.MobileBlockWrapper>
+      </Wrapper.CarouselGuardWrapper>
     );
   }
 }

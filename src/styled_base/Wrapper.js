@@ -52,6 +52,10 @@ const MobileBlockWrapper = styled(BasicBlockWrapper)`
   }
 `;
 
+const CarouselGuardWrapper = styled(BasicBlockWrapper)`
+  width: 100vw;
+`;
+
 const BasicFlexWrapper = styled.div`
   position: relative;
   display: flex;
@@ -113,6 +117,7 @@ export default {
   App,
   BasicBlockWrapper,
   MobileBlockWrapper,
+  CarouselGuardWrapper,
   BasicFlexWrapper,
   ViewPortWrapper,
   FlexWrapper,
