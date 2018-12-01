@@ -9,6 +9,7 @@ import dataConfig from '../../../dataConfig';
 
 // Components
 import Helmet from '../../helmet/Helmet';
+import BusinessInfo from '../../business_info/BusinessInfo';
 
 // Styled
 import Wrapper from '../../../styled_base/Wrapper';
@@ -92,45 +93,48 @@ export class Main extends React.Component {
 
     if (width > 414) {
       return (
-        <Wrapper.FlexWrapper>
-          <Helmet pageTitle="Main" />
-          <Link to="/about">
-            <Card items={items} name="about" alt="About" />
-          </Link>
-          {sessionStorage.getItem('token') ? (
-            <Link to="/log">
-              <Card items={items} name="join" alt="Log" />
+        <Wrapper.BasicBlockWrapper>
+          <Wrapper.FlexWrapper>
+            <Helmet pageTitle="Main" />
+            <Link to="/about">
+              <Card items={items} name="about" alt="About" />
             </Link>
-          ) : (
-            <Link to="/sign-in">
-              <Card items={items} name="join" alt="Join" />
-            </Link>
-          )}
-          <Link to="/bon-voyage">
-            <Card
-              items={items}
-              name="bon-voyage"
-              alt="&quot;Bon Voyage!&quot;"
-            />
-          </Link>
-          {sessionStorage.getItem('token') ? (
-            <Link to="/all-ears/send">
+            {sessionStorage.getItem('token') ? (
+              <Link to="/log">
+                <Card items={items} name="join" alt="Log" />
+              </Link>
+            ) : (
+              <Link to="/sign-in">
+                <Card items={items} name="join" alt="Join" />
+              </Link>
+            )}
+            <Link to="/bon-voyage">
               <Card
                 items={items}
-                name="all-ears"
-                alt="&quot;I'm All Ears&quot;"
+                name="bon-voyage"
+                alt="&quot;Bon Voyage!&quot;"
               />
             </Link>
-          ) : (
-            <Link to="/all-ears">
-              <Card
-                items={items}
-                name="all-ears"
-                alt="&quot;I'm All Ears&quot;"
-              />
-            </Link>
-          )}
-        </Wrapper.FlexWrapper>
+            {sessionStorage.getItem('token') ? (
+              <Link to="/all-ears/send">
+                <Card
+                  items={items}
+                  name="all-ears"
+                  alt="&quot;I'm All Ears&quot;"
+                />
+              </Link>
+            ) : (
+              <Link to="/all-ears">
+                <Card
+                  items={items}
+                  name="all-ears"
+                  alt="&quot;I'm All Ears&quot;"
+                />
+              </Link>
+            )}
+          </Wrapper.FlexWrapper>
+          <BusinessInfo />
+        </Wrapper.BasicBlockWrapper>
       );
     }
 
