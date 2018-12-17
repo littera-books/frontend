@@ -71,7 +71,7 @@ const ViewPortWrapper = styled(BasicFlexWrapper)`
 const FlexWrapper = styled(BasicFlexWrapper)`
   justify-content: center;
   align-items: center;
-  max-width: 45rem;
+  max-width: 44.25rem;
 `;
 
 const ColumnWrapper = styled(BasicFlexWrapper)`
