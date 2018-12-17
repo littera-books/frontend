@@ -1,12 +1,13 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import dataConfig from '../../../dataConfig';
 
 // Styled
 import Styled from './Footer.styled';
 
-const Footer = () => (
-  <Styled.FooterWrapper>
+const Footer = ({ visibility }) => (
+  <Styled.FooterWrapper style={{ visibility }}>
     <Styled.InnerWrapper>
       <p>{dataConfig.copyright}</p>
       <Styled.LinkWrapper>
@@ -19,5 +20,9 @@ const Footer = () => (
     </Styled.InnerWrapper>
   </Styled.FooterWrapper>
 );
+
+Footer.propTypes = {
+  visibility: PropTypes.string.isRequired,
+};
 
 export default Footer;
