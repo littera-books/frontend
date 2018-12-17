@@ -10,11 +10,11 @@ const Footer = () => (
     <Styled.InnerWrapper>
       <p>{dataConfig.copyright}</p>
       <Styled.LinkWrapper>
-        <Link to="/business-info">Info</Link>
+        <Link to="/business-info">INFO</Link>
         <span>&nbsp;|&nbsp;</span>
         <Link to="/privacy-policy">개인정보처리방침</Link>
         <span>&nbsp;|&nbsp;</span>
-        <span>이용약관</span>
+        <Link to="/terms-of-use">이용약관</Link>
       </Styled.LinkWrapper>
     </Styled.InnerWrapper>
   </Styled.FooterWrapper>

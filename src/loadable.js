@@ -33,6 +33,11 @@ const PrivacyPolicy = Loadable({
   loading: Loading,
 });
 
+const TermsOfUse = Loadable({
+  loader: () => import('./components/view/terms_of_use/TermsOfUse'),
+  loading: Loading,
+});
+
 const Main = Loadable({
   loader: () => import('./components/view/main/Main'),
   loading: Loading,
@@ -159,6 +164,7 @@ export default {
   Footer,
   BusinessInfo,
   PrivacyPolicy,
+  TermsOfUse,
   Main,
   About,
   SignIn,
