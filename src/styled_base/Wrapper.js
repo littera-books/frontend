@@ -53,6 +53,14 @@ const MobileBlockWrapper = styled(BasicBlockWrapper)`
   }
 `;
 
+const ScrollWrapper = styled(BasicBlockWrapper)`
+  margin: 90px 0;
+
+  ol {
+    padding-left: 12px;
+  }
+`;
+
 const CarouselGuardWrapper = styled(BasicBlockWrapper)`
   width: 100vw;
 `;
@@ -118,6 +126,7 @@ export default {
   App,
   BasicBlockWrapper,
   MobileBlockWrapper,
+  ScrollWrapper,
   CarouselGuardWrapper,
   BasicFlexWrapper,
   ViewPortWrapper,

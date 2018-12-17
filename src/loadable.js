@@ -28,6 +28,11 @@ const BusinessInfo = Loadable({
   loading: Loading,
 });
 
+const PrivacyPolicy = Loadable({
+  loader: () => import('./components/view/privacy_policy/PrivacyPolicy'),
+  loading: Loading,
+});
+
 const Main = Loadable({
   loader: () => import('./components/view/main/Main'),
   loading: Loading,
@@ -153,6 +158,7 @@ export default {
   Title,
   Footer,
   BusinessInfo,
+  PrivacyPolicy,
   Main,
   About,
   SignIn,
