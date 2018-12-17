@@ -7,7 +7,7 @@ const TitleWrapper = styled(Wrapper.BasicFlexWrapper)`
   left: 0;
   z-index: 1;
   background-color: white;
-  margin: 15px 0;
+  padding: 15px 0;
   width: 100vw;
   height: auto;
   justify-content: center;

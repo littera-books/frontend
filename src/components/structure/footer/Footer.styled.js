@@ -6,7 +6,8 @@ const FooterWrapper = styled(Wrapper.BasicFlexWrapper)`
   bottom: 0;
   right: 0;
   z-index: 1;
-  margin: 15px 0;
+  background-color: white;
+  padding: 15px 0;
   width: 100vw;
   height: auto;
   justify-content: center;

@@ -12,9 +12,9 @@ const Footer = () => (
       <Styled.LinkWrapper>
         <Link to="/business-info">Info</Link>
         <span>&nbsp;|&nbsp;</span>
-        <span>이용약관</span>
+        <Link to="/privacy-policy">개인정보처리방침</Link>
         <span>&nbsp;|&nbsp;</span>
-        <span>개인정보처리방침</span>
+        <span>이용약관</span>
       </Styled.LinkWrapper>
     </Styled.InnerWrapper>
   </Styled.FooterWrapper>
