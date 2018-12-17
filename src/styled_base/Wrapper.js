@@ -1,28 +1,29 @@
 import styled, { injectGlobal } from 'styled-components';
-import RemingtonBoldWoff from '../assets/fonts/SilkRemington-Bold.woff';
-import RemingtonBoldWoff2 from '../assets/fonts/SilkRemington-Bold.woff2';
-import RemingtonRegularWoff from '../assets/fonts/SilkRemington-Regular.woff';
-import RemingtonRegularWoff2 from '../assets/fonts/SilkRemington-Regular.woff2';
+
+import PalatinoBoldWoff from '../assets/fonts/palab.woff';
+import PalatinoBoldWoff2 from '../assets/fonts/palab.woff2';
+import PalatinoRegularWoff from '../assets/fonts/pala.woff';
+import PalatinoRegularWoff2 from '../assets/fonts/pala.woff2';
 
 // eslint-disable-next-line no-unused-expressions
 injectGlobal`
   @font-face {
-    font-family: 'Silk Remington';
+    font-family: 'Palatino';
     font-weight: bold;
-    src: url(${RemingtonBoldWoff}) format('woff');
-    src: url(${RemingtonBoldWoff2}) format('woff2');
+    src: url(${PalatinoBoldWoff}) format('woff');
+    src: url(${PalatinoBoldWoff2}) format('woff2');
   }
   
   @font-face {
-    font-family: 'Silk Remington';
+    font-family: 'Palatino';
     font-weight: regular;
-    src: url(${RemingtonRegularWoff}) format('woff');
-    src: url(${RemingtonRegularWoff2}) format('woff2');
+    src: url(${PalatinoRegularWoff}) format('woff');
+    src: url(${PalatinoRegularWoff2}) format('woff2');
   }
 `;
 
 const App = styled.div`
-  font-family: 'Silk Remington', 'Nanum Myeongjo';
+  font-family: 'Palatino', 'Nanum Myeongjo';
   font-size: 0.75rem;
   line-height: 2;
   text-align: justify;
