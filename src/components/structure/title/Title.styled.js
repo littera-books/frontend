@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 import Wrapper from '../../../styled_base/Wrapper';
-import Element from '../../../styled_base/Element';
 
 const TitleWrapper = styled(Wrapper.BasicFlexWrapper)`
   position: fixed;
@@ -8,8 +7,7 @@ const TitleWrapper = styled(Wrapper.BasicFlexWrapper)`
   left: 0;
   z-index: 1;
   background-color: white;
-  padding-top: 2rem;
-  margin-bottom: 2rem;
+  margin: 15px 0;
   width: 100vw;
   height: auto;
   justify-content: center;
@@ -22,8 +20,10 @@ const TitleWrapper = styled(Wrapper.BasicFlexWrapper)`
   }
 `;
 
-const TitleImg = styled(Element.ResponsiveImg)`
-  width: 7.5rem;
+const TitleImg = styled.img`
+  width: auto;
+  height: 3.75rem;
+  padding: 10px 0;
 `;
 
 export default {
