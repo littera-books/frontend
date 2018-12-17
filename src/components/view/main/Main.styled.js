@@ -2,8 +2,8 @@ import styled from 'styled-components';
 import Wrapper from '../../../styled_base/Wrapper';
 
 const CardWrapper = styled(Wrapper.BasicBlockWrapper)`
-  margin: 0 0.25rem;
-  width: 12rem;
+  margin: 0 0.75rem;
+  width: 10rem;
   opacity: 0.3;
   :hover {
     opacity: 1;
@@ -35,7 +35,6 @@ const CardTitle = styled.h1`
   transform: translateX(-50%);
   text-align: center;
   width: 10rem;
-  font-size: 11px;
 
   @media (max-width: 414px) {
     top: auto;

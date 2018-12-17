@@ -9,7 +9,6 @@ import dataConfig from '../../../dataConfig';
 
 // Components
 import Helmet from '../../helmet/Helmet';
-import BusinessInfo from '../../business_info/BusinessInfo';
 
 // Styled
 import Wrapper from '../../../styled_base/Wrapper';
@@ -133,7 +132,6 @@ export class Main extends React.Component {
               </Link>
             )}
           </Wrapper.FlexWrapper>
-          <BusinessInfo />
         </Wrapper.BasicBlockWrapper>
       );
     }
