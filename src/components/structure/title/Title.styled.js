@@ -8,10 +8,10 @@ const TitleWrapper = styled(Wrapper.BasicFlexWrapper)`
   left: 0;
   z-index: 1;
   background-color: white;
-  padding-top: 3rem;
-  margin-bottom: 3rem;
+  padding-top: 2rem;
+  margin-bottom: 2rem;
   width: 100vw;
-  height: 7rem;
+  height: auto;
   justify-content: center;
   align-items: center;
 
@@ -23,11 +23,7 @@ const TitleWrapper = styled(Wrapper.BasicFlexWrapper)`
 `;
 
 const TitleImg = styled(Element.ResponsiveImg)`
-  width: 10rem;
-
-  @media (max-width: 375px) {
-    width: 8rem;
-  }
+  width: 7.5rem;
 `;
 
 export default {

@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 import Styled from './Title.styled';
 
 // Images
-import Logo from '../../../assets/images/title.jpg';
+import Logo from '../../../assets/images/lettre_nk.jpeg';
 
 const Title = ({ visibility }) => (
   <Styled.TitleWrapper style={{ visibility }}>
