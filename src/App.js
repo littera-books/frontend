@@ -86,6 +86,7 @@ export class App extends React.PureComponent {
               <Route exact path="/" component={Loadable.Intro} />
             </Switch>
           </Wrapper.ViewPortWrapper>
+          <Loadable.Footer />
         </Wrapper.App>
       </BrowserRouter>
     );

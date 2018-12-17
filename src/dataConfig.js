@@ -15,6 +15,7 @@ export default {
     + '그것만이 우리 자신이 되는 유일한 길이라는 것을 우리는 이미 알고 있다. '
     + '미래에서 만나자 친구여, 우리가 앞날에 두고 온 그 날에.”',
   resignSurveyText: 'Please tell us why are you leaving.',
+  copyright: 'Copyright © 2018 by LITTERA. All rights Reserved.',
   popupMessage: {
     accepted: {
       header: 'Accepted',

@@ -18,6 +18,11 @@ const Title = Loadable({
   loading: Loading,
 });
 
+const Footer = Loadable({
+  loader: () => import('./components/structure/footer/Footer'),
+  loading: () => null,
+});
+
 const Main = Loadable({
   loader: () => import('./components/view/main/Main'),
   loading: Loading,
@@ -141,6 +146,7 @@ const FormPopup = Loadable({
 export default {
   Intro,
   Title,
+  Footer,
   Main,
   About,
   SignIn,
