@@ -23,6 +23,11 @@ const Footer = Loadable({
   loading: () => null,
 });
 
+const BusinessInfo = Loadable({
+  loader: () => import('./components/view/business_info/BusinessInfo'),
+  loading: Loading,
+});
+
 const Main = Loadable({
   loader: () => import('./components/view/main/Main'),
   loading: Loading,
@@ -147,6 +152,7 @@ export default {
   Intro,
   Title,
   Footer,
+  BusinessInfo,
   Main,
   About,
   SignIn,

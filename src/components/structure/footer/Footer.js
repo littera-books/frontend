@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import dataConfig from '../../../dataConfig';
 
 // Styled
@@ -9,7 +10,7 @@ const Footer = () => (
     <Styled.InnerWrapper>
       <p>{dataConfig.copyright}</p>
       <Styled.LinkWrapper>
-        <span>Info</span>
+        <Link to="/business-info">Info</Link>
         <span>&nbsp;|&nbsp;</span>
         <span>이용약관</span>
         <span>&nbsp;|&nbsp;</span>
