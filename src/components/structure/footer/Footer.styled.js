@@ -17,15 +17,16 @@ const InnerWrapper = styled(Wrapper.BasicFlexWrapper)`
   margin: 0 auto;
   width: 44.25rem;
   justify-content: flex-end;
-`;
-
-const InfoWrapper = styled(Wrapper.BetweenWrapper)`
   align-items: center;
   height: 3.75rem;
+`;
+
+const LinkWrapper = styled(Wrapper.BasicFlexWrapper)`
+  margin-left: 1rem;
 `;
 
 export default {
   FooterWrapper,
   InnerWrapper,
-  InfoWrapper,
+  LinkWrapper,
 };
