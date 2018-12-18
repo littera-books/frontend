@@ -2,13 +2,13 @@ import styled from 'styled-components';
 import Wrapper from '../../../styled_base/Wrapper';
 
 const TitleWrapper = styled(Wrapper.BasicFlexWrapper)`
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
   z-index: 1;
   background-color: white;
   padding: 30px 0 15px 0;
-  width: 100vw;
+  width: 100%;
   height: auto;
   justify-content: center;
   align-items: center;

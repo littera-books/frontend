@@ -2,13 +2,13 @@ import styled from 'styled-components';
 import Wrapper from '../../../styled_base/Wrapper';
 
 const FooterWrapper = styled(Wrapper.BasicFlexWrapper)`
-  position: fixed;
+  position: absolute;
   bottom: 0;
   right: 0;
   z-index: 1;
   background-color: white;
   padding: 15px 0 30px 0;
-  width: 100vw;
+  width: 100%;
   height: auto;
   justify-content: center;
   align-items: center;
