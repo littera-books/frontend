@@ -15,12 +15,16 @@ const PlaceholderFormField = ({
   type,
   placeholder,
   meta: { touched, error },
+  border,
+  width,
 }) => (
   <div>
     <Element.BasicInput
       type={type}
       placeholder={placeholder}
       {...input}
+      border={border}
+      width={width}
       required
     />
     {touched && (error && <Element.BasicSmall>{error}</Element.BasicSmall>)}

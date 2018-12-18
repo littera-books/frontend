@@ -12,7 +12,7 @@ const BasicSmall = styled.small`
 `;
 
 const BasicButton = styled.button`
-  font-family: 'Silk Remington', 'Nanum Myeongjo';
+  font-family: 'Palatino', 'Nanum Myeongjo';
   display: block;
   color: black;
   cursor: pointer;
@@ -27,10 +27,13 @@ const BasicButton = styled.button`
 `;
 
 const BasicInput = styled.input`
-  font-family: 'Silk Remington', 'Nanum Myeongjo';
+  font-family: 'Palatino', 'Nanum Myeongjo';
   font-size: 0.75rem;
   line-height: 2;
   border: none;
+  border-bottom: ${props => (props.border ? props.border : 'none')};
+  width: ${props => (props.width ? props.width : '10rem')};
+  margin: 1rem 0;
 
   :focus {
     outline: none;
@@ -40,7 +43,7 @@ const BasicInput = styled.input`
   }
 
   ::placeholder {
-    font-family: 'Silk Remington', 'Nanum Myeongjo';
+    font-family: 'Palatino', 'Nanum Myeongjo';
     color: rgba(0, 0, 0, 0.3);
   }
 `;
@@ -49,10 +52,16 @@ const LongInput = styled(BasicInput)`
   width: 20rem;
 `;
 
+const BasicTitle = styled.h1`
+  font-size: ${props => (props.size ? props.size : '1rem')};
+  text-align: ${props => (props.align ? props.align : 'left')};
+`;
+
 export default {
   ResponsiveImg,
   BasicSmall,
   BasicButton,
   BasicInput,
   LongInput,
+  BasicTitle,
 };
