@@ -1,5 +1,15 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import ReactMarkdown from 'react-markdown';
+import { connect } from 'react-redux';
+import {
+  setVisibilityFilter,
+  VisibilityFilters,
+} from '../../../reducers/reducer.controlTitle';
+import {
+  setScroll,
+  ScrollFilters,
+} from '../../../reducers/reducer.controlScroll';
 
 // Components
 import Helmet from '../../helmet/Helmet';
@@ -25,6 +35,23 @@ class TermsOfUse extends React.Component {
       });
   }
 
+  componentDidMount() {
+    const { filter, scroll } = this.props;
+    filter(VisibilityFilters.HIDE_TITLE);
+    scroll(ScrollFilters.ENABLE_SCROLL);
+  }
+
+  shouldComponentUpdate(nextState) {
+    const { markdown } = this.state;
+    return markdown !== nextState.markdown;
+  }
+
+  componentWillUnmount() {
+    const { filter, scroll } = this.props;
+    filter(VisibilityFilters.SHOW_TITLE);
+    scroll(ScrollFilters.UNABLE_SCROLL);
+  }
+
   render() {
     const { markdown } = this.state;
 
@@ -40,4 +67,17 @@ class TermsOfUse extends React.Component {
   }
 }
 
-export default TermsOfUse;
+TermsOfUse.propTypes = {
+  filter: PropTypes.func.isRequired,
+  scroll: PropTypes.func.isRequired,
+};
+
+const mapDispatchToProps = dispatch => ({
+  filter: filter => dispatch(setVisibilityFilter(filter)),
+  scroll: filter => dispatch(setScroll(filter)),
+});
+
+export default connect(
+  null,
+  mapDispatchToProps,
+)(TermsOfUse);
