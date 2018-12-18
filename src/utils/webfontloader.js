@@ -4,6 +4,6 @@ import dataConfig from '../dataConfig';
 Webfont.load({
   custom: {
     families: ['Nanum Myeongjo'],
-    urls: [dataConfig.fontUrl],
+    urls: dataConfig.fontUrl,
   },
 });
