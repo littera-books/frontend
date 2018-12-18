@@ -4,11 +4,8 @@ import { Link } from 'react-router-dom';
 import { Field, reduxForm } from 'redux-form';
 import { connect } from 'react-redux';
 import { initialize, signIn } from '../../../reducers/reducer.auth';
-import { setPopupHeaderMessage } from '../../../reducers/reducer.popup';
-import dataConfig from '../../../dataConfig';
 
 // Components
-import Loadable from '../../../loadable';
 import BasicFormField from '../../../form/FormField';
 import Validation from '../../../form/Validation';
 import Helmet from '../../helmet/Helmet';
@@ -19,10 +16,6 @@ import Element from '../../../styled_base/Element';
 import Styled from './SignIn.styled';
 
 export class SignIn extends React.Component {
-  state = {
-    popupFilter: false,
-  };
-
   componentDidMount() {
     const { init } = this.props;
     init();
@@ -32,28 +25,35 @@ export class SignIn extends React.Component {
     const { logIn } = this.props;
     await logIn(payload);
 
-    const { error, setPopup } = this.props;
+    const { error, history } = this.props;
     if (!error) {
-      setPopup(dataConfig.popupMessage.signIn);
-      await this.setState({
-        popupFilter: true,
-      });
+      history.replace('/main');
     }
   }
 
   render() {
-    const { popupFilter } = this.state;
-    const { handleSubmit, error, history } = this.props;
+    const { handleSubmit, error } = this.props;
 
     return (
       <Wrapper.FlexWrapper>
         <Helmet pageTitle="SignIn" />
         <Wrapper.ColumnWrapper>
+          <Element.BasicTitle align="center" size="2.5rem">
+            Log in
+          </Element.BasicTitle>
+          <p style={{ textAlign: 'center' }}>
+            <span>New To This Site?&nbsp;</span>
+            <Link to="/survey" style={{ color: 'blue' }}>
+              SignUp
+            </Link>
+          </p>
           <form action="post" onSubmit={handleSubmit(this.onSubmit.bind(this))}>
             <Field
               type="email"
               name="email"
-              placeholder="Identification"
+              placeholder="Email"
+              border="1px solid black"
+              width="20rem"
               component={BasicFormField.PlaceholderFormField}
               validate={[Validation.required, Validation.email]}
             />
@@ -61,26 +61,29 @@ export class SignIn extends React.Component {
               type="password"
               name="password"
               placeholder="Password"
+              border="1px solid black"
+              width="20rem"
               component={BasicFormField.PlaceholderFormField}
               validate={Validation.required}
             />
             <div>
               <Element.BasicSmall>{error}</Element.BasicSmall>
             </div>
+            <Link
+              to="/forgot-password"
+              style={{
+                display: 'block',
+                textAlign: 'right',
+                marginTop: '1rem',
+              }}
+            >
+              Forgot password?
+            </Link>
             <Styled.SignInButton id="submit" type="submit">
-              SIGN IN
+              Log In
             </Styled.SignInButton>
           </form>
-          <Link to="/survey" style={{ fontSize: '0.5rem' }}>
-            Not a member yet?
-          </Link>
-          <Link to="/forgot-password" style={{ fontSize: '0.5rem' }}>
-            Forgot your password?
-          </Link>
         </Wrapper.ColumnWrapper>
-        {popupFilter ? (
-          <Loadable.SimplePopup replace={history.replace} destination="/main" />
-        ) : null}
       </Wrapper.FlexWrapper>
     );
   }
@@ -94,7 +97,6 @@ SignIn.propTypes = {
   history: PropTypes.shape({
     replace: PropTypes.func.isRequired,
   }).isRequired,
-  setPopup: PropTypes.func.isRequired,
 };
 
 export const mapStateToProps = state => ({
@@ -104,7 +106,6 @@ export const mapStateToProps = state => ({
 export const mapDispatchToProps = dispatch => ({
   init: () => dispatch(initialize()),
   logIn: payload => dispatch(signIn(payload)),
-  setPopup: payload => dispatch(setPopupHeaderMessage(payload)),
 });
 
 export default reduxForm({

@@ -29,6 +29,6 @@ function setup() {
 describe('SignIn', () => {
   it('올바로 렌더링되었는가', () => {
     const { enzymeWrapper } = setup();
-    expect(enzymeWrapper.find('#submit').props().children).toBe('SIGN IN');
+    expect(enzymeWrapper.find('#submit').props().children).toBe('Log In');
   });
 });
