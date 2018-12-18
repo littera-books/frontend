@@ -12,7 +12,7 @@ import Styled from './BusinessInfo.styled';
 const RenderInfo = ({ infoArray }) => _.map(infoArray, (item, index) => <p key={index}>{item}</p>);
 
 const BusinessInfo = () => (
-  <Wrapper.FlexWrapper noBottom>
+  <Wrapper.FlexWrapper>
     <Helmet pageTitle="INFO" />
     <Styled.WidthWrapper>
       <Styled.InfoWrapper>
