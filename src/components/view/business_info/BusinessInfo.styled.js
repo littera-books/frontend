@@ -8,7 +8,7 @@ const WidthWrapper = styled(Wrapper.BasicBlockWrapper)`
 const InfoWrapper = styled(Wrapper.BasicFlexWrapper)`
   align-items: flex-start;
   width: 100%;
-  margin-bottom: 3rem;
+  margin-bottom: ${props => (props.noBottom ? '0' : '3rem')};
 `;
 
 const TitleWrapper = styled(Wrapper.BasicFlexWrapper)`

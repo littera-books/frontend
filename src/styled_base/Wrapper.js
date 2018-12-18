@@ -81,7 +81,7 @@ const FlexWrapper = styled(BasicFlexWrapper)`
   justify-content: center;
   align-items: center;
   width: 44.25rem;
-  padding-bottom: 2rem;
+  padding-bottom: ${props => (props.noBottom ? '0' : '2rem')};
 `;
 
 const ColumnWrapper = styled(BasicFlexWrapper)`
