@@ -12,9 +12,9 @@ const Footer = ({ visibility }) => (
       <p>{dataConfig.copyright}</p>
       <Styled.LinkWrapper>
         <Link to="/business-info">INFO</Link>
-        <span>&nbsp;|&nbsp;</span>
+        <Styled.SlashSpan>|</Styled.SlashSpan>
         <Link to="/privacy-policy">개인정보처리방침</Link>
-        <span>&nbsp;|&nbsp;</span>
+        <Styled.SlashSpan>|</Styled.SlashSpan>
         <Link to="/terms-of-use">이용약관</Link>
       </Styled.LinkWrapper>
     </Styled.InnerWrapper>
