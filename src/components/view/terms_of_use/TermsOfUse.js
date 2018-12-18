@@ -13,6 +13,7 @@ import {
 
 // Components
 import Helmet from '../../helmet/Helmet';
+import HomeButton from '../../structure/home_button/HomeButton';
 
 // Styled
 import Wrapper from '../../../styled_base/Wrapper';
@@ -59,6 +60,7 @@ class TermsOfUse extends React.Component {
         <Wrapper.ScrollWrapper>
           <Styled.Title>이용약관</Styled.Title>
           <ReactMarkdown source={markdown} escapeHtml={false} />
+          <HomeButton />
         </Wrapper.ScrollWrapper>
       </Wrapper.FlexWrapper>
     );

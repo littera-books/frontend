@@ -13,6 +13,7 @@ import {
 
 // Components
 import Helmet from '../../helmet/Helmet';
+import HomeButton from '../../structure/home_button/HomeButton';
 
 // Styled
 import Wrapper from '../../../styled_base/Wrapper';
@@ -59,6 +60,7 @@ class PrivacyPolicy extends React.Component {
         <Wrapper.ScrollWrapper>
           <Styled.Title>개인정보 처리방침</Styled.Title>
           <ReactMarkdown source={markdown} escapeHtml={false} />
+          <HomeButton />
         </Wrapper.ScrollWrapper>
       </Wrapper.FlexWrapper>
     );
