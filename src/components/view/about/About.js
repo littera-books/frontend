@@ -10,13 +10,21 @@ import Styled from './About.styled';
 // Data
 import dataConfig from '../../../dataConfig';
 
-const About = () => (
-  <Wrapper.FlexWrapper>
-    <Helmet pageTitle="About" />
-    <Styled.AboutWrapper>
-      <p>{dataConfig.aboutText}</p>
-    </Styled.AboutWrapper>
-  </Wrapper.FlexWrapper>
-);
+class About extends React.Component {
+  shouldComponentUpdate() {
+    return false;
+  }
+
+  render() {
+    return (
+      <Wrapper.FlexWrapper>
+        <Helmet pageTitle="About" />
+        <Styled.AboutWrapper>
+          <p>{dataConfig.aboutText}</p>
+        </Styled.AboutWrapper>
+      </Wrapper.FlexWrapper>
+    );
+  }
+}
 
 export default About;

@@ -13,10 +13,14 @@ import Wrapper from '../../../styled_base/Wrapper';
 // data
 import dataConfig from '../../../dataConfig';
 
-export class Intro extends React.PureComponent {
+export class Intro extends React.Component {
   componentDidMount() {
     const { filter } = this.props;
     filter(VisibilityFilters.HIDE_TITLE);
+  }
+
+  shouldComponentUpdate() {
+    return false;
   }
 
   componentWillUnmount() {
