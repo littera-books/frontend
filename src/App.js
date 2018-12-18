@@ -39,7 +39,7 @@ export class App extends React.PureComponent {
     return (
       <BrowserRouter>
         <Wrapper.App className="App">
-          <Loadable.Title visibility={isVisible} />
+          <Loadable.Header visibility={isVisible} />
           <Wrapper.ViewPortWrapper>
             <Switch>
               <PrivateRoute

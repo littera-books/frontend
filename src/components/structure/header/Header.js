@@ -3,12 +3,12 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
 // Styled
-import Styled from './Title.styled';
+import Styled from './Header.styled';
 
 // Images
 import Logo from '../../../assets/images/lettre_nk.jpeg';
 
-const Title = ({ visibility }) => (
+const Header = ({ visibility }) => (
   <Styled.TitleWrapper style={{ visibility }}>
     <Link to="/main" style={{ height: '3.75rem' }}>
       <Styled.TitleImg src={Logo} alt="Title" />
@@ -16,8 +16,8 @@ const Title = ({ visibility }) => (
   </Styled.TitleWrapper>
 );
 
-Title.propTypes = {
+Header.propTypes = {
   visibility: PropTypes.string.isRequired,
 };
 
-export default Title;
+export default Header;

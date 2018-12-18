@@ -13,8 +13,8 @@ const Intro = Loadable({
   loading: Loading,
 });
 
-const Title = Loadable({
-  loader: () => import('./components/structure/title/Title'),
+const Header = Loadable({
+  loader: () => import('./components/structure/header/Header'),
   loading: Loading,
 });
 
@@ -160,7 +160,7 @@ const FormPopup = Loadable({
 
 export default {
   Intro,
-  Title,
+  Header,
   Footer,
   BusinessInfo,
   PrivacyPolicy,
