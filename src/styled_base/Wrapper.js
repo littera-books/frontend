@@ -54,7 +54,7 @@ const MobileBlockWrapper = styled(BasicBlockWrapper)`
 `;
 
 const ScrollWrapper = styled(BasicBlockWrapper)`
-  margin: 90px 0;
+  margin-bottom: 15rem;
 
   ol {
     padding-left: 12px;
@@ -77,11 +77,18 @@ const ViewPortWrapper = styled(BasicFlexWrapper)`
   min-height: 100vh;
 `;
 
+const ContainerWrapper = styled(BasicFlexWrapper)`
+  justify-content: center;
+  align-items: ${props => (props.scroll ? 'flex-start' : 'center')};
+  width: 44.25rem;
+  height: 37.5rem;
+  margin-bottom: 2rem;
+`;
+
 const FlexWrapper = styled(BasicFlexWrapper)`
   justify-content: center;
   align-items: center;
   width: 44.25rem;
-  padding-bottom: ${props => (props.noBottom ? '0' : '2rem')};
 `;
 
 const ColumnWrapper = styled(BasicFlexWrapper)`
@@ -127,6 +134,7 @@ export default {
   App,
   BasicBlockWrapper,
   MobileBlockWrapper,
+  ContainerWrapper,
   ScrollWrapper,
   CarouselGuardWrapper,
   BasicFlexWrapper,
