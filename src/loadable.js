@@ -15,7 +15,7 @@ const Intro = Loadable({
 
 const Header = Loadable({
   loader: () => import('./components/structure/header/Header'),
-  loading: Loading,
+  loading: () => null,
 });
 
 const Footer = Loadable({
