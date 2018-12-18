@@ -33,9 +33,7 @@ class PrivacyPolicy extends React.Component {
           markdown: text,
         });
       });
-  }
 
-  componentDidMount() {
     const { filter, scroll } = this.props;
     filter(VisibilityFilters.HIDE_TITLE);
     scroll(ScrollFilters.ENABLE_SCROLL);

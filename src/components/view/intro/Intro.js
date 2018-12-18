@@ -14,7 +14,7 @@ import Wrapper from '../../../styled_base/Wrapper';
 import dataConfig from '../../../dataConfig';
 
 export class Intro extends React.Component {
-  componentDidMount() {
+  componentWillMount() {
     const { filter } = this.props;
     filter(VisibilityFilters.HIDE_TITLE);
   }
