@@ -3,11 +3,7 @@ import Wrapper from '../../../styled_base/Wrapper';
 
 const CardWrapper = styled(Wrapper.BasicBlockWrapper)`
   margin: 0 0.75rem;
-  width: 9.75rem;
-  opacity: 0.3;
-  :hover {
-    opacity: 1;
-  }
+  height: 21.5rem;
 
   @media (max-width: 414px) {
     margin: 0 auto;
@@ -28,6 +24,13 @@ const CardWrapper = styled(Wrapper.BasicBlockWrapper)`
   }
 `;
 
+const InnerWrapper = styled(Wrapper.BasicBlockWrapper)`
+  opacity: 0.4;
+  :hover {
+    opacity: 1;
+  }
+`;
+
 const CardTitle = styled.h1`
   position: absolute;
   top: 5rem;
@@ -44,5 +47,6 @@ const CardTitle = styled.h1`
 
 export default {
   CardWrapper,
+  InnerWrapper,
   CardTitle,
 };

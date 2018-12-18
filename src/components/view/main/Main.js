@@ -19,12 +19,21 @@ import Styled from './Main.styled';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
-const Card = ({ items, name, alt }) => {
+const Card = ({
+  items, url, name, alt,
+}) => {
   const item = _.find(items, o => o.name === name);
   return (
     <Styled.CardWrapper>
-      <Styled.CardTitle>{alt}</Styled.CardTitle>
-      <Element.ResponsiveImg src={dataConfig.baseUrl + item.url} alt={alt} />
+      <Link to={url}>
+        <Styled.InnerWrapper>
+          <Styled.CardTitle>{alt}</Styled.CardTitle>
+          <Element.ResponsiveImg
+            src={dataConfig.baseUrl + item.url}
+            alt={alt}
+          />
+        </Styled.InnerWrapper>
+      </Link>
     </Styled.CardWrapper>
   );
 };
@@ -95,41 +104,32 @@ export class Main extends React.Component {
         <Wrapper.BasicBlockWrapper>
           <Wrapper.FlexWrapper>
             <Helmet pageTitle="Main" />
-            <Link to="/about">
-              <Card items={items} name="about" alt="About" />
-            </Link>
+            <Card items={items} url="/about" name="about" alt="About" />
             {sessionStorage.getItem('token') ? (
-              <Link to="/log">
-                <Card items={items} name="join" alt="Log" />
-              </Link>
+              <Card items={items} url="/log" name="join" alt="Log" />
             ) : (
-              <Link to="/sign-in">
-                <Card items={items} name="join" alt="Join" />
-              </Link>
+              <Card items={items} url="/sign-in" name="join" alt="Join" />
             )}
-            <Link to="/bon-voyage">
+            <Card
+              items={items}
+              url="/bon-voyage"
+              name="bon-voyage"
+              alt="&quot;Bon Voyage!&quot;"
+            />
+            {sessionStorage.getItem('token') ? (
               <Card
                 items={items}
-                name="bon-voyage"
-                alt="&quot;Bon Voyage!&quot;"
+                url="/all-ears/send"
+                name="all-ears"
+                alt="&quot;I'm All Ears&quot;"
               />
-            </Link>
-            {sessionStorage.getItem('token') ? (
-              <Link to="/all-ears/send">
-                <Card
-                  items={items}
-                  name="all-ears"
-                  alt="&quot;I'm All Ears&quot;"
-                />
-              </Link>
             ) : (
-              <Link to="/all-ears">
-                <Card
-                  items={items}
-                  name="all-ears"
-                  alt="&quot;I'm All Ears&quot;"
-                />
-              </Link>
+              <Card
+                items={items}
+                url="/all-ears"
+                name="all-ears"
+                alt="&quot;I'm All Ears&quot;"
+              />
             )}
           </Wrapper.FlexWrapper>
         </Wrapper.BasicBlockWrapper>
@@ -141,41 +141,32 @@ export class Main extends React.Component {
         <Wrapper.MobileBlockWrapper id="carousel">
           <Helmet pageTitle="Main" />
           <Slider {...settings}>
-            <Link to="/about">
-              <Card items={items} name="m-about" alt="About" />
-            </Link>
+            <Card items={items} url="/about" name="m-about" alt="About" />
             {sessionStorage.getItem('token') ? (
-              <Link to="/log">
-                <Card items={items} name="m-join" alt="Log" />
-              </Link>
+              <Card items={items} url="/log" name="m-join" alt="Log" />
             ) : (
-              <Link to="/sign-in">
-                <Card items={items} name="m-join" alt="Join" />
-              </Link>
+              <Card items={items} url="/sign-in" name="m-join" alt="Join" />
             )}
-            <Link to="/bon-voyage">
+            <Card
+              items={items}
+              url="/bon-voyage"
+              name="m-bon-voyage"
+              alt="&quot;Bon Voyage!&quot;"
+            />
+            {sessionStorage.getItem('token') ? (
               <Card
                 items={items}
-                name="m-bon-voyage"
-                alt="&quot;Bon Voyage!&quot;"
+                url="/all-ears/send"
+                name="m-all-ears"
+                alt="&quot;I'm All Ears&quot;"
               />
-            </Link>
-            {sessionStorage.getItem('token') ? (
-              <Link to="/all-ears/send">
-                <Card
-                  items={items}
-                  name="m-all-ears"
-                  alt="&quot;I'm All Ears&quot;"
-                />
-              </Link>
             ) : (
-              <Link to="/all-ears">
-                <Card
-                  items={items}
-                  name="m-all-ears"
-                  alt="&quot;I'm All Ears&quot;"
-                />
-              </Link>
+              <Card
+                items={items}
+                url="/all-ears"
+                name="m-all-ears"
+                alt="&quot;I'm All Ears&quot;"
+              />
             )}
           </Slider>
         </Wrapper.MobileBlockWrapper>
@@ -186,6 +177,7 @@ export class Main extends React.Component {
 
 Card.propTypes = {
   alt: PropTypes.string.isRequired,
+  url: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   items: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
