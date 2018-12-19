@@ -23,14 +23,18 @@ export const PasswordField = () => (
       type="password"
       name="password1"
       placeholder="Password (With 8 characters or more)"
-      component={BasicFormField.LongPlaceholderFormField}
+      border="1px solid black"
+      width="20rem"
+      component={BasicFormField.PlaceholderFormField}
       validate={[Validation.required, Validation.minLength8]}
     />
     <Field
       type="password"
       name="password2"
       placeholder="Confirm password"
-      component={BasicFormField.LongPlaceholderFormField}
+      border="1px solid black"
+      width="20rem"
+      component={BasicFormField.PlaceholderFormField}
       validate={[Validation.required, Validation.minLength8]}
     />
   </Fragment>
@@ -85,8 +89,29 @@ const InfoFormField = ({ openPostCode, error }) => (
   </Fragment>
 );
 
+export const MinimalFormField = ({ error }) => (
+  <Fragment>
+    <Field
+      type="email"
+      name="email"
+      placeholder="E-mail address (your identification)"
+      border="1px solid black"
+      width="20rem"
+      component={BasicFormField.PlaceholderFormField}
+      validate={[Validation.required, Validation.email]}
+    />
+    <div>
+      <Element.BasicSmall>{error}</Element.BasicSmall>
+    </div>
+  </Fragment>
+);
+
 InfoFormField.propTypes = {
   openPostCode: PropTypes.func.isRequired,
+  error: PropTypes.string.isRequired,
+};
+
+MinimalFormField.propTypes = {
   error: PropTypes.string.isRequired,
 };
 
