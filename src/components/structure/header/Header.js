@@ -17,7 +17,9 @@ class Header extends React.Component {
   render() {
     const { visibility } = this.props;
     return (
-      <Styled.TitleWrapper style={{ visibility }}>
+      <Styled.TitleWrapper
+        style={{ visibility: visibility ? 'visible ' : 'hidden' }}
+      >
         <Link to="/main" style={{ height: '3.75rem' }}>
           <Styled.TitleImg src={Logo} alt="Title" />
         </Link>
@@ -27,7 +29,7 @@ class Header extends React.Component {
 }
 
 Header.propTypes = {
-  visibility: PropTypes.string.isRequired,
+  visibility: PropTypes.bool.isRequired,
 };
 
 export default Header;

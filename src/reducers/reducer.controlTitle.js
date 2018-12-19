@@ -2,8 +2,8 @@
 const SET_VISIBILITY_FILTER = 'SET_VISIBILITY_FILTER';
 
 export const VisibilityFilters = {
-  SHOW_TITLE: 'visible',
-  HIDE_TITLE: 'hidden',
+  SHOW_TITLE: true,
+  HIDE_TITLE: false,
 };
 
 // Action Creators

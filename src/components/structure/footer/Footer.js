@@ -15,7 +15,9 @@ class Footer extends React.Component {
   render() {
     const { visibility } = this.props;
     return (
-      <Styled.FooterWrapper style={{ visibility }}>
+      <Styled.FooterWrapper
+        style={{ visibility: visibility ? 'visible' : 'hidden' }}
+      >
         <Styled.InnerWrapper>
           <p>{dataConfig.copyright}</p>
           <Styled.LinkWrapper>
@@ -32,7 +34,7 @@ class Footer extends React.Component {
 }
 
 Footer.propTypes = {
-  visibility: PropTypes.string.isRequired,
+  visibility: PropTypes.bool.isRequired,
 };
 
 export default Footer;
