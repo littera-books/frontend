@@ -28,7 +28,6 @@ export class SignIn extends React.Component {
 
   componentWillUnmount() {
     const { filter } = this.props;
-
     filter(VisibilityFilters.SHOW_TITLE);
   }
 
@@ -58,7 +57,7 @@ export class SignIn extends React.Component {
           </Element.BasicTitle>
           <p style={{ textAlign: 'center' }}>
             <span>New To This Site?&nbsp;&nbsp;</span>
-            <Link to="/survey" style={{ color: 'blue' }}>
+            <Link to="/add-info" style={{ color: 'blue' }}>
               Sign Up
             </Link>
           </p>

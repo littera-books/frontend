@@ -3,29 +3,35 @@ import PropTypes from 'prop-types';
 import { reduxForm } from 'redux-form';
 import { connect } from 'react-redux';
 import { createUser } from '../../../reducers/reducer.user';
-import { postResult } from '../../../reducers/reducer.question';
-import { setPopupHeaderMessage } from '../../../reducers/reducer.popup';
-import dataConfig from '../../../dataConfig';
+import {
+  setVisibilityFilter,
+  VisibilityFilters,
+} from '../../../reducers/reducer.controlTitle';
 
 // Component
-import Loadable from '../../../loadable';
-import InfoFormField, { PasswordField } from '../../../form/InfoFormField';
+import { MinimalFormField, PasswordField } from '../../../form/InfoFormField';
 import Helmet from '../../helmet/Helmet';
 
 // Styled
 import Wrapper from '../../../styled_base/Wrapper';
+import Element from '../../../styled_base/Element';
 import Styled from './Survey.styled';
 
 const AddInfoForm = ({
-  handleSubmit, onSubmit, openPostCode, error,
+  handleSubmit, onSubmit, error, history,
 }) => (
   <Styled.LineHeightForm
     action="post"
     onSubmit={handleSubmit(onSubmit.bind(this))}
   >
-    <InfoFormField error={error} openPostCode={openPostCode} />
+    <MinimalFormField error={error} />
     <PasswordField />
-    <Styled.AlignRightButton type="submit">Register</Styled.AlignRightButton>
+    <Wrapper.BetweenWrapper margin="1rem 0">
+      <Element.BasicButton type="button" onClick={history.goBack}>
+        ←
+      </Element.BasicButton>
+      <Element.BasicButton type="submit">Register</Element.BasicButton>
+    </Wrapper.BetweenWrapper>
   </Styled.LineHeightForm>
 );
 
@@ -35,35 +41,24 @@ class AddInfo extends React.Component {
 
     this.state = {
       width: 0,
-      popupFilter: false,
-      postCode: '',
     };
 
     this.onSubmit = this.onSubmit.bind(this);
-    this.openPostCode = this.openPostCode.bind(this);
     this.updateWindowDimensions = this.updateWindowDimensions.bind(this);
   }
 
   componentDidMount() {
+    const { filter } = this.props;
+    filter(VisibilityFilters.HIDE_TITLE);
+
     this.updateWindowDimensions();
     window.addEventListener('resize', this.updateWindowDimensions);
-
-    const { result, history } = this.props;
-    if (Object.keys(result).length === 0) {
-      alert(
-        '설문 정보가 손실되었습니다. 가입 절차를 다시 진행해주시기 바랍니다.',
-      );
-      history.push('/survey');
-    } else {
-      const script = document.createElement('script');
-      script.id = 'daum';
-      document.head.appendChild(script);
-      script.src = dataConfig.daumPostApiUrl;
-      script.onload = () => this.initialPostCode(this);
-    }
   }
 
   componentWillUnmount() {
+    const { filter } = this.props;
+    filter(VisibilityFilters.SHOW_TITLE);
+
     window.removeEventListener('resize', this.updateWindowDimensions);
   }
 
@@ -71,31 +66,14 @@ class AddInfo extends React.Component {
     const { create } = this.props;
     await create(payload);
 
-    const {
-      error, result, post, setPopup, userId,
-    } = this.props;
+    const { error, history } = this.props;
     if (!error) {
-      post(userId, result);
-      setPopup(dataConfig.popupMessage.signUp);
-      this.setState({ popupFilter: true });
+      history.replace('/sign-in');
     }
   }
 
   updateWindowDimensions() {
     this.setState({ width: window.innerWidth });
-  }
-
-  initialPostCode() {
-    const { change } = this.props;
-    window.daum.postcode.load(() => {
-      const postCode = new window.daum.Postcode({
-        oncomplete: function oncomplete(data) {
-          change('address', `(${data.zonecode}) ${data.address}`);
-          alert('나머지 주소를 적어주세요');
-        },
-      });
-      this.setState({ postCode });
-    });
   }
 
   openPostCode() {
@@ -104,27 +82,28 @@ class AddInfo extends React.Component {
   }
 
   render() {
-    const { width, popupFilter } = this.state;
-    const { handleSubmit, history, error } = this.props;
+    const { width } = this.state;
+    const { handleSubmit, error, history } = this.props;
 
     if (width > 414) {
       return (
         <Wrapper.FlexWrapper>
           <Helmet pageTitle="Add Info" />
-          <Wrapper.ColumnWrapper>
+          <Wrapper.BasicBlockWrapper>
+            <Element.BasicTitle
+              align="center"
+              size="3rem"
+              fontFamily="'Gothic A1', sans-serif"
+            >
+              Sign up
+            </Element.BasicTitle>
             <AddInfoForm
               handleSubmit={handleSubmit}
               onSubmit={this.onSubmit}
-              openPostCode={this.openPostCode}
               error={error}
+              history={history}
             />
-          </Wrapper.ColumnWrapper>
-          {popupFilter && (
-            <Loadable.SimplePopup
-              replace={history.replace}
-              destination="/sign-in"
-            />
-          )}
+          </Wrapper.BasicBlockWrapper>
         </Wrapper.FlexWrapper>
       );
     }
@@ -136,16 +115,10 @@ class AddInfo extends React.Component {
           <AddInfoForm
             handleSubmit={handleSubmit}
             onSubmit={this.onSubmit}
-            openPostCode={this.openPostCode}
             error={error}
+            history={history}
           />
         </Wrapper.ColumnWrapper>
-        {popupFilter && (
-          <Loadable.SimplePopup
-            replace={history.replace}
-            destination="/sign-in"
-          />
-        )}
       </Styled.ScrollFlexWrapper>
     );
   }
@@ -154,21 +127,20 @@ class AddInfo extends React.Component {
 AddInfoForm.propTypes = {
   handleSubmit: PropTypes.func.isRequired,
   onSubmit: PropTypes.func.isRequired,
-  openPostCode: PropTypes.func.isRequired,
   error: PropTypes.string.isRequired,
+  history: PropTypes.shape({
+    goBack: PropTypes.func.isRequired,
+  }).isRequired,
 };
 
 AddInfo.propTypes = {
-  change: PropTypes.func.isRequired,
   handleSubmit: PropTypes.func.isRequired,
-  result: PropTypes.objectOf(PropTypes.string).isRequired,
   create: PropTypes.func.isRequired,
   history: PropTypes.shape({
     replace: PropTypes.func.isRequired,
   }).isRequired,
-  post: PropTypes.func.isRequired,
-  setPopup: PropTypes.func.isRequired,
   error: PropTypes.string.isRequired,
+  filter: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = state => ({
@@ -179,8 +151,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   create: payload => dispatch(createUser(payload)),
-  post: (userId, payload) => dispatch(postResult(userId, payload)),
-  setPopup: payload => dispatch(setPopupHeaderMessage(payload)),
+  filter: filter => dispatch(setVisibilityFilter(filter)),
 });
 
 const validate = (values) => {
