@@ -22,6 +22,6 @@ function setup() {
 describe('App', () => {
   it('기본 isVisible Props가 visible인가', () => {
     const { enzymeWrapper } = setup();
-    expect(enzymeWrapper.props().isVisible).toBe('visible');
+    expect(enzymeWrapper.props().isVisible).toBe(true);
   });
 });

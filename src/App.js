@@ -41,6 +41,7 @@ export class App extends React.PureComponent {
         <Wrapper.App className="App">
           <Wrapper.ViewPortWrapper>
             <Wrapper.ContainerWrapper scroll={isScroll}>
+              <Loadable.CloseButton visibility={!isScroll} />
               <Loadable.Header visibility={isVisible} />
               <Switch>
                 <PrivateRoute
