@@ -53,6 +53,7 @@ const LongInput = styled(BasicInput)`
 `;
 
 const BasicTitle = styled.h1`
+  font-family: ${props => (props.fontFamily ? props.fontFamily : 'inherit')};
   font-size: ${props => (props.size ? props.size : '1rem')};
   text-align: ${props => (props.align ? props.align : 'left')};
 `;
