@@ -23,6 +23,11 @@ const Footer = Loadable({
   loading: () => null,
 });
 
+const CloseButton = Loadable({
+  loader: () => import('./components/structure/close_button/CloseButton'),
+  loading: () => null,
+});
+
 const BusinessInfo = Loadable({
   loader: () => import('./components/view/business_info/BusinessInfo'),
   loading: Loading,
@@ -162,6 +167,7 @@ export default {
   Intro,
   Header,
   Footer,
+  CloseButton,
   BusinessInfo,
   PrivacyPolicy,
   TermsOfUse,
