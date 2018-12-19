@@ -1,5 +1,9 @@
 import styled from 'styled-components';
 
+const COLOR = {
+  primary: '#363636',
+};
+
 const ResponsiveImg = styled.img`
   width: 100%;
   height: auto;
@@ -16,7 +20,7 @@ const BasicButton = styled.button`
   display: block;
   color: black;
   cursor: pointer;
-  font-size: 0.75rem;
+  font-size: 1rem;
   border: none;
   padding: 0;
   background-color: white;
@@ -59,6 +63,7 @@ const BasicTitle = styled.h1`
 `;
 
 export default {
+  COLOR,
   ResponsiveImg,
   BasicSmall,
   BasicButton,
