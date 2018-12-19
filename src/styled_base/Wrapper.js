@@ -103,6 +103,7 @@ const MobileColumnWrapper = styled(ColumnWrapper)`
 
 const BetweenWrapper = styled(BasicFlexWrapper)`
   justify-content: space-between;
+  margin: ${props => (props.margin ? props.margin : '0')};
 `;
 
 const QuillEditor = styled(BasicBlockWrapper)`
