@@ -4,7 +4,7 @@ import Element from '../../../styled_base/Element';
 const SignInButton = styled(Element.BasicButton)`
   width: 20rem;
   height: 3rem;
-  background-color: blue;
+  background-color: ${Element.COLOR.primary};
   color: white;
 `;
 

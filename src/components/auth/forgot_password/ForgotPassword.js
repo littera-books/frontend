@@ -3,11 +3,12 @@ import PropTypes from 'prop-types';
 import { Field, reduxForm } from 'redux-form';
 import { connect } from 'react-redux';
 import { resetPassword } from '../../../reducers/reducer.user';
-import { setPopupHeaderMessage } from '../../../reducers/reducer.popup';
-import dataConfig from '../../../dataConfig';
+import {
+  setVisibilityFilter,
+  VisibilityFilters,
+} from '../../../reducers/reducer.controlTitle';
 
 // Components
-import Loadable from '../../../loadable';
 import Helmet from '../../helmet/Helmet';
 import BasicFormField from '../../../form/FormField';
 import Validation from '../../../form/Validation';
@@ -18,23 +19,27 @@ import Element from '../../../styled_base/Element';
 import Styled from './ForgotPassword.styled';
 
 class ForgetPassword extends React.Component {
-  state = {
-    popupFilter: false,
-  };
+  componentDidMount() {
+    const { filter } = this.props;
+    filter(VisibilityFilters.HIDE_TITLE);
+  }
+
+  componentWillUnmount() {
+    const { filter } = this.props;
+    filter(VisibilityFilters.SHOW_TITLE);
+  }
 
   async onSubmit(payload) {
     const { reset } = this.props;
     await reset(payload.email);
 
-    const { error, setPopup } = this.props;
+    const { error, history } = this.props;
     if (!error) {
-      setPopup(dataConfig.popupMessage.resetPassword);
-      this.setState({ popupFilter: true });
+      history.replace('/main');
     }
   }
 
   render() {
-    const { popupFilter } = this.state;
     const { handleSubmit, history } = this.props;
     return (
       <Wrapper.FlexWrapper>
@@ -59,9 +64,6 @@ class ForgetPassword extends React.Component {
             </Element.BasicButton>
           </Styled.ButtonGroup>
         </Styled.LineHeightForm>
-        {popupFilter && (
-          <Loadable.SimplePopup replace={history.replace} destination="/main" />
-        )}
       </Wrapper.FlexWrapper>
     );
   }
@@ -70,10 +72,11 @@ class ForgetPassword extends React.Component {
 ForgetPassword.propTypes = {
   history: PropTypes.shape({
     goBack: PropTypes.func.isRequired,
+    replace: PropTypes.func.isRequired,
   }).isRequired,
   handleSubmit: PropTypes.func.isRequired,
   reset: PropTypes.func.isRequired,
-  setPopup: PropTypes.func.isRequired,
+  filter: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = state => ({
@@ -82,7 +85,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   reset: email => dispatch(resetPassword(email)),
-  setPopup: payload => dispatch(setPopupHeaderMessage(payload)),
+  filter: filter => dispatch(setVisibilityFilter(filter)),
 });
 
 export default reduxForm({
