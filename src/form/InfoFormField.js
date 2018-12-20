@@ -58,6 +58,7 @@ const InfoFormField = ({ openPostCode, error }) => (
         name="firstName"
         placeholder="first name"
         border="1px solid black"
+        width="9.5rem"
         component={BasicFormField.PlaceholderFormField}
         validate={[Validation.required, Validation.maxLength20]}
       />
@@ -66,6 +67,7 @@ const InfoFormField = ({ openPostCode, error }) => (
         name="lastName"
         placeholder="last name"
         border="1px solid black"
+        width="9.5rem"
         component={BasicFormField.PlaceholderFormField}
       />
     </NameWrapper>
