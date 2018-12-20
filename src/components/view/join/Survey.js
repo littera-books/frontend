@@ -3,16 +3,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Field, reduxForm } from 'redux-form';
 import { connect } from 'react-redux';
+import { listQuestion, postResult } from '../../../reducers/reducer.question';
 import {
-  listQuestion,
-  saveResult,
-  askAccept,
-} from '../../../reducers/reducer.question';
-import { setPopupHeaderMessage } from '../../../reducers/reducer.popup';
-import dataConfig from '../../../dataConfig';
+  setScroll,
+  ScrollFilters,
+} from '../../../reducers/reducer.controlScroll';
 
 // Components
-import Loadable from '../../../loadable';
 import Helmet from '../../helmet/Helmet';
 
 // Styled
@@ -20,30 +17,20 @@ import Wrapper from '../../../styled_base/Wrapper';
 import Styled from './Survey.styled';
 
 class Survey extends React.Component {
-  state = {
-    popupFilter: false,
-    destination: '/main',
-  };
-
   componentDidMount() {
-    const { getListQuestion } = this.props;
+    const { getListQuestion, scroll } = this.props;
     getListQuestion();
+    scroll(ScrollFilters.ENABLE_SCROLL);
+  }
+
+  componentWillUnmount() {
+    const { scroll } = this.props;
+    scroll(ScrollFilters.UNABLE_SCROLL);
   }
 
   async onSubmit(payload) {
-    const { save, ask } = this.props;
-
-    await save(payload);
-    await ask(payload);
-
-    const { isAccepted, setPopup } = this.props;
-    if (isAccepted) {
-      setPopup(dataConfig.popupMessage.accepted);
-      this.setState({ destination: '/accept' });
-    } else {
-      setPopup(dataConfig.popupMessage.denied);
-    }
-    this.setState({ popupFilter: true });
+    const { post } = this.props;
+    await post(payload);
   }
 
   renderQuestionItems() {
@@ -77,12 +64,11 @@ class Survey extends React.Component {
   }
 
   render() {
-    const { popupFilter, destination } = this.state;
-    const { handleSubmit, history } = this.props;
+    const { handleSubmit } = this.props;
     return (
-      <Styled.ScrollFlexWrapper>
+      <Wrapper.FlexWrapper>
         <Helmet pageTitle="Survey" />
-        <Wrapper.ColumnWrapper>
+        <Wrapper.ScrollWrapper>
           <Styled.MarginForm
             action="post"
             onSubmit={handleSubmit(this.onSubmit.bind(this))}
@@ -92,14 +78,8 @@ class Survey extends React.Component {
               Submit
             </Styled.AlignRightButton>
           </Styled.MarginForm>
-        </Wrapper.ColumnWrapper>
-        {popupFilter && (
-          <Loadable.SimplePopup
-            replace={history.replace}
-            destination={destination}
-          />
-        )}
-      </Styled.ScrollFlexWrapper>
+        </Wrapper.ScrollWrapper>
+      </Wrapper.FlexWrapper>
     );
   }
 }
@@ -110,10 +90,9 @@ Survey.propTypes = {
   }).isRequired,
   handleSubmit: PropTypes.func.isRequired,
   getListQuestion: PropTypes.func.isRequired,
-  save: PropTypes.func.isRequired,
-  ask: PropTypes.func.isRequired,
-  setPopup: PropTypes.func.isRequired,
+  post: PropTypes.func.isRequired,
   questionItems: PropTypes.arrayOf(PropTypes.object).isRequired,
+  scroll: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = state => ({
@@ -123,9 +102,8 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   getListQuestion: () => dispatch(listQuestion()),
-  save: payload => dispatch(saveResult(payload)),
-  ask: payload => dispatch(askAccept(payload)),
-  setPopup: payload => dispatch(setPopupHeaderMessage(payload)),
+  post: payload => dispatch(postResult(payload)),
+  scroll: filter => dispatch(setScroll(filter)),
 });
 
 export default reduxForm({

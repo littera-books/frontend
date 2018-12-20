@@ -59,7 +59,7 @@ class Log extends React.Component {
             <Link to="/my-info">
               <Styled.DropdownItem>My Order</Styled.DropdownItem>
             </Link>
-            <Link to="/my-info">
+            <Link to="/survey">
               <Styled.DropdownItem>My Enquiry</Styled.DropdownItem>
             </Link>
             <Link to="/my-info/resign">
