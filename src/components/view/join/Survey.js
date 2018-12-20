@@ -33,8 +33,9 @@ class Survey extends React.Component {
   }
 
   async onSubmit(payload) {
-    const { post } = this.props;
-    await post(payload);
+    const { post, userId, history } = this.props;
+    await post(userId, payload);
+    await history.replace('/log');
   }
 
   renderQuestionItems() {
@@ -104,13 +105,14 @@ Survey.propTypes = {
 };
 
 const mapStateToProps = state => ({
+  userId: state.user.userId,
   questionItems: state.question.items,
   isAccepted: state.question.isAccepted,
 });
 
 const mapDispatchToProps = dispatch => ({
   getListQuestion: () => dispatch(listQuestion()),
-  post: payload => dispatch(postResult(payload)),
+  post: (userId, payload) => dispatch(postResult(userId, payload)),
   scroll: filter => dispatch(setScroll(filter)),
   close: filter => dispatch(setClose(filter)),
 });
