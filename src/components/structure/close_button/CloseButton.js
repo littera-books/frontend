@@ -20,12 +20,7 @@ class CloseButton extends React.Component {
         style={{ visibility: visibility ? 'visible ' : 'hidden' }}
       >
         <Link to="/main">
-          <Styled.CloseButton
-            src={Close}
-            alt="close-button"
-            width="16px"
-            height="16px"
-          />
+          <img src={Close} alt="close-button" width="16px" height="16px" />
         </Link>
       </Styled.CloseButtonWrapper>
     );
