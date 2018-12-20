@@ -34,14 +34,14 @@ const PrivateRoute = ({ component: Component, ...rest }) => (
 
 export class App extends React.PureComponent {
   render() {
-    const { isVisible, isScroll } = this.props;
+    const { isVisible, isScroll, isClose } = this.props;
 
     return (
       <BrowserRouter>
         <Wrapper.App className="App">
           <Wrapper.ViewPortWrapper>
             <Wrapper.ContainerWrapper scroll={isScroll}>
-              <Loadable.CloseButton visibility={!isScroll} />
+              <Loadable.CloseButton visibility={isClose} />
               <Loadable.Header visibility={isVisible} />
               <Switch>
                 <PrivateRoute
@@ -110,11 +110,13 @@ export class App extends React.PureComponent {
 App.propTypes = {
   isVisible: PropTypes.bool.isRequired,
   isScroll: PropTypes.bool.isRequired,
+  isClose: PropTypes.bool.isRequired,
 };
 
 const mapStateToProps = state => ({
   isVisible: state.controlTitle,
   isScroll: state.controlScroll,
+  isClose: state.controlClose,
 });
 
 export default connect(mapStateToProps)(App);

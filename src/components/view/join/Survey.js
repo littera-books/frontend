@@ -8,9 +8,11 @@ import {
   setScroll,
   ScrollFilters,
 } from '../../../reducers/reducer.controlScroll';
+import { setClose, CloseFilters } from '../../../reducers/reducer.controlClose';
 
 // Components
 import Helmet from '../../helmet/Helmet';
+import ScrollCloseButton from '../../structure/scroll_close_button/ScrollCloseButton';
 
 // Styled
 import Wrapper from '../../../styled_base/Wrapper';
@@ -18,14 +20,16 @@ import Styled from './Survey.styled';
 
 class Survey extends React.Component {
   componentDidMount() {
-    const { getListQuestion, scroll } = this.props;
+    const { getListQuestion, scroll, close } = this.props;
     getListQuestion();
     scroll(ScrollFilters.ENABLE_SCROLL);
+    close(CloseFilters.HIDE_CLOSE);
   }
 
   componentWillUnmount() {
-    const { scroll } = this.props;
+    const { scroll, close } = this.props;
     scroll(ScrollFilters.UNABLE_SCROLL);
+    close(CloseFilters.SHOW_CLOSE);
   }
 
   async onSubmit(payload) {
@@ -69,15 +73,18 @@ class Survey extends React.Component {
       <Wrapper.FlexWrapper>
         <Helmet pageTitle="Survey" />
         <Wrapper.ScrollWrapper>
-          <Styled.MarginForm
-            action="post"
-            onSubmit={handleSubmit(this.onSubmit.bind(this))}
-          >
-            {this.renderQuestionItems()}
-            <Styled.AlignRightButton type="submit">
-              Submit
-            </Styled.AlignRightButton>
-          </Styled.MarginForm>
+          <ScrollCloseButton />
+          <Styled.CenterWrapper>
+            <Styled.MarginForm
+              action="post"
+              onSubmit={handleSubmit(this.onSubmit.bind(this))}
+            >
+              {this.renderQuestionItems()}
+              <Styled.AlignRightButton type="submit">
+                Submit
+              </Styled.AlignRightButton>
+            </Styled.MarginForm>
+          </Styled.CenterWrapper>
         </Wrapper.ScrollWrapper>
       </Wrapper.FlexWrapper>
     );
@@ -93,6 +100,7 @@ Survey.propTypes = {
   post: PropTypes.func.isRequired,
   questionItems: PropTypes.arrayOf(PropTypes.object).isRequired,
   scroll: PropTypes.func.isRequired,
+  close: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = state => ({
@@ -104,6 +112,7 @@ const mapDispatchToProps = dispatch => ({
   getListQuestion: () => dispatch(listQuestion()),
   post: payload => dispatch(postResult(payload)),
   scroll: filter => dispatch(setScroll(filter)),
+  close: filter => dispatch(setClose(filter)),
 });
 
 export default reduxForm({

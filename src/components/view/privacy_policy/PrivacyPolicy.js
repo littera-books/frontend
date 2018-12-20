@@ -6,10 +6,11 @@ import {
   setScroll,
   ScrollFilters,
 } from '../../../reducers/reducer.controlScroll';
+import { setClose, CloseFilters } from '../../../reducers/reducer.controlClose';
 
 // Components
 import Helmet from '../../helmet/Helmet';
-import HomeButton from '../../structure/home_button/HomeButton';
+import ScrollCloseButton from '../../structure/scroll_close_button/ScrollCloseButton';
 
 // Styled
 import Wrapper from '../../../styled_base/Wrapper';
@@ -31,8 +32,9 @@ class PrivacyPolicy extends React.Component {
         });
       });
 
-    const { scroll } = this.props;
+    const { scroll, close } = this.props;
     scroll(ScrollFilters.ENABLE_SCROLL);
+    close(CloseFilters.HIDE_CLOSE);
   }
 
   shouldComponentUpdate(nextState) {
@@ -41,8 +43,9 @@ class PrivacyPolicy extends React.Component {
   }
 
   componentWillUnmount() {
-    const { scroll } = this.props;
+    const { scroll, close } = this.props;
     scroll(ScrollFilters.UNABLE_SCROLL);
+    close(CloseFilters.SHOW_CLOSE);
   }
 
   render() {
@@ -52,9 +55,9 @@ class PrivacyPolicy extends React.Component {
       <Wrapper.FlexWrapper>
         <Helmet pageTitle="Privacy Policy" />
         <Wrapper.ScrollWrapper>
+          <ScrollCloseButton />
           <Styled.Title>개인정보 처리방침</Styled.Title>
           <ReactMarkdown source={markdown} escapeHtml={false} />
-          <HomeButton />
         </Wrapper.ScrollWrapper>
       </Wrapper.FlexWrapper>
     );
@@ -63,10 +66,12 @@ class PrivacyPolicy extends React.Component {
 
 PrivacyPolicy.propTypes = {
   scroll: PropTypes.func.isRequired,
+  close: PropTypes.func.isRequired,
 };
 
 const mapDispatchToProps = dispatch => ({
   scroll: filter => dispatch(setScroll(filter)),
+  close: filter => dispatch(setClose(filter)),
 });
 
 export default connect(

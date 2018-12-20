@@ -11,6 +11,10 @@ const ScrollFlexWrapper = styled(Wrapper.FlexWrapper)`
   }
 `;
 
+const CenterWrapper = styled(Wrapper.BasicFlexWrapper)`
+  justify-content: center;
+`;
+
 const InfoWrapper = styled(Wrapper.ColumnWrapper)`
   width: 28rem;
   line-height: 3;
@@ -29,7 +33,6 @@ const InfoWrapper = styled(Wrapper.ColumnWrapper)`
 `;
 
 const MarginForm = styled.form`
-  margin: 0 2rem;
   margin-bottom: 10rem;
 
   @media (max-width: 414px) {
@@ -83,6 +86,7 @@ const AlignRightButton = styled(Element.BasicButton)`
 
 export default {
   ScrollFlexWrapper,
+  CenterWrapper,
   InfoWrapper,
   MarginForm,
   QuestionItem,

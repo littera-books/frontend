@@ -9,7 +9,11 @@ import dataConfig from '../../../dataConfig';
 Enzyme.configure({ adapter: new Adapter() });
 
 function setup() {
-  const enzymeWrapper = shallow(<Intro />);
+  const props = {
+    close: jest.fn(),
+  };
+
+  const enzymeWrapper = shallow(<Intro {...props} />);
 
   return {
     enzymeWrapper,
