@@ -3,10 +3,6 @@ import PropTypes from 'prop-types';
 import { reduxForm } from 'redux-form';
 import { connect } from 'react-redux';
 import { createUser } from '../../../reducers/reducer.user';
-import {
-  setVisibilityFilter,
-  VisibilityFilters,
-} from '../../../reducers/reducer.controlTitle';
 
 // Component
 import { MinimalFormField, PasswordField } from '../../../form/InfoFormField';
@@ -48,17 +44,11 @@ class AddInfo extends React.Component {
   }
 
   componentDidMount() {
-    const { filter } = this.props;
-    filter(VisibilityFilters.HIDE_TITLE);
-
     this.updateWindowDimensions();
     window.addEventListener('resize', this.updateWindowDimensions);
   }
 
   componentWillUnmount() {
-    const { filter } = this.props;
-    filter(VisibilityFilters.SHOW_TITLE);
-
     window.removeEventListener('resize', this.updateWindowDimensions);
   }
 
@@ -140,7 +130,6 @@ AddInfo.propTypes = {
     replace: PropTypes.func.isRequired,
   }).isRequired,
   error: PropTypes.string.isRequired,
-  filter: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = state => ({
@@ -151,7 +140,6 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   create: payload => dispatch(createUser(payload)),
-  filter: filter => dispatch(setVisibilityFilter(filter)),
 });
 
 const validate = (values) => {

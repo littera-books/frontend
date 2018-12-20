@@ -199,7 +199,7 @@ const mapStateToProps = state => ({
   filter: PropTypes.func.isRequired,
 });
 
-const mapDispatchToProps = dispatch => ({
+export const mapDispatchToProps = dispatch => ({
   getDetail: name => dispatch(getImg(name)),
   filter: filter => dispatch(setVisibilityFilter(filter)),
 });

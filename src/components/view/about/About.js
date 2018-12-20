@@ -1,4 +1,10 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import {
+  setVisibilityFilter,
+  VisibilityFilters,
+} from '../../../reducers/reducer.controlTitle';
 
 // Components
 import Helmet from '../../helmet/Helmet';
@@ -10,9 +16,19 @@ import Styled from './About.styled';
 // Data
 import dataConfig from '../../../dataConfig';
 
-class About extends React.Component {
+export class About extends React.Component {
+  componentDidMount() {
+    const { filter } = this.props;
+    filter(VisibilityFilters.SHOW_TITLE);
+  }
+
   shouldComponentUpdate() {
     return false;
+  }
+
+  componentWillUnmount() {
+    const { filter } = this.props;
+    filter(VisibilityFilters.HIDE_TITLE);
   }
 
   render() {
@@ -27,4 +43,15 @@ class About extends React.Component {
   }
 }
 
-export default About;
+About.propTypes = {
+  filter: PropTypes.func.isRequired,
+};
+
+export const mapDispatchToProps = dispatch => ({
+  filter: filter => dispatch(setVisibilityFilter(filter)),
+});
+
+export default connect(
+  null,
+  mapDispatchToProps,
+)(About);
