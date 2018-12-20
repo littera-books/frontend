@@ -42,11 +42,22 @@ export const PasswordField = () => (
 
 const InfoFormField = ({ openPostCode, error }) => (
   <Fragment>
+    <Field
+      type="email"
+      name="email"
+      placeholder="E-mail address (your identification)"
+      border="1px solid black"
+      width="20rem"
+      component={BasicFormField.PlaceholderFormField}
+      validate={[Validation.required, Validation.email]}
+      disabled
+    />
     <NameWrapper>
       <Field
         type="text"
         name="firstName"
         placeholder="first name"
+        border="1px solid black"
         component={BasicFormField.PlaceholderFormField}
         validate={[Validation.required, Validation.maxLength20]}
       />
@@ -54,21 +65,17 @@ const InfoFormField = ({ openPostCode, error }) => (
         type="text"
         name="lastName"
         placeholder="last name"
+        border="1px solid black"
         component={BasicFormField.PlaceholderFormField}
       />
     </NameWrapper>
     <Field
-      type="email"
-      name="email"
-      placeholder="E-mail address (your identification)"
-      component={BasicFormField.LongPlaceholderFormField}
-      validate={[Validation.required, Validation.email]}
-    />
-    <Field
       type="tel"
       name="phone"
       placeholder="Contact No."
-      component={BasicFormField.LongPlaceholderFormField}
+      border="1px solid black"
+      width="20rem"
+      component={BasicFormField.PlaceholderFormField}
       validate={[
         Validation.required,
         Validation.maxLength11,
@@ -79,6 +86,7 @@ const InfoFormField = ({ openPostCode, error }) => (
       type="text"
       name="address"
       placeholder="Contact Address (Where your books arrive)"
+      border="1px solid black"
       func={openPostCode}
       component={BasicFormField.PostalCodeFormField}
       validate={Validation.required}

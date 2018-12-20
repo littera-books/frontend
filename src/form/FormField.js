@@ -17,6 +17,7 @@ const PlaceholderFormField = ({
   meta: { touched, error },
   border,
   width,
+  disabled,
 }) => (
   <div>
     <Element.BasicInput
@@ -26,23 +27,7 @@ const PlaceholderFormField = ({
       border={border}
       width={width}
       required
-    />
-    {touched && (error && <Element.BasicSmall>{error}</Element.BasicSmall>)}
-  </div>
-);
-
-const LongPlaceholderFormField = ({
-  input,
-  type,
-  placeholder,
-  meta: { touched, error },
-}) => (
-  <div>
-    <Element.LongInput
-      type={type}
-      placeholder={placeholder}
-      {...input}
-      required
+      disabled={disabled}
     />
     {touched && (error && <Element.BasicSmall>{error}</Element.BasicSmall>)}
   </div>
@@ -54,6 +39,8 @@ const PostalCodeFormField = ({
   placeholder,
   func,
   meta: { touched, error },
+  border,
+  width,
 }) => (
   <div>
     <Element.LongInput
@@ -61,6 +48,8 @@ const PostalCodeFormField = ({
       placeholder={placeholder}
       {...input}
       onClick={() => func()}
+      border={border}
+      width={width}
       required
     />
     {touched && (error && <Element.BasicSmall>{error}</Element.BasicSmall>)}
@@ -79,7 +68,6 @@ const AcceptProvisionFormField = ({
 export default {
   BasicFormField,
   PlaceholderFormField,
-  LongPlaceholderFormField,
   PostalCodeFormField,
   AcceptProvisionFormField,
 };
