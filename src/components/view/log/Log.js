@@ -1,5 +1,8 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { readToken, retrieveInfo } from '../../../reducers/reducer.user';
 
 // Components
 import Helmet from '../../helmet/Helmet';
@@ -8,83 +11,73 @@ import Helmet from '../../helmet/Helmet';
 import Wrapper from '../../../styled_base/Wrapper';
 import Styled from './Log.styled';
 
-// CSS
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
+import ArrowDown from '../../../assets/images/down-arrow.svg';
+
+const handleCick = () => {
+  const DropdownContent = document.getElementById('dropdown-content');
+  DropdownContent.classList.toggle('active');
+};
 
 class Log extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { width: 0 };
-    this.updateWindowDimensions = this.updateWindowDimensions.bind(this);
-  }
-
-  componentDidMount() {
-    this.updateWindowDimensions();
-    window.addEventListener('resize', this.updateWindowDimensions);
-  }
-
-  componentWillUnmount() {
-    window.removeEventListener('resize', this.updateWindowDimensions);
-  }
-
-  updateWindowDimensions() {
-    this.setState({ width: window.innerWidth });
+  async componentDidMount() {
+    const { read, retrieve } = this.props;
+    await read();
+    const { userId } = this.props;
+    await retrieve(userId);
   }
 
   render() {
-    const { width } = this.state;
-
-    if (width > 414) {
-      return (
-        <Wrapper.FlexWrapper>
-          <Helmet pageTitle="Log" />
-          <Styled.SectionWrapper>
-            <Styled.SectionItem>
-              <Link to="/my-info">My Info</Link>
-            </Styled.SectionItem>
-          </Styled.SectionWrapper>
-          <Styled.SectionWrapper>
-            <Styled.SectionItem>
-              <Link to="/letter-box">Letter Box</Link>
-            </Styled.SectionItem>
-          </Styled.SectionWrapper>
-          <Styled.SectionWrapper>
-            <Styled.SectionItem>Purchase</Styled.SectionItem>
-          </Styled.SectionWrapper>
-          <Styled.SectionWrapper>
-            <Styled.SectionItem>
-              <Link to="/sign-out">SIGN OUT</Link>
-            </Styled.SectionItem>
-          </Styled.SectionWrapper>
-        </Wrapper.FlexWrapper>
-      );
-    }
-
+    const { email } = this.props;
     return (
-      <Wrapper.MobileColumnWrapper>
+      <Wrapper.FlexWrapper>
         <Helmet pageTitle="Log" />
-        <Styled.SectionWrapper>
-          <Styled.SectionItem>
-            <Link to="/my-info">My Info</Link>
-          </Styled.SectionItem>
-        </Styled.SectionWrapper>
-        <Styled.SectionWrapper>
-          <Styled.SectionItem>
-            <Link to="/letter-box">Letter Box</Link>
-          </Styled.SectionItem>
-        </Styled.SectionWrapper>
-        <Styled.SectionWrapper>
-          <Styled.SectionItem>Purchase</Styled.SectionItem>
-        </Styled.SectionWrapper>
-        <Styled.SectionWrapper>
-          <Styled.SectionItem>
-            <Link to="/sign-out">SIGN OUT</Link>
-          </Styled.SectionItem>
-        </Styled.SectionWrapper>
-      </Wrapper.MobileColumnWrapper>
+        <Styled.Dropdown onClick={handleCick}>
+          <Styled.DropdownTitle>
+            <span>
+              {`Hello, ${email}`}
+              &nbsp;
+            </span>
+            <img src={ArrowDown} width="16px" height="16px" alt="arrow-down" />
+          </Styled.DropdownTitle>
+          <Styled.DropdownContent id="dropdown-content">
+            <Link to="/my-info">
+              <Styled.DropdownItem>My account</Styled.DropdownItem>
+            </Link>
+            <Link to="/my-info">
+              <Styled.DropdownItem>My Order</Styled.DropdownItem>
+            </Link>
+            <Link to="/my-info">
+              <Styled.DropdownItem>Enquiry</Styled.DropdownItem>
+            </Link>
+            <Link to="/my-info/resign">
+              <Styled.DropdownItem>Resign</Styled.DropdownItem>
+            </Link>
+            <Styled.DropdownHr />
+            <Link to="/sign-out">
+              <Styled.DropdownItem>SIGN OUT</Styled.DropdownItem>
+            </Link>
+          </Styled.DropdownContent>
+        </Styled.Dropdown>
+      </Wrapper.FlexWrapper>
     );
   }
 }
 
-export default Log;
+Log.propTypes = {
+  email: PropTypes.string.isRequired,
+};
+
+const mapStateToProps = state => ({
+  userId: state.user.userId,
+  email: state.user.email,
+});
+
+const mapDispatchToProps = dispatch => ({
+  read: () => dispatch(readToken()),
+  retrieve: userId => dispatch(retrieveInfo(userId)),
+});
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(Log);
