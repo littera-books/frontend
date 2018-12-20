@@ -109,7 +109,7 @@ export class App extends React.PureComponent {
 }
 
 App.propTypes = {
-  isVisible: PropTypes.string.isRequired,
+  isVisible: PropTypes.bool.isRequired,
   isScroll: PropTypes.bool.isRequired,
 };
 
