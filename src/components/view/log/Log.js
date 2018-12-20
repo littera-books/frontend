@@ -40,14 +40,15 @@ class Log extends React.Component {
 
   render() {
     const { email } = this.props;
+    const splitEmail = email.split('@');
     return (
       <Wrapper.FlexWrapper>
         <Helmet pageTitle="Log" />
         <Styled.Dropdown onClick={handleCick}>
           <Styled.DropdownTitle>
             <span>
-              {`Hello, ${email}`}
-              &nbsp;
+              {`Hello, ${splitEmail[0]}`}
+              &nbsp; &nbsp;
             </span>
             <img src={ArrowDown} width="16px" height="16px" alt="arrow-down" />
           </Styled.DropdownTitle>
