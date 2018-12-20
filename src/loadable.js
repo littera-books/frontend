@@ -58,11 +58,6 @@ const SignIn = Loadable({
   loading: Loading,
 });
 
-const SignOut = Loadable({
-  loader: () => import('./components/auth/signout/SignOut'),
-  loading: Loading,
-});
-
 const ForgotPassword = Loadable({
   loader: () => import('./components/auth/forgot_password/ForgotPassword'),
   loading: Loading,
@@ -174,7 +169,6 @@ export default {
   Main,
   About,
   SignIn,
-  SignOut,
   ForgotPassword,
   Survey,
   Accept,

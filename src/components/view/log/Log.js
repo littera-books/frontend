@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { readToken, retrieveInfo } from '../../../reducers/reducer.user';
+import { signOut } from '../../../reducers/reducer.auth';
 
 // Components
 import Helmet from '../../helmet/Helmet';
@@ -19,11 +20,22 @@ const handleCick = () => {
 };
 
 class Log extends React.Component {
+  constructor(props) {
+    super(props);
+    this.handleCick = this.handleCick.bind(this);
+  }
+
   async componentDidMount() {
     const { read, retrieve } = this.props;
     await read();
     const { userId } = this.props;
     await retrieve(userId);
+  }
+
+  handleCick() {
+    const { logOut, history } = this.props;
+    logOut();
+    history.replace('/main');
   }
 
   render() {
@@ -41,21 +53,21 @@ class Log extends React.Component {
           </Styled.DropdownTitle>
           <Styled.DropdownContent id="dropdown-content">
             <Link to="/my-info">
-              <Styled.DropdownItem>My account</Styled.DropdownItem>
+              <Styled.DropdownItem>My Account</Styled.DropdownItem>
             </Link>
             <Link to="/my-info">
               <Styled.DropdownItem>My Order</Styled.DropdownItem>
             </Link>
             <Link to="/my-info">
-              <Styled.DropdownItem>Enquiry</Styled.DropdownItem>
+              <Styled.DropdownItem>My Enquiry</Styled.DropdownItem>
             </Link>
             <Link to="/my-info/resign">
               <Styled.DropdownItem>Resign</Styled.DropdownItem>
             </Link>
             <Styled.DropdownHr />
-            <Link to="/sign-out">
-              <Styled.DropdownItem>SIGN OUT</Styled.DropdownItem>
-            </Link>
+            <Styled.DropdownItem onClick={this.handleCick}>
+              SIGN OUT
+            </Styled.DropdownItem>
           </Styled.DropdownContent>
         </Styled.Dropdown>
       </Wrapper.FlexWrapper>
@@ -65,6 +77,12 @@ class Log extends React.Component {
 
 Log.propTypes = {
   email: PropTypes.string.isRequired,
+  history: PropTypes.shape({
+    replace: PropTypes.func.isRequired,
+  }).isRequired,
+  read: PropTypes.func.isRequired,
+  retrieve: PropTypes.func.isRequired,
+  logOut: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = state => ({
@@ -75,6 +93,7 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
   read: () => dispatch(readToken()),
   retrieve: userId => dispatch(retrieveInfo(userId)),
+  logOut: () => dispatch(signOut()),
 });
 
 export default connect(
