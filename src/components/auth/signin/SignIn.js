@@ -13,7 +13,6 @@ import Helmet from '../../helmet/Helmet';
 // Styled
 import Wrapper from '../../../styled_base/Wrapper';
 import Element from '../../../styled_base/Element';
-import Styled from './SignIn.styled';
 
 export class SignIn extends React.Component {
   componentDidMount() {
@@ -83,9 +82,9 @@ export class SignIn extends React.Component {
             >
               Forgot password?
             </Link>
-            <Styled.SignInButton id="submit" type="submit">
+            <Element.SubmitButton id="submit" type="submit">
               Log In
-            </Styled.SignInButton>
+            </Element.SubmitButton>
           </form>
         </Wrapper.BasicBlockWrapper>
       </Wrapper.FlexWrapper>

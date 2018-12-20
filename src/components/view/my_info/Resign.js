@@ -77,15 +77,12 @@ class Resign extends React.Component {
             type="password"
             name="password"
             placeholder="Write your password..."
-            component={BasicFormField.LongPlaceholderFormField}
+            border="1px solid black"
+            width="20rem"
+            component={BasicFormField.PlaceholderFormField}
             validate={Validation.required}
           />
-          <Styled.ButtonGroup>
-            <Element.BasicButton type="button" onClick={history.goBack}>
-              ←
-            </Element.BasicButton>
-            <Element.BasicButton type="submit">Resign</Element.BasicButton>
-          </Styled.ButtonGroup>
+          <Element.SubmitButton type="submit">Resign</Element.SubmitButton>
         </Styled.LineHeightForm>
         {popupFilter ? (
           <Loadable.ConfirmPopup

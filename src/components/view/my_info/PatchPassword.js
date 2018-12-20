@@ -33,7 +33,7 @@ class PatchPassword extends React.Component {
   }
 
   render() {
-    const { handleSubmit, history } = this.props;
+    const { handleSubmit } = this.props;
     return (
       <Wrapper.FlexWrapper>
         <Helmet pageTitle="Patch Password" />
@@ -43,12 +43,7 @@ class PatchPassword extends React.Component {
             onSubmit={handleSubmit(this.onSubmit.bind(this))}
           >
             <PasswordField />
-            <Styled.ButtonGroup>
-              <Element.BasicButton type="button" onClick={history.goBack}>
-                ←
-              </Element.BasicButton>
-              <Element.BasicButton type="submit">Submit</Element.BasicButton>
-            </Styled.ButtonGroup>
+            <Element.SubmitButton type="submit">Submit</Element.SubmitButton>
           </Styled.LineHeightForm>
         </Styled.InfoWrapper>
       </Wrapper.FlexWrapper>

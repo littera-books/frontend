@@ -24,10 +24,7 @@ const ManageMyInfoForm = ({
   >
     <InfoFormField error={error} openPostCode={openPostCode} />
     <Link to="/my-info/patch-password">Patch Password</Link>
-    <Wrapper.BetweenWrapper>
-      <Link to="/my-info/resign">Resign</Link>
-      <Element.BasicButton type="submit">Confirm Change</Element.BasicButton>
-    </Wrapper.BetweenWrapper>
+    <Element.SubmitButton type="submit">Confirm Change</Element.SubmitButton>
   </Styled.LineHeightForm>
 );
 

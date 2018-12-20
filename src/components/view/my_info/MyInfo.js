@@ -9,6 +9,7 @@ import Helmet from '../../helmet/Helmet';
 
 // Styled
 import Wrapper from '../../../styled_base/Wrapper';
+import Element from '../../../styled_base/Element';
 import Styled from './MyInfo.styled';
 
 class MyInfo extends React.Component {
@@ -34,14 +35,8 @@ class MyInfo extends React.Component {
           <p>{email}</p>
           <p>{phone}</p>
           <p>{address}</p>
-          <Link
-            to="/my-info/manage"
-            style={{
-              marginTop: '1rem',
-              marginLeft: 'auto',
-            }}
-          >
-            Manage My Info
+          <Link to="/my-info/manage">
+            <Element.SubmitButton>Manage My Info</Element.SubmitButton>
           </Link>
         </Styled.InfoWrapper>
       </Wrapper.FlexWrapper>

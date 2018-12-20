@@ -62,6 +62,13 @@ const BasicTitle = styled.h1`
   text-align: ${props => (props.align ? props.align : 'left')};
 `;
 
+const SubmitButton = styled(BasicButton)`
+  width: 20rem;
+  height: 3rem;
+  background-color: ${COLOR.primary};
+  color: white;
+`;
+
 export default {
   COLOR,
   ResponsiveImg,
@@ -70,4 +77,5 @@ export default {
   BasicInput,
   LongInput,
   BasicTitle,
+  SubmitButton,
 };
