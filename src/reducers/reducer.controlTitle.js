@@ -15,7 +15,7 @@ export function setVisibilityFilter(filter) {
 }
 
 // Reducer
-export default function reducer(state = VisibilityFilters.SHOW_TITLE, action) {
+export default function reducer(state = VisibilityFilters.HIDE_TITLE, action) {
   switch (action.type) {
     case SET_VISIBILITY_FILTER:
       return action.filter;

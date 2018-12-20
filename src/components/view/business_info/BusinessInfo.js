@@ -1,6 +1,12 @@
 import _ from 'lodash';
 import React from 'react';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 import dataConfig from '../../../dataConfig';
+import {
+  setVisibilityFilter,
+  VisibilityFilters,
+} from '../../../reducers/reducer.controlTitle';
 
 // Components
 import Helmet from '../../helmet/Helmet';
@@ -12,8 +18,18 @@ import Styled from './BusinessInfo.styled';
 const RenderInfo = ({ infoArray }) => _.map(infoArray, (item, index) => <p key={index}>{item}</p>);
 
 class BusinessInfo extends React.Component {
+  componentDidMount() {
+    const { filter } = this.props;
+    filter(VisibilityFilters.SHOW_TITLE);
+  }
+
   shouldComponentUpdate() {
     return false;
+  }
+
+  componentWillUnmount() {
+    const { filter } = this.props;
+    filter(VisibilityFilters.HIDE_TITLE);
   }
 
   render() {
@@ -43,4 +59,15 @@ class BusinessInfo extends React.Component {
   }
 }
 
-export default BusinessInfo;
+BusinessInfo.propTypes = {
+  filter: PropTypes.func.isRequired,
+};
+
+const mapDispatchToProps = dispatch => ({
+  filter: filter => dispatch(setVisibilityFilter(filter)),
+});
+
+export default connect(
+  null,
+  mapDispatchToProps,
+)(BusinessInfo);

@@ -3,10 +3,6 @@ import PropTypes from 'prop-types';
 import ReactMarkdown from 'react-markdown';
 import { connect } from 'react-redux';
 import {
-  setVisibilityFilter,
-  VisibilityFilters,
-} from '../../../reducers/reducer.controlTitle';
-import {
   setScroll,
   ScrollFilters,
 } from '../../../reducers/reducer.controlScroll';
@@ -35,8 +31,7 @@ class TermsOfUse extends React.Component {
         });
       });
 
-    const { filter, scroll } = this.props;
-    filter(VisibilityFilters.HIDE_TITLE);
+    const { scroll } = this.props;
     scroll(ScrollFilters.ENABLE_SCROLL);
   }
 
@@ -46,8 +41,7 @@ class TermsOfUse extends React.Component {
   }
 
   componentWillUnmount() {
-    const { filter, scroll } = this.props;
-    filter(VisibilityFilters.SHOW_TITLE);
+    const { scroll } = this.props;
     scroll(ScrollFilters.UNABLE_SCROLL);
   }
 
@@ -68,12 +62,10 @@ class TermsOfUse extends React.Component {
 }
 
 TermsOfUse.propTypes = {
-  filter: PropTypes.func.isRequired,
   scroll: PropTypes.func.isRequired,
 };
 
 const mapDispatchToProps = dispatch => ({
-  filter: filter => dispatch(setVisibilityFilter(filter)),
   scroll: filter => dispatch(setScroll(filter)),
 });
 

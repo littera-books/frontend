@@ -8,6 +8,7 @@ Enzyme.configure({ adapter: new Adapter() });
 function setup() {
   const props = {
     getDetail: jest.fn(),
+    filter: jest.fn(),
     items: [...Array(8).keys()],
   };
 

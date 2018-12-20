@@ -4,10 +4,6 @@ import { Link } from 'react-router-dom';
 import { Field, reduxForm } from 'redux-form';
 import { connect } from 'react-redux';
 import { initialize, signIn } from '../../../reducers/reducer.auth';
-import {
-  setVisibilityFilter,
-  VisibilityFilters,
-} from '../../../reducers/reducer.controlTitle';
 
 // Components
 import BasicFormField from '../../../form/FormField';
@@ -21,14 +17,8 @@ import Styled from './SignIn.styled';
 
 export class SignIn extends React.Component {
   componentDidMount() {
-    const { init, filter } = this.props;
+    const { init } = this.props;
     init();
-    filter(VisibilityFilters.HIDE_TITLE);
-  }
-
-  componentWillUnmount() {
-    const { filter } = this.props;
-    filter(VisibilityFilters.SHOW_TITLE);
   }
 
   async onSubmit(payload) {
@@ -111,7 +101,6 @@ SignIn.propTypes = {
   history: PropTypes.shape({
     replace: PropTypes.func.isRequired,
   }).isRequired,
-  filter: PropTypes.func.isRequired,
 };
 
 export const mapStateToProps = state => ({
@@ -121,7 +110,6 @@ export const mapStateToProps = state => ({
 export const mapDispatchToProps = dispatch => ({
   init: () => dispatch(initialize()),
   logIn: payload => dispatch(signIn(payload)),
-  filter: filter => dispatch(setVisibilityFilter(filter)),
 });
 
 export default reduxForm({

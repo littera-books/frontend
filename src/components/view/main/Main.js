@@ -6,6 +6,10 @@ import { connect } from 'react-redux';
 import Slider from 'react-slick';
 import { getImg } from '../../../reducers/reducer.image';
 import dataConfig from '../../../dataConfig';
+import {
+  setVisibilityFilter,
+  VisibilityFilters,
+} from '../../../reducers/reducer.controlTitle';
 
 // Components
 import Helmet from '../../helmet/Helmet';
@@ -48,6 +52,8 @@ export class Main extends React.Component {
   }
 
   componentDidMount() {
+    const { filter } = this.props;
+    filter(VisibilityFilters.SHOW_TITLE);
     this.updateWindowDimensions();
     window.addEventListener('resize', this.updateWindowDimensions);
   }
@@ -71,6 +77,8 @@ export class Main extends React.Component {
   }
 
   componentWillUnmount() {
+    const { filter } = this.props;
+    filter(VisibilityFilters.HIDE_TITLE);
     window.removeEventListener('resize', this.updateWindowDimensions);
   }
 
@@ -188,10 +196,12 @@ Main.propTypes = {
 
 const mapStateToProps = state => ({
   items: state.image.items,
+  filter: PropTypes.func.isRequired,
 });
 
 const mapDispatchToProps = dispatch => ({
   getDetail: name => dispatch(getImg(name)),
+  filter: filter => dispatch(setVisibilityFilter(filter)),
 });
 
 export default connect(

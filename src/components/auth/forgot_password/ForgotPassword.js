@@ -3,10 +3,6 @@ import PropTypes from 'prop-types';
 import { Field, reduxForm } from 'redux-form';
 import { connect } from 'react-redux';
 import { resetPassword } from '../../../reducers/reducer.user';
-import {
-  setVisibilityFilter,
-  VisibilityFilters,
-} from '../../../reducers/reducer.controlTitle';
 
 // Components
 import Helmet from '../../helmet/Helmet';
@@ -19,16 +15,6 @@ import Element from '../../../styled_base/Element';
 import Styled from './ForgotPassword.styled';
 
 class ForgetPassword extends React.Component {
-  componentDidMount() {
-    const { filter } = this.props;
-    filter(VisibilityFilters.HIDE_TITLE);
-  }
-
-  componentWillUnmount() {
-    const { filter } = this.props;
-    filter(VisibilityFilters.SHOW_TITLE);
-  }
-
   async onSubmit(payload) {
     const { reset } = this.props;
     await reset(payload.email);
@@ -76,7 +62,6 @@ ForgetPassword.propTypes = {
   }).isRequired,
   handleSubmit: PropTypes.func.isRequired,
   reset: PropTypes.func.isRequired,
-  filter: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = state => ({
@@ -85,7 +70,6 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   reset: email => dispatch(resetPassword(email)),
-  filter: filter => dispatch(setVisibilityFilter(filter)),
 });
 
 export default reduxForm({
