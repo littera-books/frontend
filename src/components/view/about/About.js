@@ -11,7 +11,6 @@ import Helmet from '../../helmet/Helmet';
 
 // Styled
 import Wrapper from '../../../styled_base/Wrapper';
-import Styled from './About.styled';
 
 // Data
 import dataConfig from '../../../dataConfig';
@@ -35,9 +34,7 @@ export class About extends React.Component {
     return (
       <Wrapper.FlexWrapper>
         <Helmet pageTitle="About" />
-        <Styled.AboutWrapper>
-          <p>{dataConfig.aboutText}</p>
-        </Styled.AboutWrapper>
+        <p>{dataConfig.aboutText}</p>
       </Wrapper.FlexWrapper>
     );
   }
