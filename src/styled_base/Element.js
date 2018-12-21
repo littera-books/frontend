@@ -63,7 +63,7 @@ const BasicTitle = styled.h1`
 `;
 
 const SubmitButton = styled(BasicButton)`
-  width: 20rem;
+  width: 100%;
   height: 3rem;
   background-color: ${COLOR.primary};
   color: white;

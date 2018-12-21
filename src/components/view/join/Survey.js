@@ -16,6 +16,7 @@ import ScrollCloseButton from '../../structure/scroll_close_button/ScrollCloseBu
 
 // Styled
 import Wrapper from '../../../styled_base/Wrapper';
+import Element from '../../../styled_base/Element';
 import Styled from './Survey.styled';
 
 class Survey extends React.Component {
@@ -81,9 +82,7 @@ class Survey extends React.Component {
               onSubmit={handleSubmit(this.onSubmit.bind(this))}
             >
               {this.renderQuestionItems()}
-              <Styled.AlignRightButton type="submit">
-                Submit
-              </Styled.AlignRightButton>
+              <Element.SubmitButton type="submit">Submit</Element.SubmitButton>
             </Styled.MarginForm>
           </Styled.CenterWrapper>
         </Wrapper.ScrollWrapper>

@@ -13,21 +13,14 @@ import Wrapper from '../../../styled_base/Wrapper';
 import Element from '../../../styled_base/Element';
 import Styled from './Survey.styled';
 
-const AddInfoForm = ({
-  handleSubmit, onSubmit, error, history,
-}) => (
+const AddInfoForm = ({ handleSubmit, onSubmit, error }) => (
   <Styled.LineHeightForm
     action="post"
     onSubmit={handleSubmit(onSubmit.bind(this))}
   >
     <MinimalFormField error={error} />
     <PasswordField />
-    <Wrapper.BetweenWrapper margin="1rem 0">
-      <Element.BasicButton type="button" onClick={history.goBack}>
-        ←
-      </Element.BasicButton>
-      <Element.BasicButton type="submit">Register</Element.BasicButton>
-    </Wrapper.BetweenWrapper>
+    <Element.SubmitButton type="submit">Register</Element.SubmitButton>
   </Styled.LineHeightForm>
 );
 

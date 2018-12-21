@@ -26,7 +26,7 @@ class ForgetPassword extends React.Component {
   }
 
   render() {
-    const { handleSubmit, history } = this.props;
+    const { handleSubmit } = this.props;
     return (
       <Wrapper.FlexWrapper>
         <Helmet pageTitle="Forgot Password" />
@@ -38,17 +38,14 @@ class ForgetPassword extends React.Component {
             type="email"
             name="email"
             placeholder="E-mail address (your identification)"
-            component={BasicFormField.LongPlaceholderFormField}
+            border="1px solid black"
+            width="20rem"
+            component={BasicFormField.PlaceholderFormField}
             validate={[Validation.required, Validation.email]}
           />
-          <Styled.ButtonGroup>
-            <Element.BasicButton type="button" onClick={history.goBack}>
-              ←
-            </Element.BasicButton>
-            <Element.BasicButton type="submit">
-              Reset Password
-            </Element.BasicButton>
-          </Styled.ButtonGroup>
+          <Element.SubmitButton type="submit">
+            Reset Password
+          </Element.SubmitButton>
         </Styled.LineHeightForm>
       </Wrapper.FlexWrapper>
     );
