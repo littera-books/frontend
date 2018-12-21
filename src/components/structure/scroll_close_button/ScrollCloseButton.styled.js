@@ -6,6 +6,7 @@ const ScrollCloseButtonWrapper = styled(Wrapper.BasicBlockWrapper)`
   top: 5rem;
   left: 0;
   margin-left: 43.25rem;
+  z-index: 1;
 `;
 
 export default {
