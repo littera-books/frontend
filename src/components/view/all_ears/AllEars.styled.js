@@ -8,7 +8,6 @@ const AccordianWrapper = styled(Wrapper.BasicBlockWrapper)`
 
 const AccordianItem = styled(Wrapper.BasicBlockWrapper)`
   border-bottom: 1px solid ${Element.COLOR.primary};
-  transition: all 0.6s cubic-bezier(1, 0, 0, 1);
 `;
 
 const QuestionGroup = styled(Wrapper.BetweenWrapper)`
@@ -17,11 +16,35 @@ const QuestionGroup = styled(Wrapper.BetweenWrapper)`
 `;
 
 const HiddenAnswer = styled(Wrapper.BasicBlockWrapper)`
-  display none;
+  overflow: hidden;
+  animation: slide-down 0.6s cubic-bezier(0.23, 1, 0.32, 1) forwards;
 
   &.active {
-    display: block;
-    margin: 1rem 0;
+    animation: slide-up 0.6s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+  }
+
+  @keyframes slide-up {
+    0% {
+      max-height: 0;
+      opacity: 0;
+    }
+    100% {
+      max-height: 500px;
+      opacity: 1;
+      margin: 1rem 0;
+    }
+  }
+
+  @keyframes slide-down {
+    0% {
+      max-height: 500px;
+      opacity: 1;
+      margin: 1rem 0;
+    }
+    100% {
+      max-height: 0;
+      opacity: 0;
+    }
   }
 `;
 
