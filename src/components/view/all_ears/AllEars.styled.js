@@ -2,6 +2,19 @@ import styled from 'styled-components';
 import Wrapper from '../../../styled_base/Wrapper';
 import Element from '../../../styled_base/Element';
 
+const FAQWrapper = styled(Wrapper.BasicFlexWrapper)`
+  width: 100%;
+  height: 100%;
+  align-items: center;
+`;
+
+const FAQTitle = styled(Element.BasicTitle)`
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+`;
+
 const AccordianWrapper = styled(Wrapper.BasicBlockWrapper)`
   width: 44.25rem;
 `;
@@ -49,6 +62,8 @@ const HiddenAnswer = styled(Wrapper.BasicBlockWrapper)`
 `;
 
 export default {
+  FAQWrapper,
+  FAQTitle,
   AccordianWrapper,
   AccordianItem,
   QuestionGroup,
