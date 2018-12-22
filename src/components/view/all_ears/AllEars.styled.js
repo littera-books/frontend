@@ -13,7 +13,7 @@ const AccordianItem = styled(Wrapper.BasicBlockWrapper)`
 
 const QuestionGroup = styled(Wrapper.BetweenWrapper)`
   cursor: pointer;
-  margin: 1rem 0;
+  margin: 1.5rem 0;
 `;
 
 const HiddenAnswer = styled(Wrapper.BasicBlockWrapper)`

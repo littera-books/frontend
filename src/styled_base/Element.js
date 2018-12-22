@@ -20,7 +20,7 @@ const BasicButton = styled.button`
   display: block;
   color: black;
   cursor: pointer;
-  font-size: 1rem;
+  font-size: ${props => (props.size ? props.size : '1rem')};
   border: none;
   padding: 0;
   background-color: white;

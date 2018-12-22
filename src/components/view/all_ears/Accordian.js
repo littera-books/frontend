@@ -43,7 +43,7 @@ class Accordian extends React.Component {
           align="center"
           onClick={e => handleClick(e, identification)}
         >
-          <Element.BasicButton type="button">
+          <Element.BasicButton type="button" size="0.75rem">
             <span>{question}</span>
           </Element.BasicButton>
           <img src={ArrowDown} width="16px" height="16px" alt="arrow-down" />
