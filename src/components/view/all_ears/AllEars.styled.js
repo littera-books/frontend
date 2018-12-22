@@ -30,10 +30,10 @@ const QuestionGroup = styled(Wrapper.BetweenWrapper)`
 
 const HiddenAnswer = styled(Wrapper.BasicBlockWrapper)`
   overflow: hidden;
-  animation: slide-down 0.6s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+  animation: slide-down 0.4s cubic-bezier(0.23, 1, 0.32, 1) forwards;
 
   &.active {
-    animation: slide-up 0.6s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+    animation: slide-up 0.8s cubic-bezier(0.86, 0, 0.07, 1) forwards;
   }
 
   @keyframes slide-up {
