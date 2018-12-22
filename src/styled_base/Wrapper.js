@@ -103,6 +103,7 @@ const MobileColumnWrapper = styled(ColumnWrapper)`
 
 const BetweenWrapper = styled(BasicFlexWrapper)`
   justify-content: space-between;
+  align-items: ${props => (props.align ? props.align : 'flex-start')};
   margin: ${props => (props.margin ? props.margin : '0')};
 `;
 
