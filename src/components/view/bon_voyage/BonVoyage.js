@@ -4,15 +4,10 @@ import { reduxForm } from 'redux-form';
 import { connect } from 'react-redux';
 import { listProduct } from '../../../reducers/reducer.product';
 import { readToken } from '../../../reducers/reducer.user';
-import {
-  setPopupHeaderMessage,
-  setPopupButtons,
-} from '../../../reducers/reducer.popup';
-import dataConfig from '../../../dataConfig';
 
 // Components
-import Loadable from '../../../loadable';
 import Helmet from '../../helmet/Helmet';
+import Product from './Product';
 
 // Styled
 import Wrapper from '../../../styled_base/Wrapper';
@@ -25,10 +20,8 @@ class BonVoyage extends React.Component {
     super(props);
     this.state = {
       width: window.innerWidth,
-      popupFilter: false,
     };
     this.updateWindowDimensions = this.updateWindowDimensions.bind(this);
-    this.cancelPopup = this.cancelPopup.bind(this);
   }
 
   componentDidMount() {
@@ -43,32 +36,17 @@ class BonVoyage extends React.Component {
   }
 
   onPurchase(payload) {
-    if (!sessionStorage.getItem('token')) {
-      const { history } = this.props;
-      history.replace('/sign-in');
-    }
-    if (sessionStorage.getItem('token') && payload.product === 'promotion') {
-      const { setPopup, setButtons, read } = this.props;
-      setPopup(dataConfig.popupMessage.subscription);
-      setButtons(dataConfig.popupMessage.subscriptionButtons);
-      read();
-      this.setState({ popupFilter: true });
-    }
+    console.log(this.props);
+    console.log(payload);
   }
 
   updateWindowDimensions() {
     this.setState({ width: window.innerWidth });
   }
 
-  cancelPopup() {
-    this.setState({ popupFilter: false });
-  }
-
   render() {
-    const { width, popupFilter } = this.state;
-    const {
-      handleSubmit, userId, history, items,
-    } = this.props;
+    const { width } = this.state;
+    const { handleSubmit, items } = this.props;
 
     if (width > 414) {
       return (
@@ -79,20 +57,12 @@ class BonVoyage extends React.Component {
             onSubmit={handleSubmit(this.onPurchase.bind(this))}
           >
             <Wrapper.BasicFlexWrapper>
-              <Loadable.Product width={width} items={items} />
+              <Product width={width} items={items} />
             </Wrapper.BasicFlexWrapper>
             <Styled.AlignRightButton type="submit">
               Purchase
             </Styled.AlignRightButton>
           </form>
-          {popupFilter && (
-            <Loadable.FormPopup
-              userId={userId}
-              cancelPopup={this.cancelPopup}
-              replace={history.replace}
-              destination="/main"
-            />
-          )}
         </Wrapper.FlexWrapper>
       );
     }
@@ -105,19 +75,11 @@ class BonVoyage extends React.Component {
             action="post"
             onSubmit={handleSubmit(this.onPurchase.bind(this))}
           >
-            <Loadable.Product width={width} items={items} />
+            <Product width={width} items={items} />
             <Styled.AlignRightButton type="submit">
               Purchase
             </Styled.AlignRightButton>
           </Styled.MarginForm>
-          {popupFilter && (
-            <Loadable.FormPopup
-              userId={userId}
-              cancelPopup={this.cancelPopup}
-              replace={history.replace}
-              destination="/main"
-            />
-          )}
         </Wrapper.MobileBlockWrapper>
       </Wrapper.CarouselGuardWrapper>
     );
@@ -130,11 +92,7 @@ BonVoyage.propTypes = {
   }).isRequired,
   handleSubmit: PropTypes.func.isRequired,
   items: PropTypes.arrayOf(PropTypes.object).isRequired,
-  userId: PropTypes.number.isRequired,
-  read: PropTypes.func.isRequired,
   getList: PropTypes.func.isRequired,
-  setPopup: PropTypes.func.isRequired,
-  setButtons: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = state => ({
@@ -145,8 +103,6 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
   getList: () => dispatch(listProduct()),
   read: () => dispatch(readToken()),
-  setPopup: payload => dispatch(setPopupHeaderMessage(payload)),
-  setButtons: payload => dispatch(setPopupButtons(payload)),
 });
 
 export default reduxForm({

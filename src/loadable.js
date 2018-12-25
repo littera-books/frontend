@@ -128,11 +128,6 @@ const Payment = Loadable({
   loading: Loading,
 });
 
-const Product = Loadable({
-  loader: () => import('./components/view/bon_voyage/Product'),
-  loading: Loading,
-});
-
 const AllEars = Loadable({
   loader: () => import('./components/view/all_ears/AllEars'),
   loading: Loading,
@@ -143,18 +138,8 @@ const SendLetter = Loadable({
   loading: Loading,
 });
 
-const SimplePopup = Loadable({
-  loader: () => import('./components/structure/popup/SimplePopup'),
-  loading: () => null,
-});
-
 const ConfirmPopup = Loadable({
   loader: () => import('./components/structure/popup/ConfirmPopup'),
-  loading: () => null,
-});
-
-const FormPopup = Loadable({
-  loader: () => import('./components/structure/popup/FormPopup'),
   loading: () => null,
 });
 
@@ -183,10 +168,7 @@ export default {
   LetterBoxDetail,
   BonVoyage,
   Payment,
-  Product,
   AllEars,
   SendLetter,
-  SimplePopup,
   ConfirmPopup,
-  FormPopup,
 };

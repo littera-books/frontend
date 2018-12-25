@@ -32,12 +32,7 @@ class Product extends React.Component {
     return _.map(items, item => (
       <Styled.ProductItem key={item.id}>
         <Styled.ItemTitleGroup>
-          <p>1 book</p>
-          <p>X</p>
-          <p>1 month</p>
-          <p>X</p>
-          <p>{`${item.months} months`}</p>
-          <p>X</p>
+          <p>{`${item.books} book for ${item.months} months`}</p>
           <p>{`${item.price} KRW`}</p>
         </Styled.ItemTitleGroup>
         <Field
