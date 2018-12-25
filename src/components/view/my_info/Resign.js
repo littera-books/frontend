@@ -3,14 +3,8 @@ import PropTypes from 'prop-types';
 import { Field, reduxForm } from 'redux-form';
 import { connect } from 'react-redux';
 import { destroyUser, clearError } from '../../../reducers/reducer.user';
-import {
-  setPopupHeaderMessage,
-  setPopupButtons,
-} from '../../../reducers/reducer.popup';
-import dataConfig from '../../../dataConfig';
 
 // Components
-import Loadable from '../../../loadable';
 import BasicFormField from '../../../form/FormField';
 import Validation from '../../../form/Validation';
 import Helmet from '../../helmet/Helmet';
@@ -21,17 +15,6 @@ import Element from '../../../styled_base/Element';
 import Styled from './MyInfo.styled';
 
 class Resign extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      popupFilter: false,
-      payload: {},
-    };
-
-    this.cancelPopup = this.cancelPopup.bind(this);
-  }
-
   componentDidMount() {
     const { initialize, history, userId } = this.props;
 
@@ -44,27 +27,18 @@ class Resign extends React.Component {
     });
   }
 
-  onDestroy(payload) {
-    const { setPopup, setButtons } = this.props;
-    setPopup(dataConfig.popupMessage.resign);
-    setButtons(dataConfig.popupMessage.resignButtons);
-    this.setState({
-      popupFilter: true,
-      payload,
-    });
-  }
+  async onDestroy(payload) {
+    const { destroy, history } = this.props;
+    await destroy(payload);
 
-  cancelPopup() {
-    this.setState({ popupFilter: false });
-    const { clear } = this.props;
-    clear();
+    const { error } = this.props;
+    if (!error) {
+      history.replace('/my-info/resign/survey');
+    }
   }
 
   render() {
-    const { popupFilter, payload } = this.state;
-    const {
-      handleSubmit, history, destroy, error,
-    } = this.props;
+    const { handleSubmit, error } = this.props;
 
     return (
       <Wrapper.FlexWrapper>
@@ -82,18 +56,11 @@ class Resign extends React.Component {
             component={BasicFormField.PlaceholderFormField}
             validate={Validation.required}
           />
+          <div>
+            <Element.BasicSmall>{error}</Element.BasicSmall>
+          </div>
           <Element.SubmitButton type="submit">Resign</Element.SubmitButton>
         </Styled.LineHeightForm>
-        {popupFilter ? (
-          <Loadable.ConfirmPopup
-            method={destroy}
-            argument={payload}
-            error={error}
-            cancelPopup={this.cancelPopup}
-            replace={history.replace}
-            destination="/my-info/resign/survey"
-          />
-        ) : null}
       </Wrapper.FlexWrapper>
     );
   }
@@ -105,10 +72,7 @@ Resign.propTypes = {
     replace: PropTypes.func.isRequired,
   }).isRequired,
   initialize: PropTypes.func.isRequired,
-  setPopup: PropTypes.func.isRequired,
-  setButtons: PropTypes.func.isRequired,
   destroy: PropTypes.func.isRequired,
-  clear: PropTypes.func.isRequired,
   userId: PropTypes.number.isRequired,
   error: PropTypes.string.isRequired,
 };
@@ -119,8 +83,6 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  setPopup: payload => dispatch(setPopupHeaderMessage(payload)),
-  setButtons: payload => dispatch(setPopupButtons(payload)),
   destroy: payload => dispatch(destroyUser(payload)),
   clear: () => dispatch(clearError()),
 });
