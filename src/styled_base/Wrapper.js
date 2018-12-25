@@ -1,12 +1,11 @@
-import styled, { injectGlobal } from 'styled-components';
+import styled, { createGlobalStyle } from 'styled-components';
 
 import PalatinoBoldWoff from '../assets/fonts/palab.woff';
 import PalatinoBoldWoff2 from '../assets/fonts/palab.woff2';
 import PalatinoRegularWoff from '../assets/fonts/pala.woff';
 import PalatinoRegularWoff2 from '../assets/fonts/pala.woff2';
 
-// eslint-disable-next-line no-unused-expressions
-injectGlobal`
+const GlobalStyle = createGlobalStyle`
   @font-face {
     font-family: 'Palatino';
     font-weight: bold;
@@ -133,6 +132,7 @@ const QuillEditor = styled(BasicBlockWrapper)`
 `;
 
 export default {
+  GlobalStyle,
   App,
   BasicBlockWrapper,
   MobileBlockWrapper,
