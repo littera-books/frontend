@@ -16,11 +16,7 @@ import Styled from './MyInfo.styled';
 
 class Resign extends React.Component {
   componentDidMount() {
-    const { initialize, history, userId } = this.props;
-
-    if (!userId) {
-      history.replace('/my-info');
-    }
+    const { initialize, userId } = this.props;
 
     initialize({
       userId,

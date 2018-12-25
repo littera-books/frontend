@@ -65,6 +65,7 @@ export class App extends React.PureComponent {
                     path="/my-info/patch-password"
                     component={Loadable.PatchPassword}
                   />
+                  <PrivateRoute path="/survey" component={Loadable.Survey} />
                   <PrivateRoute
                     path="/my-info/manage"
                     component={Loadable.ManageMyInfo}
@@ -72,8 +73,6 @@ export class App extends React.PureComponent {
                   <PrivateRoute path="/my-info" component={Loadable.MyInfo} />
                   <PrivateRoute path="/log" component={Loadable.Log} />
                   <Route path="/add-info" component={Loadable.AddInfo} />
-                  <Route path="/accept" component={Loadable.Accept} />
-                  <Route path="/survey" component={Loadable.Survey} />
                   <Route
                     path="/forgot-password"
                     component={Loadable.ForgotPassword}
@@ -81,10 +80,6 @@ export class App extends React.PureComponent {
                   <Route path="/sign-in" component={Loadable.SignIn} />
                   <Route path="/payment" component={Loadable.Payment} />
                   <Route path="/bon-voyage" component={Loadable.BonVoyage} />
-                  <PrivateRoute
-                    path="/all-ears/send"
-                    component={Loadable.SendLetter}
-                  />
                   <Route path="/all-ears" component={Loadable.AllEars} />
                   <Route path="/about" component={Loadable.About} />
                   <Route path="/terms-of-use" component={Loadable.TermsOfUse} />

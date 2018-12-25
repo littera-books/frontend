@@ -68,11 +68,6 @@ const Survey = Loadable({
   loading: Loading,
 });
 
-const Accept = Loadable({
-  loader: () => import('./components/view/join/Accept'),
-  loading: Loading,
-});
-
 const AddInfo = Loadable({
   loader: () => import('./components/view/join/AddInfo'),
   loading: Loading,
@@ -133,11 +128,6 @@ const AllEars = Loadable({
   loading: Loading,
 });
 
-const SendLetter = Loadable({
-  loader: () => import('./components/send_letter/SendLetter'),
-  loading: Loading,
-});
-
 export default {
   Intro,
   Header,
@@ -151,7 +141,6 @@ export default {
   SignIn,
   ForgotPassword,
   Survey,
-  Accept,
   AddInfo,
   Log,
   MyInfo,
@@ -164,5 +153,4 @@ export default {
   BonVoyage,
   Payment,
   AllEars,
-  SendLetter,
 };

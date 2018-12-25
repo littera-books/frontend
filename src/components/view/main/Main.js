@@ -122,23 +122,14 @@ export class Main extends React.Component {
               items={items}
               url="/bon-voyage"
               name="bon-voyage"
-              alt="&quot;Bon Voyage!&quot;"
+              alt='"Bon Voyage!"'
             />
-            {sessionStorage.getItem('token') ? (
-              <Card
-                items={items}
-                url="/all-ears/send"
-                name="all-ears"
-                alt="&quot;I'm All Ears&quot;"
-              />
-            ) : (
-              <Card
-                items={items}
-                url="/all-ears"
-                name="all-ears"
-                alt="&quot;I'm All Ears&quot;"
-              />
-            )}
+            <Card
+              items={items}
+              url="/all-ears"
+              name="all-ears"
+              alt='"I&apos;m All Ears"'
+            />
           </Wrapper.FlexWrapper>
         </Wrapper.BasicBlockWrapper>
       );
@@ -159,23 +150,14 @@ export class Main extends React.Component {
               items={items}
               url="/bon-voyage"
               name="m-bon-voyage"
-              alt="&quot;Bon Voyage!&quot;"
+              alt='"Bon Voyage!"'
             />
-            {sessionStorage.getItem('token') ? (
-              <Card
-                items={items}
-                url="/all-ears/send"
-                name="m-all-ears"
-                alt="&quot;I'm All Ears&quot;"
-              />
-            ) : (
-              <Card
-                items={items}
-                url="/all-ears"
-                name="m-all-ears"
-                alt="&quot;I'm All Ears&quot;"
-              />
-            )}
+            <Card
+              items={items}
+              url="/all-ears"
+              name="m-all-ears"
+              alt='"I&apos;m All Ears"'
+            />
           </Slider>
         </Wrapper.MobileBlockWrapper>
       </Wrapper.CarouselGuardWrapper>
