@@ -5,7 +5,6 @@ import { reducer as formReducer } from 'redux-form';
 import controlTitle from './reducer.controlTitle';
 import controlScroll from './reducer.controlScroll';
 import controlClose from './reducer.controlClose';
-import popup from './reducer.popup';
 import auth from './reducer.auth';
 import user from './reducer.user';
 import question from './reducer.question';
@@ -19,7 +18,6 @@ const rootReducer = combineReducers({
   controlTitle,
   controlScroll,
   controlClose,
-  popup,
   auth,
   user,
   question,

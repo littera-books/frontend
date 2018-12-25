@@ -138,11 +138,6 @@ const SendLetter = Loadable({
   loading: Loading,
 });
 
-const ConfirmPopup = Loadable({
-  loader: () => import('./components/structure/popup/ConfirmPopup'),
-  loading: () => null,
-});
-
 export default {
   Intro,
   Header,
@@ -170,5 +165,4 @@ export default {
   Payment,
   AllEars,
   SendLetter,
-  ConfirmPopup,
 };

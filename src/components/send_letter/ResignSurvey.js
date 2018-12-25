@@ -5,11 +5,9 @@ import { connect } from 'react-redux';
 import Quill from 'quill';
 import { signOut } from '../../reducers/reducer.auth';
 import { createResignSurvey } from '../../reducers/reducer.resignSurvey';
-import { setPopupHeaderMessage } from '../../reducers/reducer.popup';
 import dataConfig from '../../dataConfig';
 
 // Components
-import Loadable from '../../loadable';
 import Helmet from '../helmet/Helmet';
 
 // Styled
@@ -24,7 +22,6 @@ class ResignSurvey extends React.Component {
     super(props);
 
     this.state = {
-      popupFilter: false,
       quill: '',
       required: '',
     };
@@ -70,10 +67,9 @@ class ResignSurvey extends React.Component {
       formData.append('content', content);
       await create(formData);
 
-      const { error, setPopup } = this.props;
+      const { error } = this.props;
       if (!error) {
-        setPopup(dataConfig.popupMessage.resignSurvey);
-        this.setState({ popupFilter: true });
+        alert(dataConfig.resignSurvey);
       }
     }
   }
@@ -83,8 +79,8 @@ class ResignSurvey extends React.Component {
   }
 
   render() {
-    const { required, popupFilter } = this.state;
-    const { handleSubmit, history, error } = this.props;
+    const { required } = this.state;
+    const { handleSubmit, error } = this.props;
     return (
       <Styled.LetterWrapper>
         <Helmet pageTitle="Resign Survey" />
@@ -99,9 +95,6 @@ class ResignSurvey extends React.Component {
           </div>
           <Styled.SendButton type="submit">Send</Styled.SendButton>
         </Styled.MarginForm>
-        {popupFilter && (
-          <Loadable.SimplePopup replace={history.replace} destination="/main" />
-        )}
       </Styled.LetterWrapper>
     );
   }
@@ -114,7 +107,6 @@ ResignSurvey.propTypes = {
   handleSubmit: PropTypes.func.isRequired,
   logOut: PropTypes.func.isRequired,
   create: PropTypes.func.isRequired,
-  setPopup: PropTypes.func.isRequired,
   error: PropTypes.string.isRequired,
 };
 
@@ -125,7 +117,6 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
   logOut: () => dispatch(signOut()),
   create: formData => dispatch(createResignSurvey(formData)),
-  setPopup: payload => dispatch(setPopupHeaderMessage(payload)),
 });
 
 export default reduxForm({
