@@ -16,15 +16,15 @@ import ScrollCloseButton from '../../structure/scroll_close_button/ScrollCloseBu
 import Wrapper from '../../../styled_base/Wrapper';
 import Styled from '../privacy_policy/PrivacyPolicy.styled';
 
-import TermsOfUseMarkdown from '../../../assets/markdown/terms_of_use.md';
+import TermsOfServiceMarkdown from '../../../assets/markdown/terms_of_service.md';
 
-class TermsOfUse extends React.Component {
+class TermsOfService extends React.Component {
   state = {
     markdown: null,
   };
 
   componentWillMount() {
-    fetch(TermsOfUseMarkdown)
+    fetch(TermsOfServiceMarkdown)
       .then(response => response.text())
       .then((text) => {
         this.setState({
@@ -64,7 +64,7 @@ class TermsOfUse extends React.Component {
   }
 }
 
-TermsOfUse.propTypes = {
+TermsOfService.propTypes = {
   scroll: PropTypes.func.isRequired,
   close: PropTypes.func.isRequired,
 };
@@ -77,4 +77,4 @@ const mapDispatchToProps = dispatch => ({
 export default connect(
   null,
   mapDispatchToProps,
-)(TermsOfUse);
+)(TermsOfService);

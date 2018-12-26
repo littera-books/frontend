@@ -23,9 +23,9 @@ class Footer extends React.Component {
           <Styled.LinkWrapper>
             <Link to="/business-info">INFO</Link>
             <Styled.SlashSpan>|</Styled.SlashSpan>
-            <Link to="/privacy-policy">개인정보처리방침</Link>
+            <Link to="/privacy-policy">Privacy Policy</Link>
             <Styled.SlashSpan>|</Styled.SlashSpan>
-            <Link to="/terms-of-use">이용약관</Link>
+            <Link to="/terms-of-service">Terms of Service</Link>
           </Styled.LinkWrapper>
         </Styled.InnerWrapper>
       </Styled.FooterWrapper>

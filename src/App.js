@@ -82,7 +82,10 @@ export class App extends React.PureComponent {
                   <Route path="/bon-voyage" component={Loadable.BonVoyage} />
                   <Route path="/all-ears" component={Loadable.AllEars} />
                   <Route path="/about" component={Loadable.About} />
-                  <Route path="/terms-of-use" component={Loadable.TermsOfUse} />
+                  <Route
+                    path="/terms-of-service"
+                    component={Loadable.TermsOfService}
+                  />
                   <Route
                     path="/privacy-policy"
                     component={Loadable.PrivacyPolicy}
