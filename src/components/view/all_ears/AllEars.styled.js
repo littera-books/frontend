@@ -16,11 +16,11 @@ const FAQTitle = styled(Element.BasicTitle)`
   padding: 24px 0 15px 0;
 `;
 
-const AccordianWrapper = styled(Wrapper.BasicBlockWrapper)`
+const AccordionWrapper = styled(Wrapper.BasicBlockWrapper)`
   width: 44.25rem;
 `;
 
-const AccordianItem = styled(Wrapper.BasicBlockWrapper)`
+const AccordionItem = styled(Wrapper.BasicBlockWrapper)`
   border-bottom: 1px solid ${Element.COLOR.primary};
 `;
 
@@ -46,8 +46,8 @@ const HiddenAnswer = styled(Wrapper.BasicBlockWrapper)`
 export default {
   FAQWrapper,
   FAQTitle,
-  AccordianWrapper,
-  AccordianItem,
+  AccordionWrapper,
+  AccordionItem,
   QuestionGroup,
   HiddenAnswer,
 };

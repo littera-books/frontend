@@ -19,7 +19,7 @@ const handleClick = (e, identification) => {
   });
 };
 
-class Accordian extends React.Component {
+class Accordion extends React.Component {
   shouldComponentUpdate() {
     return false;
   }
@@ -38,7 +38,7 @@ class Accordian extends React.Component {
   render() {
     const { identification, question } = this.props;
     return (
-      <Styled.AccordianItem>
+      <Styled.AccordionItem>
         <Styled.QuestionGroup
           align="center"
           onClick={e => handleClick(e, identification)}
@@ -51,15 +51,15 @@ class Accordian extends React.Component {
         <Styled.HiddenAnswer id={identification}>
           {this.renderAnswer()}
         </Styled.HiddenAnswer>
-      </Styled.AccordianItem>
+      </Styled.AccordionItem>
     );
   }
 }
 
-Accordian.propTypes = {
+Accordion.propTypes = {
   question: PropTypes.string.isRequired,
   answer: PropTypes.string.isRequired,
   identification: PropTypes.string.isRequired,
 };
 
-export default Accordian;
+export default Accordion;

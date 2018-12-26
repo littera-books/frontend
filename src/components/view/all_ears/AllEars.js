@@ -4,13 +4,13 @@ import dataConfig from '../../../dataConfig';
 
 // Components
 import Helmet from '../../helmet/Helmet';
-import Accordian from './Accordian';
+import Accordion from './Accordion';
 
 // Styled
 import Styled from './AllEars.styled';
 
 const RenderAccordions = () => _.map(dataConfig.qnaMessage, (items, index) => (
-    <Accordian
+    <Accordion
       key={index}
       identification={items.id}
       question={items.question}
@@ -28,9 +28,9 @@ class AllEars extends React.Component {
       <Styled.FAQWrapper>
         <Helmet pageTitle="I'm all ears" />
         <Styled.FAQTitle>Frequently Asked Questions</Styled.FAQTitle>
-        <Styled.AccordianWrapper id="accordian">
+        <Styled.AccordionWrapper id="accordian">
           <RenderAccordions />
-        </Styled.AccordianWrapper>
+        </Styled.AccordionWrapper>
       </Styled.FAQWrapper>
     );
   }
