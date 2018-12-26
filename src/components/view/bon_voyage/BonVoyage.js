@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { reduxForm } from 'redux-form';
 import { connect } from 'react-redux';
 import { listProduct } from '../../../reducers/reducer.product';
 import { readToken } from '../../../reducers/reducer.user';
@@ -11,7 +10,6 @@ import Product from './Product';
 
 // Styled
 import Wrapper from '../../../styled_base/Wrapper';
-import Styled from './BonVoyage.styled';
 
 class BonVoyage extends React.Component {
   // 창의 너비가 일정 수준 이하로 좁아지면 화면 구조를 캐러셀로 변화시킨다
@@ -35,34 +33,21 @@ class BonVoyage extends React.Component {
     window.removeEventListener('resize', this.updateWindowDimensions);
   }
 
-  onPurchase(payload) {
-    console.log(this.props);
-    console.log(payload);
-  }
-
   updateWindowDimensions() {
     this.setState({ width: window.innerWidth });
   }
 
   render() {
     const { width } = this.state;
-    const { handleSubmit, items } = this.props;
+    const { items } = this.props;
 
     if (width > 414) {
       return (
         <Wrapper.FlexWrapper>
           <Helmet pageTitle="Bon Voyage!" />
-          <form
-            action="post"
-            onSubmit={handleSubmit(this.onPurchase.bind(this))}
-          >
-            <Wrapper.BasicFlexWrapper>
-              <Product width={width} items={items} />
-            </Wrapper.BasicFlexWrapper>
-            <Styled.AlignRightButton type="submit">
-              Purchase
-            </Styled.AlignRightButton>
-          </form>
+          <Wrapper.BasicFlexWrapper>
+            <Product width={width} items={items} />
+          </Wrapper.BasicFlexWrapper>
         </Wrapper.FlexWrapper>
       );
     }
@@ -71,15 +56,7 @@ class BonVoyage extends React.Component {
       <Wrapper.CarouselGuardWrapper>
         <Wrapper.MobileBlockWrapper>
           <Helmet pageTitle="Bon Voyage!" />
-          <Styled.MarginForm
-            action="post"
-            onSubmit={handleSubmit(this.onPurchase.bind(this))}
-          >
-            <Product width={width} items={items} />
-            <Styled.AlignRightButton type="submit">
-              Purchase
-            </Styled.AlignRightButton>
-          </Styled.MarginForm>
+          <Product width={width} items={items} />
         </Wrapper.MobileBlockWrapper>
       </Wrapper.CarouselGuardWrapper>
     );
@@ -90,7 +67,6 @@ BonVoyage.propTypes = {
   history: PropTypes.shape({
     replace: PropTypes.func.isRequired,
   }).isRequired,
-  handleSubmit: PropTypes.func.isRequired,
   items: PropTypes.arrayOf(PropTypes.object).isRequired,
   getList: PropTypes.func.isRequired,
 };
@@ -105,11 +81,7 @@ const mapDispatchToProps = dispatch => ({
   read: () => dispatch(readToken()),
 });
 
-export default reduxForm({
-  form: 'PurchaseForm',
-})(
-  connect(
-    mapStateToProps,
-    mapDispatchToProps,
-  )(BonVoyage),
-);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(BonVoyage);

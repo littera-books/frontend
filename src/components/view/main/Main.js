@@ -174,11 +174,11 @@ Card.propTypes = {
 
 Main.propTypes = {
   items: PropTypes.arrayOf(PropTypes.object).isRequired,
+  filter: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = state => ({
   items: state.image.items,
-  filter: PropTypes.func.isRequired,
 });
 
 export const mapDispatchToProps = dispatch => ({

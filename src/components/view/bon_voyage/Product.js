@@ -1,8 +1,12 @@
 import _ from 'lodash';
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
-import { Field } from 'redux-form';
+import { connect } from 'react-redux';
 import Slider from 'react-slick';
+import {
+  setVisibilityFilter,
+  VisibilityFilters,
+} from '../../../reducers/reducer.controlTitle';
 
 // Styled
 import Styled from './BonVoyage.styled';
@@ -11,39 +15,46 @@ import Styled from './BonVoyage.styled';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
-const Promotion = () => (
-  <Styled.ProductItem>
-    <Styled.ItemTitleGroup>
-      <p>promotion</p>
-    </Styled.ItemTitleGroup>
-    <Field
-      name="product"
-      component="input"
-      type="radio"
-      value="promotion"
-      required
-    />
-  </Styled.ProductItem>
-);
+// const Promotion = () => (
+//   <Styled.ProductItem>
+//     <Styled.ItemTitleGroup>
+//       <p>promotion</p>
+//     </Styled.ItemTitleGroup>
+//     <Field
+//       name="product"
+//       component="input"
+//       type="radio"
+//       value="promotion"
+//       required
+//     />
+//   </Styled.ProductItem>
+// );
 
 class Product extends React.Component {
+  componentDidMount() {
+    const { filter } = this.props;
+    filter(VisibilityFilters.SHOW_TITLE);
+  }
+
+  componentWillUnmount() {
+    const { filter } = this.props;
+    filter(VisibilityFilters.HIDE_TITLE);
+  }
+
   renderItems() {
     const { items } = this.props;
-    return _.map(items, item => (
-      <Styled.ProductItem key={item.id}>
-        <Styled.ItemTitleGroup>
-          <p>{`${item.books} book for ${item.months} months`}</p>
-          <p>{`${item.price} KRW`}</p>
-        </Styled.ItemTitleGroup>
-        <Field
-          name="product"
-          component="input"
-          type="radio"
-          value={`months-${item.months}`}
-          required
-        />
-      </Styled.ProductItem>
-    ));
+    return _.map(items, (item) => {
+      const price = item.price.toString();
+      return (
+        <Styled.ProductItem key={item.id}>
+          <Styled.ItemTitleGroup>
+            <p>{`${item.books} book for ${item.months} months`}</p>
+            <Styled.ItemHr />
+            <p>{`${price.slice(0, -3)},${price.slice(-3)} KRW`}</p>
+          </Styled.ItemTitleGroup>
+        </Styled.ProductItem>
+      );
+    });
   }
 
   render() {
@@ -59,26 +70,24 @@ class Product extends React.Component {
     };
 
     if (width > 414) {
-      return (
-        <Fragment>
-          {this.renderItems()}
-          <Promotion />
-        </Fragment>
-      );
+      return <Fragment>{this.renderItems()}</Fragment>;
     }
 
-    return (
-      <Slider {...settings}>
-        {this.renderItems()}
-        <Promotion />
-      </Slider>
-    );
+    return <Slider {...settings}>{this.renderItems()}</Slider>;
   }
 }
 
 Product.propTypes = {
   width: PropTypes.number.isRequired,
   items: PropTypes.arrayOf(PropTypes.object.isRequired).isRequired,
+  filter: PropTypes.func.isRequired,
 };
 
-export default Product;
+export const mapDispatchToProps = dispatch => ({
+  filter: filter => dispatch(setVisibilityFilter(filter)),
+});
+
+export default connect(
+  null,
+  mapDispatchToProps,
+)(Product);

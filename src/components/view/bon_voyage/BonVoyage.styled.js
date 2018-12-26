@@ -47,6 +47,7 @@ const ItemTitleGroup = styled(Wrapper.ColumnWrapper)`
   height: 14rem;
   margin-bottom: 3rem;
   justify-content: center;
+  align-items: center;
 
   @media (max-width: 414px) {
     margin-bottom: 0rem;
@@ -65,10 +66,16 @@ const AlignRightButton = styled(Element.BasicButton)`
   }
 `;
 
+const ItemHr = styled.hr`
+  width: 1rem;
+  margin: 0.5rem 0;
+`;
+
 export default {
   MarginForm,
   InfoWrapper,
   ProductItem,
   ItemTitleGroup,
   AlignRightButton,
+  ItemHr,
 };
