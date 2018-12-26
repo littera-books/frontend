@@ -7,8 +7,10 @@ import {
   setVisibilityFilter,
   VisibilityFilters,
 } from '../../../reducers/reducer.controlTitle';
+import dataConfig from '../../../dataConfig';
 
 // Styled
+import Element from '../../../styled_base/Element';
 import Styled from './BonVoyage.styled';
 
 // CSS
@@ -47,11 +49,17 @@ class Product extends React.Component {
       const price = item.price.toString();
       return (
         <Styled.ProductItem key={item.id}>
-          <Styled.ItemTitleGroup>
+          <Element.ResponsiveImg
+            src={dataConfig.baseUrl + item.url}
+            alt="product-thumbnail"
+          />
+          {item.months === 0 ? (
+            <p>{`${item.books} book with surprise`}</p>
+          ) : (
             <p>{`${item.books} book for ${item.months} months`}</p>
-            <Styled.ItemHr />
-            <p>{`${price.slice(0, -3)},${price.slice(-3)} KRW`}</p>
-          </Styled.ItemTitleGroup>
+          )}
+          <Styled.ItemHr />
+          <p>{`${price.slice(0, -3)},${price.slice(-3)} KRW`}</p>
         </Styled.ProductItem>
       );
     });

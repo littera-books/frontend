@@ -33,8 +33,8 @@ const ProductItem = styled(Wrapper.ColumnWrapper)`
   justify-content: center;
   align-items: center;
   text-align: center;
-  margin: 0 1rem;
-  width: 13rem;
+  margin: 0 0.75rem;
+  width: 9.5rem;
 
   @media (max-width: 414px) {
     width: 100%;
@@ -68,7 +68,7 @@ const AlignRightButton = styled(Element.BasicButton)`
 
 const ItemHr = styled.hr`
   width: 1rem;
-  margin: 0.5rem 0;
+  margin: 0.25rem 0;
 `;
 
 export default {
