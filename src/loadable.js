@@ -99,7 +99,7 @@ const Resign = Loadable({
 });
 
 const ResignSurvey = Loadable({
-  loader: () => import('./components/send_letter/ResignSurvey'),
+  loader: () => import('./components/view/resign_servey/ResignSurvey'),
   loading: Loading,
 });
 

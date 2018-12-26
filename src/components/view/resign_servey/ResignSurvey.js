@@ -3,17 +3,17 @@ import PropTypes from 'prop-types';
 import { reduxForm } from 'redux-form';
 import { connect } from 'react-redux';
 import Quill from 'quill';
-import { signOut } from '../../reducers/reducer.auth';
-import { createResignSurvey } from '../../reducers/reducer.resignSurvey';
-import dataConfig from '../../dataConfig';
+import { signOut } from '../../../reducers/reducer.auth';
+import { createResignSurvey } from '../../../reducers/reducer.resignSurvey';
+import dataConfig from '../../../dataConfig';
 
 // Components
-import Helmet from '../helmet/Helmet';
+import Helmet from '../../helmet/Helmet';
 
 // Styled
-import Wrapper from '../../styled_base/Wrapper';
-import Element from '../../styled_base/Element';
-import Styled from './SendLetter.styled';
+import Wrapper from '../../../styled_base/Wrapper';
+import Element from '../../../styled_base/Element';
+import Styled from './ResignSurvey.styled';
 import 'quill/dist/quill.core.css';
 import 'quill/dist/quill.bubble.css';
 
