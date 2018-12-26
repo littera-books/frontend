@@ -13,6 +13,7 @@ const FAQTitle = styled(Element.BasicTitle)`
   top: 0;
   left: 50%;
   transform: translateX(-50%);
+  padding: 24px 0 15px 0;
 `;
 
 const AccordianWrapper = styled(Wrapper.BasicBlockWrapper)`

@@ -6,6 +6,7 @@ const CloseButtonWrapper = styled(Wrapper.BasicBlockWrapper)`
   top: 0;
   right: 0;
   z-index: 1;
+  padding: 30px 0 15px 0;
 `;
 
 export default {
