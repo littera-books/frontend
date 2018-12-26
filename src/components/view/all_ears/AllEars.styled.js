@@ -31,34 +31,15 @@ const QuestionGroup = styled(Wrapper.BetweenWrapper)`
 
 const HiddenAnswer = styled(Wrapper.BasicBlockWrapper)`
   overflow: hidden;
-  animation: slide-down 0.4s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+  max-height: 0;
+  opacity: 0;
+  transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
 
   &.active {
-    animation: slide-up 0.8s cubic-bezier(0.86, 0, 0.07, 1) forwards;
-  }
-
-  @keyframes slide-up {
-    0% {
-      max-height: 0;
-      opacity: 0;
-    }
-    100% {
-      max-height: 500px;
-      opacity: 1;
-      margin: 1rem 0;
-    }
-  }
-
-  @keyframes slide-down {
-    0% {
-      max-height: 500px;
-      opacity: 1;
-      margin: 1rem 0;
-    }
-    100% {
-      max-height: 0;
-      opacity: 0;
-    }
+    max-height: 500px;
+    opacity: 1;
+    transition: all 0.7s cubic-bezier(0.86, 0, 0.07, 1);
+    margin: 1rem 0;
   }
 `;
 
