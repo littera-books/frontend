@@ -3,6 +3,7 @@ import axiosInstance from './axios.instance';
 
 // Actions
 const LIST_PRODUCTS = 'LIST_PRODUCTS';
+const DETAIL_PRODUCT = 'DETAIL_PRODUCT';
 const SEND_SUBSCRIPTION = 'SEND_SUBSCRIPTION';
 
 // Action Creators
@@ -21,6 +22,26 @@ export async function listProduct() {
 
   return {
     type: LIST_PRODUCTS,
+    response,
+    error,
+  };
+}
+
+export async function detailProduct(productId) {
+  let response;
+  let error;
+
+  try {
+    response = await axiosInstance({
+      url: `/product/${productId}`,
+      method: 'get',
+    });
+  } catch (e) {
+    error = e;
+  }
+
+  return {
+    type: DETAIL_PRODUCT,
     response,
     error,
   };
@@ -54,6 +75,9 @@ export async function sendSubscription(payload) {
 const initialState = {
   length: 0,
   items: [],
+  item: {
+    price: 0,
+  },
   error: '',
 };
 
@@ -67,6 +91,18 @@ function reducerListProduct(state, action) {
 
   return _.assign({}, state, {
     items: action.response.data.items,
+  });
+}
+
+function reducerDetailProduct(state, action) {
+  if (action.error) {
+    return _.assign({}, state, {
+      error: action.error,
+    });
+  }
+
+  return _.assign({}, state, {
+    item: action.response.data,
   });
 }
 
@@ -89,6 +125,8 @@ export default function reducer(state = initialState, action) {
   switch (action.type) {
     case LIST_PRODUCTS:
       return reducerListProduct(state, action);
+    case DETAIL_PRODUCT:
+      return reducerDetailProduct(state, action);
     case SEND_SUBSCRIPTION:
       return reducerSendSubscription(state, action);
     default:
