@@ -1,25 +1,13 @@
 import styled from 'styled-components';
 import Wrapper from '../../../styled_base/Wrapper';
+import Element from '../../../styled_base/Element';
 
 const ProductWrapper = styled(Wrapper.BetweenWrapper)`
   width: 100%;
 `;
 
-const InfoWrapper = styled(Wrapper.ColumnWrapper)`
-  width: 28rem;
-  line-height: 3;
-  margin: 1rem;
-
-  @media (max-width: 414px) {
-    width: 23rem;
-    margin: 0 1.5rem;
-  }
-
-  @media (max-width: 320px) {
-    margin: 0 1.5rem;
-    width: 17rem;
-    font-size: 0.5rem;
-  }
+const PaymentWrapper = styled(Wrapper.BasicBlockWrapper)`
+  width: 100%;
 `;
 
 const ProductItem = styled(Wrapper.ColumnWrapper)`
@@ -35,27 +23,32 @@ const ProductItem = styled(Wrapper.ColumnWrapper)`
   }
 `;
 
-const ItemTitleGroup = styled(Wrapper.ColumnWrapper)`
-  height: 14rem;
-  margin-bottom: 3rem;
-  justify-content: center;
-  align-items: center;
-
-  @media (max-width: 414px) {
-    margin-bottom: 0rem;
-  }
-`;
-
 const ItemHr = styled.hr`
   width: 1rem;
   margin: 0.25rem auto;
   border-width: 0.5px;
 `;
 
+const OrderBox = styled(Wrapper.BasicBlockWrapper)`
+  margin-top: 1.5rem;
+`;
+
+const ImgBox = styled(Wrapper.BasicBlockWrapper)`
+  width: 3rem;
+  margin-right: 1rem;
+`;
+
+const AcceptBox = styled(Wrapper.BasicBlockWrapper)`
+  border: 1px solid ${Element.COLOR.primary};
+  padding: 0.5rem;
+`;
+
 export default {
   ProductWrapper,
-  InfoWrapper,
+  PaymentWrapper,
   ProductItem,
-  ItemTitleGroup,
   ItemHr,
+  OrderBox,
+  ImgBox,
+  AcceptBox,
 };
