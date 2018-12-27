@@ -47,7 +47,7 @@ export class SignIn extends React.Component {
           <p style={{ textAlign: 'center' }}>
             <span>New To This Site?&nbsp;&nbsp;</span>
             <Link to="/add-info" style={{ color: 'blue' }}>
-              Sign Up
+              Sign up
             </Link>
           </p>
           <form action="post" onSubmit={handleSubmit(this.onSubmit.bind(this))}>
@@ -83,7 +83,7 @@ export class SignIn extends React.Component {
               Forgot password?
             </Link>
             <Element.SubmitButton id="submit" type="submit">
-              Log In
+              Enter
             </Element.SubmitButton>
           </form>
         </Wrapper.BasicBlockWrapper>
