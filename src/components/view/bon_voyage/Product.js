@@ -50,6 +50,7 @@ class Product extends React.Component {
       return (
         <Styled.ProductItem key={item.id}>
           <Element.ResponsiveImg
+            width="70%"
             src={dataConfig.baseUrl + item.url}
             alt="product-thumbnail"
           />

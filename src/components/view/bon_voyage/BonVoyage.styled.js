@@ -2,6 +2,10 @@ import styled from 'styled-components';
 import Wrapper from '../../../styled_base/Wrapper';
 import Element from '../../../styled_base/Element';
 
+const ProductWrapper = styled(Wrapper.BetweenWrapper)`
+  width: 100%;
+`;
+
 const MarginForm = styled.form`
   @media (max-width: 414px) {
     padding-top: 3rem;
@@ -30,10 +34,9 @@ const InfoWrapper = styled(Wrapper.ColumnWrapper)`
 `;
 
 const ProductItem = styled(Wrapper.ColumnWrapper)`
-  justify-content: center;
+  justify-content: baseline;
   align-items: center;
   text-align: center;
-  margin: 0 0.75rem;
   width: 9.5rem;
 
   @media (max-width: 414px) {
@@ -72,6 +75,7 @@ const ItemHr = styled.hr`
 `;
 
 export default {
+  ProductWrapper,
   MarginForm,
   InfoWrapper,
   ProductItem,

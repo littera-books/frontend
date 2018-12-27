@@ -10,6 +10,7 @@ import Product from './Product';
 
 // Styled
 import Wrapper from '../../../styled_base/Wrapper';
+import Styled from './BonVoyage.styled';
 
 class BonVoyage extends React.Component {
   // 창의 너비가 일정 수준 이하로 좁아지면 화면 구조를 캐러셀로 변화시킨다
@@ -45,9 +46,9 @@ class BonVoyage extends React.Component {
       return (
         <Wrapper.FlexWrapper>
           <Helmet pageTitle="Bon Voyage!" />
-          <Wrapper.BasicFlexWrapper>
+          <Styled.ProductWrapper align="baseline">
             <Product width={width} items={items} />
-          </Wrapper.BasicFlexWrapper>
+          </Styled.ProductWrapper>
         </Wrapper.FlexWrapper>
       );
     }
