@@ -3,12 +3,13 @@ import Wrapper from '../../../styled_base/Wrapper';
 
 const WidthWrapper = styled(Wrapper.BasicBlockWrapper)`
   width: 100%;
+  font-size: 9px;
 `;
 
 const InfoWrapper = styled(Wrapper.BasicFlexWrapper)`
   align-items: flex-start;
   width: 100%;
-  margin-bottom: ${props => (props.noBottom ? '0' : '2rem')};
+  margin-bottom: ${props => (props.noBottom ? '0' : '1.5rem')};
 `;
 
 const TitleWrapper = styled(Wrapper.BasicFlexWrapper)`
