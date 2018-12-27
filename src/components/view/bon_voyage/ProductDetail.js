@@ -47,7 +47,7 @@ class ProductDetail extends React.Component {
           <Element.BasicTitle align="center">{productTitle}</Element.BasicTitle>
           <p>{`${price.slice(0, -3)},${price.slice(-3)} KRW`}</p>
           <p>{item.description}</p>
-          <Link to="/payment" style={{ width: '100%' }}>
+          <Link to={`/payment/${item.id}`} style={{ width: '100%' }}>
             <Element.SubmitButton>구매하기</Element.SubmitButton>
           </Link>
         </Styled.ProductItem>
@@ -57,7 +57,12 @@ class ProductDetail extends React.Component {
 }
 
 ProductDetail.propTypes = {
-  item: PropTypes.shape({}).isRequired,
+  item: PropTypes.shape({
+    books: PropTypes.number.isRequired,
+    months: PropTypes.number.isRequired,
+    price: PropTypes.number.isRequired,
+    description: PropTypes.string.isRequired,
+  }).isRequired,
   detail: PropTypes.func.isRequired,
   filter: PropTypes.func.isRequired,
 };

@@ -70,7 +70,10 @@ export class App extends React.PureComponent {
                     component={Loadable.ForgotPassword}
                   />
                   <Route path="/sign-in" component={Loadable.SignIn} />
-                  <Route path="/payment" component={Loadable.Payment} />
+                  <PrivateRoute
+                    path="/payment/:productId"
+                    component={Loadable.Payment}
+                  />
                   <Route
                     path="/product/:productId"
                     component={Loadable.ProductDetail}
