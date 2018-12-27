@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import { createUser } from '../../../reducers/reducer.user';
 
 // Component
-import { MinimalFormField, PasswordField } from '../../../form/InfoFormField';
+import FormField from '../../../form/FormField';
 import Helmet from '../../helmet/Helmet';
 
 // Styled
@@ -18,8 +18,8 @@ const AddInfoForm = ({ handleSubmit, onSubmit, error }) => (
     action="post"
     onSubmit={handleSubmit(onSubmit.bind(this))}
   >
-    <MinimalFormField error={error} />
-    <PasswordField />
+    <FormField.EmailField error={error} />
+    <FormField.PasswordField />
     <Element.SubmitButton type="submit">Register</Element.SubmitButton>
   </Styled.LineHeightForm>
 );

@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import { patchPassword } from '../../../reducers/reducer.user';
 
 // Components
-import { PasswordField } from '../../../form/InfoFormField';
+import FormField from '../../../form/FormField';
 import Helmet from '../../helmet/Helmet';
 
 // Styled
@@ -42,7 +42,7 @@ class PatchPassword extends React.Component {
             action="post"
             onSubmit={handleSubmit(this.onSubmit.bind(this))}
           >
-            <PasswordField />
+            <FormField.PasswordField />
             <Element.SubmitButton type="submit">Submit</Element.SubmitButton>
           </Styled.LineHeightForm>
         </Styled.InfoWrapper>

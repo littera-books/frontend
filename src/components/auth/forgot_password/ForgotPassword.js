@@ -1,13 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Field, reduxForm } from 'redux-form';
+import { reduxForm } from 'redux-form';
 import { connect } from 'react-redux';
 import { resetPassword } from '../../../reducers/reducer.user';
 
 // Components
 import Helmet from '../../helmet/Helmet';
-import BasicFormField from '../../../form/FormField';
-import Validation from '../../../form/Validation';
+import FormField from '../../../form/FormField';
 
 // Styled
 import Wrapper from '../../../styled_base/Wrapper';
@@ -26,7 +25,7 @@ class ForgetPassword extends React.Component {
   }
 
   render() {
-    const { handleSubmit } = this.props;
+    const { handleSubmit, error } = this.props;
     return (
       <Wrapper.FlexWrapper>
         <Helmet pageTitle="Forgot Password" />
@@ -34,15 +33,7 @@ class ForgetPassword extends React.Component {
           action="post"
           onSubmit={handleSubmit(this.onSubmit.bind(this))}
         >
-          <Field
-            type="email"
-            name="email"
-            placeholder="E-mail address (your identification)"
-            border="1px solid black"
-            width="20rem"
-            component={BasicFormField.PlaceholderFormField}
-            validate={[Validation.required, Validation.email]}
-          />
+          <FormField.EmailField error={error} />
           <Element.SubmitButton type="submit">
             Reset Password
           </Element.SubmitButton>
@@ -59,6 +50,7 @@ ForgetPassword.propTypes = {
   }).isRequired,
   handleSubmit: PropTypes.func.isRequired,
   reset: PropTypes.func.isRequired,
+  error: PropTypes.string.isRequired,
 };
 
 const mapStateToProps = state => ({

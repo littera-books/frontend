@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 import { initialize, signIn } from '../../../reducers/reducer.auth';
 
 // Components
-import BasicFormField from '../../../form/FormField';
+import BasicFormField from '../../../form/BasicFormField';
 import Validation from '../../../form/Validation';
 import Helmet from '../../helmet/Helmet';
 
@@ -57,7 +57,7 @@ export class SignIn extends React.Component {
               placeholder="Email"
               border="1px solid black"
               width="20rem"
-              component={BasicFormField.PlaceholderFormField}
+              component={BasicFormField}
               validate={[Validation.required, Validation.email]}
             />
             <Field
@@ -66,7 +66,7 @@ export class SignIn extends React.Component {
               placeholder="Password"
               border="1px solid black"
               width="20rem"
-              component={BasicFormField.PlaceholderFormField}
+              component={BasicFormField}
               validate={Validation.required}
             />
             <div>

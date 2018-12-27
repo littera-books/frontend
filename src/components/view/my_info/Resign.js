@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import { destroyUser, clearError } from '../../../reducers/reducer.user';
 
 // Components
-import BasicFormField from '../../../form/FormField';
+import BasicFormField from '../../../form/BasicFormField';
 import Validation from '../../../form/Validation';
 import Helmet from '../../helmet/Helmet';
 
@@ -49,7 +49,7 @@ class Resign extends React.Component {
             placeholder="Write your password..."
             border="1px solid black"
             width="20rem"
-            component={BasicFormField.PlaceholderFormField}
+            component={BasicFormField}
             validate={Validation.required}
           />
           <div>

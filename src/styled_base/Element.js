@@ -52,10 +52,6 @@ const BasicInput = styled.input`
   }
 `;
 
-const LongInput = styled(BasicInput)`
-  width: 20rem;
-`;
-
 const BasicTitle = styled.h1`
   font-family: ${props => (props.fontFamily ? props.fontFamily : 'inherit')};
   font-size: ${props => (props.size ? props.size : '1rem')};
@@ -75,7 +71,6 @@ export default {
   BasicSmall,
   BasicButton,
   BasicInput,
-  LongInput,
   BasicTitle,
   SubmitButton,
 };

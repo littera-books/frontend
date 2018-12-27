@@ -7,7 +7,7 @@ import { updateInfo } from '../../../reducers/reducer.user';
 import dataConfig from '../../../dataConfig';
 
 // Components
-import InfoFormField from '../../../form/InfoFormField';
+import FormField from '../../../form/FormField';
 import Helmet from '../../helmet/Helmet';
 
 // Styled
@@ -22,7 +22,7 @@ const ManageMyInfoForm = ({
     action="post"
     onSubmit={handleSubmit(onSubmit.bind(this))}
   >
-    <InfoFormField error={error} openPostCode={openPostCode} />
+    <FormField.InfoFormField error={error} openPostCode={openPostCode} />
     <Link to="/my-info/patch-password">Patch Password</Link>
     <Element.SubmitButton type="submit">Confirm Change</Element.SubmitButton>
   </Styled.LineHeightForm>
