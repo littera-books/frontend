@@ -2,6 +2,7 @@ import _ from 'lodash';
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import Slider from 'react-slick';
 import {
   setVisibilityFilter,
@@ -16,21 +17,6 @@ import Styled from './BonVoyage.styled';
 // CSS
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-
-// const Promotion = () => (
-//   <Styled.ProductItem>
-//     <Styled.ItemTitleGroup>
-//       <p>promotion</p>
-//     </Styled.ItemTitleGroup>
-//     <Field
-//       name="product"
-//       component="input"
-//       type="radio"
-//       value="promotion"
-//       required
-//     />
-//   </Styled.ProductItem>
-// );
 
 class Product extends React.Component {
   componentDidMount() {
@@ -48,19 +34,21 @@ class Product extends React.Component {
     return _.map(items, (item) => {
       const price = item.price.toString();
       return (
-        <Styled.ProductItem key={item.id}>
-          <Element.ResponsiveImg
-            width="70%"
-            src={dataConfig.baseUrl + item.url}
-            alt="product-thumbnail"
-          />
-          {item.months === 0 ? (
-            <p>{`${item.books} book with surprise`}</p>
-          ) : (
-            <p>{`${item.books} book for ${item.months} months`}</p>
-          )}
-          <Styled.ItemHr />
-          <p>{`${price.slice(0, -3)},${price.slice(-3)} KRW`}</p>
+        <Styled.ProductItem key={item.id} card>
+          <Link to={`/product/${item.id}`}>
+            <Element.ResponsiveImg
+              width="70%"
+              src={dataConfig.baseUrl + item.url}
+              alt="product-thumbnail"
+            />
+            {item.months === 0 ? (
+              <p>{`${item.books} book with surprise`}</p>
+            ) : (
+              <p>{`${item.books} book for ${item.months} months`}</p>
+            )}
+            <Styled.ItemHr />
+            <p>{`${price.slice(0, -3)},${price.slice(-3)} KRW`}</p>
+          </Link>
         </Styled.ProductItem>
       );
     });

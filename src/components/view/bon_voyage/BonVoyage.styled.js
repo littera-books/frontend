@@ -1,19 +1,8 @@
 import styled from 'styled-components';
 import Wrapper from '../../../styled_base/Wrapper';
-import Element from '../../../styled_base/Element';
 
 const ProductWrapper = styled(Wrapper.BetweenWrapper)`
   width: 100%;
-`;
-
-const MarginForm = styled.form`
-  @media (max-width: 414px) {
-    padding-top: 3rem;
-  }
-
-  @media (max-width: 320px) {
-    padding-top: 0rem;
-  }
 `;
 
 const InfoWrapper = styled(Wrapper.ColumnWrapper)`
@@ -37,7 +26,7 @@ const ProductItem = styled(Wrapper.ColumnWrapper)`
   justify-content: baseline;
   align-items: center;
   text-align: center;
-  width: 9.5rem;
+  ${props => props.card && 'width: 9.5rem;'}
 
   @media (max-width: 414px) {
     width: 100%;
@@ -57,29 +46,15 @@ const ItemTitleGroup = styled(Wrapper.ColumnWrapper)`
   }
 `;
 
-const AlignRightButton = styled(Element.BasicButton)`
-  margin-top: 3rem;
-  margin-left: auto;
-  margin-right: 1rem;
-  width: 13rem;
-
-  @media (max-width: 414px) {
-    margin-top: 5rem;
-    margin-right: auto;
-  }
-`;
-
 const ItemHr = styled.hr`
   width: 1rem;
-  margin: 0.25rem 0;
+  margin: 0.25rem auto;
 `;
 
 export default {
   ProductWrapper,
-  MarginForm,
   InfoWrapper,
   ProductItem,
   ItemTitleGroup,
-  AlignRightButton,
   ItemHr,
 };
