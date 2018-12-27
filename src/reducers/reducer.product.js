@@ -4,7 +4,8 @@ import axiosInstance from './axios.instance';
 // Actions
 const LIST_PRODUCTS = 'LIST_PRODUCTS';
 const DETAIL_PRODUCT = 'DETAIL_PRODUCT';
-const SEND_SUBSCRIPTION = 'SEND_SUBSCRIPTION';
+const SEND_SUBSCRIPTION_NORMAL = 'SEND_SUBSCRIPTION_NORMAL';
+const SEND_SUBSCRIPTION_PROMOTION = 'SEND_SUBSCRIPTION_PROMOTION';
 
 // Action Creators
 export async function listProduct() {
@@ -47,7 +48,35 @@ export async function detailProduct(productId) {
   };
 }
 
-export async function sendSubscription(payload) {
+export async function sendSubscriptionNormal(payload) {
+  let response;
+  let error;
+
+  try {
+    response = await axiosInstance({
+      url: '/subscription',
+      method: 'post',
+      data: {
+        user_id: payload.userId,
+        product_id: payload.productId,
+        first_name: payload.firstName,
+        last_name: payload.lastName,
+        phone: payload.phone,
+        address: payload.address,
+      },
+    });
+  } catch (e) {
+    error = e;
+  }
+
+  return {
+    type: SEND_SUBSCRIPTION_NORMAL,
+    response,
+    error,
+  };
+}
+
+export async function sendSubscriptionPromotion(payload) {
   let response;
   let error;
 
@@ -65,7 +94,7 @@ export async function sendSubscription(payload) {
   }
 
   return {
-    type: SEND_SUBSCRIPTION,
+    type: SEND_SUBSCRIPTION_PROMOTION,
     response,
     error,
   };
@@ -130,7 +159,9 @@ export default function reducer(state = initialState, action) {
       return reducerListProduct(state, action);
     case DETAIL_PRODUCT:
       return reducerDetailProduct(state, action);
-    case SEND_SUBSCRIPTION:
+    case SEND_SUBSCRIPTION_NORMAL:
+      return reducerSendSubscription(state, action);
+    case SEND_SUBSCRIPTION_PROMOTION:
       return reducerSendSubscription(state, action);
     default:
       return state;
