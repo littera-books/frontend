@@ -12,6 +12,7 @@ import Wrapper from '../styled_base/Wrapper';
 import Element from '../styled_base/Element';
 
 const NameWrapper = styled(Wrapper.BetweenWrapper)`
+  width: 20rem;
   @media (max-width: 414px) {
     flex-direction: column;
   }
@@ -117,6 +118,61 @@ const InfoFormField = ({ openPostCode, error }) => (
   </Fragment>
 );
 
+const PaymentFormField = ({ openPostCode, error, children }) => (
+  <Fragment>
+    <Wrapper.BetweenWrapper>
+      <NameWrapper>
+        <Field
+          type="text"
+          name="firstName"
+          placeholder="first name"
+          border="1px solid black"
+          width="9.5rem"
+          component={BasicFormField}
+          validate={[Validation.required, Validation.maxLength20]}
+        />
+        <Field
+          type="text"
+          name="lastName"
+          placeholder="last name"
+          border="1px solid black"
+          width="9.5rem"
+          component={BasicFormField}
+        />
+      </NameWrapper>
+      <Field
+        type="tel"
+        name="phone"
+        placeholder="Contact No."
+        border="1px solid black"
+        width="20rem"
+        component={BasicFormField}
+        validate={[
+          Validation.required,
+          Validation.maxLength11,
+          Validation.number,
+        ]}
+      />
+    </Wrapper.BetweenWrapper>
+    <Wrapper.BetweenWrapper>
+      <Field
+        type="text"
+        name="address"
+        placeholder="Contact Address (Where your books arrive)"
+        border="1px solid black"
+        width="20rem"
+        func={openPostCode}
+        component={BasicFormField}
+        validate={Validation.required}
+      />
+      {children && children}
+    </Wrapper.BetweenWrapper>
+    <div>
+      <Element.BasicSmall>{error}</Element.BasicSmall>
+    </div>
+  </Fragment>
+);
+
 InfoFormField.propTypes = {
   openPostCode: PropTypes.func.isRequired,
   error: PropTypes.string.isRequired,
@@ -126,8 +182,16 @@ EmailField.propTypes = {
   error: PropTypes.string.isRequired,
 };
 
+PaymentFormField.propTypes = {
+  openPostCode: PropTypes.func.isRequired,
+  error: PropTypes.string.isRequired,
+  // eslint-disable-next-line react/require-default-props
+  children: PropTypes.element,
+};
+
 export default {
   EmailField,
   PasswordField,
   InfoFormField,
+  PaymentFormField,
 };
