@@ -40,7 +40,16 @@ const ImgBox = styled(Wrapper.BasicBlockWrapper)`
 
 const AcceptBox = styled(Wrapper.BasicBlockWrapper)`
   border: 1px solid ${Element.COLOR.primary};
+  width: 20rem;
   padding: 0.5rem;
+`;
+
+const FlexForm = styled.form`
+  display: flex;
+  justify-content: space-between;
+  width: 12rem;
+  align-items: center;
+  margin-left: 2rem;
 `;
 
 export default {
@@ -51,4 +60,5 @@ export default {
   OrderBox,
   ImgBox,
   AcceptBox,
+  FlexForm,
 };
