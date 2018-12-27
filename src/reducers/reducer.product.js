@@ -76,7 +76,10 @@ const initialState = {
   length: 0,
   items: [],
   item: {
+    books: 0,
+    months: 0,
     price: 0,
+    description: '',
   },
   error: '',
 };
