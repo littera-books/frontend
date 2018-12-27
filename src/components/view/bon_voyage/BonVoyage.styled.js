@@ -49,6 +49,7 @@ const ItemTitleGroup = styled(Wrapper.ColumnWrapper)`
 const ItemHr = styled.hr`
   width: 1rem;
   margin: 0.25rem auto;
+  border-width: 0.5px;
 `;
 
 export default {

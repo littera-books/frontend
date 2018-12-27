@@ -3,6 +3,10 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { detailProduct } from '../../../reducers/reducer.product';
+import {
+  setVisibilityFilter,
+  VisibilityFilters,
+} from '../../../reducers/reducer.controlTitle';
 import dataConfig from '../../../dataConfig';
 
 // Components
@@ -15,8 +19,14 @@ import Styled from './BonVoyage.styled';
 
 class ProductDetail extends React.Component {
   async componentDidMount() {
-    const { match, detail } = this.props;
+    const { match, detail, filter } = this.props;
+    await filter(VisibilityFilters.SHOW_TITLE);
     await detail(match.params.productId);
+  }
+
+  componentWillUnmount() {
+    const { filter } = this.props;
+    filter(VisibilityFilters.HIDE_TITLE);
   }
 
   render() {
@@ -30,7 +40,7 @@ class ProductDetail extends React.Component {
         <Helmet pageTitle={productTitle} />
         <Styled.ProductItem>
           <Element.ResponsiveImg
-            width="160px"
+            width="140px"
             src={dataConfig.baseUrl + item.url}
             alt="thumbnail"
           />
@@ -49,6 +59,7 @@ class ProductDetail extends React.Component {
 ProductDetail.propTypes = {
   item: PropTypes.shape({}).isRequired,
   detail: PropTypes.func.isRequired,
+  filter: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = state => ({
@@ -57,6 +68,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   detail: productId => dispatch(detailProduct(productId)),
+  filter: filter => dispatch(setVisibilityFilter(filter)),
 });
 
 export default connect(
