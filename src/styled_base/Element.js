@@ -5,7 +5,7 @@ const COLOR = {
 };
 
 const ResponsiveImg = styled.img`
-  width: 100%;
+  width: ${props => (props.width ? props.width : '100%')};
   height: auto;
 `;
 
