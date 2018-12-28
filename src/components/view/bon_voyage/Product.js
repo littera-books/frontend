@@ -48,7 +48,8 @@ class Product extends React.Component {
   renderItems() {
     const { items } = this.props;
     return _.map(items, (item) => {
-      const price = item.price.toString();
+      const rawPrice = item.price.toString();
+      const discountedPrice = (item.price - item.discount_amount).toString();
       return (
         <Styled.ProductItem key={item.id} card>
           <Link to={`/product/${item.id}`}>
@@ -59,7 +60,13 @@ class Product extends React.Component {
             />
             <p>{determineProductName(item)}</p>
             <Styled.ItemHr />
-            <p>{`₩ ${price.slice(0, -3)},${price.slice(-3)}`}</p>
+            <Styled.RawPriceSpan>{`₩ ${rawPrice.slice(0, -3)},${rawPrice.slice(
+              -3,
+            )}`}</Styled.RawPriceSpan>
+            <span>
+              &nbsp;
+              {`₩ ${discountedPrice.slice(0, -3)},${discountedPrice.slice(-3)}`}
+            </span>
           </Link>
         </Styled.ProductItem>
       );

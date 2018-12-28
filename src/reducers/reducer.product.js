@@ -108,6 +108,7 @@ const initialState = {
     books: 0,
     months: 0,
     price: 0,
+    discount_amount: 0,
     description: '',
   },
   error: '',

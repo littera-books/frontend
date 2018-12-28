@@ -112,7 +112,7 @@ class Payment extends React.Component {
 
   render() {
     const { item, handleSubmit, error } = this.props;
-    const price = item.price.toString();
+    const discountedPrice = (item.price - item.discount_amount).toString();
     return (
       <Wrapper.FlexWrapper>
         <Helmet pageTitle="Payment" />
@@ -164,7 +164,10 @@ class Payment extends React.Component {
                 <Styled.OrderBox style={{ marginTop: '1.5rem' }}>
                   <p>{`- ${determineProductName(item)}`}</p>
                   <p>- Free Shipping</p>
-                  <p>{`- ₩ ${price.slice(0, -3)},${price.slice(-3)}`}</p>
+                  <p>{`- ₩ ${discountedPrice.slice(
+                    0,
+                    -3,
+                  )},${discountedPrice.slice(-3)}`}</p>
                 </Styled.OrderBox>
               </Wrapper.BasicFlexWrapper>
               <Styled.AcceptBox>

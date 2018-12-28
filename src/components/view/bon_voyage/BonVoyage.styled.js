@@ -23,6 +23,12 @@ const ProductItem = styled(Wrapper.ColumnWrapper)`
   }
 `;
 
+const RawPriceSpan = styled.span`
+  color: ${Element.COLOR.primary};
+  text-decoration: line-through;
+  opacity: 0.8;
+`;
+
 const ItemHr = styled.hr`
   width: 1rem;
   margin: 0.25rem auto;
@@ -56,6 +62,7 @@ export default {
   ProductWrapper,
   PaymentWrapper,
   ProductItem,
+  RawPriceSpan,
   ItemHr,
   OrderBox,
   ImgBox,
