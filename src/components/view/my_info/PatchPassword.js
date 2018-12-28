@@ -37,15 +37,13 @@ class PatchPassword extends React.Component {
     return (
       <Wrapper.FlexWrapper>
         <Helmet pageTitle="Patch Password" />
-        <Styled.InfoWrapper>
-          <Styled.LineHeightForm
-            action="post"
-            onSubmit={handleSubmit(this.onSubmit.bind(this))}
-          >
-            <FormField.PasswordField />
-            <Element.SubmitButton type="submit">Submit</Element.SubmitButton>
-          </Styled.LineHeightForm>
-        </Styled.InfoWrapper>
+        <Styled.LineHeightForm
+          action="post"
+          onSubmit={handleSubmit(this.onSubmit.bind(this))}
+        >
+          <FormField.PasswordField />
+          <Element.SubmitButton type="submit">Submit</Element.SubmitButton>
+        </Styled.LineHeightForm>
       </Wrapper.FlexWrapper>
     );
   }

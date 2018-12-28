@@ -3,9 +3,8 @@ import Wrapper from '../../../styled_base/Wrapper';
 import Element from '../../../styled_base/Element';
 
 const InfoWrapper = styled(Wrapper.ColumnWrapper)`
-  width: 22.75rem;
+  width: 20rem;
   line-height: 5;
-  margin: 1rem;
 
   @media (max-width: 414px) {
     width: 20rem;
@@ -66,8 +65,8 @@ const AlignRightButton = styled(Element.BasicButton)`
   margin-left: auto;
 `;
 
-const LastNameParagraph = styled.p`
-  width: 182px;
+const NameParagraph = styled.p`
+  width: 10rem;
 `;
 
 export default {
@@ -77,5 +76,5 @@ export default {
   LineHeightForm,
   AlignRightButton,
   ButtonGroup,
-  LastNameParagraph,
+  NameParagraph,
 };

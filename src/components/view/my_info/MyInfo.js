@@ -28,11 +28,11 @@ class MyInfo extends React.Component {
       <Wrapper.FlexWrapper>
         <Helmet pageTitle="My Info" />
         <Styled.InfoWrapper>
-          <Styled.NameWrapper>
-            <p>{firstName}</p>
-            <Styled.LastNameParagraph>{lastName}</Styled.LastNameParagraph>
-          </Styled.NameWrapper>
           <p>{email}</p>
+          <Styled.NameWrapper>
+            <Styled.NameParagraph>{firstName}</Styled.NameParagraph>
+            <Styled.NameParagraph>{lastName}</Styled.NameParagraph>
+          </Styled.NameWrapper>
           <p>{phone}</p>
           <p>{address}</p>
           <Link to="/my-info/manage">
