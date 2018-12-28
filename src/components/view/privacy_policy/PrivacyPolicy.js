@@ -56,7 +56,9 @@ class PrivacyPolicy extends React.Component {
         <Helmet pageTitle="Privacy Policy" />
         <Wrapper.ScrollWrapper>
           <ScrollCloseButton />
-          <Styled.Title>개인정보 처리방침</Styled.Title>
+          <Styled.Title>
+            개&nbsp;인&nbsp;정&nbsp;보&nbsp;처&nbsp;리&nbsp;방&nbsp;침
+          </Styled.Title>
           <ReactMarkdown source={markdown} escapeHtml={false} />
         </Wrapper.ScrollWrapper>
       </Wrapper.FlexWrapper>

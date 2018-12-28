@@ -41,6 +41,7 @@ const DropdownContent = styled.div`
   width: 10rem;
   border: 1px solid lightgray;
   z-index: 1;
+  font-size: 0.75rem;
 
   &.active {
     display: block;

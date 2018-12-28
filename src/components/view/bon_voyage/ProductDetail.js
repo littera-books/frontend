@@ -48,7 +48,7 @@ class ProductDetail extends React.Component {
           <p>{`₩ ${price.slice(0, -3)},${price.slice(-3)}`}</p>
           <p>{item.description}</p>
           <Link to={`/payment/${item.id}`} style={{ width: '100%' }}>
-            <Element.SubmitButton>구매하기</Element.SubmitButton>
+            <Element.SubmitButton>Purchase</Element.SubmitButton>
           </Link>
         </Styled.ProductItem>
       </Wrapper.FlexWrapper>

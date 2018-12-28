@@ -45,7 +45,7 @@ export class SignIn extends React.Component {
             Log in
           </Element.BasicTitle>
           <p style={{ textAlign: 'center' }}>
-            <span>New To This Site?&nbsp;&nbsp;</span>
+            <span>Not a member yet?&nbsp;&nbsp;</span>
             <Link to="/add-info" style={{ color: 'blue' }}>
               Sign up
             </Link>

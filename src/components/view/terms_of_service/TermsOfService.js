@@ -56,7 +56,7 @@ class TermsOfService extends React.Component {
         <Helmet pageTitle="Terms of Use" />
         <Wrapper.ScrollWrapper>
           <ScrollCloseButton />
-          <Styled.Title>이용약관</Styled.Title>
+          <Styled.Title>이&nbsp;용&nbsp;약&nbsp;관</Styled.Title>
           <ReactMarkdown source={markdown} escapeHtml={false} />
         </Wrapper.ScrollWrapper>
       </Wrapper.FlexWrapper>
