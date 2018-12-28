@@ -47,11 +47,12 @@ class ProductDetail extends React.Component {
             {determineProductName(item)}
           </Element.BasicTitle>
           <div>
-            <Styled.RawPriceSpan>{`₩ ${rawPrice.slice(0, -3)},${rawPrice.slice(
-              -3,
-            )}`}</Styled.RawPriceSpan>
+            {item.discount_amount !== 0 && (
+              <Styled.RawPriceSpan>
+                {`₩ ${rawPrice.slice(0, -3)},${rawPrice.slice(-3)}`}&nbsp;
+              </Styled.RawPriceSpan>
+            )}
             <span>
-              &nbsp;
               {`₩ ${discountedPrice.slice(0, -3)},${discountedPrice.slice(-3)}`}
             </span>
           </div>
