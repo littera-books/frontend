@@ -18,6 +18,22 @@ import Styled from './BonVoyage.styled';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
+export const determineProductName = (item) => {
+  if (item.months === 0) {
+    return 'A book with surprise';
+  }
+
+  if (item.months === 12) {
+    return `${item.books} books for 1 year`;
+  }
+
+  if (item.books === 1) {
+    return `${item.books} book for ${item.months} months`;
+  }
+
+  return `${item.books} books for ${item.months} months`;
+};
+
 class Product extends React.Component {
   componentDidMount() {
     const { filter } = this.props;
@@ -41,13 +57,9 @@ class Product extends React.Component {
               src={dataConfig.baseUrl + item.url}
               alt="product-thumbnail"
             />
-            {item.months === 0 ? (
-              <p>{`${item.books} book with surprise`}</p>
-            ) : (
-              <p>{`${item.books} book for ${item.months} months`}</p>
-            )}
+            <p>{determineProductName(item)}</p>
             <Styled.ItemHr />
-            <p>{`${price.slice(0, -3)},${price.slice(-3)} KRW`}</p>
+            <p>{`₩ ${price.slice(0, -3)},${price.slice(-3)}`}</p>
           </Link>
         </Styled.ProductItem>
       );

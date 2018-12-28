@@ -9,6 +9,7 @@ import {
   sendSubscriptionNormal,
 } from '../../../reducers/reducer.product';
 import dataConfig from '../../../dataConfig';
+import { determineProductName } from './Product';
 
 // Components
 import FormField from '../../../form/FormField';
@@ -55,7 +56,7 @@ class Payment extends React.Component {
 
     const { error, history } = this.props;
     if (!error) {
-      history.replace('/main');
+      history.replace('/welcome');
     }
   }
 
@@ -112,9 +113,6 @@ class Payment extends React.Component {
   render() {
     const { item, handleSubmit, error } = this.props;
     const price = item.price.toString();
-    const productTitle = item.months === 0
-      ? `${item.books} book with surprise`
-      : `${item.books} book for ${item.months} months`;
     return (
       <Wrapper.FlexWrapper>
         <Helmet pageTitle="Payment" />
@@ -164,9 +162,9 @@ class Payment extends React.Component {
                   />
                 </Styled.ImgBox>
                 <Styled.OrderBox style={{ marginTop: '1.5rem' }}>
-                  <p>{`- ${productTitle}`}</p>
+                  <p>{`- ${determineProductName(item)}`}</p>
                   <p>- Free Shipping</p>
-                  <p>{`- ${price.slice(0, -3)},${price.slice(-3)} KRW`}</p>
+                  <p>{`- ₩ ${price.slice(0, -3)},${price.slice(-3)}`}</p>
                 </Styled.OrderBox>
               </Wrapper.BasicFlexWrapper>
               <Styled.AcceptBox>

@@ -8,6 +8,7 @@ import {
   VisibilityFilters,
 } from '../../../reducers/reducer.controlTitle';
 import dataConfig from '../../../dataConfig';
+import { determineProductName } from './Product';
 
 // Components
 import Helmet from '../../helmet/Helmet';
@@ -32,20 +33,19 @@ class ProductDetail extends React.Component {
   render() {
     const { item } = this.props;
     const price = item.price.toString();
-    const productTitle = item.months === 0
-      ? `${item.books} book with surprise`
-      : `${item.books} book for ${item.months} months`;
     return (
       <Wrapper.FlexWrapper>
-        <Helmet pageTitle={productTitle} />
+        <Helmet pageTitle={determineProductName(item)} />
         <Styled.ProductItem>
           <Element.ResponsiveImg
             width="140px"
             src={dataConfig.baseUrl + item.url}
             alt="thumbnail"
           />
-          <Element.BasicTitle align="center">{productTitle}</Element.BasicTitle>
-          <p>{`${price.slice(0, -3)},${price.slice(-3)} KRW`}</p>
+          <Element.BasicTitle align="center">
+            {determineProductName(item)}
+          </Element.BasicTitle>
+          <p>{`₩ ${price.slice(0, -3)},${price.slice(-3)}`}</p>
           <p>{item.description}</p>
           <Link to={`/payment/${item.id}`} style={{ width: '100%' }}>
             <Element.SubmitButton>구매하기</Element.SubmitButton>
