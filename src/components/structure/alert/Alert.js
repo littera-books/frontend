@@ -10,7 +10,7 @@ import Wrapper from '../../../styled_base/Wrapper';
 // data
 import dataConfig from '../../../dataConfig';
 
-export class Intro extends React.Component {
+export class Alert extends React.Component {
   componentDidMount() {
     const { close } = this.props;
     close(CloseFilters.HIDE_CLOSE);
@@ -36,7 +36,7 @@ export class Intro extends React.Component {
   }
 }
 
-Intro.propTypes = {
+Alert.propTypes = {
   close: PropTypes.func.isRequired,
 };
 
@@ -47,4 +47,4 @@ const mapDispatchToProps = dispatch => ({
 export default connect(
   null,
   mapDispatchToProps,
-)(Intro);
+)(Alert);

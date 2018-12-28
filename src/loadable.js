@@ -8,8 +8,8 @@ const Loading = () => (
   </StyledBase.FlexWrapper>
 );
 
-const Intro = Loadable({
-  loader: () => import('./components/view/intro/Intro'),
+const Alert = Loadable({
+  loader: () => import('./components/structure/alert/Alert'),
   loading: Loading,
 });
 
@@ -124,7 +124,7 @@ const AllEars = Loadable({
 });
 
 export default {
-  Intro,
+  Alert,
   Header,
   Footer,
   CloseButton,

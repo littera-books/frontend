@@ -94,7 +94,7 @@ export class App extends React.PureComponent {
                     component={Loadable.BusinessInfo}
                   />
                   <Route path="/main" component={Loadable.Main} />
-                  <Route exact path="/" component={Loadable.Intro} />
+                  <Route exact path="/" component={Loadable.Alert} />
                 </Switch>
                 <Loadable.Footer visibility={isVisible} />
               </Wrapper.ContainerWrapper>
