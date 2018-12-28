@@ -67,9 +67,9 @@ class ResignSurvey extends React.Component {
       formData.append('content', content);
       await create(formData);
 
-      const { error } = this.props;
+      const { error, history } = this.props;
       if (!error) {
-        alert(dataConfig.resignSurvey);
+        history.replace('/good-bye');
       }
     }
   }

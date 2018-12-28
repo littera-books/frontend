@@ -45,6 +45,7 @@ export class App extends React.PureComponent {
                 <Loadable.CloseButton visibility={isClose} />
                 <Loadable.Header visibility={isVisible} />
                 <Switch>
+                  <Route path="/good-bye" component={Loadable.Alert} />
                   <PrivateRoute
                     path="/my-info/resign/survey"
                     component={Loadable.ResignSurvey}
@@ -64,11 +65,14 @@ export class App extends React.PureComponent {
                   />
                   <PrivateRoute path="/my-info" component={Loadable.MyInfo} />
                   <PrivateRoute path="/log" component={Loadable.Log} />
+                  <Route path="/complete" component={Loadable.Alert} />
                   <Route path="/add-info" component={Loadable.AddInfo} />
                   <Route
                     path="/forgot-password"
                     component={Loadable.ForgotPassword}
                   />
+                  <Route path="/sign-out" component={Loadable.Alert} />
+                  <Route path="/welcome" component={Loadable.Alert} />
                   <Route path="/sign-in" component={Loadable.SignIn} />
                   <PrivateRoute
                     path="/payment/:productId"

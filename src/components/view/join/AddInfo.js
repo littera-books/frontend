@@ -51,7 +51,7 @@ class AddInfo extends React.Component {
 
     const { error, history } = this.props;
     if (!error) {
-      history.replace('/sign-in');
+      history.replace('/complete');
     }
   }
 

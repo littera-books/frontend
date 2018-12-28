@@ -11,13 +11,20 @@ import Wrapper from '../../../styled_base/Wrapper';
 import dataConfig from '../../../dataConfig';
 
 export class Alert extends React.Component {
+  state = {
+    text: '',
+  };
+
   componentDidMount() {
     const { close } = this.props;
     close(CloseFilters.HIDE_CLOSE);
+
+    this.setState({ text: this.textSwitcher() });
   }
 
-  shouldComponentUpdate() {
-    return false;
+  shouldComponentUpdate(nextState) {
+    const { text } = this.state;
+    return text !== nextState.text;
   }
 
   componentWillUnmount() {
@@ -25,11 +32,31 @@ export class Alert extends React.Component {
     close(CloseFilters.SHOW_CLOSE);
   }
 
+  textSwitcher() {
+    const { match, email } = this.props;
+    const splitEmail = email.split('@');
+    switch (match.url) {
+      case '/':
+        return dataConfig.alertMessage.intro;
+      case '/welcome':
+        return dataConfig.alertMessage.signIn;
+      case '/sign-out':
+        return `${dataConfig.alertMessage.signOut} ${splitEmail[0]}`;
+      case '/complete':
+        return dataConfig.alertMessage.signUp;
+      case '/good-bye':
+        return dataConfig.alertMessage.resign;
+      default:
+        return '';
+    }
+  }
+
   render() {
+    const { text } = this.state;
     return (
       <Wrapper.FlexWrapper>
         <Link to="/main">
-          <h1>{dataConfig.introText}</h1>
+          <h1>{text}</h1>
         </Link>
       </Wrapper.FlexWrapper>
     );
@@ -38,13 +65,21 @@ export class Alert extends React.Component {
 
 Alert.propTypes = {
   close: PropTypes.func.isRequired,
+  match: PropTypes.shape({
+    url: PropTypes.string.isRequired,
+  }).isRequired,
+  email: PropTypes.string.isRequired,
 };
+
+const mapStateToProps = state => ({
+  email: state.user.email,
+});
 
 const mapDispatchToProps = dispatch => ({
   close: filter => dispatch(setClose(filter)),
 });
 
 export default connect(
-  null,
+  mapStateToProps,
   mapDispatchToProps,
 )(Alert);

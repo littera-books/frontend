@@ -66,9 +66,9 @@ class Log extends React.Component {
               <Styled.DropdownItem>Resign</Styled.DropdownItem>
             </Link>
             <Styled.DropdownHr />
-            <Styled.DropdownItem onClick={this.handleCick}>
-              SIGN OUT
-            </Styled.DropdownItem>
+            <Link to="/sign-out" onClick={this.handleCick}>
+              <Styled.DropdownItem>SIGN OUT</Styled.DropdownItem>
+            </Link>
           </Styled.DropdownContent>
         </Styled.Dropdown>
       </Wrapper.FlexWrapper>
