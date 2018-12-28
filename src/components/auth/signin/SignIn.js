@@ -26,7 +26,7 @@ export class SignIn extends React.Component {
 
     const { error, history } = this.props;
     if (!error) {
-      history.replace('/welcome');
+      history.replace('/main');
     }
   }
 
