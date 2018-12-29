@@ -6,8 +6,8 @@ const ProductWrapper = styled(Wrapper.BetweenWrapper)`
   width: 100%;
 `;
 
-const PaymentWrapper = styled(Wrapper.BasicBlockWrapper)`
-  width: 100%;
+const PaymentWrapper = styled(Wrapper.ColumnWrapper)`
+  align-items: center;
 `;
 
 const ProductItem = styled(Wrapper.ColumnWrapper)`
@@ -40,22 +40,27 @@ const OrderBox = styled(Wrapper.BasicBlockWrapper)`
 `;
 
 const ImgBox = styled(Wrapper.BasicBlockWrapper)`
-  width: 3rem;
+  width: 6rem;
   margin-right: 1rem;
 `;
 
 const AcceptBox = styled(Wrapper.BasicBlockWrapper)`
   border: 1px solid ${Element.COLOR.primary};
   width: 20rem;
-  padding: 0.5rem;
+  padding: ${props => (props.padding ? props.padding : '0.75rem')};
+  margin-top: 1rem;
+  line-height: ${props => (props.lineHeight ? props.lineHeight : 'inherit')};
 `;
 
 const FlexForm = styled.form`
   display: flex;
-  justify-content: space-between;
-  width: 12rem;
+  justify-content: flex-end;
+  width: 20rem;
   align-items: center;
-  margin-left: 2rem;
+`;
+
+const OptionSpan = styled.span`
+  margin-right: 0.6rem;
 `;
 
 export default {
@@ -68,4 +73,5 @@ export default {
   ImgBox,
   AcceptBox,
   FlexForm,
+  OptionSpan,
 };

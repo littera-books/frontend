@@ -41,7 +41,12 @@ class PaymentMyInfo extends React.Component {
     script.onload = () => this.initialPostCode(this);
 
     const {
-      initialize, firstName, lastName, address, phone,
+      initialize,
+      firstName,
+      lastName,
+      address,
+      extraAddress,
+      phone,
     } = this.props;
 
     initialize({
@@ -49,6 +54,7 @@ class PaymentMyInfo extends React.Component {
       firstName,
       lastName,
       address,
+      extraAddress,
       phone,
     });
   }
@@ -62,13 +68,19 @@ class PaymentMyInfo extends React.Component {
       await retrieve(userId);
 
       const {
-        initialize, firstName, lastName, address, phone,
+        initialize,
+        firstName,
+        lastName,
+        address,
+        extraAddress,
+        phone,
       } = this.props;
       await initialize({
         userId,
         firstName,
         lastName,
         address,
+        extraAddress,
         phone,
       });
     }
@@ -117,6 +129,7 @@ PaymentMyInfo.propTypes = {
   firstName: PropTypes.string.isRequired,
   lastName: PropTypes.string.isRequired,
   address: PropTypes.string.isRequired,
+  extraAddress: PropTypes.string.isRequired,
   phone: PropTypes.string.isRequired,
   error: PropTypes.string.isRequired,
 };
@@ -126,6 +139,7 @@ const mapStateToProps = state => ({
   firstName: state.user.firstName,
   lastName: state.user.lastName,
   address: state.user.address,
+  extraAddress: state.user.extraAddress,
   phone: state.user.phone,
   error: state.user.error,
 });

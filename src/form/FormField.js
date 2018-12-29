@@ -130,56 +130,62 @@ const InfoFormField = ({ openPostCode, error }) => (
 
 const PaymentFormField = ({ openPostCode, error, children }) => (
   <Fragment>
-    <Wrapper.BetweenWrapper>
-      <NameWrapper>
-        <Field
-          type="text"
-          name="firstName"
-          placeholder="first name"
-          border="1px solid black"
-          width="9.5rem"
-          component={BasicFormField}
-          validate={[Validation.required, Validation.maxLength20]}
-        />
-        <Field
-          type="text"
-          name="lastName"
-          placeholder="last name"
-          border="1px solid black"
-          width="9.5rem"
-          component={BasicFormField}
-        />
-      </NameWrapper>
-      <Field
-        type="tel"
-        name="phone"
-        placeholder="Contact No."
-        border="1px solid black"
-        width="20rem"
-        component={BasicFormField}
-        validate={[
-          Validation.required,
-          Validation.maxLength11,
-          Validation.number,
-        ]}
-      />
-    </Wrapper.BetweenWrapper>
-    <Wrapper.BetweenWrapper>
+    <NameWrapper>
       <Field
         type="text"
-        name="address"
-        placeholder="Contact Address (Where your books arrive)"
+        name="firstName"
+        placeholder="first name"
         border="1px solid black"
-        width="20rem"
-        func={openPostCode}
+        width="9.5rem"
         component={BasicFormField}
-        validate={Validation.required}
+        validate={[Validation.required, Validation.maxLength20]}
       />
-      {children && children}
-    </Wrapper.BetweenWrapper>
+      <Field
+        type="text"
+        name="lastName"
+        placeholder="last name"
+        border="1px solid black"
+        width="9.5rem"
+        component={BasicFormField}
+      />
+    </NameWrapper>
+    <Field
+      type="tel"
+      name="phone"
+      placeholder="Contact No."
+      border="1px solid black"
+      width="20rem"
+      component={BasicFormField}
+      validate={[
+        Validation.required,
+        Validation.maxLength11,
+        Validation.number,
+      ]}
+    />
+    <Field
+      type="text"
+      name="address"
+      placeholder="Contact Address (Where your books arrive)"
+      border="1px solid black"
+      width="20rem"
+      func={openPostCode}
+      component={BasicFormField}
+      validate={Validation.required}
+    />
+    <Field
+      id="extra-address"
+      type="text"
+      name="extraAddress"
+      placeholder="Extra Address (Where your books arrive)"
+      border="1px solid black"
+      width="20rem"
+      component={BasicFormField}
+      validate={Validation.required}
+    />
     <div>
       <Element.BasicSmall>{error}</Element.BasicSmall>
     </div>
+    {children && children}
   </Fragment>
 );
 

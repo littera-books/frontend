@@ -8,6 +8,11 @@ import {
   detailProduct,
   sendSubscriptionNormal,
 } from '../../../reducers/reducer.product';
+import {
+  setScroll,
+  ScrollFilters,
+} from '../../../reducers/reducer.controlScroll';
+import { setClose, CloseFilters } from '../../../reducers/reducer.controlClose';
 import dataConfig from '../../../dataConfig';
 import { determineProductName } from './Product';
 
@@ -15,6 +20,7 @@ import { determineProductName } from './Product';
 import FormField from '../../../form/FormField';
 import Helmet from '../../helmet/Helmet';
 import PaymentMyInfo from './PaymentMyInfo';
+import ScrollCloseButton from '../../structure/scroll_close_button/ScrollCloseButton';
 
 // Styled
 import Wrapper from '../../../styled_base/Wrapper';
@@ -43,11 +49,21 @@ class Payment extends React.Component {
     const { match, detail } = this.props;
     await detail(match.params.productId);
 
+    const { scroll, close } = this.props;
+    await scroll(ScrollFilters.ENABLE_SCROLL);
+    await close(CloseFilters.HIDE_CLOSE);
+
     const script = document.createElement('script');
     script.id = 'daum';
     document.head.appendChild(script);
     script.src = dataConfig.daumPostApiUrl;
     script.onload = () => this.initialPostCode(this);
+  }
+
+  componentWillUnmount() {
+    const { scroll, close } = this.props;
+    scroll(ScrollFilters.UNABLE_SCROLL);
+    close(CloseFilters.SHOW_CLOSE);
   }
 
   async onSubmit(payload) {
@@ -85,6 +101,7 @@ class Payment extends React.Component {
       firstName,
       lastName,
       address,
+      extraAddress,
       phone,
       match,
     } = this.props;
@@ -95,6 +112,7 @@ class Payment extends React.Component {
       firstName,
       lastName,
       address,
+      extraAddress,
       phone,
     });
   }
@@ -106,6 +124,7 @@ class Payment extends React.Component {
       firstName: '',
       lastName: '',
       address: '',
+      extraAddress: '',
       phone: '',
     });
   }
@@ -116,69 +135,78 @@ class Payment extends React.Component {
     return (
       <Wrapper.FlexWrapper>
         <Helmet pageTitle="Payment" />
-        <Styled.PaymentWrapper>
-          <Element.BasicTitle>1. Member Information</Element.BasicTitle>
-          <PaymentMyInfo />
-          <Wrapper.BasicFlexWrapper>
-            <Element.BasicTitle>2. Address Information</Element.BasicTitle>
-            <Styled.FlexForm>
-              <label htmlFor="my-value">
-                <span>It&#39;s for me&nbsp;</span>
-                <input
-                  type="radio"
-                  name="info"
-                  value="myValue"
-                  id="my-value"
-                  onChange={this.inheritInfo}
-                />
-              </label>
-              <label htmlFor="someone-value">
-                <span>It&#39;s Someone else&nbsp;</span>
-                <input
-                  type="radio"
-                  name="info"
-                  value="someoneValue"
-                  id="someone-value"
-                  onChange={this.resetInfo}
-                  defaultChecked
-                />
-              </label>
-            </Styled.FlexForm>
-          </Wrapper.BasicFlexWrapper>
-          <form onSubmit={handleSubmit(this.onSubmit)}>
-            <FormField.PaymentFormField
-              error={error}
-              openPostCode={this.openPostCode}
-            />
-            <Element.BasicTitle>3. Payment Information</Element.BasicTitle>
-            <PayMsg />
-            <Element.BasicTitle>4. Order Information</Element.BasicTitle>
-            <Wrapper.BetweenWrapper>
-              <Wrapper.BasicFlexWrapper>
-                <Styled.ImgBox>
-                  <Element.ResponsiveImg
-                    src={dataConfig.baseUrl + item.url}
-                    alt="thumbnail"
+        <Wrapper.ScrollWrapper>
+          <ScrollCloseButton />
+          <Styled.PaymentWrapper>
+            <div>
+              <Element.BasicTitle>1. Member Information</Element.BasicTitle>
+              <PaymentMyInfo />
+              <Element.BasicTitle marginTop="2.5rem">
+                2. Address Information
+              </Element.BasicTitle>
+              <Styled.FlexForm>
+                <label htmlFor="my-value" style={{ marginRight: '1rem' }}>
+                  <Styled.OptionSpan>It&#39;s for me</Styled.OptionSpan>
+                  <input
+                    type="radio"
+                    name="info"
+                    value="myValue"
+                    id="my-value"
+                    onChange={this.inheritInfo}
                   />
-                </Styled.ImgBox>
-                <Styled.OrderBox style={{ marginTop: '1.5rem' }}>
-                  <p>{`- ${determineProductName(item)}`}</p>
-                  <p>- Free Shipping</p>
-                  <p>{`- ₩ ${discountedPrice.slice(
-                    0,
-                    -3,
-                  )},${discountedPrice.slice(-3)}`}</p>
-                </Styled.OrderBox>
-              </Wrapper.BasicFlexWrapper>
-              <Styled.AcceptBox>
-                <OrderMsg />
-                <Element.SubmitButton type="submit">
-                  Confirm Purchase
-                </Element.SubmitButton>
-              </Styled.AcceptBox>
-            </Wrapper.BetweenWrapper>
-          </form>
-        </Styled.PaymentWrapper>
+                </label>
+                <label htmlFor="someone-value">
+                  <Styled.OptionSpan>
+                    It&#39;s for someone else
+                  </Styled.OptionSpan>
+                  <input
+                    type="radio"
+                    name="info"
+                    value="someoneValue"
+                    id="someone-value"
+                    onChange={this.resetInfo}
+                    defaultChecked
+                  />
+                </label>
+              </Styled.FlexForm>
+              <form onSubmit={handleSubmit(this.onSubmit)}>
+                <FormField.PaymentFormField
+                  error={error}
+                  openPostCode={this.openPostCode}
+                />
+                <Element.BasicTitle marginTop="2.5rem">
+                  3. Payment Information
+                </Element.BasicTitle>
+                <Styled.AcceptBox lineHeight="3">
+                  <PayMsg />
+                </Styled.AcceptBox>
+                <Element.BasicTitle marginTop="2.5rem">
+                  4. Order Information
+                </Element.BasicTitle>
+                <Styled.PaymentWrapper>
+                  <Element.ResponsiveImg
+                    width="100px"
+                    src={dataConfig.baseUrl + item.url}
+                    alt="product-thumbnail"
+                  />
+                  <p>{determineProductName(item)}</p>
+                  <Styled.ItemHr />
+                  <span>
+                    {`₩ ${discountedPrice.slice(0, -3)},${discountedPrice.slice(
+                      -3,
+                    )}`}
+                  </span>
+                </Styled.PaymentWrapper>
+                <Styled.AcceptBox padding="1.25rem 0.75rem">
+                  <OrderMsg />
+                  <Element.SubmitButton type="submit" margin="1rem 0 0 0">
+                    Confirm Purchase
+                  </Element.SubmitButton>
+                </Styled.AcceptBox>
+              </form>
+            </div>
+          </Styled.PaymentWrapper>
+        </Wrapper.ScrollWrapper>
       </Wrapper.FlexWrapper>
     );
   }
@@ -202,8 +230,11 @@ Payment.propTypes = {
   firstName: PropTypes.string.isRequired,
   lastName: PropTypes.string.isRequired,
   address: PropTypes.string.isRequired,
+  extraAddress: PropTypes.string.isRequired,
   phone: PropTypes.string.isRequired,
   error: PropTypes.string.isRequired,
+  scroll: PropTypes.func.isRequired,
+  close: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = state => ({
@@ -212,6 +243,7 @@ const mapStateToProps = state => ({
   firstName: state.user.firstName,
   lastName: state.user.lastName,
   address: state.user.address,
+  extraAddress: state.user.extraAddress,
   phone: state.user.phone,
   read: PropTypes.func.isRequired,
   retrieve: PropTypes.func.isRequired,
@@ -223,6 +255,8 @@ const mapDispatchToProps = dispatch => ({
   retrieve: userId => dispatch(retrieveInfo(userId)),
   detail: productId => dispatch(detailProduct(productId)),
   send: payload => dispatch(sendSubscriptionNormal(payload)),
+  scroll: filter => dispatch(setScroll(filter)),
+  close: filter => dispatch(setClose(filter)),
 });
 
 export default reduxForm({
