@@ -63,6 +63,7 @@ export async function sendSubscriptionNormal(payload) {
         last_name: payload.lastName,
         phone: payload.phone,
         address: payload.address,
+        extra_address: payload.extraAddress,
       },
     });
   } catch (e) {
