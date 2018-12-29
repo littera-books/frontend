@@ -58,7 +58,10 @@ export class App extends React.PureComponent {
                     path="/my-info/patch-password"
                     component={Loadable.PatchPassword}
                   />
-                  <PrivateRoute path="/survey" component={Loadable.Survey} />
+                  <PrivateRoute
+                    path="/my-info/survey"
+                    component={Loadable.Survey}
+                  />
                   <PrivateRoute
                     path="/my-info/manage"
                     component={Loadable.ManageMyInfo}
