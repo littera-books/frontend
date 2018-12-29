@@ -83,6 +83,10 @@ class Payment extends React.Component {
         oncomplete: function oncomplete(data) {
           change('address', `(${data.zonecode}) ${data.address}`);
           alert('나머지 주소를 적어주세요');
+          const extraAddress = document.querySelectorAll(
+            'input[name=extraAddress]',
+          );
+          extraAddress[1].focus();
         },
       });
       this.setState({ postCode });
