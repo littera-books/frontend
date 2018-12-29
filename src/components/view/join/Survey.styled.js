@@ -49,7 +49,7 @@ const SelectionItem = styled(Wrapper.BasicBlockWrapper)`
 `;
 
 const SelectionText = styled.span`
-  margin-left: 0.5rem;
+  margin-left: 0.6rem;
 `;
 
 const LineHeightForm = styled.form`
