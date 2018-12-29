@@ -56,9 +56,11 @@ const BasicTitle = styled.h1`
   font-family: ${props => (props.fontFamily ? props.fontFamily : 'inherit')};
   font-size: ${props => (props.size ? props.size : '1rem')};
   text-align: ${props => (props.align ? props.align : 'left')};
+  margin-top: ${props => (props.marginTop ? props.marginTop : 0)};
 `;
 
 const SubmitButton = styled(BasicButton)`
+  margin: ${props => (props.margin ? props.margin : 0)};
   width: ${props => (props.width ? props.width : '100%')};
   height: 3rem;
   background-color: ${COLOR.primary};
