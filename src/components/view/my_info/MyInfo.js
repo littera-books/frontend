@@ -22,7 +22,12 @@ class MyInfo extends React.Component {
 
   render() {
     const {
-      firstName, lastName, address, phone, email,
+      firstName,
+      lastName,
+      address,
+      extraAddress,
+      phone,
+      email,
     } = this.props;
     return (
       <Wrapper.FlexWrapper>
@@ -35,6 +40,7 @@ class MyInfo extends React.Component {
           </Styled.NameWrapper>
           <p>{phone}</p>
           <p>{address}</p>
+          <p>{extraAddress}</p>
           <Link to="/my-info/manage">
             <Element.SubmitButton>Manage My Info</Element.SubmitButton>
           </Link>
@@ -49,6 +55,7 @@ MyInfo.propTypes = {
   firstName: PropTypes.string.isRequired,
   lastName: PropTypes.string.isRequired,
   address: PropTypes.string.isRequired,
+  extraAddress: PropTypes.string.isRequired,
   phone: PropTypes.string.isRequired,
   email: PropTypes.string.isRequired,
 };
@@ -58,6 +65,7 @@ const mapStateToProps = state => ({
   firstName: state.user.firstName,
   lastName: state.user.lastName,
   address: state.user.address,
+  extraAddress: state.user.extraAddress,
   phone: state.user.phone,
   email: state.user.email,
 });

@@ -58,6 +58,7 @@ class ManageMyInfo extends React.Component {
       firstName,
       lastName,
       address,
+      extraAddress,
       phone,
       email,
       history,
@@ -72,6 +73,7 @@ class ManageMyInfo extends React.Component {
       firstName,
       lastName,
       address,
+      extraAddress,
       phone,
       email,
     });
@@ -102,6 +104,8 @@ class ManageMyInfo extends React.Component {
         oncomplete: function oncomplete(data) {
           change('address', `(${data.zonecode}) ${data.address}`);
           alert('나머지 주소를 적어주세요');
+          const extraAddress = document.getElementById('extra-address');
+          extraAddress.focus();
         },
       });
       this.setState({ postCode });
@@ -167,6 +171,7 @@ ManageMyInfo.propTypes = {
   firstName: PropTypes.string.isRequired,
   lastName: PropTypes.string.isRequired,
   address: PropTypes.string.isRequired,
+  extraAddress: PropTypes.string.isRequired,
   phone: PropTypes.string.isRequired,
   email: PropTypes.string.isRequired,
   error: PropTypes.string.isRequired,
@@ -177,6 +182,7 @@ const mapStateToProps = state => ({
   firstName: state.user.firstName,
   lastName: state.user.lastName,
   address: state.user.address,
+  extraAddress: state.user.extraAddress,
   phone: state.user.phone,
   email: state.user.email,
   error: state.user.error,

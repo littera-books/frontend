@@ -112,6 +112,16 @@ const InfoFormField = ({ openPostCode, error }) => (
       component={BasicFormField}
       validate={Validation.required}
     />
+    <Field
+      id="extra-address"
+      type="text"
+      name="extraAddress"
+      placeholder="Extra Address (Where your books arrive)"
+      border="1px solid black"
+      width="20rem"
+      component={BasicFormField}
+      validate={Validation.required}
+    />
     <div>
       <Element.BasicSmall>{error}</Element.BasicSmall>
     </div>

@@ -4,6 +4,7 @@ import React from 'react';
 import Element from '../styled_base/Element';
 
 const BasicFormField = ({
+  id,
   input,
   type,
   placeholder,
@@ -15,6 +16,7 @@ const BasicFormField = ({
 }) => (
   <div>
     <Element.BasicInput
+      id={id && id}
       type={type}
       placeholder={placeholder}
       {...input}
