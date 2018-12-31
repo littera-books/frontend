@@ -16,6 +16,14 @@ const FAQTitle = styled(Element.BasicTitle)`
   padding: 24px 0 15px 0;
 `;
 
+const EmailTitle = styled(Element.BasicTitle)`
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 15px 0 24px 0;
+`;
+
 const AccordionWrapper = styled(Wrapper.BasicBlockWrapper)`
   width: 44.25rem;
 `;
@@ -46,6 +54,7 @@ const HiddenAnswer = styled(Wrapper.BasicBlockWrapper)`
 export default {
   FAQWrapper,
   FAQTitle,
+  EmailTitle,
   AccordionWrapper,
   AccordionItem,
   QuestionGroup,

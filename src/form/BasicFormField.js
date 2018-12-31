@@ -30,4 +30,28 @@ const BasicFormField = ({
   </div>
 );
 
+export const TextareaFormField = ({
+  id,
+  input,
+  type,
+  placeholder,
+  meta: { touched, error },
+  border,
+  width,
+}) => (
+  <div>
+    <Element.BasicTextarea
+      id={id && id}
+      type={type}
+      placeholder={placeholder}
+      {...input}
+      style={{
+        borderBottom: border,
+        width,
+      }}
+    />
+    {touched && (error && <Element.BasicSmall>{error}</Element.BasicSmall>)}
+  </div>
+);
+
 export default BasicFormField;

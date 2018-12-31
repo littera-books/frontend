@@ -53,6 +53,29 @@ const BasicInput = styled.input`
   }
 `;
 
+const BasicTextarea = styled.textarea`
+  font-family: 'Palatino', 'Nanum Myeongjo';
+  font-size: 0.75rem;
+  line-height: 2;
+  border: none;
+  border-bottom: ${props => (props.border ? props.border : 'none')};
+  width: ${props => (props.width ? props.width : '10rem')};
+  height: 10rem;
+  margin: 1rem 0;
+
+  :focus {
+    outline: none;
+    ::placeholder {
+      color: transparent;
+    }
+  }
+
+  ::placeholder {
+    font-family: 'Palatino', 'Nanum Myeongjo';
+    color: rgba(0, 0, 0, 0.3);
+  }
+`;
+
 const BasicTitle = styled.h1`
   font-family: ${props => (props.fontFamily ? props.fontFamily : 'inherit')};
   font-size: ${props => (props.size ? props.size : '1rem')};
@@ -73,6 +96,7 @@ export default {
   BasicSmall,
   BasicButton,
   BasicInput,
+  BasicTextarea,
   BasicTitle,
   SubmitButton,
 };

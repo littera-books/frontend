@@ -13,6 +13,7 @@ import resignSurvey from './reducer.resignSurvey';
 import letter from './reducer.letter';
 import image from './reducer.image';
 import book from './reducer.book';
+import email from './reducer.email';
 
 const rootReducer = combineReducers({
   form: formReducer,
@@ -27,6 +28,7 @@ const rootReducer = combineReducers({
   letter,
   image,
   book,
+  email,
 });
 
 export default rootReducer;

@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import { Field } from 'redux-form';
 
 // Components
-import BasicFormField from './BasicFormField';
+import BasicFormField, { TextareaFormField } from './BasicFormField';
 import Validation from './Validation';
 
 // Styled
@@ -189,6 +189,43 @@ const PaymentFormField = ({ openPostCode, error, children }) => (
   </Fragment>
 );
 
+const SendEmailFormField = ({ error }) => (
+  <Fragment>
+    <NameWrapper>
+      <Field
+        type="email"
+        name="email"
+        placeholder="E-mail address"
+        border="1px solid black"
+        width="9.5rem"
+        component={BasicFormField}
+        validate={[Validation.required, Validation.email]}
+      />
+      <Field
+        type="text"
+        name="name"
+        placeholder="name"
+        border="1px solid black"
+        width="9.5rem"
+        component={BasicFormField}
+        validate={[Validation.required, Validation.maxLength20]}
+      />
+    </NameWrapper>
+    <Field
+      type="text"
+      name="content"
+      placeholder="Write your message..."
+      border="1px solid black"
+      width="20rem"
+      component={TextareaFormField}
+      validate={Validation.required}
+    />
+    <div>
+      <Element.BasicSmall>{error}</Element.BasicSmall>
+    </div>
+  </Fragment>
+);
+
 InfoFormField.propTypes = {
   openPostCode: PropTypes.func.isRequired,
   error: PropTypes.string.isRequired,
@@ -205,9 +242,14 @@ PaymentFormField.propTypes = {
   children: PropTypes.element,
 };
 
+SendEmailFormField.propTypes = {
+  error: PropTypes.string.isRequired,
+};
+
 export default {
   EmailField,
   PasswordField,
   InfoFormField,
   PaymentFormField,
+  SendEmailFormField,
 };

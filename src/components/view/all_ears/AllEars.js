@@ -1,5 +1,6 @@
 import _ from 'lodash';
 import React from 'react';
+import { Link } from 'react-router-dom';
 import dataConfig from '../../../dataConfig';
 
 // Components
@@ -31,6 +32,9 @@ class AllEars extends React.Component {
         <Styled.AccordionWrapper id="accordian">
           <RenderAccordions />
         </Styled.AccordionWrapper>
+        <Link to="/all-ears/send-email">
+          <Styled.EmailTitle>Further Questions?</Styled.EmailTitle>
+        </Link>
       </Styled.FAQWrapper>
     );
   }

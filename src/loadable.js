@@ -128,6 +128,11 @@ const AllEars = Loadable({
   loading: Loading,
 });
 
+const SendEmail = Loadable({
+  loader: () => import('./components/view/all_ears/SendEmail'),
+  loading: Loading,
+});
+
 export default {
   Alert,
   Header,
@@ -153,4 +158,5 @@ export default {
   ProductDetail,
   Payment,
   AllEars,
+  SendEmail,
 };

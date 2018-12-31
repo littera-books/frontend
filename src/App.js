@@ -90,6 +90,10 @@ export class App extends React.PureComponent {
                     component={Loadable.ProductDetail}
                   />
                   <Route path="/bon-voyage" component={Loadable.BonVoyage} />
+                  <Route
+                    path="/all-ears/send-email"
+                    component={Loadable.SendEmail}
+                  />
                   <Route path="/all-ears" component={Loadable.AllEars} />
                   <Route path="/about" component={Loadable.About} />
                   <Route
