@@ -10,7 +10,7 @@ const FAQWrapper = styled(Wrapper.BasicFlexWrapper)`
 
 const FAQTitle = styled(Element.BasicTitle)`
   position: absolute;
-  top: 0;
+  top: 1rem;
   left: 50%;
   transform: translateX(-50%);
   padding: 24px 0 15px 0;
