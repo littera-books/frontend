@@ -3,12 +3,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Field, reduxForm } from 'redux-form';
 import { connect } from 'react-redux';
+import { readToken, retrieveInfo } from '../../../reducers/reducer.user';
 import { listQuestion, postResult } from '../../../reducers/reducer.question';
 import {
   setScroll,
   ScrollFilters,
 } from '../../../reducers/reducer.controlScroll';
 import { setClose, CloseFilters } from '../../../reducers/reducer.controlClose';
+import dataConfig from '../../../dataConfig';
 
 // Components
 import Helmet from '../../helmet/Helmet';
@@ -20,11 +22,21 @@ import Element from '../../../styled_base/Element';
 import Styled from './Survey.styled';
 
 class Survey extends React.Component {
-  componentDidMount() {
-    const { getListQuestion, scroll, close } = this.props;
-    getListQuestion();
-    scroll(ScrollFilters.ENABLE_SCROLL);
-    close(CloseFilters.HIDE_CLOSE);
+  async componentDidMount() {
+    const { read, retrieve } = this.props;
+    await read();
+    const { userId } = this.props;
+    await retrieve(userId);
+
+    const {
+      getListQuestion, scroll, close, hasSurvey,
+    } = this.props;
+
+    if (!hasSurvey) {
+      await getListQuestion();
+      scroll(ScrollFilters.ENABLE_SCROLL);
+      close(CloseFilters.HIDE_CLOSE);
+    }
   }
 
   componentWillUnmount() {
@@ -70,7 +82,17 @@ class Survey extends React.Component {
   }
 
   render() {
-    const { handleSubmit } = this.props;
+    const { handleSubmit, hasSurvey } = this.props;
+
+    if (hasSurvey) {
+      return (
+        <Wrapper.FlexWrapper>
+          <Helmet pageTitle="Survey" />
+          <h1>{dataConfig.surveyDeniedText}</h1>
+        </Wrapper.FlexWrapper>
+      );
+    }
+
     return (
       <Wrapper.FlexWrapper>
         <Helmet pageTitle="Survey" />
@@ -101,15 +123,19 @@ Survey.propTypes = {
   questionItems: PropTypes.arrayOf(PropTypes.object).isRequired,
   scroll: PropTypes.func.isRequired,
   close: PropTypes.func.isRequired,
+  hasSurvey: PropTypes.bool.isRequired,
 };
 
 const mapStateToProps = state => ({
   userId: state.user.userId,
+  hasSurvey: state.user.hasSurvey,
   questionItems: state.question.items,
   isAccepted: state.question.isAccepted,
 });
 
 const mapDispatchToProps = dispatch => ({
+  read: () => dispatch(readToken()),
+  retrieve: userId => dispatch(retrieveInfo(userId)),
   getListQuestion: () => dispatch(listQuestion()),
   post: (userId, payload) => dispatch(postResult(userId, payload)),
   scroll: filter => dispatch(setScroll(filter)),

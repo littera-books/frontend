@@ -173,6 +173,7 @@ const initialState = {
   extraAddress: '',
   phone: '',
   email: '',
+  hasSurvey: false,
   exp: '',
   error: '',
 };
@@ -208,6 +209,7 @@ const reducerRetrieveInfo = (state, action) => {
     extraAddress: action.response.data.extra_address,
     phone: action.response.data.phone,
     email: action.response.data.email,
+    hasSurvey: action.response.data.has_survey,
     error: '',
   });
 };
