@@ -6,14 +6,19 @@ const ProductWrapper = styled(Wrapper.BetweenWrapper)`
   width: 100%;
 `;
 
+const ProductDetailWrapper = styled(Wrapper.BasicFlexWrapper)`
+  height: 21rem;
+  align-items: flex-end;
+`;
+
 const PaymentWrapper = styled(Wrapper.ColumnWrapper)`
   align-items: center;
 `;
 
 const ProductItem = styled(Wrapper.ColumnWrapper)`
-  justify-content: baseline;
   align-items: center;
   text-align: center;
+  margin-left: ${props => (props.card ? 0 : '1rem')};
   ${props => props.card && 'width: 9.5rem;'}
 
   @media (max-width: 414px) {
@@ -65,6 +70,7 @@ const OptionSpan = styled.span`
 
 export default {
   ProductWrapper,
+  ProductDetailWrapper,
   PaymentWrapper,
   ProductItem,
   RawPriceSpan,

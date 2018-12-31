@@ -37,30 +37,34 @@ class ProductDetail extends React.Component {
     return (
       <Wrapper.FlexWrapper>
         <Helmet pageTitle={determineProductName(item)} />
-        <Styled.ProductItem>
+        <Styled.ProductDetailWrapper>
           <Element.ResponsiveImg
-            width="140px"
+            width="178px"
             src={dataConfig.baseUrl + item.url}
             alt="thumbnail"
           />
-          <Element.BasicTitle align="center">
-            {determineProductName(item)}
-          </Element.BasicTitle>
-          <div>
-            {item.discount_amount !== 0 && (
-              <Styled.RawPriceSpan>
-                {`₩ ${rawPrice.slice(0, -3)},${rawPrice.slice(-3)}`}&nbsp;
-              </Styled.RawPriceSpan>
-            )}
-            <span>
-              {`₩ ${discountedPrice.slice(0, -3)},${discountedPrice.slice(-3)}`}
-            </span>
-          </div>
-          <p>{item.description}</p>
-          <Link to={`/payment/${item.id}`} style={{ width: '100%' }}>
-            <Element.SubmitButton>Purchase</Element.SubmitButton>
-          </Link>
-        </Styled.ProductItem>
+          <Styled.ProductItem>
+            <Element.BasicTitle align="center">
+              {determineProductName(item)}
+            </Element.BasicTitle>
+            <div>
+              {item.discount_amount !== 0 && (
+                <Styled.RawPriceSpan>
+                  {`₩ ${rawPrice.slice(0, -3)},${rawPrice.slice(-3)}`}&nbsp;
+                </Styled.RawPriceSpan>
+              )}
+              <span>
+                {`₩ ${discountedPrice.slice(0, -3)},${discountedPrice.slice(
+                  -3,
+                )}`}
+              </span>
+            </div>
+            <p>{item.description}</p>
+            <Link to={`/payment/${item.id}`} style={{ width: '100%' }}>
+              <Element.SubmitButton>Purchase</Element.SubmitButton>
+            </Link>
+          </Styled.ProductItem>
+        </Styled.ProductDetailWrapper>
       </Wrapper.FlexWrapper>
     );
   }
