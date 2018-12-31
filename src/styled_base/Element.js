@@ -24,6 +24,7 @@ const BasicButton = styled.button`
   border: none;
   padding: 0;
   background-color: white;
+  margin: ${props => (props.margin ? props.margin : 0)};
 
   :focus {
     outline: none;
@@ -60,7 +61,6 @@ const BasicTitle = styled.h1`
 `;
 
 const SubmitButton = styled(BasicButton)`
-  margin: ${props => (props.margin ? props.margin : 0)};
   width: ${props => (props.width ? props.width : '100%')};
   height: 3rem;
   background-color: ${COLOR.primary};

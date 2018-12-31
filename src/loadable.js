@@ -103,6 +103,11 @@ const ResignSurvey = Loadable({
   loading: Loading,
 });
 
+const Order = Loadable({
+  loader: () => import('./components/view/order/Order'),
+  loading: Loading,
+});
+
 const BonVoyage = Loadable({
   loader: () => import('./components/view/bon_voyage/BonVoyage'),
   loading: Loading,
@@ -143,6 +148,7 @@ export default {
   PatchPassword,
   Resign,
   ResignSurvey,
+  Order,
   BonVoyage,
   ProductDetail,
   Payment,

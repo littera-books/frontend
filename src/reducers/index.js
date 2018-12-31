@@ -12,6 +12,7 @@ import product from './reducer.product';
 import resignSurvey from './reducer.resignSurvey';
 import letter from './reducer.letter';
 import image from './reducer.image';
+import book from './reducer.book';
 
 const rootReducer = combineReducers({
   form: formReducer,
@@ -25,6 +26,7 @@ const rootReducer = combineReducers({
   resignSurvey,
   letter,
   image,
+  book,
 });
 
 export default rootReducer;

@@ -45,6 +45,10 @@ export class App extends React.PureComponent {
                 <Loadable.CloseButton visibility={isClose} />
                 <Loadable.Header visibility={isVisible} />
                 <Switch>
+                  <PrivateRoute
+                    path="/my-info/order"
+                    component={Loadable.Order}
+                  />
                   <Route path="/good-bye" component={Loadable.Alert} />
                   <PrivateRoute
                     path="/my-info/resign/survey"
