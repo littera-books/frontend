@@ -33,9 +33,9 @@ class Survey extends React.Component {
     } = this.props;
 
     if (!hasSurvey) {
+      await close(CloseFilters.HIDE_CLOSE);
+      await scroll(ScrollFilters.ENABLE_SCROLL);
       await getListQuestion();
-      scroll(ScrollFilters.ENABLE_SCROLL);
-      close(CloseFilters.HIDE_CLOSE);
     }
   }
 
