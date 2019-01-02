@@ -46,7 +46,7 @@ export class SignIn extends React.Component {
           </Element.BasicTitle>
           <p style={{ textAlign: 'center' }}>
             <span>Not a member yet?&nbsp;&nbsp;</span>
-            <Link to="/add-info" style={{ color: 'blue' }}>
+            <Link to="/join/add-info" style={{ color: 'blue' }}>
               Sign up
             </Link>
           </p>
@@ -73,7 +73,7 @@ export class SignIn extends React.Component {
               <Element.BasicSmall>{error}</Element.BasicSmall>
             </div>
             <Link
-              to="/forgot-password"
+              to="/auth/forgot-password"
               style={{
                 display: 'block',
                 textAlign: 'right',

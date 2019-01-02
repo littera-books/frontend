@@ -4,9 +4,11 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
 // Styled
+import Element from '../../../styled_base/Element';
 import Styled from './CloseButton.styled';
 
 import Close from '../../../assets/images/cross-out.svg';
+import Back from '../../../assets/images/down-arrow.svg';
 
 class CloseButton extends React.Component {
   state = {
@@ -38,14 +40,30 @@ class CloseButton extends React.Component {
   render() {
     const { visibility } = this.props;
     const { pathname } = this.state;
-    const isDeepDepth = _.startsWith(pathname, '/my-info');
+    const isDeepDepth = _.split(pathname, '/').length > 2;
+    console.log(isDeepDepth);
     return (
       <Styled.CloseButtonWrapper
         style={{ visibility: visibility ? 'visible ' : 'hidden' }}
       >
-        <Link to={isDeepDepth ? '/log' : '/main'}>
-          <img src={Close} alt="close-button" width="16px" height="16px" />
-        </Link>
+        {isDeepDepth ? (
+          <Element.BasicButton
+            type="button"
+            onClick={() => window.history.back()}
+          >
+            <img
+              src={Back}
+              alt="back-button"
+              width="16px"
+              height="16px"
+              style={{ transform: 'rotate(90deg)' }}
+            />
+          </Element.BasicButton>
+        ) : (
+          <Link to="/main">
+            <img src={Close} alt="close-button" width="16px" height="16px" />
+          </Link>
+        )}
       </Styled.CloseButtonWrapper>
     );
   }

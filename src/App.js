@@ -45,10 +45,6 @@ export class App extends React.PureComponent {
                 <Loadable.CloseButton visibility={isClose} />
                 <Loadable.Header visibility={isVisible} />
                 <Switch>
-                  <PrivateRoute
-                    path="/my-info/order"
-                    component={Loadable.Order}
-                  />
                   <Route path="/good-bye" component={Loadable.Alert} />
                   <PrivateRoute
                     path="/my-info/resign/survey"
@@ -67,20 +63,27 @@ export class App extends React.PureComponent {
                     component={Loadable.Survey}
                   />
                   <PrivateRoute
+                    path="/my-info/order"
+                    component={Loadable.Order}
+                  />
+                  <PrivateRoute
                     path="/my-info/manage"
                     component={Loadable.ManageMyInfo}
                   />
-                  <PrivateRoute path="/my-info" component={Loadable.MyInfo} />
+                  <PrivateRoute
+                    path="/my-info/view"
+                    component={Loadable.MyInfo}
+                  />
                   <PrivateRoute path="/log" component={Loadable.Log} />
                   <Route path="/complete" component={Loadable.Alert} />
-                  <Route path="/add-info" component={Loadable.AddInfo} />
+                  <Route path="/join/add-info" component={Loadable.AddInfo} />
                   <Route
-                    path="/forgot-password"
+                    path="/auth/forgot-password"
                     component={Loadable.ForgotPassword}
                   />
                   <Route path="/sign-out" component={Loadable.Alert} />
-                  <Route path="/welcome" component={Loadable.Alert} />
                   <Route path="/sign-in" component={Loadable.SignIn} />
+                  <Route path="/welcome" component={Loadable.Alert} />
                   <PrivateRoute
                     path="/payment/:productId"
                     component={Loadable.Payment}

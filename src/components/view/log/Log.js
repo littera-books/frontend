@@ -53,7 +53,7 @@ class Log extends React.Component {
             <img src={ArrowDown} width="16px" height="16px" alt="arrow-down" />
           </Styled.DropdownTitle>
           <Styled.DropdownContent id="dropdown-content">
-            <Link to="/my-info">
+            <Link to="/my-info/view">
               <Styled.DropdownItem>My Account</Styled.DropdownItem>
             </Link>
             <Link to="/my-info/order">
