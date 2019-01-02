@@ -29,7 +29,7 @@ class AllEars extends React.Component {
       <Styled.FAQWrapper>
         <Helmet pageTitle="I'm all ears" />
         <Styled.FAQTitle>Frequently Asked Questions</Styled.FAQTitle>
-        <Styled.AccordionWrapper id="accordian">
+        <Styled.AccordionWrapper id="accordion">
           <RenderAccordions />
         </Styled.AccordionWrapper>
         <Link to="/all-ears/send-email">

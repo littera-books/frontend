@@ -9,14 +9,16 @@ import Styled from './AllEars.styled';
 import ArrowDown from '../../../assets/images/down-arrow.svg';
 
 const handleClick = (e, identification) => {
+  const answers = document.getElementById('accordion').childNodes;
   const target = document.getElementById(identification);
-  target.classList.toggle('active');
-  const accordian = document.getElementById('accordian');
-  _.forEach(accordian.childNodes, (item) => {
-    if (item.lastChild !== target) {
-      item.lastChild.classList.remove('active');
+
+  _.forEach(answers, (item) => {
+    if (item !== target) {
+      item.classList.remove('active');
     }
   });
+
+  target.classList.toggle('active');
 };
 
 class Accordion extends React.Component {
@@ -38,7 +40,7 @@ class Accordion extends React.Component {
   render() {
     const { identification, question } = this.props;
     return (
-      <Styled.AccordionItem>
+      <Styled.AccordionItem id={identification}>
         <Styled.QuestionGroup
           align="center"
           onClick={e => handleClick(e, identification)}
@@ -48,9 +50,7 @@ class Accordion extends React.Component {
           </Element.BasicButton>
           <img src={ArrowDown} width="16px" height="16px" alt="arrow-down" />
         </Styled.QuestionGroup>
-        <Styled.HiddenAnswer id={identification}>
-          {this.renderAnswer()}
-        </Styled.HiddenAnswer>
+        <Styled.HiddenAnswer>{this.renderAnswer()}</Styled.HiddenAnswer>
       </Styled.AccordionItem>
     );
   }
