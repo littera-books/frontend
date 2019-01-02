@@ -41,7 +41,6 @@ class CloseButton extends React.Component {
     const { visibility } = this.props;
     const { pathname } = this.state;
     const isDeepDepth = _.split(pathname, '/').length > 2;
-    console.log(isDeepDepth);
     return (
       <Styled.CloseButtonWrapper
         style={{ visibility: visibility ? 'visible ' : 'hidden' }}
