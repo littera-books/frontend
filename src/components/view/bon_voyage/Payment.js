@@ -12,7 +12,6 @@ import {
   setScroll,
   ScrollFilters,
 } from '../../../reducers/reducer.controlScroll';
-import { setClose, CloseFilters } from '../../../reducers/reducer.controlClose';
 import dataConfig from '../../../dataConfig';
 import { determineProductName } from './Product';
 
@@ -20,7 +19,6 @@ import { determineProductName } from './Product';
 import FormField from '../../../form/FormField';
 import Helmet from '../../helmet/Helmet';
 import PaymentMyInfo from './PaymentMyInfo';
-import ScrollCloseButton from '../../structure/scroll_close_button/ScrollCloseButton';
 
 // Styled
 import Wrapper from '../../../styled_base/Wrapper';
@@ -49,9 +47,8 @@ class Payment extends React.Component {
     const { match, detail } = this.props;
     await detail(match.params.productId);
 
-    const { scroll, close } = this.props;
+    const { scroll } = this.props;
     await scroll(ScrollFilters.ENABLE_SCROLL);
-    await close(CloseFilters.HIDE_CLOSE);
 
     const script = document.createElement('script');
     script.id = 'daum';
@@ -61,9 +58,8 @@ class Payment extends React.Component {
   }
 
   componentWillUnmount() {
-    const { scroll, close } = this.props;
+    const { scroll } = this.props;
     scroll(ScrollFilters.UNABLE_SCROLL);
-    close(CloseFilters.SHOW_CLOSE);
   }
 
   async onSubmit(payload) {
@@ -140,9 +136,8 @@ class Payment extends React.Component {
       <Wrapper.FlexWrapper>
         <Helmet pageTitle="Payment" />
         <Wrapper.ScrollWrapper>
-          <ScrollCloseButton />
           <Styled.PaymentWrapper>
-            <div>
+            <div style={{ marginTop: '2rem' }}>
               <Element.BasicTitle>1. Member Information</Element.BasicTitle>
               <PaymentMyInfo />
               <Element.BasicTitle marginTop="2.5rem">
@@ -238,7 +233,6 @@ Payment.propTypes = {
   phone: PropTypes.string.isRequired,
   error: PropTypes.string.isRequired,
   scroll: PropTypes.func.isRequired,
-  close: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = state => ({
@@ -260,7 +254,6 @@ const mapDispatchToProps = dispatch => ({
   detail: productId => dispatch(detailProduct(productId)),
   send: payload => dispatch(sendSubscriptionNormal(payload)),
   scroll: filter => dispatch(setScroll(filter)),
-  close: filter => dispatch(setClose(filter)),
 });
 
 export default reduxForm({
