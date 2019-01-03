@@ -42,7 +42,7 @@ export class SignIn extends React.Component {
             size="3rem"
             fontFamily="'Gothic A1', sans-serif"
           >
-            Log in
+            Login
           </Element.BasicTitle>
           <p style={{ textAlign: 'center' }}>
             <span>Not a member yet?&nbsp;&nbsp;</span>

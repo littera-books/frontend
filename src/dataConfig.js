@@ -22,7 +22,7 @@ export default {
   copyright: 'Copyright © 2019 by LITTERA. All rights Reserved.',
   alertMessage: {
     intro: 'Scripta Manent Verba Volant',
-    payment: 'Welcome Aboard!',
+    payment: ['Welcome aboard', "we'll please to bring the book for you soon."],
     signOut: 'Farewell,',
     signUp: 'Please check your email to activate your login account.',
     resetPassword: 'Please check your email account.',
@@ -33,7 +33,11 @@ export default {
       id: 'meaning',
       question: '리테라는 무슨 뜻인가요?',
       answer:
-        "'리테라(LITTERA)'는 자음과 모음을 뜻하는 라틴어 낱말로서, 영어의 ‘알파벳(alphabet)’에 해당합니다. 하지만 알파벳이 단순히 그리스어의 첫 자모인 ‘알파(alpha)’와 ‘베타(beta)’의 합성어인 반면, 리테라는 기록된 것, 새겨진 것으로서의 문자라는 의미를 어원으로 갖습니다. 이러한 낱말의 의미는 문자나 문서를 뜻하는 'letter’, 문학이나 문헌을 의미하는 'literature’, 문자를 읽고 쓸 수 있는 능력인 문해력을 가리키는 'literacy’ 등의 현대어로 고스란히 이어져 있습니다.",
+        "'리테라(LITTERA)'는 자음과 모음을 뜻하는 라틴어 낱말로서, 영어의 '알파벳(alphabet)'에 해당합니다. "
+        + "하지만 알파벳이 단순히 그리스어의 첫 자모인 '알파(alpha)'와 '베타(beta)'의 합성어인 반면, "
+        + '리테라는 기록된 것, 새겨진 것으로서의 문자라는 의미를 어원으로 갖습니다. '
+        + "이러한 낱말의 의미는 문자나 문서를 뜻하는 'letter', 문학이나 문헌을 의미하는 'literature', "
+        + "문자를 읽고 쓰고 이해할 수 있는 능력인 문해력을 가리키는 'literacy' 등의 현대어로 고스란히 이어져 있습니다.",
     },
     what: {
       id: 'what',
@@ -48,8 +52,10 @@ export default {
     recommandation: {
       id: 'recomandation',
       question: '책 추천은 어떻게 이루어지나요?',
-      answer: `회원 가입 후 회원정보 메뉴에 있는 아홉 개의 간단한 문항에 답해주세요. 당신의 대답을 토대로 당신의 취향에 꼭 맞는 책을 찾는 것은 리테라의 몫입니다. 만약 읽고 싶은 주제나 알고 싶은 분야, 필요한 내용이나 관심사가 있다면 언제든 알려주세요. 당신의 필요에 알맞은 책을 리테라가 찾겠습니다.\n
-      물론 회원 가입이나 문항 응답 없이도 리테라의 서비스를 이용할 수 있습니다. 서로에 대해 아무것도 모른 채 책을 전달해야 한다면, 주고받는 모두에게 떨리는 시간이 기다리고 있겠지요.`,
+      answer:
+        '회원 가입 후 회원정보 메뉴에 있는 아홉 개의 간단한 문항에 답해주세요. '
+        + '리테라는 당신의 대답을 바탕으로 당신이 읽을 책을 찾습니다. 읽고 싶은 주제나 알고 싶은 분야, 필요한 내용이나 관심사가 있다면 언제든 알려주세요. '
+        + '당신이 읽어야 할 책을 리테라가 찾겠습니다.',
     },
     delivery: {
       id: 'delivery',
