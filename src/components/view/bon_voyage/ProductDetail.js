@@ -3,11 +3,6 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { detailProduct } from '../../../reducers/reducer.product';
-import {
-  setVisibilityFilter,
-  VisibilityFilters,
-} from '../../../reducers/reducer.controlTitle';
-import dataConfig from '../../../dataConfig';
 import { determineProductName } from './Product';
 
 // Components
@@ -20,14 +15,8 @@ import Styled from './BonVoyage.styled';
 
 class ProductDetail extends React.Component {
   async componentDidMount() {
-    const { match, detail, filter } = this.props;
-    await filter(VisibilityFilters.SHOW_TITLE);
+    const { match, detail } = this.props;
     await detail(match.params.productId);
-  }
-
-  componentWillUnmount() {
-    const { filter } = this.props;
-    filter(VisibilityFilters.HIDE_TITLE);
   }
 
   render() {
@@ -38,32 +27,28 @@ class ProductDetail extends React.Component {
       <Wrapper.FlexWrapper>
         <Helmet pageTitle={determineProductName(item)} />
         <Styled.ProductDetailWrapper>
-          <Element.ResponsiveImg
-            width="178px"
-            src={dataConfig.baseUrl + item.url}
-            alt="thumbnail"
-          />
-          <Styled.ProductItem>
-            <Element.BasicTitle align="center">
-              {determineProductName(item)}
-            </Element.BasicTitle>
-            <div>
-              {item.discount_amount !== 0 && (
-                <Styled.RawPriceSpan>
-                  {`₩ ${rawPrice.slice(0, -3)},${rawPrice.slice(-3)}`}&nbsp;
-                </Styled.RawPriceSpan>
-              )}
-              <span>
-                {`₩ ${discountedPrice.slice(0, -3)},${discountedPrice.slice(
-                  -3,
-                )}`}
-              </span>
-            </div>
-            <p>{item.description}</p>
-            <Link to={`/payment/${item.id}`} style={{ width: '100%' }}>
-              <Element.SubmitButton>Purchase</Element.SubmitButton>
-            </Link>
-          </Styled.ProductItem>
+          <Element.BasicTitle align="center">
+            {determineProductName(item)}
+          </Element.BasicTitle>
+          <div>
+            {item.discount_amount !== 0 && (
+              <Styled.RawPriceSpan>
+                {`₩ ${rawPrice.slice(0, -3)},${rawPrice.slice(-3)}`}&nbsp;
+              </Styled.RawPriceSpan>
+            )}
+            <span>
+              {`₩ ${discountedPrice.slice(0, -3)},${discountedPrice.slice(-3)}`}
+            </span>
+          </div>
+          <div style={{ margin: '1.5rem 0' }}>
+            <p>- A book with recommendation letter</p>
+            <p>- Personally customized for you</p>
+            <p>- {item.description}</p>
+            <p>- Free shipping</p>
+          </div>
+          <Link to={`/payment/${item.id}`} style={{ width: '100%' }}>
+            <Element.SubmitButton>Purchase</Element.SubmitButton>
+          </Link>
         </Styled.ProductDetailWrapper>
       </Wrapper.FlexWrapper>
     );
@@ -78,7 +63,6 @@ ProductDetail.propTypes = {
     description: PropTypes.string.isRequired,
   }).isRequired,
   detail: PropTypes.func.isRequired,
-  filter: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = state => ({
@@ -87,7 +71,6 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   detail: productId => dispatch(detailProduct(productId)),
-  filter: filter => dispatch(setVisibilityFilter(filter)),
 });
 
 export default connect(

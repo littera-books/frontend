@@ -6,9 +6,10 @@ const ProductWrapper = styled(Wrapper.BetweenWrapper)`
   width: 100%;
 `;
 
-const ProductDetailWrapper = styled(Wrapper.BasicFlexWrapper)`
-  height: 21rem;
-  align-items: flex-end;
+const ProductDetailWrapper = styled(Wrapper.ColumnWrapper)`
+  align-items: flex-start;
+  border: 1px solid ${Element.COLOR.primary};
+  padding: 1.25rem 0.75rem;
 `;
 
 const PaymentWrapper = styled(Wrapper.ColumnWrapper)`
