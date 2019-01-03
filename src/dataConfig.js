@@ -24,7 +24,7 @@ export default {
     intro: 'Scripta Manent Verba Volant',
     payment: 'Welcome Aboard!',
     signOut: 'Farewell,',
-    signUp: 'Please Check Your E-mail to Activate Your Login Account.',
+    signUp: 'Please check your email to activate your login account.',
     resetPassword: 'Please check your email account.',
     resign: 'So Long, and Thanks for All the Fish!',
   },
