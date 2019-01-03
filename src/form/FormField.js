@@ -214,7 +214,7 @@ const SendEmailFormField = ({ error }) => (
     <Field
       type="text"
       name="content"
-      placeholder="Write your message..."
+      placeholder="You're gonna say..."
       border="1px solid black"
       width="20rem"
       component={TextareaFormField}
