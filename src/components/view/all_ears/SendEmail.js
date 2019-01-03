@@ -33,7 +33,9 @@ class SendEmail extends React.Component {
     return (
       <Wrapper.BasicBlockWrapper>
         <Helmet pageTitle="Send Email" />
-        <Element.BasicTitle>{dataConfig.sendEmailText}</Element.BasicTitle>
+        <Element.BasicTitle size="0.75rem">
+          {dataConfig.sendEmailText}
+        </Element.BasicTitle>
         <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
           <FormField.SendEmailFormField error={error} />
           <Element.SubmitButton type="submit">Submit</Element.SubmitButton>
