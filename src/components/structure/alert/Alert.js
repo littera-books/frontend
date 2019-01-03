@@ -39,11 +39,13 @@ export class Alert extends React.Component {
       case '/':
         return dataConfig.alertMessage.intro;
       case '/welcome':
-        return dataConfig.alertMessage.signIn;
+        return dataConfig.alertMessage.payment;
       case '/sign-out':
         return `${dataConfig.alertMessage.signOut} ${splitEmail[0]}`;
       case '/complete':
         return dataConfig.alertMessage.signUp;
+      case '/reset-password':
+        return dataConfig.alertMessage.resetPassword;
       case '/good-bye':
         return dataConfig.alertMessage.resign;
       default:

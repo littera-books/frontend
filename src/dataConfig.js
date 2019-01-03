@@ -21,9 +21,10 @@ export default {
   copyright: 'Copyright © 2018 by LITTERA. All rights Reserved.',
   alertMessage: {
     intro: 'Scripta Manent Verba Volant',
-    signIn: 'Welcome Aboard!',
+    payment: 'Welcome Aboard!',
     signOut: 'Farewell,',
     signUp: 'Please Check Your E-mail to Activate Your Login Account.',
+    resetPassword: 'Please check your email account.',
     resign: 'So Long, and Thanks for All the Fish!',
   },
   qnaMessage: {
