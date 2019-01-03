@@ -23,7 +23,7 @@ const EmailField = ({ error }) => (
     <Field
       type="email"
       name="email"
-      placeholder="E-mail address (your identification)"
+      placeholder="Email"
       border="1px solid black"
       width="20rem"
       component={BasicFormField}
@@ -63,7 +63,7 @@ const InfoFormField = ({ openPostCode, error }) => (
     <Field
       type="email"
       name="email"
-      placeholder="E-mail address (your identification)"
+      placeholder="Email"
       border="1px solid black"
       width="20rem"
       component={BasicFormField}
@@ -74,7 +74,7 @@ const InfoFormField = ({ openPostCode, error }) => (
       <Field
         type="text"
         name="firstName"
-        placeholder="first name"
+        placeholder="First name"
         border="1px solid black"
         width="9.5rem"
         component={BasicFormField}
@@ -83,7 +83,7 @@ const InfoFormField = ({ openPostCode, error }) => (
       <Field
         type="text"
         name="lastName"
-        placeholder="last name"
+        placeholder="Last name"
         border="1px solid black"
         width="9.5rem"
         component={BasicFormField}
@@ -134,7 +134,7 @@ const PaymentFormField = ({ openPostCode, error, children }) => (
       <Field
         type="text"
         name="firstName"
-        placeholder="first name"
+        placeholder="First name"
         border="1px solid black"
         width="9.5rem"
         component={BasicFormField}
@@ -143,7 +143,7 @@ const PaymentFormField = ({ openPostCode, error, children }) => (
       <Field
         type="text"
         name="lastName"
-        placeholder="last name"
+        placeholder="Last name"
         border="1px solid black"
         width="9.5rem"
         component={BasicFormField}
@@ -195,7 +195,7 @@ const SendEmailFormField = ({ error }) => (
       <Field
         type="email"
         name="email"
-        placeholder="E-mail address"
+        placeholder="Email"
         border="1px solid black"
         width="9.5rem"
         component={BasicFormField}
@@ -204,7 +204,7 @@ const SendEmailFormField = ({ error }) => (
       <Field
         type="text"
         name="name"
-        placeholder="name"
+        placeholder="Name"
         border="1px solid black"
         width="9.5rem"
         component={BasicFormField}
