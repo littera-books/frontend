@@ -18,7 +18,7 @@ export default {
   resignSurveyText: 'Please tell us why are you leaving.',
   surveyDeniedText: 'You have already completed the survey.',
   sendEmailText: '"Here I am all ears, please speak."',
-  copyright: 'Copyright © 2018 by LITTERA. All rights Reserved.',
+  copyright: 'Copyright © 2019 by LITTERA. All rights Reserved.',
   alertMessage: {
     intro: 'Scripta Manent Verba Volant',
     payment: 'Welcome Aboard!',
