@@ -25,7 +25,7 @@ class ProductDetail extends React.Component {
     const discountedPrice = (item.price - item.discount_amount).toString();
     return (
       <Wrapper.FlexWrapper>
-        <Helmet pageTitle={determineProductName(item)} />
+        <Helmet pageTitle="Services" />
         <Styled.ProductDetailWrapper>
           <Element.BasicTitle align="center">
             {determineProductName(item)}

@@ -7,7 +7,7 @@ import dataConfig from '../../dataConfig';
 
 const HelmetComponent = ({ pageTitle }) => (
   <Helmet>
-    <title>{`${pageTitle} | ${dataConfig.siteTitle}`}</title>
+    <title>{`${dataConfig.siteTitle} | ${pageTitle}`}</title>
   </Helmet>
 );
 
