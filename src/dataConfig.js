@@ -17,6 +17,7 @@ export default {
     + '미래에서 만나자 친구여, 우리가 앞날에 두고 온 그 날에.”',
   resignSurveyText: 'Please tell us why are you leaving.',
   surveyDeniedText: 'You have already completed the survey.',
+  emptyOrderText: 'You have no order yet.',
   sendEmailText: '"Here I am all ears, please speak."',
   copyright: 'Copyright © 2019 by LITTERA. All rights Reserved.',
   alertMessage: {

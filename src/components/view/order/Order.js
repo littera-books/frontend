@@ -5,6 +5,7 @@ import moment from 'moment';
 import { connect } from 'react-redux';
 import { readToken } from '../../../reducers/reducer.user';
 import { listBook } from '../../../reducers/reducer.book';
+import dataConfig from '../../../dataConfig';
 
 // Component
 import Helmet from '../../helmet/Helmet';
@@ -73,6 +74,16 @@ class Order extends React.Component {
 
   render() {
     const { items } = this.props;
+
+    if (items.length === 0) {
+      return (
+        <Wrapper.BasicBlockWrapper>
+          <Helmet pageTitle="My Order" />
+          <p>{dataConfig.emptyOrderText}</p>
+        </Wrapper.BasicBlockWrapper>
+      );
+    }
+
     return (
       <Wrapper.BasicBlockWrapper>
         <Helmet pageTitle="My Order" />
