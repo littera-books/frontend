@@ -18,7 +18,7 @@ class PatchPassword extends React.Component {
     const { initialize, history, userId } = this.props;
 
     if (!userId) {
-      history.replace('/my-info');
+      history.replace('/my-info/view');
     }
 
     initialize({
@@ -29,7 +29,7 @@ class PatchPassword extends React.Component {
   async onSubmit(payload) {
     const { patch, history } = this.props;
     await patch(payload);
-    history.replace('/my-info');
+    history.replace('/my-info/view');
   }
 
   render() {
