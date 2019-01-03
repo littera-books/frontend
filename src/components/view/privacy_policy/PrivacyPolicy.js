@@ -6,11 +6,9 @@ import {
   setScroll,
   ScrollFilters,
 } from '../../../reducers/reducer.controlScroll';
-import { setClose, CloseFilters } from '../../../reducers/reducer.controlClose';
 
 // Components
 import Helmet from '../../helmet/Helmet';
-import ScrollCloseButton from '../../structure/scroll_close_button/ScrollCloseButton';
 
 // Styled
 import Wrapper from '../../../styled_base/Wrapper';
@@ -32,9 +30,8 @@ class PrivacyPolicy extends React.Component {
         });
       });
 
-    const { scroll, close } = this.props;
+    const { scroll } = this.props;
     scroll(ScrollFilters.ENABLE_SCROLL);
-    close(CloseFilters.HIDE_CLOSE);
   }
 
   shouldComponentUpdate(nextState) {
@@ -43,9 +40,8 @@ class PrivacyPolicy extends React.Component {
   }
 
   componentWillUnmount() {
-    const { scroll, close } = this.props;
+    const { scroll } = this.props;
     scroll(ScrollFilters.UNABLE_SCROLL);
-    close(CloseFilters.SHOW_CLOSE);
   }
 
   render() {
@@ -55,7 +51,6 @@ class PrivacyPolicy extends React.Component {
       <Wrapper.FlexWrapper>
         <Helmet pageTitle="Privacy Policy" />
         <Wrapper.ScrollWrapper>
-          <ScrollCloseButton />
           <Styled.Title>
             개&nbsp;인&nbsp;정&nbsp;보&nbsp;처&nbsp;리&nbsp;방&nbsp;침
           </Styled.Title>
@@ -68,12 +63,10 @@ class PrivacyPolicy extends React.Component {
 
 PrivacyPolicy.propTypes = {
   scroll: PropTypes.func.isRequired,
-  close: PropTypes.func.isRequired,
 };
 
 const mapDispatchToProps = dispatch => ({
   scroll: filter => dispatch(setScroll(filter)),
-  close: filter => dispatch(setClose(filter)),
 });
 
 export default connect(

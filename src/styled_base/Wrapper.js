@@ -53,6 +53,7 @@ const MobileBlockWrapper = styled(BasicBlockWrapper)`
 `;
 
 const ScrollWrapper = styled(BasicBlockWrapper)`
+  padding-top: 30px;
   margin-bottom: 15rem;
 
   ol {

@@ -9,12 +9,10 @@ import {
   setScroll,
   ScrollFilters,
 } from '../../../reducers/reducer.controlScroll';
-import { setClose, CloseFilters } from '../../../reducers/reducer.controlClose';
 import dataConfig from '../../../dataConfig';
 
 // Components
 import Helmet from '../../helmet/Helmet';
-import ScrollCloseButton from '../../structure/scroll_close_button/ScrollCloseButton';
 
 // Styled
 import Wrapper from '../../../styled_base/Wrapper';
@@ -28,21 +26,17 @@ class Survey extends React.Component {
     const { userId } = this.props;
     await retrieve(userId);
 
-    const {
-      getListQuestion, scroll, close, hasSurvey,
-    } = this.props;
+    const { getListQuestion, scroll, hasSurvey } = this.props;
 
     if (!hasSurvey) {
-      await close(CloseFilters.HIDE_CLOSE);
       await scroll(ScrollFilters.ENABLE_SCROLL);
       await getListQuestion();
     }
   }
 
   componentWillUnmount() {
-    const { scroll, close } = this.props;
+    const { scroll } = this.props;
     scroll(ScrollFilters.UNABLE_SCROLL);
-    close(CloseFilters.SHOW_CLOSE);
   }
 
   async onSubmit(payload) {
@@ -97,7 +91,6 @@ class Survey extends React.Component {
       <Wrapper.FlexWrapper>
         <Helmet pageTitle="Survey" />
         <Wrapper.ScrollWrapper>
-          <ScrollCloseButton />
           <Styled.CenterWrapper>
             <Styled.MarginForm
               action="post"
@@ -122,7 +115,6 @@ Survey.propTypes = {
   post: PropTypes.func.isRequired,
   questionItems: PropTypes.arrayOf(PropTypes.object).isRequired,
   scroll: PropTypes.func.isRequired,
-  close: PropTypes.func.isRequired,
   hasSurvey: PropTypes.bool.isRequired,
 };
 
@@ -139,7 +131,6 @@ const mapDispatchToProps = dispatch => ({
   getListQuestion: () => dispatch(listQuestion()),
   post: (userId, payload) => dispatch(postResult(userId, payload)),
   scroll: filter => dispatch(setScroll(filter)),
-  close: filter => dispatch(setClose(filter)),
 });
 
 export default reduxForm({

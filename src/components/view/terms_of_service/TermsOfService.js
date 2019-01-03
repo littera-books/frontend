@@ -6,11 +6,9 @@ import {
   setScroll,
   ScrollFilters,
 } from '../../../reducers/reducer.controlScroll';
-import { setClose, CloseFilters } from '../../../reducers/reducer.controlClose';
 
 // Components
 import Helmet from '../../helmet/Helmet';
-import ScrollCloseButton from '../../structure/scroll_close_button/ScrollCloseButton';
 
 // Styled
 import Wrapper from '../../../styled_base/Wrapper';
@@ -32,9 +30,8 @@ class TermsOfService extends React.Component {
         });
       });
 
-    const { scroll, close } = this.props;
+    const { scroll } = this.props;
     scroll(ScrollFilters.ENABLE_SCROLL);
-    close(CloseFilters.HIDE_CLOSE);
   }
 
   shouldComponentUpdate(nextState) {
@@ -43,9 +40,8 @@ class TermsOfService extends React.Component {
   }
 
   componentWillUnmount() {
-    const { scroll, close } = this.props;
+    const { scroll } = this.props;
     scroll(ScrollFilters.UNABLE_SCROLL);
-    close(CloseFilters.SHOW_CLOSE);
   }
 
   render() {
@@ -55,7 +51,6 @@ class TermsOfService extends React.Component {
       <Wrapper.FlexWrapper>
         <Helmet pageTitle="Terms of Use" />
         <Wrapper.ScrollWrapper>
-          <ScrollCloseButton />
           <Styled.Title>이&nbsp;용&nbsp;약&nbsp;관</Styled.Title>
           <ReactMarkdown source={markdown} escapeHtml={false} />
         </Wrapper.ScrollWrapper>
@@ -66,12 +61,10 @@ class TermsOfService extends React.Component {
 
 TermsOfService.propTypes = {
   scroll: PropTypes.func.isRequired,
-  close: PropTypes.func.isRequired,
 };
 
 const mapDispatchToProps = dispatch => ({
   scroll: filter => dispatch(setScroll(filter)),
-  close: filter => dispatch(setClose(filter)),
 });
 
 export default connect(
