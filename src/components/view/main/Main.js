@@ -24,13 +24,13 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
 const Card = ({
-  items, url, name, alt,
+  isOpacity, items, url, name, alt,
 }) => {
   const item = _.find(items, o => o.name === name);
   return (
     <Styled.CardWrapper>
       <Link to={url}>
-        <Styled.InnerWrapper>
+        <Styled.InnerWrapper isOpacity={isOpacity}>
           <Styled.CardTitle>{alt}</Styled.CardTitle>
           <Element.ResponsiveImg
             src={dataConfig.baseUrl + item.url}
@@ -47,7 +47,11 @@ export class Main extends React.Component {
   // EventListener 가 창의 너비를 실시간으로 읽어들인다
   constructor(props) {
     super(props);
-    this.state = { width: 0, isDownloaded: false };
+    this.state = {
+      width: 0,
+      isDownloaded: false,
+      isOpacity: true,
+    };
     this.updateWindowDimensions = this.updateWindowDimensions.bind(this);
   }
 
@@ -56,6 +60,10 @@ export class Main extends React.Component {
     filter(VisibilityFilters.SHOW_TITLE);
     this.updateWindowDimensions();
     window.addEventListener('resize', this.updateWindowDimensions);
+
+    if (window.location.search === '?opacity=false') {
+      this.setState({ isOpacity: false });
+    }
   }
 
   static getDerivedStateFromProps(nextProps, prevState) {
@@ -67,10 +75,6 @@ export class Main extends React.Component {
       nextProps.getDetail('join');
       nextProps.getDetail('bon-voyage');
       nextProps.getDetail('all-ears');
-      nextProps.getDetail('m-about');
-      nextProps.getDetail('m-join');
-      nextProps.getDetail('m-bon-voyage');
-      nextProps.getDetail('m-all-ears');
       return { isDownloaded: true };
     }
     return null;
@@ -87,7 +91,7 @@ export class Main extends React.Component {
   }
 
   render() {
-    const { width } = this.state;
+    const { width, isOpacity } = this.state;
     const { items } = this.props;
     const settings = {
       dots: true,
@@ -99,7 +103,7 @@ export class Main extends React.Component {
       slidesToScroll: 1,
     };
 
-    if (items.length !== 8) {
+    if (items.length !== 4) {
       return (
         <Wrapper.FlexWrapper>
           <p>Loading...</p>
@@ -112,19 +116,39 @@ export class Main extends React.Component {
         <Wrapper.BasicBlockWrapper>
           <Wrapper.FlexWrapper>
             <Helmet pageTitle="Main" />
-            <Card items={items} url="/about" name="about" alt="About" />
+            <Card
+              isOpacity={isOpacity}
+              items={items}
+              url="/about"
+              name="about"
+              alt="About"
+            />
             {sessionStorage.getItem('token') ? (
-              <Card items={items} url="/log" name="join" alt="Log" />
+              <Card
+                isOpacity={isOpacity}
+                items={items}
+                url="/log"
+                name="join"
+                alt="Log"
+              />
             ) : (
-              <Card items={items} url="/sign-in" name="join" alt="Join" />
+              <Card
+                isOpacity={isOpacity}
+                items={items}
+                url="/sign-in"
+                name="join"
+                alt="Join"
+              />
             )}
             <Card
+              isOpacity={isOpacity}
               items={items}
               url="/bon-voyage"
               name="bon-voyage"
               alt='"Bon Voyage!"'
             />
             <Card
+              isOpacity={isOpacity}
               items={items}
               url="/all-ears"
               name="all-ears"
@@ -140,22 +164,42 @@ export class Main extends React.Component {
         <Wrapper.MobileBlockWrapper id="carousel">
           <Helmet pageTitle="Main" />
           <Slider {...settings}>
-            <Card items={items} url="/about" name="m-about" alt="About" />
+            <Card
+              isOpacity={isOpacity}
+              items={items}
+              url="/about"
+              name="about"
+              alt="About"
+            />
             {sessionStorage.getItem('token') ? (
-              <Card items={items} url="/log" name="m-join" alt="Log" />
+              <Card
+                isOpacity={isOpacity}
+                items={items}
+                url="/log"
+                name="join"
+                alt="Log"
+              />
             ) : (
-              <Card items={items} url="/sign-in" name="m-join" alt="Join" />
+              <Card
+                isOpacity={isOpacity}
+                items={items}
+                url="/sign-in"
+                name="join"
+                alt="Join"
+              />
             )}
             <Card
+              isOpacity={isOpacity}
               items={items}
               url="/bon-voyage"
-              name="m-bon-voyage"
+              name="bon-voyage"
               alt='"Bon Voyage!"'
             />
             <Card
+              isOpacity={isOpacity}
               items={items}
               url="/all-ears"
-              name="m-all-ears"
+              name="all-ears"
               alt='"I&apos;m All Ears"'
             />
           </Slider>
@@ -170,6 +214,7 @@ Card.propTypes = {
   url: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   items: PropTypes.arrayOf(PropTypes.object).isRequired,
+  isOpacity: PropTypes.bool.isRequired,
 };
 
 Main.propTypes = {

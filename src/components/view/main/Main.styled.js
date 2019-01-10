@@ -25,7 +25,7 @@ const CardWrapper = styled(Wrapper.BasicBlockWrapper)`
 `;
 
 const InnerWrapper = styled(Wrapper.BasicBlockWrapper)`
-  opacity: 0.4;
+  opacity: ${props => (props.isOpacity ? 0.4 : 1)};
   :hover {
     opacity: 1;
   }

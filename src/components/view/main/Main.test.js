@@ -13,7 +13,7 @@ function setup() {
   const props = {
     getDetail: jest.fn(),
     filter: jest.fn(),
-    items: [{}, {}, {}, {}, {}, {}, {}, {}],
+    items: [{}, {}, {}, {}],
   };
 
   const enzymeWrapper = shallow(<Main {...props} />);
