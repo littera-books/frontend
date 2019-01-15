@@ -8,7 +8,7 @@ import {
   setVisibilityFilter,
   VisibilityFilters,
 } from '../../../reducers/reducer.controlTitle';
-import dataConfig from '../../../dataConfig';
+import dataConfig from '../../../config/dataConfig';
 
 // Styled
 import Element from '../../../styled_base/Element';

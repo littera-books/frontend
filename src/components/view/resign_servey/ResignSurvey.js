@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import Quill from 'quill';
 import { signOut } from '../../../reducers/reducer.auth';
 import { createResignSurvey } from '../../../reducers/reducer.resignSurvey';
-import dataConfig from '../../../dataConfig';
+import dataConfig from '../../../config/dataConfig';
 
 // Components
 import Helmet from '../../helmet/Helmet';

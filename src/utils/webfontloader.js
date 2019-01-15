@@ -1,5 +1,5 @@
 import Webfont from 'webfontloader';
-import dataConfig from '../dataConfig';
+import dataConfig from '../config/dataConfig';
 
 Webfont.load({
   custom: {

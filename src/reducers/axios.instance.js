@@ -1,5 +1,5 @@
 import axios from 'axios';
-import dataConfig from '../dataConfig';
+import dataConfig from '../config/dataConfig';
 
 export default axios.create({
   baseURL: dataConfig.baseUrl,

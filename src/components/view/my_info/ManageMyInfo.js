@@ -4,7 +4,7 @@ import { reduxForm } from 'redux-form';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { updateInfo } from '../../../reducers/reducer.user';
-import dataConfig from '../../../dataConfig';
+import dataConfig from '../../../config/dataConfig';
 
 // Components
 import FormField from '../../../form/FormField';

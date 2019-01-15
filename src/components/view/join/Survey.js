@@ -9,7 +9,7 @@ import {
   setScroll,
   ScrollFilters,
 } from '../../../reducers/reducer.controlScroll';
-import dataConfig from '../../../dataConfig';
+import dataConfig from '../../../config/dataConfig';
 
 // Components
 import Helmet from '../../helmet/Helmet';

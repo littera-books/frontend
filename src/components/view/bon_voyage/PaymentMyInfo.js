@@ -7,7 +7,7 @@ import {
   retrieveInfo,
   updateInfo,
 } from '../../../reducers/reducer.user';
-import dataConfig from '../../../dataConfig';
+import dataConfig from '../../../config/dataConfig';
 
 // Components
 import FormField from '../../../form/FormField';

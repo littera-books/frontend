@@ -8,7 +8,7 @@ import { setClose, CloseFilters } from '../../../reducers/reducer.controlClose';
 import Wrapper from '../../../styled_base/Wrapper';
 
 // data
-import dataConfig from '../../../dataConfig';
+import dataConfig from '../../../config/dataConfig';
 
 export class Alert extends React.Component {
   state = {

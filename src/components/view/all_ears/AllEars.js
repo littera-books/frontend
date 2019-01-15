@@ -1,7 +1,7 @@
 import _ from 'lodash';
 import React from 'react';
 import { Link } from 'react-router-dom';
-import dataConfig from '../../../dataConfig';
+import dataConfig from '../../../config/dataConfig';
 
 // Components
 import Helmet from '../../helmet/Helmet';

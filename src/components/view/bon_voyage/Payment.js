@@ -12,7 +12,7 @@ import {
   setScroll,
   ScrollFilters,
 } from '../../../reducers/reducer.controlScroll';
-import dataConfig from '../../../dataConfig';
+import dataConfig from '../../../config/dataConfig';
 import { determineProductName } from './Product';
 
 // Components

@@ -13,7 +13,7 @@ import Helmet from '../../helmet/Helmet';
 import Wrapper from '../../../styled_base/Wrapper';
 
 // Data
-import dataConfig from '../../../dataConfig';
+import dataConfig from '../../../config/dataConfig';
 
 export class About extends React.Component {
   componentDidMount() {

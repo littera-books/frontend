@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import Slider from 'react-slick';
 import { getImg } from '../../../reducers/reducer.image';
-import dataConfig from '../../../dataConfig';
+import dataConfig from '../../../config/dataConfig';
 import {
   setVisibilityFilter,
   VisibilityFilters,

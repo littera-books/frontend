@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Helmet } from 'react-helmet';
 
 // Data
-import dataConfig from '../../dataConfig';
+import dataConfig from '../../config/dataConfig';
 
 const HelmetComponent = ({ pageTitle }) => (
   <Helmet>

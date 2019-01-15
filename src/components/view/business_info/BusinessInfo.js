@@ -2,7 +2,7 @@ import _ from 'lodash';
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import dataConfig from '../../../dataConfig';
+import dataConfig from '../../../config/dataConfig';
 import {
   setVisibilityFilter,
   VisibilityFilters,

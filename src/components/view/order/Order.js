@@ -5,7 +5,7 @@ import moment from 'moment';
 import { connect } from 'react-redux';
 import { readToken } from '../../../reducers/reducer.user';
 import { listBook } from '../../../reducers/reducer.book';
-import dataConfig from '../../../dataConfig';
+import dataConfig from '../../../config/dataConfig';
 
 // Component
 import Helmet from '../../helmet/Helmet';
