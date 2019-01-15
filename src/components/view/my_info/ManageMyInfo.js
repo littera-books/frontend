@@ -65,7 +65,7 @@ class ManageMyInfo extends React.Component {
     } = this.props;
 
     if (!userId) {
-      history.replace('/my-info');
+      history.replace('/my-info/view');
     }
 
     initialize({
@@ -89,7 +89,7 @@ class ManageMyInfo extends React.Component {
 
     const { error } = this.props;
     if (!error) {
-      history.replace('/my-info');
+      history.replace('/my-info/view');
     }
   }
 
