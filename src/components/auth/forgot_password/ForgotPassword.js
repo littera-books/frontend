@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { reduxForm } from 'redux-form';
 import { connect } from 'react-redux';
 import { resetPassword } from '../../../reducers/reducer.user';
+import domainConfig from '../../../config/domainConfig';
 
 // Components
 import Helmet from '../../helmet/Helmet';
@@ -20,7 +21,7 @@ class ForgetPassword extends React.Component {
 
     const { error, history } = this.props;
     if (!error) {
-      history.replace('/reset-password');
+      history.replace(domainConfig.resetPassword.path);
     }
   }
 
@@ -28,7 +29,7 @@ class ForgetPassword extends React.Component {
     const { handleSubmit, error } = this.props;
     return (
       <Wrapper.FlexWrapper>
-        <Helmet pageTitle="Forgot Password" />
+        <Helmet pageTitle={domainConfig.forgotPassword.title} />
         <Styled.LineHeightForm
           action="post"
           onSubmit={handleSubmit(this.onSubmit.bind(this))}

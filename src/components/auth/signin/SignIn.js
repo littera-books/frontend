@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { Field, reduxForm } from 'redux-form';
 import { connect } from 'react-redux';
 import { initialize, signIn } from '../../../reducers/reducer.auth';
+import domainConfig from '../../../config/domainConfig';
 
 // Components
 import BasicFormField from '../../../form/BasicFormField';
@@ -26,7 +27,7 @@ export class SignIn extends React.Component {
 
     const { error, history } = this.props;
     if (!error) {
-      history.replace('/main');
+      history.replace(domainConfig.main.path);
     }
   }
 
@@ -35,7 +36,7 @@ export class SignIn extends React.Component {
 
     return (
       <Wrapper.FlexWrapper>
-        <Helmet pageTitle="SignIn" />
+        <Helmet pageTitle={domainConfig.signIn.title} />
         <Wrapper.BasicBlockWrapper>
           <Element.BasicTitle
             align="center"
@@ -46,7 +47,7 @@ export class SignIn extends React.Component {
           </Element.BasicTitle>
           <p style={{ textAlign: 'center' }}>
             <span>Not a member yet?&nbsp;&nbsp;</span>
-            <Link to="/join/add-info" style={{ color: 'blue' }}>
+            <Link to={domainConfig.join.path} style={{ color: 'blue' }}>
               Sign up
             </Link>
           </p>
@@ -73,7 +74,7 @@ export class SignIn extends React.Component {
               <Element.BasicSmall>{error}</Element.BasicSmall>
             </div>
             <Link
-              to="/auth/forgot-password"
+              to={domainConfig.forgotPassword.path}
               style={{
                 display: 'block',
                 textAlign: 'right',
