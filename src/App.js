@@ -4,6 +4,7 @@ import {
   BrowserRouter, Route, Switch, Redirect,
 } from 'react-router-dom';
 import { connect } from 'react-redux';
+import domainConfig from './config/domainConfig';
 import './utils/webfontloader';
 
 // Components
@@ -45,74 +46,110 @@ export class App extends React.PureComponent {
                 <Loadable.CloseButton visibility={isClose} />
                 <Loadable.Header visibility={isVisible} />
                 <Switch>
-                  <Route path="/good-bye" component={Loadable.Alert} />
+                  <Route
+                    path={domainConfig.solong.path}
+                    component={Loadable.Alert}
+                  />
                   <PrivateRoute
-                    path="/my-info/resign/survey"
+                    path={domainConfig.myInfoResignSurvey.path}
                     component={Loadable.ResignSurvey}
                   />
                   <PrivateRoute
-                    path="/my-info/resign"
+                    path={domainConfig.myInfoResign.path}
                     component={Loadable.Resign}
                   />
                   <PrivateRoute
-                    path="/my-info/patch-password"
+                    path={domainConfig.myInfoPatchPassword.path}
                     component={Loadable.PatchPassword}
                   />
                   <PrivateRoute
-                    path="/my-info/survey"
+                    path={domainConfig.myInfoSurvey.path}
                     component={Loadable.Survey}
                   />
                   <PrivateRoute
-                    path="/my-info/order"
+                    path={domainConfig.myInfoOrder.path}
                     component={Loadable.Order}
                   />
                   <PrivateRoute
-                    path="/my-info/manage"
+                    path={domainConfig.myInfoManage.path}
                     component={Loadable.ManageMyInfo}
                   />
                   <PrivateRoute
-                    path="/my-info/view"
+                    path={domainConfig.myInfoView.path}
                     component={Loadable.MyInfo}
                   />
-                  <PrivateRoute path="/log" component={Loadable.Log} />
-                  <Route path="/complete" component={Loadable.Alert} />
-                  <Route path="/join/add-info" component={Loadable.AddInfo} />
-                  <Route path="/reset-password" component={Loadable.Alert} />
+                  <PrivateRoute
+                    path={domainConfig.log.path}
+                    component={Loadable.Log}
+                  />
                   <Route
-                    path="/auth/forgot-password"
+                    path={domainConfig.complete.path}
+                    component={Loadable.Alert}
+                  />
+                  <Route
+                    path={domainConfig.join.path}
+                    component={Loadable.AddInfo}
+                  />
+                  <Route
+                    path={domainConfig.resetPassword.path}
+                    component={Loadable.Alert}
+                  />
+                  <Route
+                    path={domainConfig.forgotPassword.path}
                     component={Loadable.ForgotPassword}
                   />
-                  <Route path="/sign-out" component={Loadable.Alert} />
-                  <Route path="/sign-in" component={Loadable.SignIn} />
-                  <Route path="/welcome" component={Loadable.Alert} />
+                  <Route
+                    path={domainConfig.signOut.path}
+                    component={Loadable.Alert}
+                  />
+                  <Route
+                    path={domainConfig.signIn.path}
+                    component={Loadable.SignIn}
+                  />
+                  <Route
+                    path={domainConfig.welcome.path}
+                    component={Loadable.Alert}
+                  />
                   <PrivateRoute
-                    path="/payment/:productId"
+                    path={domainConfig.payment.path}
                     component={Loadable.Payment}
                   />
                   <Route
-                    path="/product/:productId"
+                    path={domainConfig.product.path}
                     component={Loadable.ProductDetail}
                   />
-                  <Route path="/bon-voyage" component={Loadable.BonVoyage} />
                   <Route
-                    path="/all-ears/send-email"
+                    path={domainConfig.bonVoyage.path}
+                    component={Loadable.BonVoyage}
+                  />
+                  <Route
+                    path={domainConfig.sendEmail.path}
                     component={Loadable.SendEmail}
                   />
-                  <Route path="/all-ears" component={Loadable.AllEars} />
-                  <Route path="/about" component={Loadable.About} />
                   <Route
-                    path="/terms-of-service"
+                    path={domainConfig.allEars.path}
+                    component={Loadable.AllEars}
+                  />
+                  <Route
+                    path={domainConfig.about.path}
+                    component={Loadable.About}
+                  />
+                  <Route
+                    path={domainConfig.termsOfService.path}
                     component={Loadable.TermsOfService}
                   />
                   <Route
-                    path="/privacy-policy"
+                    path={domainConfig.privacyPolicy.path}
                     component={Loadable.PrivacyPolicy}
                   />
                   <Route
-                    path="/business-info"
+                    path={domainConfig.businessInfo.path}
                     component={Loadable.BusinessInfo}
                   />
-                  <Route path="/main" component={Loadable.Main} />
+                  <Route
+                    path={domainConfig.main.path}
+                    component={Loadable.Main}
+                  />
                   <Route exact path="/" component={Loadable.Alert} />
                 </Switch>
                 <Loadable.Footer visibility={isVisible} />

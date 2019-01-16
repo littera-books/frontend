@@ -2,7 +2,7 @@ const baseUrl = process.env.NODE_ENV === 'production'
   ? 'https://api.littera.co.kr'
   : 'http://localhost:8000';
 
-export default {
+const dataConfig = {
   baseUrl,
   fontUrl: [
     'https://fonts.googleapis.com/css?family=Nanum+Myeongjo:400,700&amp;subset=korean',
@@ -94,3 +94,5 @@ export default {
     '구매에 동의하십니까? (전자상거래법 제 8조 2항)',
   ],
 };
+
+export default dataConfig;
