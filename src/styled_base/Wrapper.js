@@ -1,4 +1,5 @@
 import styled, { createGlobalStyle } from 'styled-components';
+import Element from './Element';
 
 import PalatinoBoldWoff from '../assets/fonts/palab.woff';
 import PalatinoBoldWoff2 from '../assets/fonts/palab.woff2';
@@ -114,7 +115,10 @@ const QuillEditor = styled(BasicBlockWrapper)`
     line-height: 2;
     text-align: justify;
     word-break: keep-all;
-    min-height: 50vh;
+    width: 20rem;
+    min-height: 16rem;
+    border-bottom: 1px solid ${Element.COLOR.primary};
+    margin: 2rem 0;
     padding: 0;
 
     @media (max-width: 414px) {

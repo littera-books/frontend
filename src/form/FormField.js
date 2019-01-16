@@ -2,6 +2,7 @@ import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { Field } from 'redux-form';
+import dataConfig from '../config/dataConfig';
 
 // Components
 import BasicFormField, { TextareaFormField } from './BasicFormField';
@@ -214,7 +215,7 @@ const SendEmailFormField = ({ error }) => (
     <Field
       type="text"
       name="content"
-      placeholder="You're gonna say..."
+      placeholder={dataConfig.placeholderText}
       border="1px solid black"
       width="20rem"
       component={TextareaFormField}

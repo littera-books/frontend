@@ -14,7 +14,6 @@ import Helmet from '../../helmet';
 // Styled
 import Wrapper from '../../../styled_base/Wrapper';
 import Element from '../../../styled_base/Element';
-import Styled from './styled';
 import 'quill/dist/quill.core.css';
 import 'quill/dist/quill.bubble.css';
 
@@ -36,7 +35,7 @@ class ResignSurvey extends React.Component {
 
     this.setState({
       quill: new Quill('#editor', {
-        placeholder: dataConfig.resignSurveyText,
+        placeholder: dataConfig.placeholderText,
         theme: 'bubble',
       }),
     });
@@ -83,20 +82,20 @@ class ResignSurvey extends React.Component {
     const { required } = this.state;
     const { handleSubmit, error } = this.props;
     return (
-      <Styled.LetterWrapper>
+      <Wrapper.BasicBlockWrapper>
         <Helmet pageTitle={domainConfig.resignSurvey.title} />
-        <Styled.MarginForm
-          action="post"
-          onSubmit={handleSubmit(this.onSubmit.bind(this))}
-        >
+        <Element.BasicTitle size="0.75rem">
+          {dataConfig.resignSurveyText}
+        </Element.BasicTitle>
+        <form action="post" onSubmit={handleSubmit(this.onSubmit.bind(this))}>
           <Wrapper.QuillEditor id="editor" />
           <div>
             <Element.BasicSmall>{required}</Element.BasicSmall>
             <Element.BasicSmall>{error}</Element.BasicSmall>
           </div>
-          <Styled.SendButton type="submit">Send</Styled.SendButton>
-        </Styled.MarginForm>
-      </Styled.LetterWrapper>
+          <Element.SubmitButton type="submit">Send</Element.SubmitButton>
+        </form>
+      </Wrapper.BasicBlockWrapper>
     );
   }
 }
