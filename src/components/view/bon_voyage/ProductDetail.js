@@ -7,7 +7,7 @@ import { determineProductName } from './Product';
 import domainConfig from '../../../config/domainConfig';
 
 // Components
-import Helmet from '../../helmet/Helmet';
+import Helmet from '../../helmet';
 
 // Styled
 import Wrapper from '../../../styled_base/Wrapper';

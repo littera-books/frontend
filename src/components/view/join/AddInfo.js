@@ -7,7 +7,7 @@ import domainConfig from '../../../config/domainConfig';
 
 // Component
 import FormField from '../../../form/FormField';
-import Helmet from '../../helmet/Helmet';
+import Helmet from '../../helmet';
 
 // Styled
 import Wrapper from '../../../styled_base/Wrapper';

@@ -9,7 +9,7 @@ import dataConfig from '../../../config/dataConfig';
 import domainConfig from '../../../config/domainConfig';
 
 // Component
-import Helmet from '../../helmet/Helmet';
+import Helmet from '../../helmet';
 
 // Styled
 import Wrapper from '../../../styled_base/Wrapper';

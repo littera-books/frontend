@@ -6,7 +6,7 @@ import { resetPassword } from '../../../reducers/reducer.user';
 import domainConfig from '../../../config/domainConfig';
 
 // Components
-import Helmet from '../../helmet/Helmet';
+import Helmet from '../../helmet';
 import FormField from '../../../form/FormField';
 
 // Styled

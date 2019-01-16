@@ -5,7 +5,7 @@ import dataConfig from '../../../config/dataConfig';
 import domainConfig from '../../../config/domainConfig';
 
 // Components
-import Helmet from '../../helmet/Helmet';
+import Helmet from '../../helmet';
 import Accordion from './Accordion';
 
 // Styled

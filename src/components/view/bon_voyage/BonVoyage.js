@@ -6,7 +6,7 @@ import { readToken } from '../../../reducers/reducer.user';
 import domainConfig from '../../../config/domainConfig';
 
 // Components
-import Helmet from '../../helmet/Helmet';
+import Helmet from '../../helmet';
 import Product from './Product';
 
 // Styled

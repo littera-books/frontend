@@ -18,7 +18,7 @@ import { determineProductName } from './Product';
 
 // Components
 import FormField from '../../../form/FormField';
-import Helmet from '../../helmet/Helmet';
+import Helmet from '../../helmet';
 import PaymentMyInfo from './PaymentMyInfo';
 
 // Styled

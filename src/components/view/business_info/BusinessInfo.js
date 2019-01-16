@@ -10,7 +10,7 @@ import {
 } from '../../../reducers/reducer.controlTitle';
 
 // Components
-import Helmet from '../../helmet/Helmet';
+import Helmet from '../../helmet';
 
 // Styled
 import Wrapper from '../../../styled_base/Wrapper';

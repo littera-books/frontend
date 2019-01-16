@@ -9,7 +9,7 @@ import domainConfig from '../../../config/domainConfig';
 // Components
 import BasicFormField from '../../../form/BasicFormField';
 import Validation from '../../../form/Validation';
-import Helmet from '../../helmet/Helmet';
+import Helmet from '../../helmet';
 
 // Styled
 import Wrapper from '../../../styled_base/Wrapper';
