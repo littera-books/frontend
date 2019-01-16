@@ -3,17 +3,17 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { Field, reduxForm } from 'redux-form';
 import { connect } from 'react-redux';
-import { initialize, signIn } from '../../../reducers/reducer.auth';
-import domainConfig from '../../../config/domainConfig';
+import { initialize, signIn } from '../../../../reducers/reducer.auth';
+import domainConfig from '../../../../config/domainConfig';
 
 // Components
-import BasicFormField from '../../../form/BasicFormField';
-import Validation from '../../../form/Validation';
-import Helmet from '../../helmet';
+import BasicFormField from '../../../../form/BasicFormField';
+import Validation from '../../../../form/Validation';
+import Helmet from '../../../helmet';
 
 // Styled
-import Wrapper from '../../../styled_base/Wrapper';
-import Element from '../../../styled_base/Element';
+import Wrapper from '../../../../styled_base/Wrapper';
+import Element from '../../../../styled_base/Element';
 
 export class SignIn extends React.Component {
   componentDidMount() {

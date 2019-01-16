@@ -2,18 +2,18 @@ import _ from 'lodash';
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import dataConfig from '../../../config/dataConfig';
-import domainConfig from '../../../config/domainConfig';
+import dataConfig from '../../../../config/dataConfig';
+import domainConfig from '../../../../config/domainConfig';
 import {
   setVisibilityFilter,
   VisibilityFilters,
-} from '../../../reducers/reducer.controlTitle';
+} from '../../../../reducers/reducer.controlTitle';
 
 // Components
-import Helmet from '../../helmet';
+import Helmet from '../../../helmet';
 
 // Styled
-import Wrapper from '../../../styled_base/Wrapper';
+import Wrapper from '../../../../styled_base/Wrapper';
 import Styled from './styled';
 
 const RenderInfo = ({ infoArray }) => _.map(infoArray, (item, index) => <p key={index}>{item}</p>);

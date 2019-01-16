@@ -14,7 +14,7 @@ import Helmet from '../../helmet';
 // Styled
 import Wrapper from '../../../styled_base/Wrapper';
 import Element from '../../../styled_base/Element';
-import Styled from './MyInfo.styled';
+import Styled from './styled';
 
 const ManageMyInfoForm = ({
   handleSubmit, onSubmit, openPostCode, error,
@@ -24,12 +24,12 @@ const ManageMyInfoForm = ({
     onSubmit={handleSubmit(onSubmit.bind(this))}
   >
     <FormField.InfoFormField error={error} openPostCode={openPostCode} />
-    <Link to={domainConfig.myAccountPatchPassword.path}>Patch Password</Link>
+    <Link to={domainConfig.PatchPassword.path}>Patch Password</Link>
     <Element.SubmitButton type="submit">Confirm Change</Element.SubmitButton>
   </Styled.LineHeightForm>
 );
 
-class ManageMyInfo extends React.Component {
+class ManageMyAccount extends React.Component {
   constructor(props) {
     super(props);
 
@@ -66,7 +66,7 @@ class ManageMyInfo extends React.Component {
     } = this.props;
 
     if (!userId) {
-      history.replace(domainConfig.myAccountView.path);
+      history.replace(domainConfig.myAccount.path);
     }
 
     initialize({
@@ -90,7 +90,7 @@ class ManageMyInfo extends React.Component {
 
     const { error } = this.props;
     if (!error) {
-      history.replace(domainConfig.myAccountView.path);
+      history.replace(domainConfig.myAccount.path);
     }
   }
 
@@ -125,7 +125,7 @@ class ManageMyInfo extends React.Component {
     if (width > 414) {
       return (
         <Wrapper.FlexWrapper>
-          <Helmet pageTitle={domainConfig.myAccountManage.title} />
+          <Helmet pageTitle={domainConfig.manageMyAccount.title} />
           <Wrapper.ColumnWrapper>
             <ManageMyInfoForm
               handleSubmit={handleSubmit}
@@ -140,7 +140,7 @@ class ManageMyInfo extends React.Component {
 
     return (
       <Styled.ScrollFlexWrapper>
-        <Helmet pageTitle={domainConfig.myAccountManage.title} />
+        <Helmet pageTitle={domainConfig.manageMyAccount.title} />
         <Wrapper.ColumnWrapper>
           <ManageMyInfoForm
             handleSubmit={handleSubmit}
@@ -161,7 +161,7 @@ ManageMyInfoForm.propTypes = {
   error: PropTypes.string.isRequired,
 };
 
-ManageMyInfo.propTypes = {
+ManageMyAccount.propTypes = {
   history: PropTypes.shape({
     replace: PropTypes.func.isRequired,
   }).isRequired,
@@ -199,5 +199,5 @@ export default reduxForm({
   connect(
     mapStateToProps,
     mapDispatchToProps,
-  )(ManageMyInfo),
+  )(ManageMyAccount),
 );

@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import Wrapper from '../../../styled_base/Wrapper';
-import Element from '../../../styled_base/Element';
+import Wrapper from '../../../../styled_base/Wrapper';
+import Element from '../../../../styled_base/Element';
 
 const ScrollFlexWrapper = styled(Wrapper.FlexWrapper)`
   margin-top: 10rem;

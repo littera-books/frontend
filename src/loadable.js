@@ -29,17 +29,17 @@ const CloseButton = Loadable({
 });
 
 const BusinessInfo = Loadable({
-  loader: () => import('./components/view/business_info'),
+  loader: () => import('./components/view/info/business_info'),
   loading: Loading,
 });
 
 const PrivacyPolicy = Loadable({
-  loader: () => import('./components/view/privacy_policy'),
+  loader: () => import('./components/view/info/privacy_policy'),
   loading: Loading,
 });
 
 const TermsOfService = Loadable({
-  loader: () => import('./components/view/terms_of_service'),
+  loader: () => import('./components/view/info/terms_of_service'),
   loading: Loading,
 });
 
@@ -54,22 +54,22 @@ const About = Loadable({
 });
 
 const SignIn = Loadable({
-  loader: () => import('./components/auth/signin'),
+  loader: () => import('./components/view/auth/sign_in'),
   loading: Loading,
 });
 
 const ForgotPassword = Loadable({
-  loader: () => import('./components/auth/forgot_password'),
+  loader: () => import('./components/view/auth/forgot_password'),
   loading: Loading,
 });
 
 const Survey = Loadable({
-  loader: () => import('./components/view/join/Survey'),
+  loader: () => import('./components/view/my_enquiry'),
   loading: Loading,
 });
 
 const AddInfo = Loadable({
-  loader: () => import('./components/view/join/AddInfo'),
+  loader: () => import('./components/view/auth/sign_up'),
   loading: Loading,
 });
 
@@ -78,33 +78,33 @@ const Log = Loadable({
   loading: Loading,
 });
 
-const MyInfo = Loadable({
-  loader: () => import('./components/view/my_info/MyInfo'),
+const MyAccount = Loadable({
+  loader: () => import('./components/view/my_account'),
   loading: Loading,
 });
 
-const ManageMyInfo = Loadable({
-  loader: () => import('./components/view/my_info/ManageMyInfo'),
+const ManageMyAccount = Loadable({
+  loader: () => import('./components/view/my_account/ManageMyAccount'),
   loading: Loading,
 });
 
 const PatchPassword = Loadable({
-  loader: () => import('./components/view/my_info/PatchPassword'),
+  loader: () => import('./components/view/my_account/PatchPassword'),
   loading: Loading,
 });
 
 const Resign = Loadable({
-  loader: () => import('./components/view/my_info/Resign'),
+  loader: () => import('./components/view/resign'),
   loading: Loading,
 });
 
 const ResignSurvey = Loadable({
-  loader: () => import('./components/view/resign_servey'),
+  loader: () => import('./components/view/resign/ResignSurvey'),
   loading: Loading,
 });
 
-const Order = Loadable({
-  loader: () => import('./components/view/order'),
+const MyOrder = Loadable({
+  loader: () => import('./components/view/my_order'),
   loading: Loading,
 });
 
@@ -148,12 +148,12 @@ export default {
   Survey,
   AddInfo,
   Log,
-  MyInfo,
-  ManageMyInfo,
+  MyAccount,
+  ManageMyAccount,
   PatchPassword,
   Resign,
   ResignSurvey,
-  Order,
+  MyOrder,
   BonVoyage,
   ServiceDetail,
   Payment,

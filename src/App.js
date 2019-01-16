@@ -64,19 +64,19 @@ export class App extends React.PureComponent {
                   />
                   <PrivateRoute
                     path={domainConfig.myOrder.path}
-                    component={Loadable.Order}
+                    component={Loadable.MyOrder}
                   />
                   <PrivateRoute
-                    path={domainConfig.myAccountPatchPassword.path}
+                    path={domainConfig.PatchPassword.path}
                     component={Loadable.PatchPassword}
                   />
                   <PrivateRoute
-                    path={domainConfig.myAccountManage.path}
-                    component={Loadable.ManageMyInfo}
+                    path={domainConfig.manageMyAccount.path}
+                    component={Loadable.ManageMyAccount}
                   />
                   <PrivateRoute
-                    path={domainConfig.myAccountView.path}
-                    component={Loadable.MyInfo}
+                    path={domainConfig.myAccount.path}
+                    component={Loadable.MyAccount}
                   />
                   <PrivateRoute
                     path={domainConfig.log.path}

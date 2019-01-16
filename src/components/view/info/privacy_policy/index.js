@@ -5,25 +5,25 @@ import { connect } from 'react-redux';
 import {
   setScroll,
   ScrollFilters,
-} from '../../../reducers/reducer.controlScroll';
-import domainConfig from '../../../config/domainConfig';
+} from '../../../../reducers/reducer.controlScroll';
+import domainConfig from '../../../../config/domainConfig';
 
 // Components
-import Helmet from '../../helmet';
+import Helmet from '../../../helmet';
 
 // Styled
-import Wrapper from '../../../styled_base/Wrapper';
-import Styled from '../privacy_policy/styled';
+import Wrapper from '../../../../styled_base/Wrapper';
+import Styled from './styled';
 
-import TermsOfServiceMarkdown from '../../../assets/markdown/terms_of_service.md';
+import PrivacyPolicyMarkdown from '../../../../assets/markdown/privacy_policy.md';
 
-class TermsOfService extends React.Component {
+class PrivacyPolicy extends React.Component {
   state = {
     markdown: null,
   };
 
   componentWillMount() {
-    fetch(TermsOfServiceMarkdown)
+    fetch(PrivacyPolicyMarkdown)
       .then(response => response.text())
       .then((text) => {
         this.setState({
@@ -50,9 +50,11 @@ class TermsOfService extends React.Component {
 
     return (
       <Wrapper.FlexWrapper>
-        <Helmet pageTitle={domainConfig.termsOfService.title} />
+        <Helmet pageTitle={domainConfig.privacyPolicy.title} />
         <Wrapper.ScrollWrapper>
-          <Styled.Title>이&nbsp;용&nbsp;약&nbsp;관</Styled.Title>
+          <Styled.Title>
+            개&nbsp;인&nbsp;정&nbsp;보&nbsp;처&nbsp;리&nbsp;방&nbsp;침
+          </Styled.Title>
           <ReactMarkdown source={markdown} escapeHtml={false} />
         </Wrapper.ScrollWrapper>
       </Wrapper.FlexWrapper>
@@ -60,7 +62,7 @@ class TermsOfService extends React.Component {
   }
 }
 
-TermsOfService.propTypes = {
+PrivacyPolicy.propTypes = {
   scroll: PropTypes.func.isRequired,
 };
 
@@ -71,4 +73,4 @@ const mapDispatchToProps = dispatch => ({
 export default connect(
   null,
   mapDispatchToProps,
-)(TermsOfService);
+)(PrivacyPolicy);

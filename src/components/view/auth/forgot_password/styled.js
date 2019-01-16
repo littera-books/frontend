@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import Wrapper from '../../../styled_base/Wrapper';
+import Wrapper from '../../../../styled_base/Wrapper';
 
 const LineHeightForm = styled.form`
   line-height: 5;

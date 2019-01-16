@@ -18,7 +18,7 @@ import Helmet from '../../helmet';
 // Styled
 import Wrapper from '../../../styled_base/Wrapper';
 import Element from '../../../styled_base/Element';
-import Styled from './Survey.styled';
+import Styled from '../auth/sign_up/styled';
 
 class Survey extends React.Component {
   async componentDidMount() {

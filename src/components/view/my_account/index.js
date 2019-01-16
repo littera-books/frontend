@@ -11,9 +11,9 @@ import Helmet from '../../helmet';
 // Styled
 import Wrapper from '../../../styled_base/Wrapper';
 import Element from '../../../styled_base/Element';
-import Styled from './MyInfo.styled';
+import Styled from './styled';
 
-class MyInfo extends React.Component {
+class MyAccount extends React.Component {
   async componentDidMount() {
     const { read, retrieve } = this.props;
     await read();
@@ -32,7 +32,7 @@ class MyInfo extends React.Component {
     } = this.props;
     return (
       <Wrapper.FlexWrapper>
-        <Helmet pageTitle={domainConfig.myAccountView.title} />
+        <Helmet pageTitle={domainConfig.myAccount.title} />
         <Styled.InfoWrapper>
           <p>{email}</p>
           <Styled.NameWrapper>
@@ -42,7 +42,7 @@ class MyInfo extends React.Component {
           <p>{phone}</p>
           <p>{address}</p>
           <p>{extraAddress}</p>
-          <Link to={domainConfig.myAccountManage.path}>
+          <Link to={domainConfig.manageMyAccount.path}>
             <Element.SubmitButton>Manage My Info</Element.SubmitButton>
           </Link>
         </Styled.InfoWrapper>
@@ -51,7 +51,7 @@ class MyInfo extends React.Component {
   }
 }
 
-MyInfo.propTypes = {
+MyAccount.propTypes = {
   read: PropTypes.func.isRequired,
   firstName: PropTypes.string.isRequired,
   lastName: PropTypes.string.isRequired,
@@ -79,4 +79,4 @@ const mapDispatchToProps = dispatch => ({
 export default connect(
   mapStateToProps,
   mapDispatchToProps,
-)(MyInfo);
+)(MyAccount);

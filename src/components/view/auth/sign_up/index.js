@@ -2,17 +2,17 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { reduxForm } from 'redux-form';
 import { connect } from 'react-redux';
-import { createUser } from '../../../reducers/reducer.user';
-import domainConfig from '../../../config/domainConfig';
+import { createUser } from '../../../../reducers/reducer.user';
+import domainConfig from '../../../../config/domainConfig';
 
 // Component
-import FormField from '../../../form/FormField';
-import Helmet from '../../helmet';
+import FormField from '../../../../form/FormField';
+import Helmet from '../../../helmet';
 
 // Styled
-import Wrapper from '../../../styled_base/Wrapper';
-import Element from '../../../styled_base/Element';
-import Styled from './Survey.styled';
+import Wrapper from '../../../../styled_base/Wrapper';
+import Element from '../../../../styled_base/Element';
+import Styled from './styled';
 
 const AddInfoForm = ({ handleSubmit, onSubmit, error }) => (
   <Styled.LineHeightForm
@@ -25,7 +25,7 @@ const AddInfoForm = ({ handleSubmit, onSubmit, error }) => (
   </Styled.LineHeightForm>
 );
 
-class AddInfo extends React.Component {
+class SignUp extends React.Component {
   constructor(props) {
     super(props);
 
@@ -117,7 +117,7 @@ AddInfoForm.propTypes = {
   }).isRequired,
 };
 
-AddInfo.propTypes = {
+SignUp.propTypes = {
   handleSubmit: PropTypes.func.isRequired,
   create: PropTypes.func.isRequired,
   history: PropTypes.shape({
@@ -151,5 +151,5 @@ export default reduxForm({
   connect(
     mapStateToProps,
     mapDispatchToProps,
-  )(AddInfo),
+  )(SignUp),
 );

@@ -83,15 +83,15 @@ const domainConfig = {
     title: 'log',
     path: '/log',
   },
-  myAccountView: {
+  myAccount: {
     title: 'myinfo',
     path: '/log/my-account/view',
   },
-  myAccountManage: {
+  manageMyAccount: {
     title: 'managemyinfo',
     path: '/log/my-account/manage',
   },
-  myAccountPatchPassword: {
+  PatchPassword: {
     title: 'patchpassword',
     path: '/log/my-account/patch-password',
   },

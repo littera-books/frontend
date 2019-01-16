@@ -12,14 +12,14 @@ import Helmet from '../../helmet';
 // Styled
 import Wrapper from '../../../styled_base/Wrapper';
 import Element from '../../../styled_base/Element';
-import Styled from './MyInfo.styled';
+import Styled from './styled';
 
 class PatchPassword extends React.Component {
   componentDidMount() {
     const { initialize, history, userId } = this.props;
 
     if (!userId) {
-      history.replace(domainConfig.myAccountView.path);
+      history.replace(domainConfig.myAccount.path);
     }
 
     initialize({
@@ -30,14 +30,14 @@ class PatchPassword extends React.Component {
   async onSubmit(payload) {
     const { patch, history } = this.props;
     await patch(payload);
-    history.replace(domainConfig.myAccountView.path);
+    history.replace(domainConfig.myAccount.path);
   }
 
   render() {
     const { handleSubmit } = this.props;
     return (
       <Wrapper.FlexWrapper>
-        <Helmet pageTitle={domainConfig.myAccountPatchPassword.title} />
+        <Helmet pageTitle={domainConfig.PatchPassword.title} />
         <Styled.LineHeightForm
           action="post"
           onSubmit={handleSubmit(this.onSubmit.bind(this))}

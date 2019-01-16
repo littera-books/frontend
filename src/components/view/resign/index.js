@@ -13,7 +13,7 @@ import Helmet from '../../helmet';
 // Styled
 import Wrapper from '../../../styled_base/Wrapper';
 import Element from '../../../styled_base/Element';
-import Styled from './MyInfo.styled';
+import Styled from '../my_account/styled';
 
 class Resign extends React.Component {
   componentDidMount() {

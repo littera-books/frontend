@@ -2,16 +2,16 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { reduxForm } from 'redux-form';
 import { connect } from 'react-redux';
-import { resetPassword } from '../../../reducers/reducer.user';
-import domainConfig from '../../../config/domainConfig';
+import { resetPassword } from '../../../../reducers/reducer.user';
+import domainConfig from '../../../../config/domainConfig';
 
 // Components
-import Helmet from '../../helmet';
-import FormField from '../../../form/FormField';
+import Helmet from '../../../helmet';
+import FormField from '../../../../form/FormField';
 
 // Styled
-import Wrapper from '../../../styled_base/Wrapper';
-import Element from '../../../styled_base/Element';
+import Wrapper from '../../../../styled_base/Wrapper';
+import Element from '../../../../styled_base/Element';
 import Styled from './styled';
 
 class ForgetPassword extends React.Component {
