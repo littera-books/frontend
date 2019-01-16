@@ -7,6 +7,11 @@ const domainConfig = {
     title: 'main',
     path: '/main',
   },
+  about: {
+    title: 'about',
+    path: '/about',
+  },
+  // INFO AREA
   businessInfo: {
     title: 'info',
     path: '/info',
@@ -19,10 +24,7 @@ const domainConfig = {
     title: 'terms',
     path: '/terms',
   },
-  about: {
-    title: 'about',
-    path: '/about',
-  },
+  // ALL EARS AREA
   allEars: {
     title: 'ears',
     path: '/ears',
@@ -31,11 +33,11 @@ const domainConfig = {
     title: 'contact',
     path: '/ears/contact',
   },
+  // BON VOYAGE AREA
   bonVoyage: {
     title: 'bonvoyage',
     path: '/bon-voyage',
   },
-  // need change
   service: {
     title: 'service',
     path: '/service/:productId',
@@ -44,11 +46,11 @@ const domainConfig = {
     title: 'payment',
     path: '/payment/:productId',
   },
-  // need change
   paymentComplete: {
     title: 'checkout',
     path: '/checkout',
   },
+  // AUTH AREA
   signIn: {
     title: 'login',
     path: '/login',
@@ -65,14 +67,15 @@ const domainConfig = {
     title: 'renew',
     path: '/reset-password',
   },
-  join: {
+  signUp: {
     title: 'join',
-    path: '/join/add-info',
+    path: '/auth/join',
   },
   signUpComplete: {
     title: 'complete',
     path: '/complete',
   },
+  // LOG AREA
   log: {
     title: 'log',
     path: '/log',

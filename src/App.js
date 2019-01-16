@@ -87,7 +87,7 @@ export class App extends React.PureComponent {
                     component={Loadable.Alert}
                   />
                   <Route
-                    path={domainConfig.join.path}
+                    path={domainConfig.signUp.path}
                     component={Loadable.AddInfo}
                   />
                   <Route

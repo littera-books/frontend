@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { reduxForm } from 'redux-form';
 import { connect } from 'react-redux';
 import { createUser } from '../../../reducers/reducer.user';
+import domainConfig from '../../../config/domainConfig';
 
 // Component
 import FormField from '../../../form/FormField';
@@ -51,7 +52,7 @@ class AddInfo extends React.Component {
 
     const { error, history } = this.props;
     if (!error) {
-      history.replace('/complete');
+      history.replace(domainConfig.signUpComplete.path);
     }
   }
 
@@ -71,7 +72,7 @@ class AddInfo extends React.Component {
     if (width > 414) {
       return (
         <Wrapper.FlexWrapper>
-          <Helmet pageTitle="Add Info" />
+          <Helmet pageTitle={domainConfig.signUp.title} />
           <Wrapper.BasicBlockWrapper>
             <Element.BasicTitle
               align="center"

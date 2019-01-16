@@ -47,7 +47,7 @@ export class SignIn extends React.Component {
           </Element.BasicTitle>
           <p style={{ textAlign: 'center' }}>
             <span>Not a member yet?&nbsp;&nbsp;</span>
-            <Link to={domainConfig.join.path} style={{ color: 'blue' }}>
+            <Link to={domainConfig.signUp.path} style={{ color: 'blue' }}>
               Sign up
             </Link>
           </p>
