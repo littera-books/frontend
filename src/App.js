@@ -47,7 +47,7 @@ export class App extends React.PureComponent {
                 <Loadable.Header visibility={isVisible} />
                 <Switch>
                   <Route
-                    path={domainConfig.solong.path}
+                    path={domainConfig.resignComplete.path}
                     component={Loadable.Alert}
                   />
                   <PrivateRoute
@@ -83,7 +83,7 @@ export class App extends React.PureComponent {
                     component={Loadable.Log}
                   />
                   <Route
-                    path={domainConfig.complete.path}
+                    path={domainConfig.signUpComplete.path}
                     component={Loadable.Alert}
                   />
                   <Route
@@ -107,7 +107,7 @@ export class App extends React.PureComponent {
                     component={Loadable.SignIn}
                   />
                   <Route
-                    path={domainConfig.welcome.path}
+                    path={domainConfig.paymentComplete.path}
                     component={Loadable.Alert}
                   />
                   <PrivateRoute
@@ -150,7 +150,11 @@ export class App extends React.PureComponent {
                     path={domainConfig.main.path}
                     component={Loadable.Main}
                   />
-                  <Route exact path="/" component={Loadable.Alert} />
+                  <Route
+                    exact
+                    path={domainConfig.intro.path}
+                    component={Loadable.Alert}
+                  />
                 </Switch>
                 <Loadable.Footer visibility={isVisible} />
               </Wrapper.ContainerWrapper>

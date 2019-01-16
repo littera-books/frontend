@@ -7,7 +7,6 @@ const domainConfig = {
     title: 'main',
     path: '/main',
   },
-  // INFO AREA
   businessInfo: {
     title: 'info',
     path: '/business-info',
@@ -28,7 +27,6 @@ const domainConfig = {
     title: 'ears',
     path: '/all-ears',
   },
-  // need change
   sendEmail: {
     title: 'contact',
     path: '/all-ears/send-email',
@@ -47,9 +45,9 @@ const domainConfig = {
     path: '/payment/:productId',
   },
   // need change
-  welcome: {
+  paymentComplete: {
     title: 'checkout',
-    path: '/welcome',
+    path: '/checkout',
   },
   signIn: {
     title: 'login',
@@ -72,7 +70,7 @@ const domainConfig = {
     title: 'join',
     path: '/join/add-info',
   },
-  complete: {
+  signUpComplete: {
     title: 'complete',
     path: '/complete',
   },
@@ -110,9 +108,9 @@ const domainConfig = {
     title: 'request',
     path: '/my-info/resign/survey',
   },
-  solong: {
+  resignComplete: {
     title: 'solong',
-    path: '/good-bye',
+    path: '/solong',
   },
 };
 
