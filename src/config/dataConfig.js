@@ -8,6 +8,7 @@ const dataConfig = {
     'https://fonts.googleapis.com/css?family=Nanum+Myeongjo:400,700&amp;subset=korean',
     'https://fonts.googleapis.com/css?family=Gothic+A1',
   ],
+  siteUrl: 'https://www.littera.co.kr',
   daumPostApiUrl:
     'https://ssl.daumcdn.net/dmaps/map_js_init/postcode.v2.js?autoload=false',
   siteTitle: 'LITTERA',

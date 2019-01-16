@@ -1,5 +1,6 @@
 import _ from 'lodash';
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import dataConfig from '../../../config/dataConfig';
 import domainConfig from '../../../config/domainConfig';
@@ -26,9 +27,10 @@ class AllEars extends React.Component {
   }
 
   render() {
+    const { match } = this.props;
     return (
       <Styled.FAQWrapper>
-        <Helmet pageTitle={domainConfig.allEars.title} />
+        <Helmet pageTitle={domainConfig.allEars.title} path={match.url} />
         <Styled.FAQTitle>Frequently Asked Questions</Styled.FAQTitle>
         <Styled.AccordionWrapper id="accordion">
           <RenderAccordions />
@@ -40,5 +42,11 @@ class AllEars extends React.Component {
     );
   }
 }
+
+AllEars.propTypes = {
+  match: PropTypes.shape({
+    url: PropTypes.string.isRequired,
+  }).isRequired,
+};
 
 export default AllEars;

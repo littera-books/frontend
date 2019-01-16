@@ -34,9 +34,10 @@ class BusinessInfo extends React.Component {
   }
 
   render() {
+    const { match } = this.props;
     return (
       <Wrapper.FlexWrapper>
-        <Helmet pageTitle={domainConfig.businessInfo.title} />
+        <Helmet pageTitle={domainConfig.businessInfo.title} path={match.url} />
         <Styled.WidthWrapper>
           <Styled.InfoWrapper>
             <Styled.TitleWrapper>리테라 주식회사</Styled.TitleWrapper>
@@ -62,6 +63,9 @@ class BusinessInfo extends React.Component {
 
 BusinessInfo.propTypes = {
   filter: PropTypes.func.isRequired,
+  match: PropTypes.shape({
+    url: PropTypes.string.isRequired,
+  }).isRequired,
 };
 
 const mapDispatchToProps = dispatch => ({

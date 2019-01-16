@@ -131,11 +131,13 @@ class Payment extends React.Component {
   }
 
   render() {
-    const { item, handleSubmit, error } = this.props;
+    const {
+      item, handleSubmit, error, match,
+    } = this.props;
     const discountedPrice = (item.price - item.discount_amount).toString();
     return (
       <Wrapper.FlexWrapper>
-        <Helmet pageTitle={domainConfig.payment.title} />
+        <Helmet pageTitle={domainConfig.payment.title} path={match.url} />
         <Wrapper.ScrollWrapper>
           <Styled.PaymentWrapper>
             <div style={{ marginTop: '2rem' }}>
@@ -220,6 +222,7 @@ Payment.propTypes = {
     description: PropTypes.string.isRequired,
   }).isRequired,
   match: PropTypes.shape({
+    url: PropTypes.string.isRequired,
     params: PropTypes.object.isRequired,
   }).isRequired,
   detail: PropTypes.func.isRequired,

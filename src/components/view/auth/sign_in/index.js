@@ -32,11 +32,11 @@ export class SignIn extends React.Component {
   }
 
   render() {
-    const { handleSubmit, error } = this.props;
+    const { handleSubmit, error, match } = this.props;
 
     return (
       <Wrapper.FlexWrapper>
-        <Helmet pageTitle={domainConfig.signIn.title} />
+        <Helmet pageTitle={domainConfig.signIn.title} path={match.url} />
         <Wrapper.BasicBlockWrapper>
           <Element.BasicTitle
             align="center"
@@ -100,6 +100,9 @@ SignIn.propTypes = {
   error: PropTypes.string.isRequired,
   history: PropTypes.shape({
     replace: PropTypes.func.isRequired,
+  }).isRequired,
+  match: PropTypes.shape({
+    url: PropTypes.string.isRequired,
   }).isRequired,
 };
 

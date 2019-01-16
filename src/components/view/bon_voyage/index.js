@@ -41,12 +41,12 @@ class BonVoyage extends React.Component {
 
   render() {
     const { width } = this.state;
-    const { items } = this.props;
+    const { items, match } = this.props;
 
     if (width > 414) {
       return (
         <Wrapper.FlexWrapper>
-          <Helmet pageTitle={domainConfig.bonVoyage.title} />
+          <Helmet pageTitle={domainConfig.bonVoyage.title} path={match.url} />
           <Styled.ProductWrapper align="baseline">
             <Product width={width} items={items} />
           </Styled.ProductWrapper>
@@ -71,6 +71,9 @@ BonVoyage.propTypes = {
   }).isRequired,
   items: PropTypes.arrayOf(PropTypes.object).isRequired,
   getList: PropTypes.func.isRequired,
+  match: PropTypes.shape({
+    url: PropTypes.string.isRequired,
+  }).isRequired,
 };
 
 const mapStateToProps = state => ({

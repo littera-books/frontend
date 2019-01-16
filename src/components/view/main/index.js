@@ -93,7 +93,7 @@ export class Main extends React.Component {
 
   render() {
     const { width, isOpacity } = this.state;
-    const { items } = this.props;
+    const { items, match } = this.props;
     const settings = {
       dots: true,
       arrows: false,
@@ -116,7 +116,7 @@ export class Main extends React.Component {
       return (
         <Wrapper.BasicBlockWrapper>
           <Wrapper.FlexWrapper>
-            <Helmet pageTitle={domainConfig.main.title} />
+            <Helmet pageTitle={domainConfig.main.title} path={match.url} />
             <Card
               isOpacity={isOpacity}
               items={items}
@@ -163,7 +163,7 @@ export class Main extends React.Component {
     return (
       <Wrapper.CarouselGuardWrapper>
         <Wrapper.MobileBlockWrapper id="carousel">
-          <Helmet pageTitle="Main" />
+          <Helmet pageTitle={domainConfig.main.title} path={match.url} />
           <Slider {...settings}>
             <Card
               isOpacity={isOpacity}
@@ -221,6 +221,9 @@ Card.propTypes = {
 Main.propTypes = {
   items: PropTypes.arrayOf(PropTypes.object).isRequired,
   filter: PropTypes.func.isRequired,
+  match: PropTypes.shape({
+    url: PropTypes.string.isRequired,
+  }).isRequired,
 };
 
 const mapStateToProps = state => ({

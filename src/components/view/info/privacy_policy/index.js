@@ -47,10 +47,11 @@ class PrivacyPolicy extends React.Component {
 
   render() {
     const { markdown } = this.state;
+    const { match } = this.props;
 
     return (
       <Wrapper.FlexWrapper>
-        <Helmet pageTitle={domainConfig.privacyPolicy.title} />
+        <Helmet pageTitle={domainConfig.privacyPolicy.title} path={match.url} />
         <Wrapper.ScrollWrapper>
           <Styled.Title>
             개&nbsp;인&nbsp;정&nbsp;보&nbsp;처&nbsp;리&nbsp;방&nbsp;침
@@ -64,6 +65,9 @@ class PrivacyPolicy extends React.Component {
 
 PrivacyPolicy.propTypes = {
   scroll: PropTypes.func.isRequired,
+  match: PropTypes.shape({
+    url: PropTypes.string.isRequired,
+  }).isRequired,
 };
 
 const mapDispatchToProps = dispatch => ({

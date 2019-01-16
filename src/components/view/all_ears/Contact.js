@@ -30,10 +30,10 @@ class Contact extends React.Component {
   }
 
   render() {
-    const { handleSubmit, error } = this.props;
+    const { handleSubmit, error, match } = this.props;
     return (
       <Wrapper.BasicBlockWrapper>
-        <Helmet pageTitle={domainConfig.contact.title} />
+        <Helmet pageTitle={domainConfig.contact.title} path={match.url} />
         <Element.BasicTitle size="0.75rem">
           {dataConfig.sendEmailText}
         </Element.BasicTitle>
@@ -49,6 +49,9 @@ class Contact extends React.Component {
 Contact.propTypes = {
   handleSubmit: PropTypes.func.isRequired,
   error: PropTypes.string.isRequired,
+  match: PropTypes.shape({
+    url: PropTypes.string.isRequired,
+  }).isRequired,
 };
 
 const mapStateToProps = state => ({

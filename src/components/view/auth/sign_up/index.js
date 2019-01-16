@@ -67,12 +67,14 @@ class SignUp extends React.Component {
 
   render() {
     const { width } = this.state;
-    const { handleSubmit, error, history } = this.props;
+    const {
+      handleSubmit, error, history, match,
+    } = this.props;
 
     if (width > 414) {
       return (
         <Wrapper.FlexWrapper>
-          <Helmet pageTitle={domainConfig.signUp.title} />
+          <Helmet pageTitle={domainConfig.signUp.title} path={match.url} />
           <Wrapper.BasicBlockWrapper>
             <Element.BasicTitle
               align="center"
@@ -124,6 +126,9 @@ SignUp.propTypes = {
     replace: PropTypes.func.isRequired,
   }).isRequired,
   error: PropTypes.string.isRequired,
+  match: PropTypes.shape({
+    url: PropTypes.string.isRequired,
+  }).isRequired,
 };
 
 const mapStateToProps = state => ({

@@ -77,12 +77,12 @@ class Survey extends React.Component {
   }
 
   render() {
-    const { handleSubmit, hasSurvey } = this.props;
+    const { handleSubmit, hasSurvey, match } = this.props;
 
     if (hasSurvey) {
       return (
         <Wrapper.FlexWrapper>
-          <Helmet pageTitle={domainConfig.myEnquiry.title} />
+          <Helmet pageTitle={domainConfig.myEnquiry.title} path={match.url} />
           <h1>{dataConfig.surveyDeniedText}</h1>
         </Wrapper.FlexWrapper>
       );
@@ -90,7 +90,7 @@ class Survey extends React.Component {
 
     return (
       <Wrapper.FlexWrapper>
-        <Helmet pageTitle={domainConfig.myEnquiry.title} />
+        <Helmet pageTitle={domainConfig.myEnquiry.title} path={match.url} />
         <Wrapper.ScrollWrapper>
           <Styled.CenterWrapper>
             <Styled.MarginForm
@@ -117,6 +117,9 @@ Survey.propTypes = {
   questionItems: PropTypes.arrayOf(PropTypes.object).isRequired,
   scroll: PropTypes.func.isRequired,
   hasSurvey: PropTypes.bool.isRequired,
+  match: PropTypes.shape({
+    url: PropTypes.string.isRequired,
+  }).isRequired,
 };
 
 const mapStateToProps = state => ({

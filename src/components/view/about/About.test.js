@@ -13,6 +13,9 @@ Enzyme.configure({ adapter: new Adapter() });
 function setup() {
   const props = {
     filter: jest.fn(),
+    match: {
+      url: '',
+    },
   };
 
   const enzymeWrapper = shallow(<About {...props} />);

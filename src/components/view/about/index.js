@@ -30,9 +30,10 @@ export class About extends React.Component {
   }
 
   render() {
+    const { match } = this.props;
     return (
       <Wrapper.FlexWrapper>
-        <Helmet pageTitle={domainConfig.about.title} />
+        <Helmet pageTitle={domainConfig.about.title} path={match.url} />
         <p>{dataConfig.aboutText}</p>
       </Wrapper.FlexWrapper>
     );
@@ -41,6 +42,9 @@ export class About extends React.Component {
 
 About.propTypes = {
   filter: PropTypes.func.isRequired,
+  match: PropTypes.shape({
+    url: PropTypes.string.isRequired,
+  }).isRequired,
 };
 
 export const mapDispatchToProps = dispatch => ({

@@ -74,12 +74,12 @@ class Order extends React.Component {
   }
 
   render() {
-    const { items } = this.props;
+    const { items, match } = this.props;
 
     if (items.length === 0) {
       return (
         <Wrapper.BasicBlockWrapper>
-          <Helmet pageTitle={domainConfig.myOrder.title} />
+          <Helmet pageTitle={domainConfig.myOrder.title} path={match.url} />
           <p>{dataConfig.emptyOrderText}</p>
         </Wrapper.BasicBlockWrapper>
       );
@@ -87,7 +87,7 @@ class Order extends React.Component {
 
     return (
       <Wrapper.BasicBlockWrapper>
-        <Helmet pageTitle={domainConfig.myOrder.title} />
+        <Helmet pageTitle={domainConfig.myOrder.title} path={match.url} />
         <ul>
           <RenderItems items={items} />
         </ul>
@@ -102,6 +102,9 @@ class Order extends React.Component {
 Order.propTypes = {
   length: PropTypes.number.isRequired,
   items: PropTypes.arrayOf(PropTypes.object).isRequired,
+  match: PropTypes.shape({
+    url: PropTypes.string.isRequired,
+  }).isRequired,
 };
 
 const mapStateToProps = state => ({

@@ -21,12 +21,12 @@ class ServiceDetail extends React.Component {
   }
 
   render() {
-    const { item } = this.props;
+    const { item, match } = this.props;
     const rawPrice = item.price.toString();
     const discountedPrice = (item.price - item.discount_amount).toString();
     return (
       <Wrapper.FlexWrapper>
-        <Helmet pageTitle={domainConfig.service.title} />
+        <Helmet pageTitle={domainConfig.service.title} path={match.url} />
         <Styled.ProductDetailWrapper>
           <Element.BasicTitle align="center">
             {determineProductName(item)}
@@ -64,6 +64,9 @@ ServiceDetail.propTypes = {
     description: PropTypes.string.isRequired,
   }).isRequired,
   detail: PropTypes.func.isRequired,
+  match: PropTypes.shape({
+    url: PropTypes.string.isRequired,
+  }).isRequired,
 };
 
 const mapStateToProps = state => ({

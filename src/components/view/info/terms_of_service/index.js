@@ -47,10 +47,14 @@ class TermsOfService extends React.Component {
 
   render() {
     const { markdown } = this.state;
+    const { match } = this.props;
 
     return (
       <Wrapper.FlexWrapper>
-        <Helmet pageTitle={domainConfig.termsOfService.title} />
+        <Helmet
+          pageTitle={domainConfig.termsOfService.title}
+          path={match.url}
+        />
         <Wrapper.ScrollWrapper>
           <Styled.Title>이&nbsp;용&nbsp;약&nbsp;관</Styled.Title>
           <ReactMarkdown source={markdown} escapeHtml={false} />
@@ -62,6 +66,9 @@ class TermsOfService extends React.Component {
 
 TermsOfService.propTypes = {
   scroll: PropTypes.func.isRequired,
+  match: PropTypes.shape({
+    url: PropTypes.string.isRequired,
+  }).isRequired,
 };
 
 const mapDispatchToProps = dispatch => ({

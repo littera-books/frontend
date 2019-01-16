@@ -80,10 +80,10 @@ class ResignSurvey extends React.Component {
 
   render() {
     const { required } = this.state;
-    const { handleSubmit, error } = this.props;
+    const { handleSubmit, error, match } = this.props;
     return (
       <Wrapper.BasicBlockWrapper>
-        <Helmet pageTitle={domainConfig.resignSurvey.title} />
+        <Helmet pageTitle={domainConfig.resignSurvey.title} path={match.url} />
         <Element.BasicTitle size="0.75rem">
           {dataConfig.resignSurveyText}
         </Element.BasicTitle>
@@ -108,6 +108,9 @@ ResignSurvey.propTypes = {
   logOut: PropTypes.func.isRequired,
   create: PropTypes.func.isRequired,
   error: PropTypes.string.isRequired,
+  match: PropTypes.shape({
+    url: PropTypes.string.isRequired,
+  }).isRequired,
 };
 
 const mapStateToProps = state => ({

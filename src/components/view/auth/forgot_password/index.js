@@ -26,10 +26,13 @@ class ForgetPassword extends React.Component {
   }
 
   render() {
-    const { handleSubmit, error } = this.props;
+    const { handleSubmit, error, match } = this.props;
     return (
       <Wrapper.FlexWrapper>
-        <Helmet pageTitle={domainConfig.forgotPassword.title} />
+        <Helmet
+          pageTitle={domainConfig.forgotPassword.title}
+          path={match.url}
+        />
         <Styled.LineHeightForm
           action="post"
           onSubmit={handleSubmit(this.onSubmit.bind(this))}
@@ -52,6 +55,9 @@ ForgetPassword.propTypes = {
   handleSubmit: PropTypes.func.isRequired,
   reset: PropTypes.func.isRequired,
   error: PropTypes.string.isRequired,
+  match: PropTypes.shape({
+    url: PropTypes.string.isRequired,
+  }).isRequired,
 };
 
 const mapStateToProps = state => ({

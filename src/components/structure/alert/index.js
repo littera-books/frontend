@@ -83,10 +83,11 @@ export class Alert extends React.Component {
   }
 
   render() {
+    const { match } = this.props;
     const { text, title } = this.state;
     return (
       <Wrapper.FlexWrapper>
-        <Helmet pageTitle={title} />
+        <Helmet pageTitle={title} path={match.url} />
         <Link to={domainConfig.main.path}>
           <h1>{text}</h1>
         </Link>

@@ -120,12 +120,15 @@ class ManageMyAccount extends React.Component {
 
   render() {
     const { width } = this.state;
-    const { handleSubmit, error } = this.props;
+    const { handleSubmit, error, match } = this.props;
 
     if (width > 414) {
       return (
         <Wrapper.FlexWrapper>
-          <Helmet pageTitle={domainConfig.manageMyAccount.title} />
+          <Helmet
+            pageTitle={domainConfig.manageMyAccount.title}
+            path={match.url}
+          />
           <Wrapper.ColumnWrapper>
             <ManageMyInfoForm
               handleSubmit={handleSubmit}
@@ -176,6 +179,9 @@ ManageMyAccount.propTypes = {
   phone: PropTypes.string.isRequired,
   email: PropTypes.string.isRequired,
   error: PropTypes.string.isRequired,
+  match: PropTypes.shape({
+    url: PropTypes.string.isRequired,
+  }).isRequired,
 };
 
 const mapStateToProps = state => ({

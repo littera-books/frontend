@@ -34,10 +34,10 @@ class PatchPassword extends React.Component {
   }
 
   render() {
-    const { handleSubmit } = this.props;
+    const { handleSubmit, match } = this.props;
     return (
       <Wrapper.FlexWrapper>
-        <Helmet pageTitle={domainConfig.PatchPassword.title} />
+        <Helmet pageTitle={domainConfig.PatchPassword.title} path={match.url} />
         <Styled.LineHeightForm
           action="post"
           onSubmit={handleSubmit(this.onSubmit.bind(this))}
@@ -58,6 +58,9 @@ PatchPassword.propTypes = {
   initialize: PropTypes.func.isRequired,
   patch: PropTypes.func.isRequired,
   userId: PropTypes.number.isRequired,
+  match: PropTypes.shape({
+    url: PropTypes.string.isRequired,
+  }).isRequired,
 };
 
 const mapStateToProps = state => ({

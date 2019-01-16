@@ -14,6 +14,9 @@ function setup() {
     getDetail: jest.fn(),
     filter: jest.fn(),
     items: [{}, {}, {}, {}],
+    match: {
+      url: '',
+    },
   };
 
   const enzymeWrapper = shallow(<Main {...props} />);

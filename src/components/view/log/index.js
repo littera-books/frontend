@@ -40,11 +40,11 @@ class Log extends React.Component {
   }
 
   render() {
-    const { email } = this.props;
+    const { email, match } = this.props;
     const splitEmail = email.split('@');
     return (
       <Wrapper.FlexWrapper>
-        <Helmet pageTitle={domainConfig.log.title} />
+        <Helmet pageTitle={domainConfig.log.title} path={match.url} />
         <Styled.Dropdown onClick={handleDropdown}>
           <Styled.DropdownTitle>
             <span>
@@ -85,6 +85,9 @@ Log.propTypes = {
   read: PropTypes.func.isRequired,
   retrieve: PropTypes.func.isRequired,
   logOut: PropTypes.func.isRequired,
+  match: PropTypes.shape({
+    url: PropTypes.string.isRequired,
+  }).isRequired,
 };
 
 const mapStateToProps = state => ({

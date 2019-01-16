@@ -17,6 +17,9 @@ function setup() {
     handleSubmit: jest.fn(),
     error: initialState.error,
     filter: jest.fn(),
+    match: {
+      url: '',
+    },
   };
 
   const enzymeWrapper = shallow(<SignIn {...props} />);

@@ -29,10 +29,11 @@ class MyAccount extends React.Component {
       extraAddress,
       phone,
       email,
+      match,
     } = this.props;
     return (
       <Wrapper.FlexWrapper>
-        <Helmet pageTitle={domainConfig.myAccount.title} />
+        <Helmet pageTitle={domainConfig.myAccount.title} path={match.url} />
         <Styled.InfoWrapper>
           <p>{email}</p>
           <Styled.NameWrapper>
@@ -59,6 +60,9 @@ MyAccount.propTypes = {
   extraAddress: PropTypes.string.isRequired,
   phone: PropTypes.string.isRequired,
   email: PropTypes.string.isRequired,
+  match: PropTypes.shape({
+    url: PropTypes.string.isRequired,
+  }).isRequired,
 };
 
 const mapStateToProps = state => ({

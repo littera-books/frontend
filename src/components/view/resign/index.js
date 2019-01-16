@@ -35,11 +35,11 @@ class Resign extends React.Component {
   }
 
   render() {
-    const { handleSubmit, error } = this.props;
+    const { handleSubmit, error, match } = this.props;
 
     return (
       <Wrapper.FlexWrapper>
-        <Helmet pageTitle={domainConfig.resign.title} />
+        <Helmet pageTitle={domainConfig.resign.title} path={match.url} />
         <Styled.LineHeightForm
           action="post"
           onSubmit={handleSubmit(this.onDestroy.bind(this))}
@@ -72,6 +72,9 @@ Resign.propTypes = {
   destroy: PropTypes.func.isRequired,
   userId: PropTypes.number.isRequired,
   error: PropTypes.string.isRequired,
+  match: PropTypes.shape({
+    url: PropTypes.string.isRequired,
+  }).isRequired,
 };
 
 const mapStateToProps = state => ({
