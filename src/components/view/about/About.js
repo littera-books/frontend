@@ -5,15 +5,14 @@ import {
   setVisibilityFilter,
   VisibilityFilters,
 } from '../../../reducers/reducer.controlTitle';
+import dataConfig from '../../../config/dataConfig';
+import domainConfig from '../../../config/domainConfig';
 
 // Components
 import Helmet from '../../helmet/Helmet';
 
 // Styled
 import Wrapper from '../../../styled_base/Wrapper';
-
-// Data
-import dataConfig from '../../../config/dataConfig';
 
 export class About extends React.Component {
   componentDidMount() {
@@ -33,7 +32,7 @@ export class About extends React.Component {
   render() {
     return (
       <Wrapper.FlexWrapper>
-        <Helmet pageTitle="About" />
+        <Helmet pageTitle={domainConfig.about.title} />
         <p>{dataConfig.aboutText}</p>
       </Wrapper.FlexWrapper>
     );

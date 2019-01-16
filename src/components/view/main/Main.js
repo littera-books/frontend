@@ -6,6 +6,7 @@ import { connect } from 'react-redux';
 import Slider from 'react-slick';
 import { getImg } from '../../../reducers/reducer.image';
 import dataConfig from '../../../config/dataConfig';
+import domainConfig from '../../../config/domainConfig';
 import {
   setVisibilityFilter,
   VisibilityFilters,
@@ -115,11 +116,11 @@ export class Main extends React.Component {
       return (
         <Wrapper.BasicBlockWrapper>
           <Wrapper.FlexWrapper>
-            <Helmet pageTitle="Main" />
+            <Helmet pageTitle={domainConfig.main.title} />
             <Card
               isOpacity={isOpacity}
               items={items}
-              url="/about"
+              url={domainConfig.about.path}
               name="about"
               alt="About"
             />
@@ -127,7 +128,7 @@ export class Main extends React.Component {
               <Card
                 isOpacity={isOpacity}
                 items={items}
-                url="/log"
+                url={domainConfig.log.path}
                 name="join"
                 alt="Log"
               />
@@ -135,7 +136,7 @@ export class Main extends React.Component {
               <Card
                 isOpacity={isOpacity}
                 items={items}
-                url="/sign-in"
+                url={domainConfig.signIn.path}
                 name="join"
                 alt="Join"
               />
@@ -143,14 +144,14 @@ export class Main extends React.Component {
             <Card
               isOpacity={isOpacity}
               items={items}
-              url="/bon-voyage"
+              url={domainConfig.bonVoyage.path}
               name="bon-voyage"
               alt='"Bon Voyage!"'
             />
             <Card
               isOpacity={isOpacity}
               items={items}
-              url="/all-ears"
+              url={domainConfig.allEars.path}
               name="all-ears"
               alt='"I&apos;m All Ears"'
             />
@@ -167,7 +168,7 @@ export class Main extends React.Component {
             <Card
               isOpacity={isOpacity}
               items={items}
-              url="/about"
+              url={domainConfig.about.path}
               name="about"
               alt="About"
             />
@@ -175,7 +176,7 @@ export class Main extends React.Component {
               <Card
                 isOpacity={isOpacity}
                 items={items}
-                url="/log"
+                url={domainConfig.log.path}
                 name="join"
                 alt="Log"
               />
@@ -183,7 +184,7 @@ export class Main extends React.Component {
               <Card
                 isOpacity={isOpacity}
                 items={items}
-                url="/sign-in"
+                url={domainConfig.signIn.path}
                 name="join"
                 alt="Join"
               />
@@ -191,14 +192,14 @@ export class Main extends React.Component {
             <Card
               isOpacity={isOpacity}
               items={items}
-              url="/bon-voyage"
+              url={domainConfig.bonVoyage.path}
               name="bon-voyage"
               alt='"Bon Voyage!"'
             />
             <Card
               isOpacity={isOpacity}
               items={items}
-              url="/all-ears"
+              url={domainConfig.allEars.path}
               name="all-ears"
               alt='"I&apos;m All Ears"'
             />
