@@ -32,9 +32,13 @@ class Accordion extends React.Component {
       return answer;
     }
     const sentenceArray = _.split(answer, '\n');
-    return _.map(sentenceArray, (sentence, index) => (
-      <p key={index}>{sentence}</p>
-    ));
+    return _.map(sentenceArray, (sentence, index) => (sentence.length !== 1 ? (
+        <p key={index}>{sentence}</p>
+    ) : (
+        <p key={index} style={{ visibility: 'hidden' }}>
+          {sentence}
+        </p>
+    )));
   }
 
   render() {
