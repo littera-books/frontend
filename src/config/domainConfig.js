@@ -25,11 +25,11 @@ const domainConfig = {
   },
   allEars: {
     title: 'ears',
-    path: '/all-ears',
+    path: '/ears',
   },
-  sendEmail: {
+  contact: {
     title: 'contact',
-    path: '/all-ears/send-email',
+    path: '/ears/contact',
   },
   bonVoyage: {
     title: 'bonvoyage',
@@ -51,7 +51,7 @@ const domainConfig = {
   },
   signIn: {
     title: 'login',
-    path: '/sign-in',
+    path: '/login',
   },
   signOut: {
     title: 'logout',

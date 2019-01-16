@@ -123,7 +123,7 @@ export class App extends React.PureComponent {
                     component={Loadable.BonVoyage}
                   />
                   <Route
-                    path={domainConfig.sendEmail.path}
+                    path={domainConfig.contact.path}
                     component={Loadable.SendEmail}
                   />
                   <Route

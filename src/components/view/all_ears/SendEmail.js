@@ -4,6 +4,7 @@ import { reduxForm } from 'redux-form';
 import { connect } from 'react-redux';
 import { sendEmail } from '../../../reducers/reducer.email';
 import dataConfig from '../../../config/dataConfig';
+import domainConfig from '../../../config/domainConfig';
 
 // Components
 import Helmet from '../../helmet/Helmet';
@@ -24,7 +25,7 @@ class SendEmail extends React.Component {
 
     const { error, history } = this.props;
     if (!error) {
-      history.replace('/main');
+      history.replace(domainConfig.main.path);
     }
   }
 
@@ -32,7 +33,7 @@ class SendEmail extends React.Component {
     const { handleSubmit, error } = this.props;
     return (
       <Wrapper.BasicBlockWrapper>
-        <Helmet pageTitle="Send Email" />
+        <Helmet pageTitle={domainConfig.contact.title} />
         <Element.BasicTitle size="0.75rem">
           {dataConfig.sendEmailText}
         </Element.BasicTitle>

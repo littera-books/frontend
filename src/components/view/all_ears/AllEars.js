@@ -2,6 +2,7 @@ import _ from 'lodash';
 import React from 'react';
 import { Link } from 'react-router-dom';
 import dataConfig from '../../../config/dataConfig';
+import domainConfig from '../../../config/domainConfig';
 
 // Components
 import Helmet from '../../helmet/Helmet';
@@ -27,12 +28,12 @@ class AllEars extends React.Component {
   render() {
     return (
       <Styled.FAQWrapper>
-        <Helmet pageTitle="I'm all ears" />
+        <Helmet pageTitle={domainConfig.allEars.title} />
         <Styled.FAQTitle>Frequently Asked Questions</Styled.FAQTitle>
         <Styled.AccordionWrapper id="accordion">
           <RenderAccordions />
         </Styled.AccordionWrapper>
-        <Link to="/all-ears/send-email">
+        <Link to={domainConfig.contact.path}>
           <Styled.EmailTitle>Further Questions?</Styled.EmailTitle>
         </Link>
       </Styled.FAQWrapper>
