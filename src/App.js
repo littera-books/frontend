@@ -4,6 +4,7 @@ import {
   BrowserRouter, Route, Switch, Redirect,
 } from 'react-router-dom';
 import { connect } from 'react-redux';
+import { listenWidth } from './reducers/reducer.controlWidth';
 import domainConfig from './config/domainConfig';
 import './utils/webfontloader';
 
@@ -33,9 +34,32 @@ const PrivateRoute = ({ component: Component, ...rest }) => (
   />
 );
 
-export class App extends React.PureComponent {
+export class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.updateWindowDimensions = this.updateWindowDimensions.bind(this);
+  }
+
+  componentDidMount() {
+    this.updateWindowDimensions();
+    window.addEventListener('resize', this.updateWindowDimensions);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.updateWindowDimensions);
+  }
+
+  updateWindowDimensions() {
+    const { listen } = this.props;
+    listen(window.innerWidth);
+  }
+
   render() {
-    const { isVisible, isScroll, isClose } = this.props;
+    const {
+      isVisible, isScroll, isClose, width,
+    } = this.props;
+
+    console.log(width);
 
     return (
       <Fragment>
@@ -171,12 +195,22 @@ App.propTypes = {
   isVisible: PropTypes.bool.isRequired,
   isScroll: PropTypes.bool.isRequired,
   isClose: PropTypes.bool.isRequired,
+  listen: PropTypes.func.isRequired,
+  width: PropTypes.number.isRequired,
 };
 
 const mapStateToProps = state => ({
   isVisible: state.controlTitle,
   isScroll: state.controlScroll,
   isClose: state.controlClose,
+  width: state.controlWidth.width,
 });
 
-export default connect(mapStateToProps)(App);
+const mapDispatchToProps = dispatch => ({
+  listen: width => dispatch(listenWidth(width)),
+});
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(App);

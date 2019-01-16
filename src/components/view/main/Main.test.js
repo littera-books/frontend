@@ -17,6 +17,7 @@ function setup() {
     match: {
       url: '',
     },
+    width: window.innerWidth,
   };
 
   const enzymeWrapper = shallow(<Main {...props} />);
@@ -26,14 +27,8 @@ function setup() {
 
 describe('Main', () => {
   it('state가 기기 width와 동일한가', () => {
-    const { enzymeWrapper } = setup();
-    expect(enzymeWrapper.state('width')).toEqual(window.innerWidth);
-  });
-
-  it('state를 414px 이하로 줄이면 캐러셀 컴포넌트가 실행되는가', () => {
-    const { enzymeWrapper } = setup();
-    enzymeWrapper.setState({ width: 300 });
-    expect(enzymeWrapper.find('#carousel').exists()).toBe(true);
+    const { props } = setup();
+    expect(props.width).toEqual(window.innerWidth);
   });
 
   it('filter를 호출했을 때 값이 바뀌는가', () => {

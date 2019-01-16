@@ -14,34 +14,13 @@ import Wrapper from '../../../styled_base/Wrapper';
 import Styled from './styled';
 
 class BonVoyage extends React.Component {
-  // 창의 너비가 일정 수준 이하로 좁아지면 화면 구조를 캐러셀로 변화시킨다
-  // EventListener 가 창의 너비를 실시간으로 읽어들인다
-  constructor(props) {
-    super(props);
-    this.state = {
-      width: window.innerWidth,
-    };
-    this.updateWindowDimensions = this.updateWindowDimensions.bind(this);
-  }
-
   componentDidMount() {
-    this.updateWindowDimensions();
-    window.addEventListener('resize', this.updateWindowDimensions);
     const { getList } = this.props;
     getList();
   }
 
-  componentWillUnmount() {
-    window.removeEventListener('resize', this.updateWindowDimensions);
-  }
-
-  updateWindowDimensions() {
-    this.setState({ width: window.innerWidth });
-  }
-
   render() {
-    const { width } = this.state;
-    const { items, match } = this.props;
+    const { items, match, width } = this.props;
 
     if (width > 414) {
       return (
@@ -57,7 +36,7 @@ class BonVoyage extends React.Component {
     return (
       <Wrapper.CarouselGuardWrapper>
         <Wrapper.MobileBlockWrapper>
-          <Helmet pageTitle={domainConfig.bonVoyage.title} />
+          <Helmet pageTitle={domainConfig.bonVoyage.title} path={match.url} />
           <Product width={width} items={items} />
         </Wrapper.MobileBlockWrapper>
       </Wrapper.CarouselGuardWrapper>
@@ -74,11 +53,13 @@ BonVoyage.propTypes = {
   match: PropTypes.shape({
     url: PropTypes.string.isRequired,
   }).isRequired,
+  width: PropTypes.number.isRequired,
 };
 
 const mapStateToProps = state => ({
   items: state.product.items,
   userId: state.user.userId,
+  width: state.controlWidth.width,
 });
 
 const mapDispatchToProps = dispatch => ({

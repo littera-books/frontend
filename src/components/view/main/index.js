@@ -44,23 +44,14 @@ const Card = ({
 };
 
 export class Main extends React.Component {
-  // 창의 너비가 일정 수준 이하로 좁아지면 화면 구조를 캐러셀로 변화시킨다
-  // EventListener 가 창의 너비를 실시간으로 읽어들인다
-  constructor(props) {
-    super(props);
-    this.state = {
-      width: 0,
-      isDownloaded: false,
-      isOpacity: true,
-    };
-    this.updateWindowDimensions = this.updateWindowDimensions.bind(this);
-  }
+  state = {
+    isDownloaded: false,
+    isOpacity: true,
+  };
 
   componentDidMount() {
     const { filter } = this.props;
     filter(VisibilityFilters.SHOW_TITLE);
-    this.updateWindowDimensions();
-    window.addEventListener('resize', this.updateWindowDimensions);
 
     if (window.location.search === '?opacity=false') {
       this.setState({ isOpacity: false });
@@ -84,16 +75,11 @@ export class Main extends React.Component {
   componentWillUnmount() {
     const { filter } = this.props;
     filter(VisibilityFilters.HIDE_TITLE);
-    window.removeEventListener('resize', this.updateWindowDimensions);
-  }
-
-  updateWindowDimensions() {
-    this.setState({ width: window.innerWidth });
   }
 
   render() {
-    const { width, isOpacity } = this.state;
-    const { items, match } = this.props;
+    const { isOpacity } = this.state;
+    const { items, match, width } = this.props;
     const settings = {
       dots: true,
       arrows: false,
@@ -224,10 +210,12 @@ Main.propTypes = {
   match: PropTypes.shape({
     url: PropTypes.string.isRequired,
   }).isRequired,
+  width: PropTypes.number.isRequired,
 };
 
 const mapStateToProps = state => ({
   items: state.image.items,
+  width: state.controlWidth.width,
 });
 
 export const mapDispatchToProps = dispatch => ({
