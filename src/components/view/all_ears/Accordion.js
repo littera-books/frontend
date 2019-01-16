@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 // Styled
 import Element from '../../../styled_base/Element';
-import Styled from './AllEars.styled';
+import Styled from './styled';
 
 import ArrowDown from '../../../assets/images/down-arrow.svg';
 

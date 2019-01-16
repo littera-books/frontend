@@ -14,7 +14,7 @@ import Helmet from '../../helmet';
 // Styled
 import Wrapper from '../../../styled_base/Wrapper';
 import Element from '../../../styled_base/Element';
-import Styled from './ResignSurvey.styled';
+import Styled from './styled';
 import 'quill/dist/quill.core.css';
 import 'quill/dist/quill.bubble.css';
 

@@ -124,7 +124,7 @@ export class App extends React.PureComponent {
                   />
                   <Route
                     path={domainConfig.contact.path}
-                    component={Loadable.SendEmail}
+                    component={Loadable.Contact}
                   />
                   <Route
                     path={domainConfig.allEars.path}

@@ -14,7 +14,7 @@ import Helmet from '../../helmet';
 // Styled
 import Wrapper from '../../../styled_base/Wrapper';
 import Element from '../../../styled_base/Element';
-import Styled from './Order.styled';
+import Styled from './styled';
 
 const RenderItems = React.memo(({ items }) => _.map(items, (item, index) => (
     <Styled.BookLi key={index}>

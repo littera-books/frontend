@@ -11,7 +11,7 @@ import Helmet from '../../helmet';
 
 // Styled
 import Wrapper from '../../../styled_base/Wrapper';
-import Styled from './Log.styled';
+import Styled from './styled';
 
 import ArrowDown from '../../../assets/images/down-arrow.svg';
 

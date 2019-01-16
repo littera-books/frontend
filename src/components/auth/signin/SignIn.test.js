@@ -1,7 +1,7 @@
 import React from 'react';
 import Enzyme, { shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
-import { SignIn } from './SignIn';
+import { SignIn } from '.';
 import { initialState } from '../../../reducers/reducer.auth';
 
 Enzyme.configure({ adapter: new Adapter() });

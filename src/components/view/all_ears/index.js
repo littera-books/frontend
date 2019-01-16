@@ -9,7 +9,7 @@ import Helmet from '../../helmet';
 import Accordion from './Accordion';
 
 // Styled
-import Styled from './AllEars.styled';
+import Styled from './styled';
 
 const RenderAccordions = () => _.map(dataConfig.qnaMessage, (items, index) => (
     <Accordion

@@ -13,17 +13,17 @@ import Helmet from '../../helmet';
 
 // Styled
 import Wrapper from '../../../styled_base/Wrapper';
-import Styled from './PrivacyPolicy.styled';
+import Styled from '../privacy_policy/styled';
 
-import PrivacyPolicyMarkdown from '../../../assets/markdown/privacy_policy.md';
+import TermsOfServiceMarkdown from '../../../assets/markdown/terms_of_service.md';
 
-class PrivacyPolicy extends React.Component {
+class TermsOfService extends React.Component {
   state = {
     markdown: null,
   };
 
   componentWillMount() {
-    fetch(PrivacyPolicyMarkdown)
+    fetch(TermsOfServiceMarkdown)
       .then(response => response.text())
       .then((text) => {
         this.setState({
@@ -50,11 +50,9 @@ class PrivacyPolicy extends React.Component {
 
     return (
       <Wrapper.FlexWrapper>
-        <Helmet pageTitle={domainConfig.privacyPolicy.title} />
+        <Helmet pageTitle={domainConfig.termsOfService.title} />
         <Wrapper.ScrollWrapper>
-          <Styled.Title>
-            개&nbsp;인&nbsp;정&nbsp;보&nbsp;처&nbsp;리&nbsp;방&nbsp;침
-          </Styled.Title>
+          <Styled.Title>이&nbsp;용&nbsp;약&nbsp;관</Styled.Title>
           <ReactMarkdown source={markdown} escapeHtml={false} />
         </Wrapper.ScrollWrapper>
       </Wrapper.FlexWrapper>
@@ -62,7 +60,7 @@ class PrivacyPolicy extends React.Component {
   }
 }
 
-PrivacyPolicy.propTypes = {
+TermsOfService.propTypes = {
   scroll: PropTypes.func.isRequired,
 };
 
@@ -73,4 +71,4 @@ const mapDispatchToProps = dispatch => ({
 export default connect(
   null,
   mapDispatchToProps,
-)(PrivacyPolicy);
+)(TermsOfService);

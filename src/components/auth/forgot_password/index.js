@@ -12,7 +12,7 @@ import FormField from '../../../form/FormField';
 // Styled
 import Wrapper from '../../../styled_base/Wrapper';
 import Element from '../../../styled_base/Element';
-import Styled from './ForgotPassword.styled';
+import Styled from './styled';
 
 class ForgetPassword extends React.Component {
   async onSubmit(payload) {

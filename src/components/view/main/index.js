@@ -18,7 +18,7 @@ import Helmet from '../../helmet';
 // Styled
 import Wrapper from '../../../styled_base/Wrapper';
 import Element from '../../../styled_base/Element';
-import Styled from './Main.styled';
+import Styled from './styled';
 
 // CSS
 import 'slick-carousel/slick/slick.css';

@@ -14,7 +14,7 @@ import FormField from '../../../form/FormField';
 import Wrapper from '../../../styled_base/Wrapper';
 import Element from '../../../styled_base/Element';
 
-class SendEmail extends React.Component {
+class Contact extends React.Component {
   shouldComponentUpdate() {
     return false;
   }
@@ -46,7 +46,7 @@ class SendEmail extends React.Component {
   }
 }
 
-SendEmail.propTypes = {
+Contact.propTypes = {
   handleSubmit: PropTypes.func.isRequired,
   error: PropTypes.string.isRequired,
 };
@@ -65,5 +65,5 @@ export default reduxForm({
   connect(
     mapStateToProps,
     mapDispatchToProps,
-  )(SendEmail),
+  )(Contact),
 );

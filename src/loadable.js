@@ -1,11 +1,11 @@
 import React from 'react';
 import Loadable from 'react-loadable';
-import StyledBase from './styled_base/Wrapper';
+import Wrapper from './styled_base/Wrapper';
 
 const Loading = () => (
-  <StyledBase.FlexWrapper>
+  <Wrapper.FlexWrapper>
     <h1>Loading...</h1>
-  </StyledBase.FlexWrapper>
+  </Wrapper.FlexWrapper>
 );
 
 const Alert = Loadable({
@@ -29,37 +29,37 @@ const CloseButton = Loadable({
 });
 
 const BusinessInfo = Loadable({
-  loader: () => import('./components/view/business_info/BusinessInfo'),
+  loader: () => import('./components/view/business_info'),
   loading: Loading,
 });
 
 const PrivacyPolicy = Loadable({
-  loader: () => import('./components/view/privacy_policy/PrivacyPolicy'),
+  loader: () => import('./components/view/privacy_policy'),
   loading: Loading,
 });
 
 const TermsOfService = Loadable({
-  loader: () => import('./components/view/terms_of_service/TermsOfService'),
+  loader: () => import('./components/view/terms_of_service'),
   loading: Loading,
 });
 
 const Main = Loadable({
-  loader: () => import('./components/view/main/Main'),
+  loader: () => import('./components/view/main'),
   loading: Loading,
 });
 
 const About = Loadable({
-  loader: () => import('./components/view/about/About'),
+  loader: () => import('./components/view/about'),
   loading: Loading,
 });
 
 const SignIn = Loadable({
-  loader: () => import('./components/auth/signin/SignIn'),
+  loader: () => import('./components/auth/signin'),
   loading: Loading,
 });
 
 const ForgotPassword = Loadable({
-  loader: () => import('./components/auth/forgot_password/ForgotPassword'),
+  loader: () => import('./components/auth/forgot_password'),
   loading: Loading,
 });
 
@@ -74,7 +74,7 @@ const AddInfo = Loadable({
 });
 
 const Log = Loadable({
-  loader: () => import('./components/view/log/Log'),
+  loader: () => import('./components/view/log'),
   loading: Loading,
 });
 
@@ -99,12 +99,12 @@ const Resign = Loadable({
 });
 
 const ResignSurvey = Loadable({
-  loader: () => import('./components/view/resign_servey/ResignSurvey'),
+  loader: () => import('./components/view/resign_servey'),
   loading: Loading,
 });
 
 const Order = Loadable({
-  loader: () => import('./components/view/order/Order'),
+  loader: () => import('./components/view/order'),
   loading: Loading,
 });
 
@@ -124,12 +124,12 @@ const Payment = Loadable({
 });
 
 const AllEars = Loadable({
-  loader: () => import('./components/view/all_ears/AllEars'),
+  loader: () => import('./components/view/all_ears'),
   loading: Loading,
 });
 
-const SendEmail = Loadable({
-  loader: () => import('./components/view/all_ears/SendEmail'),
+const Contact = Loadable({
+  loader: () => import('./components/view/all_ears/Contact'),
   loading: Loading,
 });
 
@@ -158,5 +158,5 @@ export default {
   ProductDetail,
   Payment,
   AllEars,
-  SendEmail,
+  Contact,
 };

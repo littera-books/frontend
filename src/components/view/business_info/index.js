@@ -14,7 +14,7 @@ import Helmet from '../../helmet';
 
 // Styled
 import Wrapper from '../../../styled_base/Wrapper';
-import Styled from './BusinessInfo.styled';
+import Styled from './styled';
 
 const RenderInfo = ({ infoArray }) => _.map(infoArray, (item, index) => <p key={index}>{item}</p>);
 
