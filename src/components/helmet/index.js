@@ -16,6 +16,13 @@ const HelmetComponent = React.memo(({ pageTitle, path }) => {
         {dataConfig.siteTitle} {pageTitle === '' ? '' : '|'} {pageTitle}
       </title>
       <link rel="canonical" href={dataConfig.siteUrl + canonicalPath} />
+      <meta
+        property="og:title"
+        content={`${dataConfig.siteTitle} ${
+          pageTitle === '' ? '' : '|'
+        } ${pageTitle}`}
+      />
+      <meta property="og:url" content={dataConfig.siteUrl + canonicalPath} />
     </Helmet>
   );
 });
