@@ -6,6 +6,7 @@ import {
   setScroll,
   ScrollFilters,
 } from '../../../reducers/reducer.controlScroll';
+import domainConfig from '../../../config/domainConfig';
 
 // Components
 import Helmet from '../../helmet/Helmet';
@@ -49,7 +50,7 @@ class PrivacyPolicy extends React.Component {
 
     return (
       <Wrapper.FlexWrapper>
-        <Helmet pageTitle="Privacy Policy" />
+        <Helmet pageTitle={domainConfig.privacyPolicy.title} />
         <Wrapper.ScrollWrapper>
           <Styled.Title>
             개&nbsp;인&nbsp;정&nbsp;보&nbsp;처&nbsp;리&nbsp;방&nbsp;침

@@ -3,6 +3,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import dataConfig from '../../../config/dataConfig';
+import domainConfig from '../../../config/domainConfig';
 import {
   setVisibilityFilter,
   VisibilityFilters,
@@ -35,7 +36,7 @@ class BusinessInfo extends React.Component {
   render() {
     return (
       <Wrapper.FlexWrapper>
-        <Helmet pageTitle="INFO" />
+        <Helmet pageTitle={domainConfig.businessInfo.title} />
         <Styled.WidthWrapper>
           <Styled.InfoWrapper>
             <Styled.TitleWrapper>리테라 주식회사</Styled.TitleWrapper>

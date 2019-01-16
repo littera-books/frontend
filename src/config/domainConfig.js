@@ -9,15 +9,15 @@ const domainConfig = {
   },
   businessInfo: {
     title: 'info',
-    path: '/business-info',
+    path: '/info',
   },
   privacyPolicy: {
     title: 'privacy',
-    path: '/privacy-policy',
+    path: '/privacy',
   },
   termsOfService: {
     title: 'terms',
-    path: '/terms-of-service',
+    path: '/terms',
   },
   about: {
     title: 'about',
@@ -61,7 +61,6 @@ const domainConfig = {
     title: 'forgotpassword',
     path: '/auth/forgot-password',
   },
-  // need change
   resetPassword: {
     title: 'renew',
     path: '/reset-password',

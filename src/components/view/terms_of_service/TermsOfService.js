@@ -6,6 +6,7 @@ import {
   setScroll,
   ScrollFilters,
 } from '../../../reducers/reducer.controlScroll';
+import domainConfig from '../../../config/domainConfig';
 
 // Components
 import Helmet from '../../helmet/Helmet';
@@ -49,7 +50,7 @@ class TermsOfService extends React.Component {
 
     return (
       <Wrapper.FlexWrapper>
-        <Helmet pageTitle="Terms of Use" />
+        <Helmet pageTitle={domainConfig.termsOfService.title} />
         <Wrapper.ScrollWrapper>
           <Styled.Title>이&nbsp;용&nbsp;약&nbsp;관</Styled.Title>
           <ReactMarkdown source={markdown} escapeHtml={false} />
