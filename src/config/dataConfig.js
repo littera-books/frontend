@@ -97,4 +97,4 @@ const dataConfig = {
   ],
 };
 
-export default dataConfig;
+module.exports = dataConfig;

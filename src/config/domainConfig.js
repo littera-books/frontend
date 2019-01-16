@@ -117,4 +117,4 @@ const domainConfig = {
   },
 };
 
-export default domainConfig;
+module.exports = domainConfig;
