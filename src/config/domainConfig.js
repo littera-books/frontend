@@ -36,9 +36,9 @@ const domainConfig = {
     path: '/bon-voyage',
   },
   // need change
-  product: {
+  service: {
     title: 'service',
-    path: '/product/:productId',
+    path: '/service/:productId',
   },
   payment: {
     title: 'payment',

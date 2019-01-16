@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { listProduct } from '../../../reducers/reducer.product';
 import { readToken } from '../../../reducers/reducer.user';
+import domainConfig from '../../../config/domainConfig';
 
 // Components
 import Helmet from '../../helmet/Helmet';
@@ -45,7 +46,7 @@ class BonVoyage extends React.Component {
     if (width > 414) {
       return (
         <Wrapper.FlexWrapper>
-          <Helmet pageTitle="Bon Voyage!" />
+          <Helmet pageTitle={domainConfig.bonVoyage.title} />
           <Styled.ProductWrapper align="baseline">
             <Product width={width} items={items} />
           </Styled.ProductWrapper>
@@ -56,7 +57,7 @@ class BonVoyage extends React.Component {
     return (
       <Wrapper.CarouselGuardWrapper>
         <Wrapper.MobileBlockWrapper>
-          <Helmet pageTitle="Bon Voyage!" />
+          <Helmet pageTitle={domainConfig.bonVoyage.title} />
           <Product width={width} items={items} />
         </Wrapper.MobileBlockWrapper>
       </Wrapper.CarouselGuardWrapper>

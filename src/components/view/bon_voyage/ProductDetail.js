@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { detailProduct } from '../../../reducers/reducer.product';
 import { determineProductName } from './Product';
+import domainConfig from '../../../config/domainConfig';
 
 // Components
 import Helmet from '../../helmet/Helmet';
@@ -25,7 +26,7 @@ class ProductDetail extends React.Component {
     const discountedPrice = (item.price - item.discount_amount).toString();
     return (
       <Wrapper.FlexWrapper>
-        <Helmet pageTitle="Services" />
+        <Helmet pageTitle={domainConfig.service.title} />
         <Styled.ProductDetailWrapper>
           <Element.BasicTitle align="center">
             {determineProductName(item)}

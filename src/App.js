@@ -24,7 +24,7 @@ const PrivateRoute = ({ component: Component, ...rest }) => (
     ) : (
         <Redirect
           to={{
-            pathname: '/sign-in',
+            pathname: domainConfig.signIn.path,
             state: { from: props.location },
           }}
         />
@@ -115,7 +115,7 @@ export class App extends React.PureComponent {
                     component={Loadable.Payment}
                   />
                   <Route
-                    path={domainConfig.product.path}
+                    path={domainConfig.service.path}
                     component={Loadable.ProductDetail}
                   />
                   <Route

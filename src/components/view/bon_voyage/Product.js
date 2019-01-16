@@ -52,11 +52,11 @@ class Product extends React.Component {
       const discountedPrice = (item.price - item.discount_amount).toString();
       return (
         <Styled.ProductItem key={item.id} card>
-          <Link to={`/product/${item.id}`}>
+          <Link to={`/service/${item.id}`}>
             <Element.ResponsiveImg
               width="70%"
               src={dataConfig.baseUrl + item.url}
-              alt="product-thumbnail"
+              alt="service-thumbnail"
             />
             <p>{determineProductName(item)}</p>
             <Styled.ItemHr />

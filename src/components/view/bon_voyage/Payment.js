@@ -13,6 +13,7 @@ import {
   ScrollFilters,
 } from '../../../reducers/reducer.controlScroll';
 import dataConfig from '../../../config/dataConfig';
+import domainConfig from '../../../config/domainConfig';
 import { determineProductName } from './Product';
 
 // Components
@@ -68,7 +69,7 @@ class Payment extends React.Component {
 
     const { error, history } = this.props;
     if (!error) {
-      history.replace('/welcome');
+      history.replace(domainConfig.paymentComplete.path);
     }
   }
 
@@ -134,7 +135,7 @@ class Payment extends React.Component {
     const discountedPrice = (item.price - item.discount_amount).toString();
     return (
       <Wrapper.FlexWrapper>
-        <Helmet pageTitle="Payment" />
+        <Helmet pageTitle={domainConfig.payment.title} />
         <Wrapper.ScrollWrapper>
           <Styled.PaymentWrapper>
             <div style={{ marginTop: '2rem' }}>
