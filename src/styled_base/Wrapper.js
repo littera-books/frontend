@@ -81,7 +81,7 @@ const ViewPortWrapper = styled(BasicFlexWrapper)`
 const ContainerWrapper = styled(BasicFlexWrapper)`
   justify-content: center;
   align-items: ${props => (props.scroll ? 'flex-start' : 'center')};
-  width: 44.25rem;
+  width: ${props => (props.width > 414 ? '44.25rem' : '20rem')};
   height: 37.5rem;
   margin-bottom: 2rem;
 `;

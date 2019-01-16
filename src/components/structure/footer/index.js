@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
 import dataConfig from '../../../config/dataConfig';
 import domainConfig from '../../../config/domainConfig';
 
@@ -9,19 +10,23 @@ import Styled from './styled';
 
 class Footer extends React.Component {
   shouldComponentUpdate(nextProps) {
-    const { visibility } = this.props;
-    return visibility !== nextProps.visibility;
+    const { visibility, width } = this.props;
+    return visibility !== nextProps.visibility || width !== nextProps.width;
   }
 
   render() {
-    const { visibility } = this.props;
+    const { visibility, width } = this.props;
     return (
       <Styled.FooterWrapper
         style={{ visibility: visibility ? 'visible' : 'hidden' }}
       >
         <Styled.InnerWrapper>
           <p>{dataConfig.copyright}</p>
-          <Styled.LinkWrapper>
+          <Styled.LinkWrapper
+            style={{
+              visibility: visibility && width > 414 ? 'visible' : 'hidden',
+            }}
+          >
             <Link to={domainConfig.businessInfo.path}>INFO</Link>
             <Styled.SlashSpan>|</Styled.SlashSpan>
             <Link to={domainConfig.privacyPolicy.path}>Privacy Policy</Link>
@@ -36,6 +41,11 @@ class Footer extends React.Component {
 
 Footer.propTypes = {
   visibility: PropTypes.bool.isRequired,
+  width: PropTypes.number.isRequired,
 };
 
-export default Footer;
+const mapStateToProps = state => ({
+  width: state.controlWidth.width,
+});
+
+export default connect(mapStateToProps)(Footer);

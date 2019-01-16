@@ -59,14 +59,12 @@ export class App extends React.Component {
       isVisible, isScroll, isClose, width,
     } = this.props;
 
-    console.log(width);
-
     return (
       <Fragment>
         <BrowserRouter>
           <Wrapper.App className="App">
             <Wrapper.ViewPortWrapper>
-              <Wrapper.ContainerWrapper scroll={isScroll}>
+              <Wrapper.ContainerWrapper width={width} scroll={isScroll}>
                 <Loadable.CloseButton visibility={isClose} />
                 <Loadable.Header visibility={isVisible} />
                 <Switch>
