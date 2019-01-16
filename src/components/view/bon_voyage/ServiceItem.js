@@ -12,7 +12,7 @@ import dataConfig from '../../../config/dataConfig';
 
 // Styled
 import Element from '../../../styled_base/Element';
-import Styled from './BonVoyage.styled';
+import Styled from './styled';
 
 // CSS
 import 'slick-carousel/slick/slick.css';
@@ -34,7 +34,7 @@ export const determineProductName = (item) => {
   return `${item.books} books for ${item.months} months`;
 };
 
-class Product extends React.Component {
+class ServiceItem extends React.Component {
   componentDidMount() {
     const { filter } = this.props;
     filter(VisibilityFilters.SHOW_TITLE);
@@ -94,7 +94,7 @@ class Product extends React.Component {
   }
 }
 
-Product.propTypes = {
+ServiceItem.propTypes = {
   width: PropTypes.number.isRequired,
   items: PropTypes.arrayOf(PropTypes.object.isRequired).isRequired,
   filter: PropTypes.func.isRequired,
@@ -107,4 +107,4 @@ export const mapDispatchToProps = dispatch => ({
 export default connect(
   null,
   mapDispatchToProps,
-)(Product);
+)(ServiceItem);

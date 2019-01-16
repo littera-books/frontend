@@ -116,7 +116,7 @@ export class App extends React.PureComponent {
                   />
                   <Route
                     path={domainConfig.service.path}
-                    component={Loadable.ProductDetail}
+                    component={Loadable.ServiceDetail}
                   />
                   <Route
                     path={domainConfig.bonVoyage.path}

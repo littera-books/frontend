@@ -14,7 +14,7 @@ import {
 } from '../../../reducers/reducer.controlScroll';
 import dataConfig from '../../../config/dataConfig';
 import domainConfig from '../../../config/domainConfig';
-import { determineProductName } from './Product';
+import { determineProductName } from './ServiceItem';
 
 // Components
 import FormField from '../../../form/FormField';
@@ -24,7 +24,7 @@ import PaymentMyInfo from './PaymentMyInfo';
 // Styled
 import Wrapper from '../../../styled_base/Wrapper';
 import Element from '../../../styled_base/Element';
-import Styled from './BonVoyage.styled';
+import Styled from './styled';
 
 const PayMsg = React.memo(() => _.map(dataConfig.paymentMsg, (item, i) => <p key={i}>{item}</p>));
 

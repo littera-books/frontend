@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { detailProduct } from '../../../reducers/reducer.product';
-import { determineProductName } from './Product';
+import { determineProductName } from './ServiceItem';
 import domainConfig from '../../../config/domainConfig';
 
 // Components
@@ -12,9 +12,9 @@ import Helmet from '../../helmet';
 // Styled
 import Wrapper from '../../../styled_base/Wrapper';
 import Element from '../../../styled_base/Element';
-import Styled from './BonVoyage.styled';
+import Styled from './styled';
 
-class ProductDetail extends React.Component {
+class ServiceDetail extends React.Component {
   async componentDidMount() {
     const { match, detail } = this.props;
     await detail(match.params.productId);
@@ -56,7 +56,7 @@ class ProductDetail extends React.Component {
   }
 }
 
-ProductDetail.propTypes = {
+ServiceDetail.propTypes = {
   item: PropTypes.shape({
     books: PropTypes.number.isRequired,
     months: PropTypes.number.isRequired,
@@ -77,4 +77,4 @@ const mapDispatchToProps = dispatch => ({
 export default connect(
   mapStateToProps,
   mapDispatchToProps,
-)(ProductDetail);
+)(ServiceDetail);

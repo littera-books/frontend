@@ -109,12 +109,12 @@ const Order = Loadable({
 });
 
 const BonVoyage = Loadable({
-  loader: () => import('./components/view/bon_voyage/BonVoyage'),
+  loader: () => import('./components/view/bon_voyage'),
   loading: Loading,
 });
 
-const ProductDetail = Loadable({
-  loader: () => import('./components/view/bon_voyage/ProductDetail'),
+const ServiceDetail = Loadable({
+  loader: () => import('./components/view/bon_voyage/ServiceDetail'),
   loading: Loading,
 });
 
@@ -155,7 +155,7 @@ export default {
   ResignSurvey,
   Order,
   BonVoyage,
-  ProductDetail,
+  ServiceDetail,
   Payment,
   AllEars,
   Contact,

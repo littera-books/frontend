@@ -7,11 +7,11 @@ import domainConfig from '../../../config/domainConfig';
 
 // Components
 import Helmet from '../../helmet';
-import Product from './Product';
+import Product from './ServiceItem';
 
 // Styled
 import Wrapper from '../../../styled_base/Wrapper';
-import Styled from './BonVoyage.styled';
+import Styled from './styled';
 
 class BonVoyage extends React.Component {
   // 창의 너비가 일정 수준 이하로 좁아지면 화면 구조를 캐러셀로 변화시킨다
