@@ -29,21 +29,7 @@ class SignUp extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = {
-      width: 0,
-    };
-
     this.onSubmit = this.onSubmit.bind(this);
-    this.updateWindowDimensions = this.updateWindowDimensions.bind(this);
-  }
-
-  componentDidMount() {
-    this.updateWindowDimensions();
-    window.addEventListener('resize', this.updateWindowDimensions);
-  }
-
-  componentWillUnmount() {
-    window.removeEventListener('resize', this.updateWindowDimensions);
   }
 
   async onSubmit(payload) {
@@ -56,56 +42,35 @@ class SignUp extends React.Component {
     }
   }
 
-  updateWindowDimensions() {
-    this.setState({ width: window.innerWidth });
-  }
-
   openPostCode() {
     const { postCode } = this.state;
     postCode.open();
   }
 
   render() {
-    const { width } = this.state;
     const {
       handleSubmit, error, history, match,
     } = this.props;
 
-    if (width > 414) {
-      return (
-        <Wrapper.FlexWrapper>
-          <Helmet pageTitle={domainConfig.signUp.title} path={match.url} />
-          <Wrapper.BasicBlockWrapper>
-            <Element.BasicTitle
-              align="center"
-              size="3rem"
-              fontFamily="'Gothic A1', sans-serif"
-            >
-              Sign up
-            </Element.BasicTitle>
-            <AddInfoForm
-              handleSubmit={handleSubmit}
-              onSubmit={this.onSubmit}
-              error={error}
-              history={history}
-            />
-          </Wrapper.BasicBlockWrapper>
-        </Wrapper.FlexWrapper>
-      );
-    }
-
     return (
-      <Styled.ScrollFlexWrapper>
-        <Helmet pageTitle="Add Info" />
-        <Wrapper.ColumnWrapper>
+      <Wrapper.FlexWrapper>
+        <Helmet pageTitle={domainConfig.signUp.title} path={match.url} />
+        <Wrapper.BasicBlockWrapper>
+          <Element.BasicTitle
+            align="center"
+            size="3rem"
+            fontFamily="'Gothic A1', sans-serif"
+          >
+            Sign up
+          </Element.BasicTitle>
           <AddInfoForm
             handleSubmit={handleSubmit}
             onSubmit={this.onSubmit}
             error={error}
             history={history}
           />
-        </Wrapper.ColumnWrapper>
-      </Styled.ScrollFlexWrapper>
+        </Wrapper.BasicBlockWrapper>
+      </Wrapper.FlexWrapper>
     );
   }
 }
