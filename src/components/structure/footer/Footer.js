@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import dataConfig from '../../../config/dataConfig';
+import domainConfig from '../../../config/domainConfig';
 
 // Styled
 import Styled from './Footer.styled';
@@ -21,11 +22,11 @@ class Footer extends React.Component {
         <Styled.InnerWrapper>
           <p>{dataConfig.copyright}</p>
           <Styled.LinkWrapper>
-            <Link to="/business-info">INFO</Link>
+            <Link to={domainConfig.businessInfo.path}>INFO</Link>
             <Styled.SlashSpan>|</Styled.SlashSpan>
-            <Link to="/privacy-policy">Privacy Policy</Link>
+            <Link to={domainConfig.privacyPolicy.path}>Privacy Policy</Link>
             <Styled.SlashSpan>|</Styled.SlashSpan>
-            <Link to="/terms-of-service">Terms of Service</Link>
+            <Link to={domainConfig.termsOfService.path}>Terms of Service</Link>
           </Styled.LinkWrapper>
         </Styled.InnerWrapper>
       </Styled.FooterWrapper>

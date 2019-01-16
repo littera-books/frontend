@@ -2,6 +2,7 @@ import _ from 'lodash';
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+import domainConfig from '../../../config/domainConfig';
 
 // Styled
 import Element from '../../../styled_base/Element';
@@ -59,7 +60,7 @@ class CloseButton extends React.Component {
             />
           </Element.BasicButton>
         ) : (
-          <Link to="/main">
+          <Link to={domainConfig.main.path}>
             <img src={Close} alt="close-button" width="16px" height="16px" />
           </Link>
         )}

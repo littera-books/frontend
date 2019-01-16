@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+import domainConfig from '../../../config/domainConfig';
 
 // Styled
 import Styled from './Header.styled';
@@ -20,7 +21,7 @@ class Header extends React.Component {
       <Styled.TitleWrapper
         style={{ visibility: visibility ? 'visible ' : 'hidden' }}
       >
-        <Link to="/main" style={{ height: '3.75rem' }}>
+        <Link to={domainConfig.main.path} style={{ height: '3.75rem' }}>
           <Styled.TitleImg src={Logo} alt="Title" />
         </Link>
       </Styled.TitleWrapper>
