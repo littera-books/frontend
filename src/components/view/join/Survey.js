@@ -10,6 +10,7 @@ import {
   ScrollFilters,
 } from '../../../reducers/reducer.controlScroll';
 import dataConfig from '../../../config/dataConfig';
+import domainConfig from '../../../config/domainConfig';
 
 // Components
 import Helmet from '../../helmet/Helmet';
@@ -42,7 +43,7 @@ class Survey extends React.Component {
   async onSubmit(payload) {
     const { post, userId, history } = this.props;
     await post(userId, payload);
-    await history.replace('/log');
+    await history.replace(domainConfig.log.path);
   }
 
   renderQuestionItems() {
@@ -81,7 +82,7 @@ class Survey extends React.Component {
     if (hasSurvey) {
       return (
         <Wrapper.FlexWrapper>
-          <Helmet pageTitle="Survey" />
+          <Helmet pageTitle={domainConfig.myEnquiry.title} />
           <h1>{dataConfig.surveyDeniedText}</h1>
         </Wrapper.FlexWrapper>
       );
@@ -89,7 +90,7 @@ class Survey extends React.Component {
 
     return (
       <Wrapper.FlexWrapper>
-        <Helmet pageTitle="Survey" />
+        <Helmet pageTitle={domainConfig.myEnquiry.title} />
         <Wrapper.ScrollWrapper>
           <Styled.CenterWrapper>
             <Styled.MarginForm

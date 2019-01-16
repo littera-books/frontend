@@ -1,15 +1,8 @@
 const domainConfig = {
+  // INTRO
   intro: {
     title: '',
     path: '/',
-  },
-  main: {
-    title: 'main',
-    path: '/main',
-  },
-  about: {
-    title: 'about',
-    path: '/about',
   },
   // INFO AREA
   businessInfo: {
@@ -24,7 +17,17 @@ const domainConfig = {
     title: 'terms',
     path: '/terms',
   },
-  // ALL EARS AREA
+  // MAIN
+  main: {
+    title: 'main',
+    path: '/main',
+  },
+  // ABOUT
+  about: {
+    title: 'about',
+    path: '/about',
+  },
+  // ALL-EARS AREA
   allEars: {
     title: 'ears',
     path: '/ears',
@@ -33,7 +36,7 @@ const domainConfig = {
     title: 'contact',
     path: '/ears/contact',
   },
-  // BON VOYAGE AREA
+  // BON-VOYAGE AREA
   bonVoyage: {
     title: 'bonvoyage',
     path: '/bon-voyage',
@@ -57,7 +60,7 @@ const domainConfig = {
   },
   signOut: {
     title: 'logout',
-    path: '/sign-out',
+    path: '/logout',
   },
   forgotPassword: {
     title: 'forgotpassword',
@@ -65,7 +68,7 @@ const domainConfig = {
   },
   resetPassword: {
     title: 'renew',
-    path: '/reset-password',
+    path: '/auth/reset-password',
   },
   signUp: {
     title: 'join',
@@ -80,35 +83,33 @@ const domainConfig = {
     title: 'log',
     path: '/log',
   },
-  myInfoView: {
+  myAccountView: {
     title: 'myinfo',
-    path: '/my-info/view',
+    path: '/log/my-account/view',
   },
-  myInfoManage: {
+  myAccountManage: {
     title: 'managemyinfo',
-    path: '/my-info/manage',
+    path: '/log/my-account/manage',
   },
-  myInfoOrder: {
-    title: 'myorder',
-    path: '/my-info/order',
-  },
-  // need change
-  myInfoSurvey: {
-    title: 'enquiry',
-    path: '/my-info/survey',
-  },
-  myInfoPatchPassword: {
+  myAccountPatchPassword: {
     title: 'patchpassword',
-    path: '/my-info/patch-password',
+    path: '/log/my-account/patch-password',
   },
-  myInfoResign: {
+  myOrder: {
+    title: 'myorder',
+    path: '/log/my-order',
+  },
+  myEnquiry: {
+    title: 'enquiry',
+    path: '/log/my-enquiry',
+  },
+  resign: {
     title: 'resign',
-    path: '/my-info/resign',
+    path: '/log/resign',
   },
-  // need change
-  myInfoResignSurvey: {
+  resignSurvey: {
     title: 'request',
-    path: '/my-info/resign/survey',
+    path: '/log/resign/survey',
   },
   resignComplete: {
     title: 'solong',

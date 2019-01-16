@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { Field, reduxForm } from 'redux-form';
 import { connect } from 'react-redux';
 import { destroyUser, clearError } from '../../../reducers/reducer.user';
+import domainConfig from '../../../config/domainConfig';
 
 // Components
 import BasicFormField from '../../../form/BasicFormField';
@@ -29,7 +30,7 @@ class Resign extends React.Component {
 
     const { error } = this.props;
     if (!error) {
-      history.replace('/my-info/resign/survey');
+      history.replace(domainConfig.resignSurvey.path);
     }
   }
 
@@ -38,7 +39,7 @@ class Resign extends React.Component {
 
     return (
       <Wrapper.FlexWrapper>
-        <Helmet pageTitle="Resign" />
+        <Helmet pageTitle={domainConfig.resign.title} />
         <Styled.LineHeightForm
           action="post"
           onSubmit={handleSubmit(this.onDestroy.bind(this))}

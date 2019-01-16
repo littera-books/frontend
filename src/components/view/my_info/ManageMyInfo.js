@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { updateInfo } from '../../../reducers/reducer.user';
 import dataConfig from '../../../config/dataConfig';
+import domainConfig from '../../../config/domainConfig';
 
 // Components
 import FormField from '../../../form/FormField';
@@ -23,7 +24,7 @@ const ManageMyInfoForm = ({
     onSubmit={handleSubmit(onSubmit.bind(this))}
   >
     <FormField.InfoFormField error={error} openPostCode={openPostCode} />
-    <Link to="/my-info/patch-password">Patch Password</Link>
+    <Link to={domainConfig.myAccountPatchPassword.path}>Patch Password</Link>
     <Element.SubmitButton type="submit">Confirm Change</Element.SubmitButton>
   </Styled.LineHeightForm>
 );
@@ -65,7 +66,7 @@ class ManageMyInfo extends React.Component {
     } = this.props;
 
     if (!userId) {
-      history.replace('/my-info/view');
+      history.replace(domainConfig.myAccountView.path);
     }
 
     initialize({
@@ -89,7 +90,7 @@ class ManageMyInfo extends React.Component {
 
     const { error } = this.props;
     if (!error) {
-      history.replace('/my-info/view');
+      history.replace(domainConfig.myAccountView.path);
     }
   }
 
@@ -124,7 +125,7 @@ class ManageMyInfo extends React.Component {
     if (width > 414) {
       return (
         <Wrapper.FlexWrapper>
-          <Helmet pageTitle="Manage My Info" />
+          <Helmet pageTitle={domainConfig.myAccountManage.title} />
           <Wrapper.ColumnWrapper>
             <ManageMyInfoForm
               handleSubmit={handleSubmit}
@@ -139,7 +140,7 @@ class ManageMyInfo extends React.Component {
 
     return (
       <Styled.ScrollFlexWrapper>
-        <Helmet pageTitle="Manage My Info" />
+        <Helmet pageTitle={domainConfig.myAccountManage.title} />
         <Wrapper.ColumnWrapper>
           <ManageMyInfoForm
             handleSubmit={handleSubmit}

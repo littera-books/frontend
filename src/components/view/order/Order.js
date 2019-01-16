@@ -6,6 +6,7 @@ import { connect } from 'react-redux';
 import { readToken } from '../../../reducers/reducer.user';
 import { listBook } from '../../../reducers/reducer.book';
 import dataConfig from '../../../config/dataConfig';
+import domainConfig from '../../../config/domainConfig';
 
 // Component
 import Helmet from '../../helmet/Helmet';
@@ -78,7 +79,7 @@ class Order extends React.Component {
     if (items.length === 0) {
       return (
         <Wrapper.BasicBlockWrapper>
-          <Helmet pageTitle="My Order" />
+          <Helmet pageTitle={domainConfig.myOrder.title} />
           <p>{dataConfig.emptyOrderText}</p>
         </Wrapper.BasicBlockWrapper>
       );
@@ -86,7 +87,7 @@ class Order extends React.Component {
 
     return (
       <Wrapper.BasicBlockWrapper>
-        <Helmet pageTitle="My Order" />
+        <Helmet pageTitle={domainConfig.myOrder.title} />
         <ul>
           <RenderItems items={items} />
         </ul>

@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { readToken, retrieveInfo } from '../../../reducers/reducer.user';
 import { signOut } from '../../../reducers/reducer.auth';
+import domainConfig from '../../../config/domainConfig';
 
 // Components
 import Helmet from '../../helmet/Helmet';
@@ -14,7 +15,7 @@ import Styled from './Log.styled';
 
 import ArrowDown from '../../../assets/images/down-arrow.svg';
 
-const handleCick = () => {
+const handleDropdown = () => {
   const DropdownContent = document.getElementById('dropdown-content');
   DropdownContent.classList.toggle('active');
 };
@@ -22,7 +23,7 @@ const handleCick = () => {
 class Log extends React.Component {
   constructor(props) {
     super(props);
-    this.handleCick = this.handleCick.bind(this);
+    this.onSignOut = this.onSignOut.bind(this);
   }
 
   async componentDidMount() {
@@ -32,10 +33,10 @@ class Log extends React.Component {
     await retrieve(userId);
   }
 
-  handleCick() {
+  onSignOut() {
     const { logOut, history } = this.props;
     logOut();
-    history.replace('/main');
+    history.replace(domainConfig.main.path);
   }
 
   render() {
@@ -43,8 +44,8 @@ class Log extends React.Component {
     const splitEmail = email.split('@');
     return (
       <Wrapper.FlexWrapper>
-        <Helmet pageTitle="Log" />
-        <Styled.Dropdown onClick={handleCick}>
+        <Helmet pageTitle={domainConfig.log.title} />
+        <Styled.Dropdown onClick={handleDropdown}>
           <Styled.DropdownTitle>
             <span>
               {`Hello, ${splitEmail[0]}`}
@@ -53,20 +54,20 @@ class Log extends React.Component {
             <img src={ArrowDown} width="16px" height="16px" alt="arrow-down" />
           </Styled.DropdownTitle>
           <Styled.DropdownContent id="dropdown-content">
-            <Link to="/my-info/view">
+            <Link to={domainConfig.myAccountView.path}>
               <Styled.DropdownItem>My Account</Styled.DropdownItem>
             </Link>
-            <Link to="/my-info/order">
+            <Link to={domainConfig.myOrder.path}>
               <Styled.DropdownItem>My Order</Styled.DropdownItem>
             </Link>
-            <Link to="/my-info/survey">
+            <Link to={domainConfig.myEnquiry.path}>
               <Styled.DropdownItem>My Enquiry</Styled.DropdownItem>
             </Link>
-            <Link to="/my-info/resign">
+            <Link to={domainConfig.resign.path}>
               <Styled.DropdownItem>Resign</Styled.DropdownItem>
             </Link>
             <Styled.DropdownHr />
-            <Link to="/sign-out" onClick={this.handleCick}>
+            <Link to={domainConfig.signOut.path} onClick={this.onSignOut}>
               <Styled.DropdownItem>SIGN OUT</Styled.DropdownItem>
             </Link>
           </Styled.DropdownContent>

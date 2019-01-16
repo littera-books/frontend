@@ -6,6 +6,7 @@ import Quill from 'quill';
 import { signOut } from '../../../reducers/reducer.auth';
 import { createResignSurvey } from '../../../reducers/reducer.resignSurvey';
 import dataConfig from '../../../config/dataConfig';
+import domainConfig from '../../../config/domainConfig';
 
 // Components
 import Helmet from '../../helmet/Helmet';
@@ -69,7 +70,7 @@ class ResignSurvey extends React.Component {
 
       const { error, history } = this.props;
       if (!error) {
-        history.replace('/good-bye');
+        history.replace(domainConfig.resignComplete.path);
       }
     }
   }
@@ -83,7 +84,7 @@ class ResignSurvey extends React.Component {
     const { handleSubmit, error } = this.props;
     return (
       <Styled.LetterWrapper>
-        <Helmet pageTitle="Resign Survey" />
+        <Helmet pageTitle={domainConfig.resignSurvey.title} />
         <Styled.MarginForm
           action="post"
           onSubmit={handleSubmit(this.onSubmit.bind(this))}

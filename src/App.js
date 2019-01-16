@@ -51,31 +51,31 @@ export class App extends React.PureComponent {
                     component={Loadable.Alert}
                   />
                   <PrivateRoute
-                    path={domainConfig.myInfoResignSurvey.path}
+                    path={domainConfig.resignSurvey.path}
                     component={Loadable.ResignSurvey}
                   />
                   <PrivateRoute
-                    path={domainConfig.myInfoResign.path}
+                    path={domainConfig.resign.path}
                     component={Loadable.Resign}
                   />
                   <PrivateRoute
-                    path={domainConfig.myInfoPatchPassword.path}
-                    component={Loadable.PatchPassword}
-                  />
-                  <PrivateRoute
-                    path={domainConfig.myInfoSurvey.path}
+                    path={domainConfig.myEnquiry.path}
                     component={Loadable.Survey}
                   />
                   <PrivateRoute
-                    path={domainConfig.myInfoOrder.path}
+                    path={domainConfig.myOrder.path}
                     component={Loadable.Order}
                   />
                   <PrivateRoute
-                    path={domainConfig.myInfoManage.path}
+                    path={domainConfig.myAccountPatchPassword.path}
+                    component={Loadable.PatchPassword}
+                  />
+                  <PrivateRoute
+                    path={domainConfig.myAccountManage.path}
                     component={Loadable.ManageMyInfo}
                   />
                   <PrivateRoute
-                    path={domainConfig.myInfoView.path}
+                    path={domainConfig.myAccountView.path}
                     component={Loadable.MyInfo}
                   />
                   <PrivateRoute
@@ -135,6 +135,10 @@ export class App extends React.PureComponent {
                     component={Loadable.About}
                   />
                   <Route
+                    path={domainConfig.main.path}
+                    component={Loadable.Main}
+                  />
+                  <Route
                     path={domainConfig.termsOfService.path}
                     component={Loadable.TermsOfService}
                   />
@@ -145,10 +149,6 @@ export class App extends React.PureComponent {
                   <Route
                     path={domainConfig.businessInfo.path}
                     component={Loadable.BusinessInfo}
-                  />
-                  <Route
-                    path={domainConfig.main.path}
-                    component={Loadable.Main}
                   />
                   <Route
                     exact

@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { reduxForm } from 'redux-form';
 import { connect } from 'react-redux';
 import { patchPassword } from '../../../reducers/reducer.user';
+import domainConfig from '../../../config/domainConfig';
 
 // Components
 import FormField from '../../../form/FormField';
@@ -18,7 +19,7 @@ class PatchPassword extends React.Component {
     const { initialize, history, userId } = this.props;
 
     if (!userId) {
-      history.replace('/my-info/view');
+      history.replace(domainConfig.myAccountView.path);
     }
 
     initialize({
@@ -29,14 +30,14 @@ class PatchPassword extends React.Component {
   async onSubmit(payload) {
     const { patch, history } = this.props;
     await patch(payload);
-    history.replace('/my-info/view');
+    history.replace(domainConfig.myAccountView.path);
   }
 
   render() {
     const { handleSubmit } = this.props;
     return (
       <Wrapper.FlexWrapper>
-        <Helmet pageTitle="Patch Password" />
+        <Helmet pageTitle={domainConfig.myAccountPatchPassword.title} />
         <Styled.LineHeightForm
           action="post"
           onSubmit={handleSubmit(this.onSubmit.bind(this))}

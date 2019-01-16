@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { readToken, retrieveInfo } from '../../../reducers/reducer.user';
+import domainConfig from '../../../config/domainConfig';
 
 // Components
 import Helmet from '../../helmet/Helmet';
@@ -31,7 +32,7 @@ class MyInfo extends React.Component {
     } = this.props;
     return (
       <Wrapper.FlexWrapper>
-        <Helmet pageTitle="My Info" />
+        <Helmet pageTitle={domainConfig.myAccountView.title} />
         <Styled.InfoWrapper>
           <p>{email}</p>
           <Styled.NameWrapper>
@@ -41,7 +42,7 @@ class MyInfo extends React.Component {
           <p>{phone}</p>
           <p>{address}</p>
           <p>{extraAddress}</p>
-          <Link to="/my-info/manage">
+          <Link to={domainConfig.myAccountManage.path}>
             <Element.SubmitButton>Manage My Info</Element.SubmitButton>
           </Link>
         </Styled.InfoWrapper>
