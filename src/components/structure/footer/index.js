@@ -5,7 +5,7 @@ import dataConfig from '../../../config/dataConfig';
 import domainConfig from '../../../config/domainConfig';
 
 // Styled
-import Styled from './Footer.styled';
+import Styled from './styled';
 
 class Footer extends React.Component {
   shouldComponentUpdate(nextProps) {

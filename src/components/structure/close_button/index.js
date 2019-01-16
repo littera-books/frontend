@@ -6,7 +6,7 @@ import domainConfig from '../../../config/domainConfig';
 
 // Styled
 import Element from '../../../styled_base/Element';
-import Styled from './CloseButton.styled';
+import Styled from './styled';
 
 import Close from '../../../assets/images/cross-out.svg';
 import Back from '../../../assets/images/down-arrow.svg';

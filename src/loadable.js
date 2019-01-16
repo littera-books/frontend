@@ -9,22 +9,22 @@ const Loading = () => (
 );
 
 const Alert = Loadable({
-  loader: () => import('./components/structure/alert/Alert'),
+  loader: () => import('./components/structure/alert'),
   loading: Loading,
 });
 
 const Header = Loadable({
-  loader: () => import('./components/structure/header/Header'),
+  loader: () => import('./components/structure/header'),
   loading: () => null,
 });
 
 const Footer = Loadable({
-  loader: () => import('./components/structure/footer/Footer'),
+  loader: () => import('./components/structure/footer'),
   loading: () => null,
 });
 
 const CloseButton = Loadable({
-  loader: () => import('./components/structure/close_button/CloseButton'),
+  loader: () => import('./components/structure/close_button'),
   loading: () => null,
 });
 

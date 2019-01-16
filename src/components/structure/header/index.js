@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import domainConfig from '../../../config/domainConfig';
 
 // Styled
-import Styled from './Header.styled';
+import Styled from './styled';
 
 // Images
 import Logo from '../../../assets/images/lettre_nk.jpeg';
