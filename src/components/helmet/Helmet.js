@@ -5,11 +5,13 @@ import { Helmet } from 'react-helmet';
 // Data
 import dataConfig from '../../config/dataConfig';
 
-const HelmetComponent = ({ pageTitle }) => (
+const HelmetComponent = React.memo(({ pageTitle }) => (
   <Helmet>
-    <title>{`${dataConfig.siteTitle} | ${pageTitle}`}</title>
+    <title>
+      {dataConfig.siteTitle}&nbsp;{pageTitle === '' ? '' : '|'}&nbsp;{pageTitle}
+    </title>
   </Helmet>
-);
+));
 
 HelmetComponent.propTypes = {
   pageTitle: PropTypes.string.isRequired,
