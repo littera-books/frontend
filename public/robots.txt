@@ -1,4 +1,4 @@
 User-agent: Yeti
 User-agent: Googlebot
 Allow: /
-Disallow: /log/
+Disallow: /log/*
