@@ -81,15 +81,25 @@ const ViewPortWrapper = styled(BasicFlexWrapper)`
 const ContainerWrapper = styled(BasicFlexWrapper)`
   justify-content: center;
   align-items: ${props => (props.scroll ? 'flex-start' : 'center')};
-  width: ${props => (props.width > 414 ? '44.25rem' : '20rem')};
+  width: 44.25rem;
   height: 37.5rem;
   margin-bottom: 2rem;
+
+  @media (max-width: 414px) {
+    width: 20rem;
+    height: 31.25rem;
+    margin-bottom: 0;
+  }
 `;
 
 const FlexWrapper = styled(BasicFlexWrapper)`
   justify-content: center;
   align-items: center;
   width: 44.25rem;
+
+  @media (max-width: 414px) {
+    padding: 0 1rem;
+  }
 `;
 
 const ColumnWrapper = styled(BasicFlexWrapper)`

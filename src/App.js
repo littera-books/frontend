@@ -55,16 +55,14 @@ export class App extends React.Component {
   }
 
   render() {
-    const {
-      isVisible, isScroll, isClose, width,
-    } = this.props;
+    const { isVisible, isScroll, isClose } = this.props;
 
     return (
       <Fragment>
         <BrowserRouter>
           <Wrapper.App className="App">
             <Wrapper.ViewPortWrapper>
-              <Wrapper.ContainerWrapper width={width} scroll={isScroll}>
+              <Wrapper.ContainerWrapper scroll={isScroll}>
                 <Loadable.CloseButton visibility={isClose} />
                 <Loadable.Header visibility={isVisible} />
                 <Switch>
@@ -199,14 +197,12 @@ App.propTypes = {
   isScroll: PropTypes.bool.isRequired,
   isClose: PropTypes.bool.isRequired,
   listen: PropTypes.func.isRequired,
-  width: PropTypes.number.isRequired,
 };
 
 const mapStateToProps = state => ({
   isVisible: state.controlTitle,
   isScroll: state.controlScroll,
   isClose: state.controlClose,
-  width: state.controlWidth.width,
 });
 
 const mapDispatchToProps = dispatch => ({
