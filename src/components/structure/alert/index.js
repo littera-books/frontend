@@ -45,6 +45,9 @@ export class Alert extends React.Component {
       case domainConfig.intro.path:
         return [dataConfig.alertMessage.intro, domainConfig.intro.title];
 
+      case domainConfig.intro.indexPath:
+        return [dataConfig.alertMessage.intro, domainConfig.intro.title];
+
       case domainConfig.paymentComplete.path:
         return [
           `${dataConfig.alertMessage.payment[0]} ${splitEmail[0]}, ${

@@ -174,6 +174,11 @@ export class App extends React.Component {
                   />
                   <Route
                     exact
+                    path={domainConfig.intro.indexPath}
+                    component={Loadable.Alert}
+                  />
+                  <Route
+                    exact
                     path={domainConfig.intro.path}
                     component={Loadable.Alert}
                   />

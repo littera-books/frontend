@@ -3,6 +3,7 @@ const domainConfig = {
   intro: {
     title: '',
     path: '/',
+    indexPath: '/index.html',
   },
   // INFO AREA
   businessInfo: {
