@@ -14,9 +14,6 @@ import Element from '../styled_base/Element';
 
 const NameWrapper = styled(Wrapper.BetweenWrapper)`
   width: 20rem;
-  @media (max-width: 414px) {
-    flex-direction: column;
-  }
 `;
 
 const EmailField = ({ error }) => (
