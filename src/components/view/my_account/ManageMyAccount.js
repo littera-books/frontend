@@ -14,19 +14,15 @@ import Helmet from '../../helmet';
 // Styled
 import Wrapper from '../../../styled_base/Wrapper';
 import Element from '../../../styled_base/Element';
-import Styled from './styled';
 
 const ManageMyInfoForm = ({
   handleSubmit, onSubmit, openPostCode, error,
 }) => (
-  <Styled.LineHeightForm
-    action="post"
-    onSubmit={handleSubmit(onSubmit.bind(this))}
-  >
+  <form action="post" onSubmit={handleSubmit(onSubmit.bind(this))}>
     <FormField.InfoFormField error={error} openPostCode={openPostCode} />
     <Link to={domainConfig.PatchPassword.path}>Patch Password</Link>
     <Element.SubmitButton type="submit">Confirm Change</Element.SubmitButton>
-  </Styled.LineHeightForm>
+  </form>
 );
 
 class ManageMyAccount extends React.Component {

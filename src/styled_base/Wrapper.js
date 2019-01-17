@@ -98,7 +98,8 @@ const FlexWrapper = styled(BasicFlexWrapper)`
   width: 44.25rem;
 
   @media (max-width: 414px) {
-    padding: 0 1rem;
+    width: 18rem;
+    margin: 0 1rem;
   }
 `;
 

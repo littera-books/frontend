@@ -13,7 +13,7 @@ import Wrapper from '../styled_base/Wrapper';
 import Element from '../styled_base/Element';
 
 const NameWrapper = styled(Wrapper.BetweenWrapper)`
-  width: 20rem;
+  width: 18rem;
 `;
 
 const EmailField = ({ error }) => (
@@ -23,7 +23,7 @@ const EmailField = ({ error }) => (
       name="email"
       placeholder="Email"
       border="1px solid black"
-      width="20rem"
+      width="18rem"
       component={BasicFormField}
       validate={[Validation.required, Validation.email]}
     />
@@ -40,7 +40,7 @@ const PasswordField = () => (
       name="password1"
       placeholder="Password (With 8 characters or more)"
       border="1px solid black"
-      width="20rem"
+      width="18rem"
       component={BasicFormField}
       validate={[Validation.required, Validation.minLength8]}
     />
@@ -49,7 +49,7 @@ const PasswordField = () => (
       name="password2"
       placeholder="Confirm password"
       border="1px solid black"
-      width="20rem"
+      width="18rem"
       component={BasicFormField}
       validate={[Validation.required, Validation.minLength8]}
     />
@@ -63,7 +63,7 @@ const InfoFormField = ({ openPostCode, error }) => (
       name="email"
       placeholder="Email"
       border="1px solid black"
-      width="20rem"
+      width="18rem"
       component={BasicFormField}
       validate={[Validation.required, Validation.email]}
       disabled
@@ -74,7 +74,7 @@ const InfoFormField = ({ openPostCode, error }) => (
         name="firstName"
         placeholder="First name"
         border="1px solid black"
-        width="9.5rem"
+        width="8.5rem"
         component={BasicFormField}
         validate={[Validation.required, Validation.maxLength20]}
       />
@@ -83,7 +83,7 @@ const InfoFormField = ({ openPostCode, error }) => (
         name="lastName"
         placeholder="Last name"
         border="1px solid black"
-        width="9.5rem"
+        width="8.5rem"
         component={BasicFormField}
       />
     </NameWrapper>
@@ -92,7 +92,7 @@ const InfoFormField = ({ openPostCode, error }) => (
       name="phone"
       placeholder="Contact No."
       border="1px solid black"
-      width="20rem"
+      width="18rem"
       component={BasicFormField}
       validate={[
         Validation.required,
@@ -105,7 +105,7 @@ const InfoFormField = ({ openPostCode, error }) => (
       name="address"
       placeholder="Contact Address (Where your books arrive)"
       border="1px solid black"
-      width="20rem"
+      width="18rem"
       func={openPostCode}
       component={BasicFormField}
       validate={Validation.required}
@@ -116,7 +116,7 @@ const InfoFormField = ({ openPostCode, error }) => (
       name="extraAddress"
       placeholder="Extra Address (Where your books arrive)"
       border="1px solid black"
-      width="20rem"
+      width="18rem"
       component={BasicFormField}
       validate={Validation.required}
     />
@@ -134,7 +134,7 @@ const PaymentFormField = ({ openPostCode, error, children }) => (
         name="firstName"
         placeholder="First name"
         border="1px solid black"
-        width="9.5rem"
+        width="8.5rem"
         component={BasicFormField}
         validate={[Validation.required, Validation.maxLength20]}
       />
@@ -143,7 +143,7 @@ const PaymentFormField = ({ openPostCode, error, children }) => (
         name="lastName"
         placeholder="Last name"
         border="1px solid black"
-        width="9.5rem"
+        width="8.5rem"
         component={BasicFormField}
       />
     </NameWrapper>
@@ -152,7 +152,7 @@ const PaymentFormField = ({ openPostCode, error, children }) => (
       name="phone"
       placeholder="Contact No."
       border="1px solid black"
-      width="20rem"
+      width="18rem"
       component={BasicFormField}
       validate={[
         Validation.required,
@@ -165,7 +165,7 @@ const PaymentFormField = ({ openPostCode, error, children }) => (
       name="address"
       placeholder="Contact Address (Where your books arrive)"
       border="1px solid black"
-      width="20rem"
+      width="18rem"
       func={openPostCode}
       component={BasicFormField}
       validate={Validation.required}
@@ -176,7 +176,7 @@ const PaymentFormField = ({ openPostCode, error, children }) => (
       name="extraAddress"
       placeholder="Extra Address (Where your books arrive)"
       border="1px solid black"
-      width="20rem"
+      width="18rem"
       component={BasicFormField}
       validate={Validation.required}
     />
@@ -195,7 +195,7 @@ const SendEmailFormField = ({ error }) => (
         name="email"
         placeholder="Email"
         border="1px solid black"
-        width="9.5rem"
+        width="8.5rem"
         component={BasicFormField}
         validate={[Validation.required, Validation.email]}
       />
@@ -204,7 +204,7 @@ const SendEmailFormField = ({ error }) => (
         name="name"
         placeholder="Name"
         border="1px solid black"
-        width="9.5rem"
+        width="8.5rem"
         component={BasicFormField}
         validate={[Validation.required, Validation.maxLength20]}
       />
@@ -214,7 +214,7 @@ const SendEmailFormField = ({ error }) => (
       name="content"
       placeholder={dataConfig.placeholderText}
       border="1px solid black"
-      width="20rem"
+      width="18rem"
       component={TextareaFormField}
       validate={Validation.required}
     />

@@ -2,17 +2,13 @@ import styled from 'styled-components';
 import Wrapper from '../../../styled_base/Wrapper';
 import Element from '../../../styled_base/Element';
 
-const FAQWrapper = styled(Wrapper.BasicFlexWrapper)`
-  width: 100%;
+const FAQWrapper = styled(Wrapper.FlexWrapper)`
   height: 100%;
-  align-items: center;
 `;
 
 const FAQTitle = styled(Element.BasicTitle)`
   position: absolute;
   top: 2rem;
-  left: 50%;
-  transform: translateX(-50%);
   padding: 24px 0 15px 0;
 `;
 
@@ -25,7 +21,8 @@ const EmailTitle = styled(Element.BasicTitle)`
 `;
 
 const AccordionWrapper = styled(Wrapper.BasicBlockWrapper)`
-  width: 44.25rem;
+  z-index: 3;
+  background-color: white;
 `;
 
 const QuestionGroup = styled(Wrapper.BetweenWrapper)`

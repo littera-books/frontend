@@ -12,7 +12,6 @@ import Helmet from '../../helmet';
 // Styled
 import Wrapper from '../../../styled_base/Wrapper';
 import Element from '../../../styled_base/Element';
-import Styled from './styled';
 
 class PatchPassword extends React.Component {
   componentDidMount() {
@@ -38,15 +37,12 @@ class PatchPassword extends React.Component {
     return (
       <Wrapper.FlexWrapper>
         <Helmet pageTitle={domainConfig.PatchPassword.title} path={match.url} />
-        <Styled.LineHeightForm
-          action="post"
-          onSubmit={handleSubmit(this.onSubmit.bind(this))}
-        >
+        <form action="post" onSubmit={handleSubmit(this.onSubmit.bind(this))}>
           <FormField.PasswordField />
           <Element.SubmitButton type="submit">
             Reset Password
           </Element.SubmitButton>
-        </Styled.LineHeightForm>
+        </form>
       </Wrapper.FlexWrapper>
     );
   }

@@ -36,10 +36,10 @@ class MyAccount extends React.Component {
         <Helmet pageTitle={domainConfig.myAccount.title} path={match.url} />
         <Styled.InfoWrapper>
           <p>{email}</p>
-          <Styled.NameWrapper>
+          <Wrapper.BetweenWrapper>
             <Styled.NameParagraph>{firstName}</Styled.NameParagraph>
             <Styled.NameParagraph>{lastName}</Styled.NameParagraph>
-          </Styled.NameWrapper>
+          </Wrapper.BetweenWrapper>
           <p>{phone}</p>
           <p>{address}</p>
           <p>{extraAddress}</p>

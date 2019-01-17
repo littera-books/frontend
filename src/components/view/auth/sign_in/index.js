@@ -57,7 +57,7 @@ export class SignIn extends React.Component {
               name="email"
               placeholder="Email"
               border="1px solid black"
-              width="20rem"
+              width="18rem"
               component={BasicFormField}
               validate={[Validation.required, Validation.email]}
             />
@@ -66,7 +66,7 @@ export class SignIn extends React.Component {
               name="password"
               placeholder="Password"
               border="1px solid black"
-              width="20rem"
+              width="18rem"
               component={BasicFormField}
               validate={Validation.required}
             />
