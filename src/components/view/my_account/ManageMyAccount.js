@@ -34,19 +34,14 @@ class ManageMyAccount extends React.Component {
     super(props);
 
     this.state = {
-      width: 0,
       postCode: '',
     };
 
     this.onSubmit = this.onSubmit.bind(this);
     this.openPostCode = this.openPostCode.bind(this);
-    this.updateWindowDimensions = this.updateWindowDimensions.bind(this);
   }
 
   componentDidMount() {
-    this.updateWindowDimensions();
-    window.addEventListener('resize', this.updateWindowDimensions);
-
     const script = document.createElement('script');
     script.id = 'daum';
     document.head.appendChild(script);
@@ -80,10 +75,6 @@ class ManageMyAccount extends React.Component {
     });
   }
 
-  componentWillUnmount() {
-    window.removeEventListener('resize', this.updateWindowDimensions);
-  }
-
   async onSubmit(payload) {
     const { update, history } = this.props;
     await update(payload);
@@ -92,10 +83,6 @@ class ManageMyAccount extends React.Component {
     if (!error) {
       history.replace(domainConfig.myAccount.path);
     }
-  }
-
-  updateWindowDimensions() {
-    this.setState({ width: window.innerWidth });
   }
 
   initialPostCode() {
@@ -119,31 +106,14 @@ class ManageMyAccount extends React.Component {
   }
 
   render() {
-    const { width } = this.state;
     const { handleSubmit, error, match } = this.props;
 
-    if (width > 414) {
-      return (
-        <Wrapper.FlexWrapper>
-          <Helmet
-            pageTitle={domainConfig.manageMyAccount.title}
-            path={match.url}
-          />
-          <Wrapper.ColumnWrapper>
-            <ManageMyInfoForm
-              handleSubmit={handleSubmit}
-              onSubmit={this.onSubmit}
-              openPostCode={this.openPostCode}
-              error={error}
-            />
-          </Wrapper.ColumnWrapper>
-        </Wrapper.FlexWrapper>
-      );
-    }
-
     return (
-      <Styled.ScrollFlexWrapper>
-        <Helmet pageTitle={domainConfig.manageMyAccount.title} />
+      <Wrapper.FlexWrapper>
+        <Helmet
+          pageTitle={domainConfig.manageMyAccount.title}
+          path={match.url}
+        />
         <Wrapper.ColumnWrapper>
           <ManageMyInfoForm
             handleSubmit={handleSubmit}
@@ -152,7 +122,7 @@ class ManageMyAccount extends React.Component {
             error={error}
           />
         </Wrapper.ColumnWrapper>
-      </Styled.ScrollFlexWrapper>
+      </Wrapper.FlexWrapper>
     );
   }
 }
