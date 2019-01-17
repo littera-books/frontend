@@ -13,6 +13,10 @@ const FooterWrapper = styled(Wrapper.BasicFlexWrapper)`
   justify-content: center;
   align-items: center;
   font-size: 9px;
+
+  @media (max-width: 414px) {
+    padding: 0;
+  }
 `;
 
 const InnerWrapper = styled(Wrapper.BasicFlexWrapper)`

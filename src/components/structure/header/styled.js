@@ -12,12 +12,6 @@ const TitleWrapper = styled(Wrapper.BasicFlexWrapper)`
   height: auto;
   justify-content: center;
   align-items: center;
-
-  @media (max-width: 375px) {
-    padding-top: 2rem;
-    margin-bottom: 2rem;
-    height: 6rem;
-  }
 `;
 
 const TitleImg = styled.img`
