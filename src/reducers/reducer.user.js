@@ -148,7 +148,7 @@ export const destroyUser = async (payload) => {
       url: `/user/${payload.userId}`,
       method: 'delete',
       data: {
-        password: payload.password,
+        password: payload.password1,
       },
     });
   } catch (e) {

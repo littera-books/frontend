@@ -12,7 +12,6 @@ import FormField from '../../../../form/FormField';
 // Styled
 import Wrapper from '../../../../styled_base/Wrapper';
 import Element from '../../../../styled_base/Element';
-import Styled from './styled';
 
 class ForgetPassword extends React.Component {
   async onSubmit(payload) {
@@ -33,15 +32,12 @@ class ForgetPassword extends React.Component {
           pageTitle={domainConfig.forgotPassword.title}
           path={match.url}
         />
-        <Styled.LineHeightForm
-          action="post"
-          onSubmit={handleSubmit(this.onSubmit.bind(this))}
-        >
+        <form action="post" onSubmit={handleSubmit(this.onSubmit.bind(this))}>
           <FormField.EmailField error={error} />
           <Element.SubmitButton type="submit">
             Reset Password
           </Element.SubmitButton>
-        </Styled.LineHeightForm>
+        </form>
       </Wrapper.FlexWrapper>
     );
   }

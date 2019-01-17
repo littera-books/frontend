@@ -1,14 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import { Field, reduxForm } from 'redux-form';
+import { reduxForm } from 'redux-form';
 import { connect } from 'react-redux';
 import { initialize, signIn } from '../../../../reducers/reducer.auth';
 import domainConfig from '../../../../config/domainConfig';
 
 // Components
-import BasicFormField from '../../../../form/BasicFormField';
-import Validation from '../../../../form/Validation';
+import FormField from '../../../../form/FormField';
 import Helmet from '../../../helmet';
 
 // Styled
@@ -52,27 +51,7 @@ export class SignIn extends React.Component {
             </Link>
           </p>
           <form action="post" onSubmit={handleSubmit(this.onSubmit.bind(this))}>
-            <Field
-              type="email"
-              name="email"
-              placeholder="Email"
-              border="1px solid black"
-              width="18rem"
-              component={BasicFormField}
-              validate={[Validation.required, Validation.email]}
-            />
-            <Field
-              type="password"
-              name="password"
-              placeholder="Password"
-              border="1px solid black"
-              width="18rem"
-              component={BasicFormField}
-              validate={Validation.required}
-            />
-            <div>
-              <Element.BasicSmall>{error}</Element.BasicSmall>
-            </div>
+            <FormField.SignInField error={error} />
             <Link
               to={domainConfig.forgotPassword.path}
               style={{

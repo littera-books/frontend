@@ -1,19 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Field, reduxForm } from 'redux-form';
+import { reduxForm } from 'redux-form';
 import { connect } from 'react-redux';
 import { destroyUser, clearError } from '../../../reducers/reducer.user';
 import domainConfig from '../../../config/domainConfig';
 
 // Components
-import BasicFormField from '../../../form/BasicFormField';
-import Validation from '../../../form/Validation';
+import FormField from '../../../form/FormField';
 import Helmet from '../../helmet';
 
 // Styled
 import Wrapper from '../../../styled_base/Wrapper';
 import Element from '../../../styled_base/Element';
-import Styled from '../my_account/styled';
 
 class Resign extends React.Component {
   componentDidMount() {
@@ -40,24 +38,10 @@ class Resign extends React.Component {
     return (
       <Wrapper.FlexWrapper>
         <Helmet pageTitle={domainConfig.resign.title} path={match.url} />
-        <Styled.LineHeightForm
-          action="post"
-          onSubmit={handleSubmit(this.onDestroy.bind(this))}
-        >
-          <Field
-            type="password"
-            name="password"
-            placeholder="Write your password..."
-            border="1px solid black"
-            width="20rem"
-            component={BasicFormField}
-            validate={Validation.required}
-          />
-          <div>
-            <Element.BasicSmall>{error}</Element.BasicSmall>
-          </div>
+        <form action="post" onSubmit={handleSubmit(this.onDestroy.bind(this))}>
+          <FormField.ResignField error={error} />
           <Element.SubmitButton type="submit">Resign</Element.SubmitButton>
-        </Styled.LineHeightForm>
+        </form>
       </Wrapper.FlexWrapper>
     );
   }

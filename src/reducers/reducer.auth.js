@@ -22,7 +22,7 @@ export async function signIn(payload) {
       method: 'post',
       data: {
         email: payload.email,
-        password: payload.password,
+        password: payload.password1,
       },
     });
   } catch (e) {
