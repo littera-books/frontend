@@ -21,7 +21,9 @@ class Footer extends React.Component {
         style={{ visibility: visibility ? 'visible' : 'hidden' }}
       >
         <Styled.InnerWrapper>
-          <p>{dataConfig.copyright}</p>
+          <p>
+            {width > 414 ? dataConfig.copyright : dataConfig.copyrightSmall}
+          </p>
           <Styled.LinkWrapper
             style={{
               visibility: visibility && width > 414 ? 'visible' : 'hidden',
