@@ -43,7 +43,9 @@ class PatchPassword extends React.Component {
           onSubmit={handleSubmit(this.onSubmit.bind(this))}
         >
           <FormField.PasswordField />
-          <Element.SubmitButton type="submit">Submit</Element.SubmitButton>
+          <Element.SubmitButton type="submit">
+            Reset Password
+          </Element.SubmitButton>
         </Styled.LineHeightForm>
       </Wrapper.FlexWrapper>
     );

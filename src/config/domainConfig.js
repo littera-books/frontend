@@ -38,7 +38,7 @@ const domainConfig = {
   },
   // BON-VOYAGE AREA
   bonVoyage: {
-    title: 'bonvoyage',
+    title: 'bon voyage',
     path: '/bon-voyage',
   },
   service: {
@@ -63,7 +63,7 @@ const domainConfig = {
     path: '/logout',
   },
   forgotPassword: {
-    title: 'forgotpassword',
+    title: 'forgot password',
     path: '/auth/forgot-password',
   },
   resetPassword: {
@@ -84,19 +84,19 @@ const domainConfig = {
     path: '/log',
   },
   myAccount: {
-    title: 'myinfo',
+    title: 'my account',
     path: '/log/my-account/view',
   },
   manageMyAccount: {
-    title: 'managemyinfo',
+    title: 'manage my info',
     path: '/log/my-account/manage',
   },
   PatchPassword: {
-    title: 'patchpassword',
+    title: 'patch password',
     path: '/log/my-account/patch-password',
   },
   myOrder: {
-    title: 'myorder',
+    title: 'my order',
     path: '/log/my-order',
   },
   myEnquiry: {
@@ -109,7 +109,7 @@ const domainConfig = {
   },
   resignSurvey: {
     title: 'request',
-    path: '/log/resign/survey',
+    path: '/log/resign/request',
   },
   resignComplete: {
     title: 'solong',
