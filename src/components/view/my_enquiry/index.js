@@ -18,7 +18,7 @@ import Helmet from '../../helmet';
 // Styled
 import Wrapper from '../../../styled_base/Wrapper';
 import Element from '../../../styled_base/Element';
-import Styled from '../auth/sign_up/styled';
+import Styled from './styled';
 
 class Survey extends React.Component {
   async componentDidMount() {
@@ -93,13 +93,13 @@ class Survey extends React.Component {
         <Helmet pageTitle={domainConfig.myEnquiry.title} path={match.url} />
         <Wrapper.ScrollWrapper>
           <Styled.CenterWrapper>
-            <Styled.MarginForm
+            <form
               action="post"
               onSubmit={handleSubmit(this.onSubmit.bind(this))}
             >
               {this.renderQuestionItems()}
               <Element.SubmitButton type="submit">Submit</Element.SubmitButton>
-            </Styled.MarginForm>
+            </form>
           </Styled.CenterWrapper>
         </Wrapper.ScrollWrapper>
       </Wrapper.FlexWrapper>

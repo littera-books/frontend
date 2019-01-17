@@ -12,17 +12,13 @@ import Helmet from '../../../helmet';
 // Styled
 import Wrapper from '../../../../styled_base/Wrapper';
 import Element from '../../../../styled_base/Element';
-import Styled from './styled';
 
 const AddInfoForm = ({ handleSubmit, onSubmit, error }) => (
-  <Styled.LineHeightForm
-    action="post"
-    onSubmit={handleSubmit(onSubmit.bind(this))}
-  >
+  <form action="post" onSubmit={handleSubmit(onSubmit.bind(this))}>
     <FormField.EmailField error={error} />
     <FormField.PasswordField />
     <Element.SubmitButton type="submit">Register</Element.SubmitButton>
-  </Styled.LineHeightForm>
+  </form>
 );
 
 class SignUp extends React.Component {
