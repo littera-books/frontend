@@ -12,21 +12,16 @@ const ProductDetailWrapper = styled(Wrapper.ColumnWrapper)`
   padding: 1.25rem 0.75rem;
 `;
 
-const PaymentWrapper = styled(Wrapper.ColumnWrapper)`
-  align-items: center;
+const PaymentWrapper = styled(Wrapper.BasicBlockWrapper)`
+  width: 18rem;
+  margin: 0 1rem;
+  margin-top: 2rem;
 `;
 
 const ProductItem = styled(Wrapper.ColumnWrapper)`
   align-items: center;
   text-align: center;
-  margin-left: ${props => (props.card ? 0 : '1rem')};
-  ${props => props.card && 'width: 9.5rem;'}
-
-  @media (max-width: 414px) {
-    width: 100%;
-    margin: 0;
-    margin-bottom: 2rem;
-  }
+  ${props => props.card && 'width: 9.5rem;'};
 `;
 
 const RawPriceSpan = styled.span`
@@ -52,7 +47,6 @@ const ImgBox = styled(Wrapper.BasicBlockWrapper)`
 
 const AcceptBox = styled(Wrapper.BasicBlockWrapper)`
   border: 1px solid ${Element.COLOR.primary};
-  width: 20rem;
   padding: ${props => (props.padding ? props.padding : '0.75rem')};
   margin-top: 1rem;
   line-height: ${props => (props.lineHeight ? props.lineHeight : 'inherit')};
@@ -61,7 +55,6 @@ const AcceptBox = styled(Wrapper.BasicBlockWrapper)`
 const FlexForm = styled.form`
   display: flex;
   justify-content: flex-end;
-  width: 20rem;
   align-items: center;
 `;
 

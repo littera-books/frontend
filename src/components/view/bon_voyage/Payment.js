@@ -140,73 +140,69 @@ class Payment extends React.Component {
         <Helmet pageTitle={domainConfig.payment.title} path={match.url} />
         <Wrapper.ScrollWrapper>
           <Styled.PaymentWrapper>
-            <div style={{ marginTop: '2rem' }}>
-              <Element.BasicTitle>1. Member Information</Element.BasicTitle>
-              <PaymentMyInfo />
-              <Element.BasicTitle marginTop="2.5rem">
-                2. Address Information
-              </Element.BasicTitle>
-              <Styled.FlexForm>
-                <label htmlFor="my-value" style={{ marginRight: '1rem' }}>
-                  <Styled.OptionSpan>It&#39;s for me</Styled.OptionSpan>
-                  <input
-                    type="radio"
-                    name="info"
-                    value="myValue"
-                    id="my-value"
-                    onChange={this.inheritInfo}
-                  />
-                </label>
-                <label htmlFor="someone-value">
-                  <Styled.OptionSpan>
-                    It&#39;s for someone else
-                  </Styled.OptionSpan>
-                  <input
-                    type="radio"
-                    name="info"
-                    value="someoneValue"
-                    id="someone-value"
-                    onChange={this.resetInfo}
-                    defaultChecked
-                  />
-                </label>
-              </Styled.FlexForm>
-              <form onSubmit={handleSubmit(this.onSubmit)}>
-                <FormField.PaymentFormField
-                  error={error}
-                  openPostCode={this.openPostCode}
+            <Element.BasicTitle>1. Member Information</Element.BasicTitle>
+            <PaymentMyInfo />
+            <Element.BasicTitle marginTop="2.5rem">
+              2. Address Information
+            </Element.BasicTitle>
+            <Styled.FlexForm>
+              <label htmlFor="my-value" style={{ marginRight: '1rem' }}>
+                <Styled.OptionSpan>It&#39;s for me</Styled.OptionSpan>
+                <input
+                  type="radio"
+                  name="info"
+                  value="myValue"
+                  id="my-value"
+                  onChange={this.inheritInfo}
                 />
-                <Element.BasicTitle marginTop="2.5rem">
-                  3. Payment Information
-                </Element.BasicTitle>
-                <Styled.AcceptBox lineHeight="3">
-                  <PayMsg />
-                </Styled.AcceptBox>
-                <Element.BasicTitle marginTop="2.5rem">
-                  4. Order Information
-                </Element.BasicTitle>
-                <Styled.PaymentWrapper>
-                  <Element.ResponsiveImg
-                    width="100px"
-                    src={dataConfig.baseUrl + item.url}
-                    alt="product-thumbnail"
-                  />
-                  <p>{determineProductName(item)}</p>
-                  <Styled.ItemHr />
-                  <span>
-                    {`₩ ${discountedPrice.slice(0, -3)},${discountedPrice.slice(
-                      -3,
-                    )}`}
-                  </span>
-                </Styled.PaymentWrapper>
-                <Styled.AcceptBox padding="1.25rem 0.75rem">
-                  <OrderMsg />
-                  <Element.SubmitButton type="submit" margin="1rem 0 0 0">
-                    Confirm Purchase
-                  </Element.SubmitButton>
-                </Styled.AcceptBox>
-              </form>
-            </div>
+              </label>
+              <label htmlFor="someone-value">
+                <Styled.OptionSpan>It&#39;s for someone else</Styled.OptionSpan>
+                <input
+                  type="radio"
+                  name="info"
+                  value="someoneValue"
+                  id="someone-value"
+                  onChange={this.resetInfo}
+                  defaultChecked
+                />
+              </label>
+            </Styled.FlexForm>
+            <form onSubmit={handleSubmit(this.onSubmit)}>
+              <FormField.PaymentFormField
+                error={error}
+                openPostCode={this.openPostCode}
+              />
+              <Element.BasicTitle marginTop="2.5rem">
+                3. Payment Information
+              </Element.BasicTitle>
+              <Styled.AcceptBox lineHeight="3">
+                <PayMsg />
+              </Styled.AcceptBox>
+              <Element.BasicTitle marginTop="2.5rem">
+                4. Order Information
+              </Element.BasicTitle>
+              <Styled.ProductItem>
+                <Element.ResponsiveImg
+                  width="100px"
+                  src={dataConfig.baseUrl + item.url}
+                  alt="product-thumbnail"
+                />
+                <p>{determineProductName(item)}</p>
+                <Styled.ItemHr />
+                <span>
+                  {`₩ ${discountedPrice.slice(0, -3)},${discountedPrice.slice(
+                    -3,
+                  )}`}
+                </span>
+              </Styled.ProductItem>
+              <Styled.AcceptBox padding="1.25rem 0.75rem">
+                <OrderMsg />
+                <Element.SubmitButton type="submit" margin="1rem 0 0 0">
+                  Confirm Purchase
+                </Element.SubmitButton>
+              </Styled.AcceptBox>
+            </form>
           </Styled.PaymentWrapper>
         </Wrapper.ScrollWrapper>
       </Wrapper.FlexWrapper>

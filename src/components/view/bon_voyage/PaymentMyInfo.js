@@ -116,9 +116,7 @@ class PaymentMyInfo extends React.Component {
           error={error}
           openPostCode={this.openPostCode}
         >
-          <Element.SubmitButton type="submit" width="20rem">
-            Update
-          </Element.SubmitButton>
+          <Element.SubmitButton type="submit">Update</Element.SubmitButton>
         </FormField.PaymentFormField>
       </form>
     );
