@@ -81,7 +81,7 @@ const ContainerWrapper = styled(BasicFlexWrapper)`
   height: 37.5rem;
   margin-bottom: 2rem;
 
-  @media (max-width: 414px) {
+  @media (max-width: ${Element.MEDIA.mobileWidth}) {
     width: 20rem;
     height: 31.25rem;
     margin-bottom: 0;
@@ -93,7 +93,7 @@ const FlexWrapper = styled(BasicFlexWrapper)`
   align-items: center;
   width: 44.25rem;
 
-  @media (max-width: 414px) {
+  @media (max-width: ${Element.MEDIA.mobileWidth}) {
     width: 18rem;
     margin: 0 1rem;
   }
@@ -122,13 +122,9 @@ const QuillEditor = styled(BasicBlockWrapper)`
     margin: 2rem 0;
     padding: 0;
 
-    @media (max-width: 414px) {
+    @media (max-width: ${Element.MEDIA.mobileWidth}) {
       min-height: calc(100vh - 18rem);
       /* title height + button height + margin-bottom = 18rem */
-    }
-
-    @media (max-width: 375px) {
-      min-height: calc(100vh - 16rem);
     }
   }
 

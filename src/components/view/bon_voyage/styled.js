@@ -15,7 +15,7 @@ const ProductDetailWrapper = styled(Wrapper.ColumnWrapper)`
 const PaymentWrapper = styled(Wrapper.BasicBlockWrapper)`
   margin-top: 2rem;
 
-  @media (max-width: 414px) {
+  @media (max-width: ${Element.MEDIA.mobileWidth}) {
     width: 18rem;
     margin: 0 1rem;
   }
@@ -29,7 +29,7 @@ const ProductItem = styled(Wrapper.BasicBlockWrapper)`
 
   ${props => props.card && 'width: 9.5rem;'};
 
-  @media (max-width: 414px) {
+  @media (max-width: ${Element.MEDIA.mobileWidth}) {
     display: block !important;
     margin: 0 auto;
     width: 8rem !important;

@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import Wrapper from '../../../styled_base/Wrapper';
+import Element from '../../../styled_base/Element';
 
 const FooterWrapper = styled(Wrapper.BasicFlexWrapper)`
   position: absolute;
@@ -14,7 +15,7 @@ const FooterWrapper = styled(Wrapper.BasicFlexWrapper)`
   align-items: center;
   font-size: 9px;
 
-  @media (max-width: 414px) {
+  @media (max-width: ${Element.MEDIA.mobileWidth}) {
     padding: 0;
   }
 `;

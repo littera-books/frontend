@@ -1,11 +1,12 @@
 import styled from 'styled-components';
 import Wrapper from '../../../styled_base/Wrapper';
+import Element from '../../../styled_base/Element';
 
 const CardWrapper = styled(Wrapper.BasicBlockWrapper)`
   margin: 0 0.75rem;
   height: 21.5rem;
 
-  @media (max-width: 414px) {
+  @media (max-width: ${Element.MEDIA.mobileWidth}) {
     margin: 0 auto;
     width: 8rem;
     height: unset;
@@ -27,7 +28,7 @@ const CardTitle = styled.h1`
   text-align: center;
   width: 10rem;
 
-  @media (max-width: 414px) {
+  @media (max-width: ${Element.MEDIA.mobileWidth}) {
     top: 3.5rem;
   }
 `;

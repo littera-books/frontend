@@ -4,6 +4,10 @@ const COLOR = {
   primary: '#363636',
 };
 
+const MEDIA = {
+  mobileWidth: '414px',
+};
+
 const ResponsiveImg = styled.img`
   width: ${props => (props.width ? props.width : '100%')};
   height: auto;
@@ -52,7 +56,7 @@ const BasicInput = styled.input`
     color: rgba(0, 0, 0, 0.3);
   }
 
-  @media (max-width: 414px) {
+  @media (max-width: ${MEDIA.mobileWidth}) {
     width: ${props => (props.narrow ? '8.5rem' : '18rem')};
   }
 `;
@@ -96,6 +100,7 @@ const SubmitButton = styled(BasicButton)`
 
 export default {
   COLOR,
+  MEDIA,
   ResponsiveImg,
   BasicSmall,
   BasicButton,
