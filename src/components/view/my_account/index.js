@@ -32,22 +32,20 @@ class MyAccount extends React.Component {
       match,
     } = this.props;
     return (
-      <Wrapper.FlexWrapper>
+      <Styled.InfoWrapper>
         <Helmet pageTitle={domainConfig.myAccount.title} path={match.url} />
-        <Styled.InfoWrapper>
-          <p>{email}</p>
-          <Wrapper.BetweenWrapper>
-            <Styled.NameParagraph>{firstName}</Styled.NameParagraph>
-            <Styled.NameParagraph>{lastName}</Styled.NameParagraph>
-          </Wrapper.BetweenWrapper>
-          <p>{phone}</p>
-          <p>{address}</p>
-          <p>{extraAddress}</p>
-          <Link to={domainConfig.manageMyAccount.path}>
-            <Element.SubmitButton>Manage My Info</Element.SubmitButton>
-          </Link>
-        </Styled.InfoWrapper>
-      </Wrapper.FlexWrapper>
+        <Styled.FieldParagraph>{email}</Styled.FieldParagraph>
+        <Wrapper.BetweenWrapper>
+          <Styled.NameParagraph>{firstName}</Styled.NameParagraph>
+          <Styled.NameParagraph>{lastName}</Styled.NameParagraph>
+        </Wrapper.BetweenWrapper>
+        <Styled.FieldParagraph>{phone}</Styled.FieldParagraph>
+        <Styled.FieldParagraph>{address}</Styled.FieldParagraph>
+        <Styled.FieldParagraph>{extraAddress}</Styled.FieldParagraph>
+        <Link to={domainConfig.manageMyAccount.path}>
+          <Element.SubmitButton>Manage My Info</Element.SubmitButton>
+        </Link>
+      </Styled.InfoWrapper>
     );
   }
 }

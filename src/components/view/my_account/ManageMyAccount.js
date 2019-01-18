@@ -14,13 +14,16 @@ import Helmet from '../../helmet';
 // Styled
 import Wrapper from '../../../styled_base/Wrapper';
 import Element from '../../../styled_base/Element';
+import Styled from './styled';
 
 const ManageMyInfoForm = ({
   handleSubmit, onSubmit, openPostCode, error,
 }) => (
   <form action="post" onSubmit={handleSubmit(onSubmit.bind(this))}>
     <FormField.InfoFormField error={error} openPostCode={openPostCode} />
-    <Link to={domainConfig.PatchPassword.path}>Patch Password</Link>
+    <Styled.FieldParagraph>
+      <Link to={domainConfig.PatchPassword.path}>Patch Password</Link>
+    </Styled.FieldParagraph>
     <Element.SubmitButton type="submit">Confirm Change</Element.SubmitButton>
   </form>
 );
