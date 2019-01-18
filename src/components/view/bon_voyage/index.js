@@ -35,10 +35,10 @@ class BonVoyage extends React.Component {
 
     return (
       <Wrapper.CarouselGuardWrapper>
-        <Wrapper.MobileBlockWrapper>
+        <Wrapper.BasicBlockWrapper>
           <Helmet pageTitle={domainConfig.bonVoyage.title} path={match.url} />
           <Product width={width} items={items} />
-        </Wrapper.MobileBlockWrapper>
+        </Wrapper.BasicBlockWrapper>
       </Wrapper.CarouselGuardWrapper>
     );
   }

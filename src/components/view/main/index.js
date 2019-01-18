@@ -83,7 +83,7 @@ export class Main extends React.Component {
     const settings = {
       dots: true,
       arrows: false,
-      infinite: true,
+      infinite: false,
       lazyLoad: true,
       speed: 500,
       slidesToShow: 1,
@@ -100,8 +100,8 @@ export class Main extends React.Component {
 
     if (width > 414) {
       return (
-        <Wrapper.BasicBlockWrapper>
-          <Wrapper.FlexWrapper>
+        <Wrapper.FlexWrapper>
+          <Wrapper.BetweenWrapper style={{ width: '100%' }}>
             <Helmet pageTitle={domainConfig.main.title} path={match.url} />
             <Card
               isOpacity={isOpacity}
@@ -141,14 +141,14 @@ export class Main extends React.Component {
               name="all-ears"
               alt='"I&apos;m All Ears"'
             />
-          </Wrapper.FlexWrapper>
-        </Wrapper.BasicBlockWrapper>
+          </Wrapper.BetweenWrapper>
+        </Wrapper.FlexWrapper>
       );
     }
 
     return (
       <Wrapper.CarouselGuardWrapper>
-        <Wrapper.MobileBlockWrapper id="carousel">
+        <Wrapper.BasicBlockWrapper id="carousel">
           <Helmet pageTitle={domainConfig.main.title} path={match.url} />
           <Slider {...settings}>
             <Card
@@ -190,7 +190,7 @@ export class Main extends React.Component {
               alt='"I&apos;m All Ears"'
             />
           </Slider>
-        </Wrapper.MobileBlockWrapper>
+        </Wrapper.BasicBlockWrapper>
       </Wrapper.CarouselGuardWrapper>
     );
   }

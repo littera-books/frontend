@@ -7,20 +7,8 @@ const CardWrapper = styled(Wrapper.BasicBlockWrapper)`
 
   @media (max-width: 414px) {
     margin: 0 auto;
-    width: 11rem;
-    height: 28rem;
-  }
-
-  @media (max-width: 375px) {
-    margin: 0 auto;
-    width: 10rem;
-    height: 25rem;
-  }
-
-  @media (max-width: 320px) {
-    margin: 0 auto;
     width: 8rem;
-    height: 20rem;
+    height: unset;
   }
 `;
 
@@ -40,8 +28,7 @@ const CardTitle = styled.h1`
   width: 10rem;
 
   @media (max-width: 414px) {
-    top: auto;
-    bottom: 0;
+    top: 3.5rem;
   }
 `;
 

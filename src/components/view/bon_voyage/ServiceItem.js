@@ -54,7 +54,6 @@ class ServiceItem extends React.Component {
         <Styled.ProductItem key={item.id} card>
           <Link to={`/service/${item.id}`}>
             <Element.ResponsiveImg
-              width="70%"
               src={dataConfig.baseUrl + item.url}
               alt="service-thumbnail"
             />
@@ -79,7 +78,7 @@ class ServiceItem extends React.Component {
     const settings = {
       dots: true,
       arrows: false,
-      infinite: true,
+      infinite: false,
       lazyLoad: true,
       speed: 500,
       slidesToShow: 1,

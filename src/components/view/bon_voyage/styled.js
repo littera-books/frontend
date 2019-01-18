@@ -18,10 +18,24 @@ const PaymentWrapper = styled(Wrapper.BasicBlockWrapper)`
   margin-top: 2rem;
 `;
 
-const ProductItem = styled(Wrapper.ColumnWrapper)`
-  align-items: center;
+const ProductItem = styled(Wrapper.BasicBlockWrapper)`
   text-align: center;
+  img {
+    width: 70%;
+  }
+
   ${props => props.card && 'width: 9.5rem;'};
+
+  @media (max-width: 414px) {
+    display: block !important;
+    margin: 0 auto;
+    width: 8rem !important;
+    height: unset;
+
+    img {
+      width: 100%;
+    }
+  }
 `;
 
 const RawPriceSpan = styled.span`
