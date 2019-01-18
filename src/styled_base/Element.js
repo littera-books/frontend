@@ -37,7 +37,7 @@ const BasicInput = styled.input`
   line-height: 2;
   border: none;
   border-bottom: ${props => (props.border ? props.border : 'none')};
-  width: ${props => (props.width ? props.width : '10rem')};
+  width: ${props => (props.narrow ? '9.5rem' : '20rem')};
   margin: 1rem 0;
 
   :focus {
@@ -50,6 +50,10 @@ const BasicInput = styled.input`
   ::placeholder {
     font-family: 'Palatino', 'Nanum Myeongjo';
     color: rgba(0, 0, 0, 0.3);
+  }
+
+  @media (max-width: 414px) {
+    width: ${props => (props.narrow ? '8.5rem' : '18rem')};
   }
 `;
 

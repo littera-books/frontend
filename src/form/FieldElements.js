@@ -12,7 +12,6 @@ const Email = () => (
     name="email"
     placeholder="Email"
     border="1px solid black"
-    width="18rem"
     component={BasicFormField}
     validate={[Validation.required, Validation.email]}
   />
@@ -24,7 +23,6 @@ const Phone = () => (
     name="phone"
     placeholder="Contact No."
     border="1px solid black"
-    width="18rem"
     component={BasicFormField}
     validate={[Validation.required, Validation.maxLength11, Validation.number]}
   />
@@ -37,17 +35,18 @@ const Name = () => (
       name="firstName"
       placeholder="First name"
       border="1px solid black"
-      width="8.5rem"
       component={BasicFormField}
       validate={[Validation.required, Validation.maxLength20]}
+      narrow
     />
     <Field
       type="text"
       name="lastName"
       placeholder="Last name"
       border="1px solid black"
-      width="8.5rem"
       component={BasicFormField}
+      validate={[Validation.required, Validation.maxLength20]}
+      narrow
     />
   </Fragment>
 );
@@ -59,7 +58,6 @@ const Address = ({ openPostCode }) => (
       name="address"
       placeholder="Contact Address (Where your books arrive)"
       border="1px solid black"
-      width="18rem"
       func={openPostCode}
       component={BasicFormField}
       validate={Validation.required}
@@ -70,7 +68,6 @@ const Address = ({ openPostCode }) => (
       name="extraAddress"
       placeholder="Extra Address (Where your books arrive)"
       border="1px solid black"
-      width="18rem"
       component={BasicFormField}
       validate={Validation.required}
     />
@@ -83,7 +80,6 @@ const Password1 = () => (
     name="password1"
     placeholder="Password (With 8 characters or more)"
     border="1px solid black"
-    width="18rem"
     component={BasicFormField}
     validate={[Validation.required, Validation.minLength8]}
   />
@@ -95,7 +91,6 @@ const Password2 = () => (
     name="password2"
     placeholder="Confirm password"
     border="1px solid black"
-    width="18rem"
     component={BasicFormField}
     validate={[Validation.required, Validation.minLength8]}
   />

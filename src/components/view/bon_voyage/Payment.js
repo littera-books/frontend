@@ -184,7 +184,7 @@ class Payment extends React.Component {
               </Element.BasicTitle>
               <Styled.ProductItem>
                 <Element.ResponsiveImg
-                  width="100px"
+                  width="100px !important"
                   src={dataConfig.baseUrl + item.url}
                   alt="product-thumbnail"
                 />

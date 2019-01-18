@@ -13,9 +13,12 @@ const ProductDetailWrapper = styled(Wrapper.ColumnWrapper)`
 `;
 
 const PaymentWrapper = styled(Wrapper.BasicBlockWrapper)`
-  width: 18rem;
-  margin: 0 1rem;
   margin-top: 2rem;
+
+  @media (max-width: 414px) {
+    width: 18rem;
+    margin: 0 1rem;
+  }
 `;
 
 const ProductItem = styled(Wrapper.BasicBlockWrapper)`

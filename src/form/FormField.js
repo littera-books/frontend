@@ -14,7 +14,11 @@ import Wrapper from '../styled_base/Wrapper';
 import Element from '../styled_base/Element';
 
 const NameWrapper = styled(Wrapper.BetweenWrapper)`
-  width: 18rem;
+  width: 20rem;
+
+  @media (max-width: 414px) {
+    width: 18rem;
+  }
 `;
 
 const EmailField = ({ error }) => (

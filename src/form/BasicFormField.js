@@ -11,7 +11,7 @@ const BasicFormField = ({
   func,
   meta: { touched, error },
   border,
-  width,
+  narrow,
   disabled,
 }) => (
   <div>
@@ -22,7 +22,7 @@ const BasicFormField = ({
       {...input}
       onClick={() => func && func()}
       border={border}
-      width={width}
+      narrow={narrow}
       required
       disabled={disabled}
     />
