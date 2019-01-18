@@ -78,15 +78,15 @@ class Order extends React.Component {
 
     if (items.length === 0) {
       return (
-        <Wrapper.BasicBlockWrapper>
+        <Wrapper.FlexWrapper>
           <Helmet pageTitle={domainConfig.myOrder.title} path={match.url} />
           <p>{dataConfig.emptyOrderText}</p>
-        </Wrapper.BasicBlockWrapper>
+        </Wrapper.FlexWrapper>
       );
     }
 
     return (
-      <Wrapper.BasicBlockWrapper>
+      <Styled.OrderWrapper>
         <Helmet pageTitle={domainConfig.myOrder.title} path={match.url} />
         <ul>
           <RenderItems items={items} />
@@ -94,7 +94,7 @@ class Order extends React.Component {
         <Styled.PaginationWrapper>
           {this.renderPagination()}
         </Styled.PaginationWrapper>
-      </Wrapper.BasicBlockWrapper>
+      </Styled.OrderWrapper>
     );
   }
 }
