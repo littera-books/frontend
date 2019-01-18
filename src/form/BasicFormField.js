@@ -37,7 +37,6 @@ export const TextareaFormField = ({
   placeholder,
   meta: { touched, error },
   border,
-  width,
 }) => (
   <div>
     <Element.BasicTextarea
@@ -45,10 +44,7 @@ export const TextareaFormField = ({
       type={type}
       placeholder={placeholder}
       {...input}
-      style={{
-        borderBottom: border,
-        width,
-      }}
+      style={{ borderBottom: border }}
     />
     {touched && (error && <Element.BasicSmall>{error}</Element.BasicSmall>)}
   </div>

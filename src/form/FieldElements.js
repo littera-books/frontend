@@ -6,7 +6,7 @@ import { Field } from 'redux-form';
 import BasicFormField from './BasicFormField';
 import Validation from './Validation';
 
-const Email = () => (
+const Email = ({ narrow }) => (
   <Field
     type="email"
     name="email"
@@ -14,6 +14,7 @@ const Email = () => (
     border="1px solid black"
     component={BasicFormField}
     validate={[Validation.required, Validation.email]}
+    narrow={narrow}
   />
 );
 
@@ -95,6 +96,10 @@ const Password2 = () => (
     validate={[Validation.required, Validation.minLength8]}
   />
 );
+
+Email.propTypes = {
+  narrow: PropTypes.bool.isRequired,
+};
 
 Address.propTypes = {
   openPostCode: PropTypes.func.isRequired,

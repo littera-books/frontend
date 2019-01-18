@@ -67,7 +67,7 @@ const BasicTextarea = styled.textarea`
   line-height: 2;
   border: none;
   border-bottom: ${props => (props.border ? props.border : 'none')};
-  width: ${props => (props.width ? props.width : '10rem')};
+  width: 20rem;
   height: 10rem;
   margin: 1rem 0;
 
@@ -81,6 +81,10 @@ const BasicTextarea = styled.textarea`
   ::placeholder {
     font-family: 'Palatino', 'Nanum Myeongjo';
     color: rgba(0, 0, 0, 0.3);
+  }
+
+  @media (max-width: ${MEDIA.mobileWidth}) {
+    width: 18rem;
   }
 `;
 

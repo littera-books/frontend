@@ -87,23 +87,15 @@ const PaymentFormField = ({ openPostCode, error, children }) => (
 const SendEmailFormField = ({ error }) => (
   <Fragment>
     <NameWrapper>
-      <Field
-        type="email"
-        name="email"
-        placeholder="Email"
-        border="1px solid black"
-        width="8.5rem"
-        component={BasicFormField}
-        validate={[Validation.required, Validation.email]}
-      />
+      <FieldElements.Email narrow />
       <Field
         type="text"
         name="name"
         placeholder="Name"
         border="1px solid black"
-        width="8.5rem"
         component={BasicFormField}
         validate={[Validation.required, Validation.maxLength20]}
+        narrow
       />
     </NameWrapper>
     <Field
@@ -111,7 +103,6 @@ const SendEmailFormField = ({ error }) => (
       name="content"
       placeholder={dataConfig.placeholderText}
       border="1px solid black"
-      width="18rem"
       component={TextareaFormField}
       validate={Validation.required}
     />
