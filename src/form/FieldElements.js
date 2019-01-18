@@ -1,3 +1,4 @@
+/* eslint-disable react/require-default-props */
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { Field } from 'redux-form';
@@ -75,15 +76,15 @@ const Address = ({ openPostCode }) => (
   </Fragment>
 );
 
-const Password1 = () => (
-  <Field
-    type="password"
-    name="password1"
-    placeholder="Password (With 8 characters or more)"
-    border="1px solid black"
-    component={BasicFormField}
-    validate={[Validation.required, Validation.minLength8]}
-  />
+const Password1 = ({ modify }) => (
+    <Field
+      type="password"
+      name="password1"
+      placeholder={`Password ${modify ? '' : '(With 8 characters or more)'}`}
+      border="1px solid black"
+      component={BasicFormField}
+      validate={[Validation.required, Validation.minLength8]}
+    />
 );
 
 const Password2 = () => (
@@ -98,11 +99,15 @@ const Password2 = () => (
 );
 
 Email.propTypes = {
-  narrow: PropTypes.bool.isRequired,
+  narrow: PropTypes.bool,
 };
 
 Address.propTypes = {
   openPostCode: PropTypes.func.isRequired,
+};
+
+Password1.propTypes = {
+  modify: PropTypes.bool,
 };
 
 export default {

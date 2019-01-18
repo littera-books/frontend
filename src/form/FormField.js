@@ -32,7 +32,7 @@ const EmailField = ({ error }) => (
 
 const ResignField = ({ error }) => (
   <Fragment>
-    <FieldElements.Password1 />
+    <FieldElements.Password1 modify />
     <div>
       <Element.BasicSmall>{error}</Element.BasicSmall>
     </div>
@@ -42,7 +42,7 @@ const ResignField = ({ error }) => (
 const SignInField = ({ error }) => (
   <Fragment>
     <FieldElements.Email />
-    <FieldElements.Password1 />
+    <FieldElements.Password1 modify />
     <div>
       <Element.BasicSmall>{error}</Element.BasicSmall>
     </div>
