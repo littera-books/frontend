@@ -23,7 +23,7 @@ const RenderItems = React.memo(({ items }) => _.map(items, (item, index) => (
         <span>&nbsp;&nbsp;&nbsp;</span>
         <span>{moment.unix(item.created_at).format('YYYY.MM')}</span>
       </span>
-      <span>{item.name}</span>
+      <span style={{ marginLeft: '1rem' }}>{item.name}</span>
     </Styled.BookLi>
 )));
 
@@ -53,7 +53,7 @@ class Order extends React.Component {
 
     if (maxPage <= 1) {
       return (
-        <Element.BasicButton type="button" disabled>
+        <Element.BasicButton type="button" size="0.75rem" disabled>
           1
         </Element.BasicButton>
       );

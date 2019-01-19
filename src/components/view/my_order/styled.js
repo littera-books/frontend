@@ -15,8 +15,8 @@ const OrderWrapper = styled(Wrapper.ColumnWrapper)`
 
 const BookLi = styled.li`
   display: flex;
-  justify-content: space-between;
-  width: 20rem;
+  justify-content: flex-start;
+  width: 18rem;
 `;
 
 const PaginationWrapper = styled(Wrapper.BasicFlexWrapper)`
