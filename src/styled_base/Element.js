@@ -56,6 +56,10 @@ const BasicInput = styled.input`
     color: rgba(0, 0, 0, 0.3);
   }
 
+  :-ms-input-placeholder {
+    line-height: 0;
+  }
+
   @media (max-width: ${MEDIA.mobileWidth}) {
     width: ${props => (props.narrow ? '8.5rem' : '18rem')};
   }
