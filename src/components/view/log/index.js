@@ -15,11 +15,6 @@ import Styled from './styled';
 
 import ArrowDown from '../../../assets/images/down-arrow.svg';
 
-const handleDropdown = () => {
-  const DropdownContent = document.getElementById('dropdown-content');
-  DropdownContent.classList.toggle('active');
-};
-
 class Log extends React.Component {
   constructor(props) {
     super(props);
@@ -45,7 +40,7 @@ class Log extends React.Component {
     return (
       <Wrapper.FlexWrapper>
         <Helmet pageTitle={domainConfig.log.title} path={match.url} />
-        <Styled.Dropdown onClick={handleDropdown}>
+        <Styled.Dropdown>
           <Styled.DropdownTitle>
             <span>
               {`Hello, ${splitEmail[0]}`}

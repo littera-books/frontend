@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 import Wrapper from '../../../styled_base/Wrapper';
-import Element from '../../../styled_base/Element';
 
 const DropdownHr = styled.hr`
   border-style: solid;
@@ -25,19 +24,22 @@ const DropdownContent = styled.div`
   border: 1px solid lightgray;
   z-index: 1;
   font-size: 0.75rem;
-
-  &.active {
-    display: block;
-  }
 `;
 
 const DropdownTitle = styled(Wrapper.BetweenWrapper)`
   align-items: center;
 `;
 
-const Dropdown = styled(Element.BasicButton)`
-  position: relative;
-  display: inline-block;
+const Dropdown = styled(Wrapper.BasicBlockWrapper)`
+  cursor: pointer;
+  font-size: 1rem;
+  z-index: 0;
+
+  :hover {
+    ${DropdownContent} {
+      display: block;
+    }
+  }
 `;
 
 export default {
