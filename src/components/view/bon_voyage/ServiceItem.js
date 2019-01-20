@@ -51,7 +51,7 @@ class ServiceItem extends React.Component {
       const rawPrice = item.price.toString();
       const discountedPrice = (item.price - item.discount_amount).toString();
       return (
-        <Styled.ProductItem key={item.id} card>
+        <Styled.ProductItem key={item.id} isVisible={item.is_visible} card>
           <Link to={`/service/${item.id}`}>
             <Element.ResponsiveImg
               src={dataConfig.baseUrl + item.url}

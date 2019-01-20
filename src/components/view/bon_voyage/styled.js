@@ -29,6 +29,16 @@ const ProductItem = styled(Wrapper.BasicBlockWrapper)`
 
   ${props => props.card && 'width: 9.5rem;'};
 
+  ${props => !props.isVisible
+    && `
+    cursor: not-allowed;
+    opacity: 0.4;
+
+    > a {
+      pointer-events: none;
+    }
+  `};
+
   @media (max-width: ${Element.MEDIA.mobileWidth}) {
     display: block !important;
     margin: 0 auto;
