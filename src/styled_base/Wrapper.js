@@ -38,6 +38,10 @@ const App = styled.div`
       color: black;
     }
   }
+
+  @media (max-width: ${Element.MEDIA.mobileWidth}) {
+    word-break: normal;
+  }
 `;
 
 const BasicBlockWrapper = styled.div`
