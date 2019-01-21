@@ -26,9 +26,13 @@ import Wrapper from '../../../styled_base/Wrapper';
 import Element from '../../../styled_base/Element';
 import Styled from './styled';
 
-const PayMsg = React.memo(() => _.map(dataConfig.paymentMsg, (item, i) => <p key={i}>{item}</p>));
+const PayMsg = React.memo(() => _.map(dataConfig.paymentMsg, (item, i) => (
+    <Styled.MsgParagraph key={i}>{item}</Styled.MsgParagraph>
+)));
 
-const OrderMsg = React.memo(() => _.map(dataConfig.orderMsg, (item, i) => <p key={i}>{item}</p>));
+const OrderMsg = React.memo(() => _.map(dataConfig.orderMsg, (item, i) => (
+    <Styled.MsgParagraph key={i}>{item}</Styled.MsgParagraph>
+)));
 
 class Payment extends React.Component {
   constructor(props) {
@@ -182,7 +186,7 @@ class Payment extends React.Component {
               <Element.BasicTitle marginTop="2.5rem">
                 4. Order Information
               </Element.BasicTitle>
-              <Styled.ProductItem>
+              <Styled.ProductItem isVisible>
                 <Element.ResponsiveImg
                   width="100px !important"
                   src={dataConfig.baseUrl + item.url}

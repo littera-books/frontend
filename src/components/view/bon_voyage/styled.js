@@ -94,6 +94,12 @@ const OptionSpan = styled.span`
   margin-right: 0.6rem;
 `;
 
+const MsgParagraph = styled.p`
+  @media (max-width: ${Element.MEDIA.mobileWidth}) {
+    font-size: 11px;
+  }
+`;
+
 export default {
   ProductWrapper,
   ProductDetailWrapper,
@@ -106,4 +112,5 @@ export default {
   AcceptBox,
   FlexForm,
   OptionSpan,
+  MsgParagraph,
 };

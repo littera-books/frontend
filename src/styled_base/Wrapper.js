@@ -51,7 +51,7 @@ const BasicBlockWrapper = styled.div`
 
 const ScrollWrapper = styled(BasicBlockWrapper)`
   padding-top: 30px;
-  margin-bottom: 15rem;
+  margin-bottom: 5rem;
 
   ol {
     padding-left: 12px;
