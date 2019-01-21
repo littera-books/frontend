@@ -18,6 +18,10 @@ const InnerWrapper = styled(Wrapper.BasicBlockWrapper)`
   :hover {
     opacity: 1;
   }
+
+  @media (max-width: ${Element.MEDIA.mobileWidth}) {
+    opacity: 1;
+  }
 `;
 
 const CardTitle = styled.h1`
