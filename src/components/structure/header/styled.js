@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import Wrapper from '../../../styled_base/Wrapper';
+import Element from '../../../styled_base/Element';
 
 const TitleWrapper = styled(Wrapper.BasicFlexWrapper)`
   position: absolute;
@@ -18,6 +19,10 @@ const TitleImg = styled.img`
   width: auto;
   height: 3.75rem;
   padding: 10px 0;
+
+  @media (max-width: ${Element.MEDIA.mobileWidth}) {
+    padding: 1rem 0;
+  }
 `;
 
 export default {
