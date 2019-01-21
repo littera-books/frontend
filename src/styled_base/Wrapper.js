@@ -120,16 +120,10 @@ const QuillEditor = styled(BasicBlockWrapper)`
     line-height: 2;
     text-align: justify;
     word-break: keep-all;
-    width: 20rem;
     min-height: 16rem;
     border-bottom: 1px solid ${Element.COLOR.primary};
     margin: 2rem 0;
     padding: 0;
-
-    @media (max-width: ${Element.MEDIA.mobileWidth}) {
-      min-height: calc(100vh - 18rem);
-      /* title height + button height + margin-bottom = 18rem */
-    }
   }
 
   .ql-editor.ql-blank::before {

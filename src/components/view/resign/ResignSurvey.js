@@ -14,6 +14,7 @@ import Helmet from '../../helmet';
 // Styled
 import Wrapper from '../../../styled_base/Wrapper';
 import Element from '../../../styled_base/Element';
+import Styled from '../my_account/styled';
 import 'quill/dist/quill.core.css';
 import 'quill/dist/quill.bubble.css';
 
@@ -82,7 +83,7 @@ class ResignSurvey extends React.Component {
     const { required } = this.state;
     const { handleSubmit, error, match } = this.props;
     return (
-      <Wrapper.BasicBlockWrapper>
+      <Styled.InfoWrapper>
         <Helmet pageTitle={domainConfig.resignSurvey.title} path={match.url} />
         <Element.BasicTitle size="0.75rem">
           {dataConfig.resignSurveyText}
@@ -95,7 +96,7 @@ class ResignSurvey extends React.Component {
           </div>
           <Element.SubmitButton type="submit">Send</Element.SubmitButton>
         </form>
-      </Wrapper.BasicBlockWrapper>
+      </Styled.InfoWrapper>
     );
   }
 }
