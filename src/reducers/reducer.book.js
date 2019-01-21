@@ -10,7 +10,7 @@ export const listBook = async (userId, pageNum) => {
   let error;
 
   try {
-    response = await axiosInstance({
+    response = await axiosInstance()({
       url: `/book/user/${userId}?page=${pageNum}`,
       method: 'get',
     });

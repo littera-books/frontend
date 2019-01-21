@@ -53,7 +53,7 @@ export async function sendSubscriptionNormal(payload) {
   let error;
 
   try {
-    response = await axiosInstance({
+    response = await axiosInstance()({
       url: '/subscription',
       method: 'post',
       data: {
@@ -82,7 +82,7 @@ export async function sendSubscriptionPromotion(payload) {
   let error;
 
   try {
-    response = await axiosInstance({
+    response = await axiosInstance()({
       url: '/subscription/promotion',
       method: 'post',
       data: {

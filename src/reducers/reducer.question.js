@@ -12,7 +12,7 @@ export async function listQuestion() {
   let error;
 
   try {
-    response = await axiosInstance({
+    response = await axiosInstance()({
       url: '/survey/questions',
       method: 'get',
     });
@@ -39,7 +39,7 @@ export async function postResult(userId, payload) {
   let error;
 
   try {
-    response = await axiosInstance({
+    response = await axiosInstance()({
       url: `/survey/result/${userId}`,
       method: 'post',
       data: {
@@ -62,7 +62,7 @@ export async function askAccept(payload) {
   let error;
 
   try {
-    response = await axiosInstance({
+    response = await axiosInstance()({
       url: '/accept',
       method: 'post',
       data: {
