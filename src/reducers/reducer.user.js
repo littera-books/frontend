@@ -21,7 +21,7 @@ export const retrieveInfo = async (userId) => {
   let error;
 
   try {
-    response = await axiosInstance({
+    response = await axiosInstance()({
       url: `/user/${userId}`,
       method: 'get',
     });
@@ -41,7 +41,7 @@ export const updateInfo = async (payload) => {
   let error;
 
   try {
-    response = await axiosInstance({
+    response = await axiosInstance()({
       url: `/user/${payload.userId}`,
       method: 'put',
       data: {
@@ -69,7 +69,7 @@ export const patchPassword = async (payload) => {
   let error;
 
   try {
-    response = await axiosInstance({
+    response = await axiosInstance()({
       url: `/user/${payload.userId}`,
       method: 'patch',
       data: {
@@ -115,7 +115,7 @@ export const createUser = async (payload) => {
   let error;
 
   try {
-    response = await axiosInstance({
+    response = await axiosNoAuth({
       url: '/user',
       method: 'post',
       data: {
@@ -144,7 +144,7 @@ export const destroyUser = async (payload) => {
   let error;
 
   try {
-    response = await axiosInstance({
+    response = await axiosInstance()({
       url: `/user/${payload.userId}`,
       method: 'delete',
       data: {

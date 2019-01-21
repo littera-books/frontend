@@ -23,4 +23,4 @@ const axiosAuth = () => {
   });
 };
 
-export default axiosAuth();
+export default axiosAuth;

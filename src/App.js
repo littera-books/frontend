@@ -4,7 +4,9 @@ import {
   BrowserRouter, Route, Switch, Redirect,
 } from 'react-router-dom';
 import { connect } from 'react-redux';
+import moment from 'moment';
 import { listenWidth } from './reducers/reducer.controlWidth';
+import dataConfig from './config/dataConfig';
 import domainConfig from './config/domainConfig';
 import './utils/webfontloader';
 
@@ -17,22 +19,51 @@ import Wrapper from './styled_base/Wrapper';
 // Minireset.css
 import 'minireset.css/minireset.min.css';
 
-const PrivateRoute = ({ component: Component, ...rest }) => (
-  <Route
-    {...rest}
-    render={props => (sessionStorage.getItem('token') ? (
-        <Component {...props} />
-    ) : (
-        <Redirect
-          to={{
-            pathname: domainConfig.signIn.path,
-            state: { from: props.location },
-          }}
-        />
-    ))
-    }
-  />
-);
+const PrivateRoute = ({ component: Component, ...rest }) => {
+  const token = sessionStorage.getItem('token');
+
+  if (!token) {
+    return (
+      <Route
+        {...rest}
+        render={props => (
+          <Redirect
+            to={{
+              pathname: domainConfig.signIn.path,
+              state: { from: props.location },
+            }}
+          />
+        )}
+      />
+    );
+  }
+
+  const base64Url = token.split('.')[1];
+  const decodedData = JSON.parse(window.atob(base64Url));
+  const now = moment.now();
+  const result = moment(moment(now).format()).isSameOrBefore(
+    moment.unix(decodedData.exp).format(),
+  );
+
+  if (!result) {
+    alert(dataConfig.tokenExpiredText);
+    return (
+      <Route
+        {...rest}
+        render={props => (
+          <Redirect
+            to={{
+              pathname: domainConfig.signIn.path,
+              state: { from: props.location },
+            }}
+          />
+        )}
+      />
+    );
+  }
+
+  return <Route {...rest} render={props => <Component {...props} />} />;
+};
 
 export class App extends React.Component {
   constructor(props) {
