@@ -35,6 +35,7 @@ const ProductItem = styled(Wrapper.BasicBlockWrapper)`
     opacity: 0.4;
 
     > a {
+      cursor: not-allowed;
       pointer-events: none;
     }
   `};

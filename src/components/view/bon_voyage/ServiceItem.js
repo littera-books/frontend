@@ -9,6 +9,7 @@ import {
   VisibilityFilters,
 } from '../../../reducers/reducer.controlTitle';
 import dataConfig from '../../../config/dataConfig';
+import domainConfig from '../../../config/domainConfig';
 
 // Styled
 import Element from '../../../styled_base/Element';
@@ -52,7 +53,13 @@ class ServiceItem extends React.Component {
       const discountedPrice = (item.price - item.discount_amount).toString();
       return (
         <Styled.ProductItem key={item.id} isVisible={item.is_visible} card>
-          <Link to={`/service/${item.id}`}>
+          <Link
+            to={
+              item.is_visible
+                ? `/service/${item.id}`
+                : domainConfig.bonVoyage.path
+            }
+          >
             <Element.ResponsiveImg
               src={dataConfig.baseUrl + item.url}
               alt="service-thumbnail"
