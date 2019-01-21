@@ -1,4 +1,4 @@
-import axiosInstance from './axios.instance';
+import { axiosNoAuth } from './axios.instance';
 
 // Actions
 const INITIALIZE = 'INITIALIZE';
@@ -17,7 +17,7 @@ export async function signIn(payload) {
   let error;
 
   try {
-    response = await axiosInstance({
+    response = await axiosNoAuth({
       url: '/auth/user',
       method: 'post',
       data: {

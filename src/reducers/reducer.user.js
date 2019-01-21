@@ -194,7 +194,7 @@ const reducerReadToken = (state) => {
 
 const reducerRetrieveInfo = (state, action) => {
   if (action.error) {
-    _.assign({}, state, {
+    return _.assign({}, state, {
       ...state,
       error: action.error,
     });
