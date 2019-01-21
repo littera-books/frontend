@@ -39,9 +39,9 @@ export class Alert extends React.Component {
   }
 
   textSwitcher() {
-    const { match, email } = this.props;
+    const { email, location } = this.props;
     const splitEmail = email.split('@');
-    switch (match.url) {
+    switch (location.pathname) {
       case domainConfig.intro.path:
         return [dataConfig.alertMessage.intro, domainConfig.intro.title];
 
@@ -81,16 +81,16 @@ export class Alert extends React.Component {
         ];
 
       default:
-        return ['', ''];
+        return [dataConfig.pageNotFoundText, domainConfig.pageNotFound.title];
     }
   }
 
   render() {
-    const { match } = this.props;
+    const { location } = this.props;
     const { text, title } = this.state;
     return (
       <Wrapper.FlexWrapper>
-        <Helmet pageTitle={title} path={match.url} />
+        <Helmet pageTitle={title} path={location.pathname} />
         <Link to={domainConfig.main.path}>
           <h1>{text}</h1>
         </Link>
@@ -101,8 +101,8 @@ export class Alert extends React.Component {
 
 Alert.propTypes = {
   close: PropTypes.func.isRequired,
-  match: PropTypes.shape({
-    url: PropTypes.string.isRequired,
+  location: PropTypes.shape({
+    pathname: PropTypes.string.isRequired,
   }).isRequired,
   email: PropTypes.string.isRequired,
 };

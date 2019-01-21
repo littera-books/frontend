@@ -1,4 +1,7 @@
 const domainConfig = {
+  pageNotFound: {
+    title: 'page not found',
+  },
   // INTRO
   intro: {
     title: '',

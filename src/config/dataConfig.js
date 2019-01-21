@@ -23,6 +23,7 @@ const dataConfig = {
   sendEmailText: '"Here I am all ears, please speak."',
   copyright: 'Copyright © 2019 by LITTERA. All rights Reserved.',
   copyrightSmall: '© LITTERA',
+  pageNotFoundText: 'Sorry, Page Not Found.',
   alertMessage: {
     intro: 'Scripta Manent Verba Volant',
     payment: ['Welcome aboard', "we'll please to bring the book for you soon."],

@@ -180,6 +180,7 @@ export class App extends React.Component {
                     path={domainConfig.intro.path}
                     component={Loadable.Alert}
                   />
+                  <Route component={Loadable.Alert} />
                 </Switch>
                 <Loadable.Footer visibility={isVisible} />
               </Wrapper.ContainerWrapper>
