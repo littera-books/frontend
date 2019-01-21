@@ -50,6 +50,10 @@ const ProductItem = styled(Wrapper.BasicBlockWrapper)`
       width: 100%;
     }
   }
+
+  @media (max-width: ${Element.MEDIA.iphone5Width}) {
+    width: 7rem !important;
+  }
 `;
 
 const RawPriceSpan = styled.span`

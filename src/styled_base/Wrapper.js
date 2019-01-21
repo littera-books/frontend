@@ -64,6 +64,12 @@ const CarouselGuardWrapper = styled(BasicBlockWrapper)`
   .slick-dots {
     bottom: -3rem !important;
   }
+
+  @media (max-width: ${Element.MEDIA.iphone5Width}) {
+    .slick-dots {
+      bottom: -2rem !important;
+    }
+  }
 `;
 
 const BasicFlexWrapper = styled.div`
@@ -89,6 +95,10 @@ const ContainerWrapper = styled(BasicFlexWrapper)`
     width: 20rem;
     height: 31.25rem;
     margin-bottom: 0;
+  }
+
+  @media (max-width: ${Element.MEDIA.iphone5Width}) {
+    height: 30rem;
   }
 `;
 

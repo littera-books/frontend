@@ -6,6 +6,7 @@ const COLOR = {
 
 const MEDIA = {
   mobileWidth: '414px',
+  iphone5Width: '320px',
 };
 
 const ResponsiveImg = styled.img`

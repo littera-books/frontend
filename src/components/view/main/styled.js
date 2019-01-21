@@ -11,6 +11,10 @@ const CardWrapper = styled(Wrapper.BasicBlockWrapper)`
     width: 8rem;
     height: unset;
   }
+
+  @media (max-width: ${Element.MEDIA.iphone5Width}) {
+    width: 7rem;
+  }
 `;
 
 const InnerWrapper = styled(Wrapper.BasicBlockWrapper)`
