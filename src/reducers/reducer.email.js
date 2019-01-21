@@ -1,5 +1,5 @@
 import _ from 'lodash';
-import axiosInstance from './axios.instance';
+import { axiosNoAuth } from './axios.instance';
 
 // Actions
 const SEND_EMAIL = 'SEND_EMAIL';
@@ -10,7 +10,7 @@ export const sendEmail = async (payload) => {
   let error;
 
   try {
-    response = await axiosInstance({
+    response = await axiosNoAuth({
       url: '/send-email',
       method: 'post',
       data: payload,

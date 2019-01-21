@@ -1,5 +1,5 @@
 import _ from 'lodash';
-import axiosInstance from './axios.instance';
+import { axiosNoAuth } from './axios.instance';
 
 // Actions
 const CREATE_RESIGN_SURVEY = 'CREATE_RESIGN_SURVEY';
@@ -10,7 +10,7 @@ export const createResignSurvey = async (formData) => {
   let error;
 
   try {
-    response = await axiosInstance({
+    response = await axiosNoAuth({
       url: '/survey/resign',
       method: 'post',
       headers: {

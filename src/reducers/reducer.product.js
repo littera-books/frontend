@@ -1,5 +1,5 @@
 import _ from 'lodash';
-import axiosInstance from './axios.instance';
+import axiosInstance, { axiosNoAuth } from './axios.instance';
 
 // Actions
 const LIST_PRODUCTS = 'LIST_PRODUCTS';
@@ -13,7 +13,7 @@ export async function listProduct() {
   let error;
 
   try {
-    response = await axiosInstance({
+    response = await axiosNoAuth({
       url: '/product',
       method: 'get',
     });
@@ -33,7 +33,7 @@ export async function detailProduct(productId) {
   let error;
 
   try {
-    response = await axiosInstance({
+    response = await axiosNoAuth({
       url: `/product/${productId}`,
       method: 'get',
     });

@@ -1,5 +1,5 @@
 import _ from 'lodash';
-import axiosInstance from './axios.instance';
+import axiosInstance, { axiosNoAuth } from './axios.instance';
 
 // Actions
 const READ_TOKEN = 'READ_TOKEN';
@@ -92,7 +92,7 @@ export const resetPassword = async (email) => {
   let error;
 
   try {
-    response = await axiosInstance({
+    response = await axiosNoAuth({
       url: '/user/reset-password',
       method: 'post',
       data: {

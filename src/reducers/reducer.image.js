@@ -1,5 +1,5 @@
 import _ from 'lodash';
-import axiosInstance from './axios.instance';
+import { axiosNoAuth } from './axios.instance';
 
 // Actions
 const GET_IMG = 'GET_IMG';
@@ -10,7 +10,7 @@ export const getImg = async (name) => {
   let error;
 
   try {
-    response = await axiosInstance({
+    response = await axiosNoAuth({
       url: `/image/${name}`,
       method: 'get',
     });
