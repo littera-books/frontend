@@ -105,6 +105,11 @@ const SubmitButton = styled(BasicButton)`
   height: 3rem;
   background-color: ${COLOR.primary};
   color: white;
+
+  ${props => props.disabled
+    && `
+    cursor: not-allowed;
+  `}
 `;
 
 export default {

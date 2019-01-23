@@ -4,12 +4,15 @@ import PropTypes from 'prop-types';
 import { Field, reduxForm } from 'redux-form';
 import { connect } from 'react-redux';
 import { readToken, retrieveInfo } from '../../../reducers/reducer.user';
-import { listQuestion, postResult } from '../../../reducers/reducer.question';
+import {
+  listQuestion,
+  postResult,
+  listResult,
+} from '../../../reducers/reducer.question';
 import {
   setScroll,
   ScrollFilters,
 } from '../../../reducers/reducer.controlScroll';
-import dataConfig from '../../../config/dataConfig';
 import domainConfig from '../../../config/domainConfig';
 
 // Components
@@ -20,18 +23,62 @@ import Wrapper from '../../../styled_base/Wrapper';
 import Element from '../../../styled_base/Element';
 import Styled from './styled';
 
+const SelectionItems = ({
+  hasSurvey,
+  selectionItems,
+  resultItems,
+  questionId,
+}) => _.map(selectionItems, selection => (
+    <Styled.SelectionItem key={selection.id}>
+      <label htmlFor={`question-${questionId}`}>
+        <Field
+          name={`question-${questionId}`}
+          component="input"
+          type="radio"
+          value={`selection-${selection.id}`}
+          required
+          checked={
+            hasSurvey && _.find(resultItems, o => o.id === selection.id)
+              ? true
+              : undefined
+          }
+          disabled={hasSurvey}
+        />
+        <Styled.SelectionText>{selection.select}</Styled.SelectionText>
+      </label>
+    </Styled.SelectionItem>
+));
+
+const QItems = ({ hasSurvey, questionItems, resultItems }) => _.map(questionItems, (item, i) => (
+    <Styled.QuestionItem key={item.id}>
+      <fieldset style={{ border: 'none' }}>
+        <legend>{`${i + 1}. ${item.title}`}</legend>
+        <SelectionItems
+          hasSurvey={hasSurvey}
+          selectionItems={item.selection_items}
+          resultItems={resultItems}
+          questionId={item.id}
+        />
+      </fieldset>
+    </Styled.QuestionItem>
+));
+
 class Survey extends React.Component {
   async componentDidMount() {
-    const { read, retrieve } = this.props;
+    const {
+      read, retrieve, scroll, getListQuestion,
+    } = this.props;
+
+    await scroll(ScrollFilters.ENABLE_SCROLL);
+    await getListQuestion();
     await read();
+
     const { userId } = this.props;
     await retrieve(userId);
 
-    const { getListQuestion, scroll, hasSurvey } = this.props;
-
-    if (!hasSurvey) {
-      await scroll(ScrollFilters.ENABLE_SCROLL);
-      await getListQuestion();
+    const { hasSurvey, getListResult } = this.props;
+    if (hasSurvey) {
+      await getListResult(userId);
     }
   }
 
@@ -46,47 +93,14 @@ class Survey extends React.Component {
     await history.replace(domainConfig.log.path);
   }
 
-  renderQuestionItems() {
-    const { questionItems } = this.props;
-    return _.map(questionItems, (item) => {
-      const index = _.findIndex(questionItems, o => o.id === item.id) + 1;
-      return (
-        <Styled.QuestionItem key={item.id}>
-          <fieldset style={{ border: 'none' }}>
-            <legend>{`${index}. ${item.title}`}</legend>
-            {_.map(item.selection_items, selection => (
-              <Styled.SelectionItem key={selection.id}>
-                <label htmlFor={`question-${item.id}`}>
-                  <Field
-                    name={`question-${item.id}`}
-                    component="input"
-                    type="radio"
-                    value={`selection-${selection.id}`}
-                    required
-                  />
-                  <Styled.SelectionText>
-                    {selection.select}
-                  </Styled.SelectionText>
-                </label>
-              </Styled.SelectionItem>
-            ))}
-          </fieldset>
-        </Styled.QuestionItem>
-      );
-    });
-  }
-
   render() {
-    const { handleSubmit, hasSurvey, match } = this.props;
-
-    if (hasSurvey) {
-      return (
-        <Wrapper.FlexWrapper>
-          <Helmet pageTitle={domainConfig.myEnquiry.title} path={match.url} />
-          <h1>{dataConfig.surveyDeniedText}</h1>
-        </Wrapper.FlexWrapper>
-      );
-    }
+    const {
+      handleSubmit,
+      hasSurvey,
+      match,
+      questionItems,
+      resultItems,
+    } = this.props;
 
     return (
       <Wrapper.FlexWrapper>
@@ -97,8 +111,14 @@ class Survey extends React.Component {
               action="post"
               onSubmit={handleSubmit(this.onSubmit.bind(this))}
             >
-              {this.renderQuestionItems()}
-              <Element.SubmitButton type="submit">Submit</Element.SubmitButton>
+              <QItems
+                hasSurvey={hasSurvey}
+                questionItems={questionItems}
+                resultItems={resultItems}
+              />
+              <Element.SubmitButton type="submit" disabled={hasSurvey}>
+                Submit
+              </Element.SubmitButton>
             </form>
           </Styled.CenterWrapper>
         </Wrapper.ScrollWrapper>
@@ -113,8 +133,10 @@ Survey.propTypes = {
   }).isRequired,
   handleSubmit: PropTypes.func.isRequired,
   getListQuestion: PropTypes.func.isRequired,
+  getListResult: PropTypes.func.isRequired,
   post: PropTypes.func.isRequired,
   questionItems: PropTypes.arrayOf(PropTypes.object).isRequired,
+  resultItems: PropTypes.arrayOf(PropTypes.object).isRequired,
   scroll: PropTypes.func.isRequired,
   hasSurvey: PropTypes.bool.isRequired,
   match: PropTypes.shape({
@@ -126,13 +148,14 @@ const mapStateToProps = state => ({
   userId: state.user.userId,
   hasSurvey: state.user.hasSurvey,
   questionItems: state.question.items,
-  isAccepted: state.question.isAccepted,
+  resultItems: state.question.resultItems,
 });
 
 const mapDispatchToProps = dispatch => ({
   read: () => dispatch(readToken()),
   retrieve: userId => dispatch(retrieveInfo(userId)),
   getListQuestion: () => dispatch(listQuestion()),
+  getListResult: userId => dispatch(listResult(userId)),
   post: (userId, payload) => dispatch(postResult(userId, payload)),
   scroll: filter => dispatch(setScroll(filter)),
 });

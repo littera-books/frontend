@@ -1,10 +1,10 @@
+import _ from 'lodash';
 import axiosInstance from './axios.instance';
 
 // Actions
 const LIST_QUESTIONS = 'LIST_QUESTIONS';
-const SAVE_RESULT = 'SAVE_RESULT';
 const POST_RESULT = 'POST_RESULT';
-const ASK_ACCEPT = 'ASK_ACCEPT';
+const LIST_RESULT = 'LIST_RESULT';
 
 // Action Creators
 export async function listQuestion() {
@@ -24,13 +24,6 @@ export async function listQuestion() {
     type: LIST_QUESTIONS,
     response,
     error,
-  };
-}
-
-export function saveResult(payload) {
-  return {
-    type: SAVE_RESULT,
-    result: payload,
   };
 }
 
@@ -57,24 +50,21 @@ export async function postResult(userId, payload) {
   };
 }
 
-export async function askAccept(payload) {
+export async function listResult(userId) {
   let response;
   let error;
 
   try {
     response = await axiosInstance()({
-      url: '/accept',
-      method: 'post',
-      data: {
-        ...payload,
-      },
+      url: `/survey/result/${userId}`,
+      method: 'get',
     });
   } catch (e) {
     error = e;
   }
 
   return {
-    type: ASK_ACCEPT,
+    type: LIST_RESULT,
     response,
     error,
   };
@@ -85,11 +75,7 @@ export const initialState = {
   length: 0,
   result: {},
   items: [],
-  item: {
-    subject: '',
-    title: '',
-  },
-  isAccepted: true,
+  resultItems: [],
   error: '',
 };
 
@@ -110,13 +96,6 @@ function reducerListQuestion(state, action) {
   };
 }
 
-function reducerSaveResult(state, action) {
-  return {
-    ...state,
-    result: action.result,
-  };
-}
-
 function reducerPostResult(state, action) {
   if (action.error) {
     return {
@@ -131,19 +110,19 @@ function reducerPostResult(state, action) {
   };
 }
 
-function reducerAskAccept(state, action) {
+function reducerListResult(state, action) {
   if (action.error) {
-    return {
+    return _.assign({}, state, {
       ...state,
       error: action.error,
-    };
+    });
   }
 
-  return {
+  return _.assign({}, state, {
     ...state,
-    isAccepted: action.response.data.message,
+    resultItems: action.response.data.items,
     error: '',
-  };
+  });
 }
 
 // Reducer
@@ -151,12 +130,10 @@ export default function reducer(state = initialState, action) {
   switch (action.type) {
     case LIST_QUESTIONS:
       return reducerListQuestion(state, action);
-    case SAVE_RESULT:
-      return reducerSaveResult(state, action);
     case POST_RESULT:
       return reducerPostResult(state, action);
-    case ASK_ACCEPT:
-      return reducerAskAccept(state, action);
+    case LIST_RESULT:
+      return reducerListResult(state, action);
     default:
       return state;
   }
