@@ -111,7 +111,7 @@ export class App extends React.Component {
                   />
                   <PrivateRoute
                     path={domainConfig.myEnquiry.path}
-                    component={Loadable.Survey}
+                    component={Loadable.MyEnquiry}
                   />
                   <PrivateRoute
                     path={domainConfig.myOrder.path}

@@ -63,7 +63,7 @@ const ForgotPassword = Loadable({
   loading: Loading,
 });
 
-const Survey = Loadable({
+const MyEnquiry = Loadable({
   loader: () => import('./components/view/my_enquiry'),
   loading: Loading,
 });
@@ -145,7 +145,7 @@ export default {
   About,
   SignIn,
   ForgotPassword,
-  Survey,
+  MyEnquiry,
   AddInfo,
   Log,
   MyAccount,

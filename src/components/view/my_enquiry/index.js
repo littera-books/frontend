@@ -63,7 +63,7 @@ const QItems = ({ hasSurvey, questionItems, resultItems }) => _.map(questionItem
     </Styled.QuestionItem>
 ));
 
-class Survey extends React.Component {
+class Enquiry extends React.Component {
   async componentDidMount() {
     const {
       read, retrieve, scroll, getListQuestion,
@@ -127,7 +127,7 @@ class Survey extends React.Component {
   }
 }
 
-Survey.propTypes = {
+Enquiry.propTypes = {
   history: PropTypes.shape({
     replace: PropTypes.func.isRequired,
   }).isRequired,
@@ -166,5 +166,5 @@ export default reduxForm({
   connect(
     mapStateToProps,
     mapDispatchToProps,
-  )(Survey),
+  )(Enquiry),
 );
