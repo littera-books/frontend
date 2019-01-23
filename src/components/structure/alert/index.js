@@ -58,7 +58,7 @@ export class Alert extends React.Component {
 
       case domainConfig.signOut.path:
         return [
-          `${dataConfig.alertMessage.signOut} ${splitEmail[0]}`,
+          `${dataConfig.alertMessage.signOut} ${splitEmail[0]}.`,
           domainConfig.signOut.title,
         ];
 

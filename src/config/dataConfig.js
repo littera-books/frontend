@@ -17,21 +17,21 @@ const dataConfig = {
     + '그것만이 우리 자신이 되는 유일한 길이라는 것을 우리는 이미 알고 있다. '
     + '미래에서 만나자 친구여, 우리가 앞날에 두고 온 그 날에.”',
   placeholderText: "You're gonna say...",
-  resignSurveyText: '"Please tell us why are you leaving."',
-  surveyDeniedText: 'You have already completed the survey.',
+  resignSurveyText: 'Please tell us why are you leaving.',
+  surveyDeniedText: 'You have already completed the enquiry.',
   emptyOrderText: 'You have no order yet.',
-  sendEmailText: '"Here I am all ears, please speak."',
+  sendEmailText: 'Here I am all ears, please speak.',
   copyright: 'Copyright © 2019 by LITTERA. All rights Reserved.',
   copyrightSmall: '© LITTERA',
-  pageNotFoundText: 'Sorry, Page Not Found.',
-  tokenExpiredText: 'Your access token is expired. Please login again.',
+  pageNotFoundText: 'Sorry, you knocked on the wrong door.',
+  tokenExpiredText: 'Your access token is expired, please login again.',
   alertMessage: {
     intro: 'Scripta Manent Verba Volant',
     payment: ['Welcome aboard', "we'll please to bring the book for you soon."],
     signOut: 'Farewell,',
     signUp: 'Please check your email to activate your login account.',
     resetPassword: 'Please check your email account.',
-    resign: 'So Long, and Thanks for All the Fish!',
+    resign: 'So long, and thanks for all the fish.',
   },
   qnaMessage: {
     meaning: {
@@ -91,7 +91,7 @@ const dataConfig = {
   paymentMsg: [
     '국민은행 031601-04-212703 (예금주 주식회사 리테라)',
     '- 주문 후 3일 이내 미입금 시 주문이 취소됩니다.',
-    '- 입금자 이름은 회원명과 동일해야 합니다.',
+    '- 입금자 이름은 회원 이름과 동일해야 합니다.',
   ],
   orderMsg: [
     '주문할 상품의 상품명, 가격, 배송 정보 등을 확인했으며,',
