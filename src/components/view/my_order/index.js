@@ -21,7 +21,7 @@ const RenderItems = React.memo(({ items }) => _.map(items, (item, index) => (
       <span>
         <span>{`${item.order}|${item.months}`}</span>
         <span>&nbsp;&nbsp;&nbsp;</span>
-        <span>{moment.unix(item.created_at).format('YYYY.MM')}</span>
+        <span>{moment.unix(item.created_at).format('YYYY.M')}</span>
       </span>
       <span style={{ marginLeft: '1rem' }}>{item.name}</span>
     </Styled.BookLi>
