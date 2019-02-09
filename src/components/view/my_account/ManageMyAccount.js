@@ -24,7 +24,7 @@ const ManageMyInfoForm = ({
     <Styled.FieldParagraph>
       <Link to={domainConfig.PatchPassword.path}>Patch Password</Link>
     </Styled.FieldParagraph>
-    <Element.SubmitButton type="submit">Confirm Change</Element.SubmitButton>
+    <Element.SubmitButton type="submit">Confirm Changes</Element.SubmitButton>
   </form>
 );
 
