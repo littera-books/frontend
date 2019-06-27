@@ -51,6 +51,7 @@ class Payment extends React.Component {
   async componentDidMount() {
     const { match, detail } = this.props;
     await detail(match.params.productId);
+    await this.resetInfo();
 
     const { scroll } = this.props;
     await scroll(ScrollFilters.ENABLE_SCROLL);
@@ -123,8 +124,9 @@ class Payment extends React.Component {
   }
 
   resetInfo() {
-    const { initialize, userId } = this.props;
+    const { initialize, userId, match } = this.props;
     initialize({
+      productId: match.params.productId,
       userId,
       firstName: '',
       lastName: '',
