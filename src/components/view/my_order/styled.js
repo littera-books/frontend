@@ -19,6 +19,16 @@ const BookLi = styled.li`
   width: 18rem;
 `;
 
+const BookDate = styled.span`
+  display: block;
+  width: 5rem;
+
+  span:nth-child(1) {
+    display: inline-block;
+    margin-right: 0.5rem;
+  }
+`;
+
 const PaginationWrapper = styled(Wrapper.BasicFlexWrapper)`
   justify-content: center;
   margin-top: 2rem;
@@ -27,5 +37,6 @@ const PaginationWrapper = styled(Wrapper.BasicFlexWrapper)`
 export default {
   OrderWrapper,
   BookLi,
+  BookDate,
   PaginationWrapper,
 };

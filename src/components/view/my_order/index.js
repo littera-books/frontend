@@ -18,12 +18,11 @@ import Styled from './styled';
 
 const RenderItems = React.memo(({ items }) => _.map(items, (item, index) => (
     <Styled.BookLi key={index}>
-      <span>
+      <Styled.BookDate>
         <span>{`${item.order}|${item.months}`}</span>
-        <span>&nbsp;&nbsp;&nbsp;</span>
         <span>{moment.unix(item.created_at).format('YYYY. M.')}</span>
-      </span>
-      <span style={{ marginLeft: '1rem' }}>{item.name}</span>
+      </Styled.BookDate>
+      <span style={{ wordBreak: 'break-all' }}>{item.name}</span>
     </Styled.BookLi>
 )));
 
