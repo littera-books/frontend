@@ -2,6 +2,8 @@ import styled from 'styled-components';
 import Wrapper from '../../../styled_base/Wrapper';
 import Element from '../../../styled_base/Element';
 
+import BorderImg from '../../../assets/images/border-long.png';
+
 const FAQWrapper = styled(Wrapper.FlexWrapper)`
   height: 100%;
 `;
@@ -38,7 +40,11 @@ const HiddenAnswer = styled(Wrapper.BasicBlockWrapper)`
 `;
 
 const AccordionItem = styled(Wrapper.BasicBlockWrapper)`
-  border-bottom: 1px solid ${Element.COLOR.primary};
+  border-bottom: 2px solid ${Element.COLOR.primary};
+  border-image: url(${BorderImg});
+  border-image-slice: 20 fill;
+  botder-image-width: 2px;
+  border-image-repeat: round;
 
   &.active {
     img {

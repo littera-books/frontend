@@ -92,7 +92,7 @@ const SendEmailFormField = ({ error }) => (
         type="text"
         name="name"
         placeholder="Name"
-        border="1px solid black"
+        border="2px solid black"
         component={BasicFormField}
         validate={[Validation.required, Validation.maxLength20]}
         narrow
@@ -102,7 +102,7 @@ const SendEmailFormField = ({ error }) => (
       type="text"
       name="content"
       placeholder={dataConfig.placeholderText}
-      border="1px solid black"
+      border="2px solid black"
       component={TextareaFormField}
       validate={Validation.required}
     />

@@ -1,4 +1,6 @@
 import styled from 'styled-components';
+import BorderImg from '../assets/images/border-long.png';
+import BorderButton from '../assets/images/border-button.png';
 
 const COLOR = {
   primary: '#363636',
@@ -42,6 +44,9 @@ const BasicInput = styled.input`
   line-height: 2;
   border: none;
   border-bottom: ${props => (props.border ? props.border : 'none')};
+  border-image: url(${BorderImg});
+  border-image-slice: 20 fill;
+  border-image-repeat: round;
   width: ${props => (props.narrow ? '9.5rem' : '20rem')};
   margin: 1rem 0;
 
@@ -72,6 +77,9 @@ const BasicTextarea = styled.textarea`
   line-height: 2;
   border: none;
   border-bottom: ${props => (props.border ? props.border : 'none')};
+  border-image: url(${BorderImg});
+  border-image-slice: 20 fill;
+  border-image-repeat: round;
   width: 20rem;
   height: 10rem;
   margin: 1rem 0;
@@ -103,7 +111,10 @@ const BasicTitle = styled.h1`
 const SubmitButton = styled(BasicButton)`
   width: ${props => (props.width ? props.width : '100%')};
   height: 3rem;
-  background-color: ${COLOR.primary};
+  border-width: 2px;
+  border-image: url(${BorderButton});
+  border-image-slice: 0 fill;
+  border-image-repeat: round;
   color: white;
 
   ${props => props.disabled

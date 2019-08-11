@@ -1,10 +1,15 @@
 import styled from 'styled-components';
 import Wrapper from '../../../styled_base/Wrapper';
+import BorderImg from '../../../assets/images/border-long.png';
+import BorderBox from '../../../assets/images/border-box.png';
 
 const DropdownHr = styled.hr`
   border-style: solid;
   border-color: lightgray;
-  border-width: 1px 0 0 0;
+  border-width: 2px 0 0 0;
+  border-image: url(${BorderImg});
+  border-image-slice: 20 fill;
+  border-image-repeat: round;
   margin: 0 0.5rem;
 `;
 
@@ -21,7 +26,10 @@ const DropdownContent = styled.div`
   right: 0;
   display: none;
   width: 10rem;
-  border: 1px solid lightgray;
+  border: 2px solid lightgray;
+  border-image: url(${BorderBox});
+  border-image-slice: 10;
+  border-image-repeat: round;
   z-index: 1;
   font-size: 0.75rem;
 `;

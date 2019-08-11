@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import Wrapper from '../../../styled_base/Wrapper';
 import Element from '../../../styled_base/Element';
+import BorderBox from '../../../assets/images/border-box.png';
 
 const ProductWrapper = styled(Wrapper.BetweenWrapper)`
   width: 100%;
@@ -8,7 +9,10 @@ const ProductWrapper = styled(Wrapper.BetweenWrapper)`
 
 const ProductDetailWrapper = styled(Wrapper.ColumnWrapper)`
   align-items: flex-start;
-  border: 1px solid ${Element.COLOR.primary};
+  border: 2px solid ${Element.COLOR.primary};
+  border-image: url(${BorderBox});
+  border-image-slice: 10;
+  border-image-repeat: round;
   padding: 1.25rem 0.75rem;
 `;
 
@@ -78,7 +82,10 @@ const ImgBox = styled(Wrapper.BasicBlockWrapper)`
 `;
 
 const AcceptBox = styled(Wrapper.BasicBlockWrapper)`
-  border: 1px solid ${Element.COLOR.primary};
+  border: 2px solid ${Element.COLOR.primary};
+  border-image: url(${BorderBox});
+  border-image-slice: 10;
+  border-image-repeat: round;
   padding: ${props => (props.padding ? props.padding : '0.75rem')};
   margin-top: 1rem;
   line-height: ${props => (props.lineHeight ? props.lineHeight : 'inherit')};
