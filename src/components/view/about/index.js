@@ -34,7 +34,11 @@ export class About extends React.Component {
     return (
       <Wrapper.FlexWrapper>
         <Helmet pageTitle={domainConfig.about.title} path={match.url} />
-        <p>{dataConfig.aboutText}</p>
+        <div style={{ textAlign: 'center ' }}>
+          {Array.prototype.map.call(dataConfig.aboutText, (text, index) => (
+            <p key={index}>{text}</p>
+          ))}
+        </div>
       </Wrapper.FlexWrapper>
     );
   }

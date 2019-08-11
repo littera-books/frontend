@@ -87,8 +87,8 @@ const ViewPortWrapper = styled(BasicFlexWrapper)`
 const ContainerWrapper = styled(BasicFlexWrapper)`
   justify-content: center;
   align-items: ${props => (props.scroll ? 'flex-start' : 'center')};
-  width: 44.25rem;
-  height: 37.5rem;
+  width: 50rem;
+  height: 42rem;
   margin-bottom: 2rem;
 
   @media (max-width: ${Element.MEDIA.mobileWidth}) {
@@ -105,7 +105,7 @@ const ContainerWrapper = styled(BasicFlexWrapper)`
 const FlexWrapper = styled(BasicFlexWrapper)`
   justify-content: center;
   align-items: center;
-  width: 44.25rem;
+  width: 50rem;
 
   @media (max-width: ${Element.MEDIA.mobileWidth}) {
     width: 18rem;

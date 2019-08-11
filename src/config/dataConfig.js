@@ -12,10 +12,11 @@ const dataConfig = {
   daumPostApiUrl:
     'https://ssl.daumcdn.net/dmaps/map_js_init/postcode.v2.js?autoload=false',
   siteTitle: 'LITTERA',
-  aboutText:
-    '“그 달콤한 고독을 누가 마다할까! 우리에게 필요한 것은 고독이 아닌 고립이다. 더 철저하게 혼자가 될 것, '
-    + '그것만이 우리 자신이 되는 유일한 길이라는 것을 우리는 이미 알고 있다. '
-    + '미래에서 만나자 친구여, 우리가 앞날에 두고 온 그 날에.”',
+  aboutText: [
+    '“그 달콤한 고독을 누가 마다할까! 우리에게 필요한 것은 고독이 아닌 고립이다.',
+    '더 철저하게 혼자가 될 것, 그것만이 우리 자신이 되는 유일한 길이라는 것을 우리는 이미 알고 있다.',
+    '미래에서 만나자 친구여, 우리가 앞날에 두고 온 그 날에.”',
+  ],
   placeholderText: "You're gonna say...",
   resignSurveyText: 'Please tell us why are you leaving.',
   emptyOrderText: 'You have no order yet.',

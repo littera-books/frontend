@@ -5,7 +5,6 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import Slider from 'react-slick';
 import { getImg } from '../../../reducers/reducer.image';
-import dataConfig from '../../../config/dataConfig';
 import domainConfig from '../../../config/domainConfig';
 import {
   setVisibilityFilter,
@@ -24,6 +23,31 @@ import Styled from './styled';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
+// Card
+import AboutCard from '../../../assets/card/about.png';
+import JoinCard from '../../../assets/card/join.png';
+import BonVoyageCard from '../../../assets/card/bon-voyage.png';
+import AllEarsCard from '../../../assets/card/all-ears.png';
+
+const CardItems = [
+  {
+    name: 'about',
+    url: AboutCard,
+  },
+  {
+    name: 'join',
+    url: JoinCard,
+  },
+  {
+    name: 'bon-voyage',
+    url: BonVoyageCard,
+  },
+  {
+    name: 'all-ears',
+    url: AllEarsCard,
+  },
+];
+
 const Card = ({
   isOpacity, items, url, name, alt,
 }) => {
@@ -33,10 +57,7 @@ const Card = ({
       <Link to={url}>
         <Styled.InnerWrapper isOpacity={isOpacity}>
           <Styled.CardTitle>{alt}</Styled.CardTitle>
-          <Element.ResponsiveImg
-            src={dataConfig.baseUrl + item.url}
-            alt={alt}
-          />
+          <Element.ResponsiveImg src={item.url} alt={alt} />
         </Styled.InnerWrapper>
       </Link>
     </Styled.CardWrapper>
@@ -45,7 +66,6 @@ const Card = ({
 
 export class Main extends React.Component {
   state = {
-    isDownloaded: false,
     isOpacity: true,
   };
 
@@ -58,20 +78,6 @@ export class Main extends React.Component {
     }
   }
 
-  static getDerivedStateFromProps(nextProps, prevState) {
-    if (
-      Object.keys(nextProps.items).length === 0
-      && prevState.isDownloaded === false
-    ) {
-      nextProps.getDetail('about');
-      nextProps.getDetail('join');
-      nextProps.getDetail('bon-voyage');
-      nextProps.getDetail('all-ears');
-      return { isDownloaded: true };
-    }
-    return null;
-  }
-
   componentWillUnmount() {
     const { filter } = this.props;
     filter(VisibilityFilters.HIDE_TITLE);
@@ -79,7 +85,7 @@ export class Main extends React.Component {
 
   render() {
     const { isOpacity } = this.state;
-    const { items, match, width } = this.props;
+    const { match, width } = this.props;
     const settings = {
       dots: true,
       arrows: false,
@@ -90,22 +96,14 @@ export class Main extends React.Component {
       slidesToScroll: 1,
     };
 
-    if (items.length !== 4) {
-      return (
-        <Wrapper.FlexWrapper>
-          <p>Loading...</p>
-        </Wrapper.FlexWrapper>
-      );
-    }
-
     if (width > 414) {
       return (
         <Wrapper.FlexWrapper>
-          <Wrapper.BetweenWrapper style={{ width: '100%' }}>
+          <Wrapper.BetweenWrapper>
             <Helmet pageTitle={domainConfig.main.title} path={match.url} />
             <Card
               isOpacity={isOpacity}
-              items={items}
+              items={CardItems}
               url={domainConfig.about.path}
               name="about"
               alt="About"
@@ -113,7 +111,7 @@ export class Main extends React.Component {
             {sessionStorage.getItem('token') ? (
               <Card
                 isOpacity={isOpacity}
-                items={items}
+                items={CardItems}
                 url={domainConfig.log.path}
                 name="join"
                 alt="Log"
@@ -121,7 +119,7 @@ export class Main extends React.Component {
             ) : (
               <Card
                 isOpacity={isOpacity}
-                items={items}
+                items={CardItems}
                 url={domainConfig.signIn.path}
                 name="join"
                 alt="Join"
@@ -129,14 +127,14 @@ export class Main extends React.Component {
             )}
             <Card
               isOpacity={isOpacity}
-              items={items}
+              items={CardItems}
               url={domainConfig.bonVoyage.path}
               name="bon-voyage"
               alt='"Bon Voyage!"'
             />
             <Card
               isOpacity={isOpacity}
-              items={items}
+              items={CardItems}
               url={domainConfig.allEars.path}
               name="all-ears"
               alt='"I&apos;m All Ears"'
@@ -153,7 +151,7 @@ export class Main extends React.Component {
           <Slider {...settings}>
             <Card
               isOpacity={isOpacity}
-              items={items}
+              items={CardItems}
               url={domainConfig.about.path}
               name="about"
               alt="About"
@@ -161,7 +159,7 @@ export class Main extends React.Component {
             {sessionStorage.getItem('token') ? (
               <Card
                 isOpacity={isOpacity}
-                items={items}
+                items={CardItems}
                 url={domainConfig.log.path}
                 name="join"
                 alt="Log"
@@ -169,7 +167,7 @@ export class Main extends React.Component {
             ) : (
               <Card
                 isOpacity={isOpacity}
-                items={items}
+                items={CardItems}
                 url={domainConfig.signIn.path}
                 name="join"
                 alt="Join"
@@ -177,14 +175,14 @@ export class Main extends React.Component {
             )}
             <Card
               isOpacity={isOpacity}
-              items={items}
+              items={CardItems}
               url={domainConfig.bonVoyage.path}
               name="bon-voyage"
               alt='"Bon Voyage!"'
             />
             <Card
               isOpacity={isOpacity}
-              items={items}
+              items={CardItems}
               url={domainConfig.allEars.path}
               name="all-ears"
               alt='"I&apos;m All Ears"'

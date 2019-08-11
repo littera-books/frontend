@@ -45,7 +45,6 @@ const AccordionItem = styled(Wrapper.BasicBlockWrapper)`
   border-image-slice: 20 fill;
   botder-image-width: 2px;
   border-image-repeat: round;
-
   &.active {
     img {
       transform: rotate(180deg);

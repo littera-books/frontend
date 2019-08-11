@@ -4,8 +4,6 @@ import Element from '../../../styled_base/Element';
 
 const CardWrapper = styled(Wrapper.BasicBlockWrapper)`
   margin: 0 0.75rem;
-  height: 21.5rem;
-
   @media (max-width: ${Element.MEDIA.mobileWidth}) {
     margin: 0 auto;
     width: 8rem;

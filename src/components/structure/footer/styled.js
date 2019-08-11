@@ -8,7 +8,6 @@ const FooterWrapper = styled(Wrapper.BasicFlexWrapper)`
   right: 0;
   z-index: 1;
   background-color: white;
-  padding: 15px 0 30px 0;
   width: 100%;
   height: auto;
   justify-content: center;
@@ -20,24 +19,27 @@ const FooterWrapper = styled(Wrapper.BasicFlexWrapper)`
   }
 `;
 
-const InnerWrapper = styled(Wrapper.BasicFlexWrapper)`
+const InnerWrapper = styled(Wrapper.BasicBlockWrapper)`
   margin: 0 auto;
-  width: 44.25rem;
+  width: 50rem;
   justify-content: center;
   align-items: center;
   height: 3.75rem;
 `;
 
 const LinkWrapper = styled(Wrapper.BasicFlexWrapper)`
-  position: absolute;
-  right: 0;
   font-family: 'Gothic A1', sans-serif;
   font-size: 8px;
-  margin-right: 0.75rem;
+  justify-content: center;
+  align-items: center;
 `;
 
 const SlashSpan = styled.span`
   margin: 0 0.5rem;
+`;
+
+const Copyright = styled.p`
+  text-align: center;
 `;
 
 export default {
@@ -45,4 +47,5 @@ export default {
   InnerWrapper,
   LinkWrapper,
   SlashSpan,
+  Copyright,
 };
