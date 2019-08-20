@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import Wrapper from '../../../styled_base/Wrapper';
 import Element from '../../../styled_base/Element';
 import BorderBox from '../../../assets/images/border-box.png';
+import BorderImg from '../../../assets/images/border-long.png';
 
 const ProductWrapper = styled(Wrapper.BetweenWrapper)`
   width: 100%;
@@ -69,7 +70,10 @@ const RawPriceSpan = styled.span`
 const ItemHr = styled.hr`
   width: 1rem;
   margin: 0.25rem auto;
-  border-width: 0.5px;
+  border-width: 2px 0 0 0;
+  border-image: url(${BorderImg});
+  border-image-slice: 20 fill;
+  border-image-repeat: round;
 `;
 
 const OrderBox = styled(Wrapper.BasicBlockWrapper)`
