@@ -23,8 +23,9 @@ const domainConfig = {
   },
   // MAIN
   main: {
-    title: 'main',
-    path: '/main',
+    title: '',
+    path: '/',
+    indexPath: '/index.html',
   },
   // ABOUT
   about: {

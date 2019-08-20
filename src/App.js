@@ -186,10 +186,6 @@ export class App extends React.Component {
                     component={Loadable.About}
                   />
                   <Route
-                    path={domainConfig.main.path}
-                    component={Loadable.Main}
-                  />
-                  <Route
                     path={domainConfig.termsOfService.path}
                     component={Loadable.TermsOfService}
                   />
@@ -203,14 +199,24 @@ export class App extends React.Component {
                   />
                   <Route
                     exact
-                    path={domainConfig.intro.indexPath}
-                    component={Loadable.Alert}
+                    path={domainConfig.main.indexPath}
+                    component={Loadable.Main}
                   />
                   <Route
                     exact
+                    path={domainConfig.main.path}
+                    component={Loadable.Main}
+                  />
+                  {/* <Route
+                    exact
+                    path={domainConfig.intro.indexPath}
+                    component={Loadable.Alert}
+                  /> */}
+                  {/* <Route
+                    exact
                     path={domainConfig.intro.path}
                     component={Loadable.Alert}
-                  />
+                  /> */}
                   <Route component={Loadable.Alert} />
                 </Switch>
                 <Loadable.Footer visibility={isVisible} />
