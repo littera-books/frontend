@@ -13,7 +13,7 @@ import Helmet from '../../helmet';
 import Wrapper from '../../../styled_base/Wrapper';
 import Styled from './styled';
 
-import ArrowDown from '../../../assets/images/down-arrow.svg';
+import ArrowDown from '../../../assets/images/icon_back.png';
 
 class Log extends React.Component {
   constructor(props) {
@@ -46,7 +46,13 @@ class Log extends React.Component {
               {`Hello, ${splitEmail[0]}`}
               &nbsp; &nbsp;
             </span>
-            <img src={ArrowDown} width="16px" height="16px" alt="arrow-down" />
+            <img
+              src={ArrowDown}
+              width="12px"
+              height="12px"
+              alt="arrow-down"
+              style={{ transform: 'rotate(-90deg)' }}
+            />
           </Styled.DropdownTitle>
           <Styled.DropdownContent id="dropdown-content">
             <Link to={domainConfig.myAccount.path}>

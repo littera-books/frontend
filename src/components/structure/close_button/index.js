@@ -8,8 +8,8 @@ import domainConfig from '../../../config/domainConfig';
 import Element from '../../../styled_base/Element';
 import Styled from './styled';
 
-import Close from '../../../assets/images/cross-out.svg';
-import Back from '../../../assets/images/down-arrow.svg';
+import Close from '../../../assets/images/icon_close.png';
+import Back from '../../../assets/images/icon_back.png';
 
 class CloseButton extends React.Component {
   state = {
@@ -51,17 +51,11 @@ class CloseButton extends React.Component {
             type="button"
             onClick={() => window.history.back()}
           >
-            <img
-              src={Back}
-              alt="back-button"
-              width="16px"
-              height="16px"
-              style={{ transform: 'rotate(90deg)' }}
-            />
+            <img src={Back} alt="back-button" width="12px" height="12px" />
           </Element.BasicButton>
         ) : (
           <Link to={domainConfig.main.path}>
-            <img src={Close} alt="close-button" width="16px" height="16px" />
+            <img src={Close} alt="close-button" width="14px" height="14px" />
           </Link>
         )}
       </Styled.CloseButtonWrapper>

@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 import Element from '../../../styled_base/Element';
 import Styled from './styled';
 
-import ArrowDown from '../../../assets/images/down-arrow.svg';
+import ArrowDown from '../../../assets/images/icon_back.png';
 
 const handleClick = (e, identification) => {
   const answers = document.getElementById('accordion').childNodes;
@@ -52,7 +52,7 @@ class Accordion extends React.Component {
           <Element.BasicButton type="button" size="0.75rem">
             <span>{question}</span>
           </Element.BasicButton>
-          <img src={ArrowDown} width="16px" height="16px" alt="arrow-down" />
+          <img src={ArrowDown} width="12px" height="12px" alt="arrow-down" />
         </Styled.QuestionGroup>
         <Styled.HiddenAnswer>{this.renderAnswer()}</Styled.HiddenAnswer>
       </Styled.AccordionItem>
