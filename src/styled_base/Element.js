@@ -46,6 +46,7 @@ const BasicInput = styled.input`
   border-bottom: ${props => (props.border ? props.border : 'none')};
   border-image: url(${BorderImg});
   border-image-slice: 20 fill;
+  border-image-width: 0 0 2px;
   border-image-repeat: round;
   width: ${props => (props.narrow ? '9.5rem' : '20rem')};
   margin: 1rem 0;
@@ -79,6 +80,7 @@ const BasicTextarea = styled.textarea`
   border-bottom: ${props => (props.border ? props.border : 'none')};
   border-image: url(${BorderImg});
   border-image-slice: 20 fill;
+  border-image-width: 0 0 2px;
   border-image-repeat: round;
   width: 20rem;
   height: 10rem;

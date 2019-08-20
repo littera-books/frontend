@@ -43,7 +43,7 @@ const AccordionItem = styled(Wrapper.BasicBlockWrapper)`
   border-bottom: 2px solid ${Element.COLOR.primary};
   border-image: url(${BorderImg});
   border-image-slice: 20 fill;
-  botder-image-width: 2px;
+  border-image-width: 0 0 2px;
   border-image-repeat: round;
 
   img {
