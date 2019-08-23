@@ -25,14 +25,14 @@ export const determineProductName = (item) => {
   }
 
   if (item.months === 12) {
-    return `${item.books} books`;
+    return `${item.books} books for 1 year`;
   }
 
   if (item.books === 1) {
-    return `${item.books} book`;
+    return `${item.books} book for ${item.months} month`;
   }
 
-  return `${item.books} books`;
+  return `${item.books} books for ${item.months} months`;
 };
 
 class ServiceItem extends React.Component {
