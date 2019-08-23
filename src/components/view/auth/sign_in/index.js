@@ -37,11 +37,7 @@ export class SignIn extends React.Component {
       <Wrapper.FlexWrapper>
         <Helmet pageTitle={domainConfig.signIn.title} path={match.url} />
         <Wrapper.BasicBlockWrapper>
-          <Element.BasicTitle
-            align="center"
-            size="3rem"
-            fontFamily="'Gothic A1', sans-serif"
-          >
+          <Element.BasicTitle align="center" size="3rem">
             Login
           </Element.BasicTitle>
           <p style={{ textAlign: 'center' }}>

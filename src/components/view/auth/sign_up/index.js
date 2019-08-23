@@ -52,11 +52,7 @@ class SignUp extends React.Component {
       <Wrapper.FlexWrapper>
         <Helmet pageTitle={domainConfig.signUp.title} path={match.url} />
         <Wrapper.BasicBlockWrapper>
-          <Element.BasicTitle
-            align="center"
-            size="3rem"
-            fontFamily="'Gothic A1', sans-serif"
-          >
+          <Element.BasicTitle align="center" size="3rem">
             Sign up
           </Element.BasicTitle>
           <AddInfoForm
