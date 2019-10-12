@@ -41,16 +41,7 @@ const CardTitle = styled.h1`
 
 const Dots = styled.ul`
   li {
-    width: 32px !important;
-    height: 32px !important;
-    button {
-      width: 32px !important;
-      height: 32px !important;
-    &:before {
-      width: 32px !important;
-      height: 32px !important;
-      font-size: 12px !important;
-    }
+    margin: 0 !important;
   }
 `;
 
