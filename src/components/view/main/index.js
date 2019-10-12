@@ -88,6 +88,7 @@ export class Main extends React.Component {
     const { match, width } = this.props;
     const settings = {
       dots: true,
+      appendDots: dots => <Styled.Dots>{dots}</Styled.Dots>,
       arrows: false,
       infinite: false,
       lazyLoad: true,

@@ -40,6 +40,7 @@ const SlashSpan = styled.span`
 
 const Copyright = styled.p`
   text-align: center;
+  margin-top: 16px;
 `;
 
 export default {
