@@ -42,6 +42,7 @@ const BasicInput = styled.input`
   font-family: 'Palatino', 'Nanum Myeongjo';
   font-size: 0.75rem;
   line-height: 2;
+  appearance: none;
   border: none;
   border-bottom: ${props => (props.border ? props.border : 'none')};
   border-image: url(${BorderImg});
@@ -76,6 +77,7 @@ const BasicTextarea = styled.textarea`
   font-family: 'Palatino', 'Nanum Myeongjo';
   font-size: 0.75rem;
   line-height: 2;
+  appearance: none;
   border: none;
   border-bottom: ${props => (props.border ? props.border : 'none')};
   border-image: url(${BorderImg});
